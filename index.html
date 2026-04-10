@@ -163,6 +163,10 @@
             scrollbar-width: none;
             -ms-overflow-style: none;
             scroll-behavior: smooth;
+            /* Added for precision */
+            scroll-padding-left: 0px;
+            padding-bottom: 10px;
+            /* Space for card shadows */
         }
 
         .carousel-track::-webkit-scrollbar {
@@ -206,7 +210,7 @@
         }
 
         /* ---- Dots ---- */
-        .dot {
+        /* .dot {
             width: 6px;
             height: 6px;
             border-radius: 3px;
@@ -218,7 +222,7 @@
         .dot.active {
             background: #e07b39;
             width: 18px;
-        }
+        } */
 
         /* ---- Package expand/collapse ---- */
         .pkg-feature-body {
@@ -356,19 +360,15 @@
 
     <!-- ===================== NAV ===================== -->
     <nav
-        class="bg-[#FCFCF7] sticky top-0 z-50 px-6 lg:px-32 h-20 flex items-center justify-between border-b border-border">
-
+        class="bg-[#FCFCF7] sticky top-0 z-50 px-6 min-[1201px]:px-32 h-20 flex items-center justify-between border-b border-border">
 
         <div class="flex items-center gap-2 flex-shrink-0">
             <a href="index.html" class="block">
                 <img src="images/Logo.png" alt="Hyderabad Constructions Logo" class="h-12 w-auto object-contain">
             </a>
         </div>
-        <!-- <div class="flex items-center gap-2 flex-shrink-0">
-            <img src="images/Logo.png" alt="Hyderabad Constructions Logo" class="h-12 w-auto object-contain">
-        </div> -->
-        <!-- Desktop links -->
-        <div class="hidden lg:flex items-center gap-7 lg:gap-9">
+
+        <div class="hidden min-[1201px]:flex items-center gap-7 lg:gap-9">
             <a href="#" class="text-ink hover:text-orange transition-colors">Our projects</a>
             <a href="how-it-works.html" class="text-ink hover:text-orange transition-colors">How it works</a>
             <a href="#" class="text-ink hover:text-orange transition-colors">Testimonials</a>
@@ -384,12 +384,9 @@
                 </button>
                 <div id="dropdownMenu"
                     class="hidden absolute top-[calc(100%+14px)] left-1/2 -translate-x-1/2 bg-white border border-border rounded-xl shadow-lg min-w-[200px] py-2 z-50">
-                    <a href="#"
+                    <a href="about-us.html"
                         class="flex items-center gap-2.5 px-4 py-2.5 text-ink hover:bg-cream hover:text-orange transition-colors">About
                         us</a>
-                    <!-- <a href="#"
-                        class="flex items-center gap-2.5 px-4 py-2.5 text-ink hover:bg-cream hover:text-orange transition-colors">Blogs
-                        &amp; articles</a> -->
                     <a href="#"
                         class="flex items-center gap-2.5 px-4 py-2.5 text-ink hover:bg-cream hover:text-orange transition-colors">Join
                         as Architect</a>
@@ -401,31 +398,30 @@
                 </div>
             </div>
         </div>
-        <!-- Desktop CTAs -->
-        <div class="hidden lg:flex items-center gap-2.5">
-            <!-- <button
-                class="bg-transparent border border-orange text-orange px-5 py-1.5 rounded-xl hover:bg-orange hover:text-white transition-all cursor-pointer">Login</button>-->
+
+        <div class="hidden min-[1201px]:flex items-center gap-2.5">
             <button
                 class="bg-orange border border-orange text-white px-5 py-1.5 rounded-xl hover:bg-orange-dark transition-colors cursor-pointer">Book
                 a meeting</button>
         </div>
-        <!-- Hamburger -->
+
         <button id="hamburger" onclick="toggleMobileNav()"
-            class="lg:hidden flex flex-col justify-center items-start gap-[5px] w-9 h-9 bg-transparent border-0 cursor-pointer p-1 rounded-md hover:bg-cream transition-colors">
+            class="min-[1201px]:hidden flex flex-col justify-center items-start gap-[5px] w-9 h-9 bg-transparent border-0 cursor-pointer p-1 rounded-md hover:bg-cream transition-colors">
             <span class="bar bar-1"></span><span class="bar bar-2"></span><span class="bar bar-3"></span>
         </button>
     </nav>
 
     <!-- Mobile Drawer -->
+
     <div id="mobileNav"
-        class="lg:hidden fixed top-20 left-0 right-0 bottom-0 bg-white z-40 overflow-y-auto border-t border-border">
+        class="min-[1201px]:hidden fixed top-20 left-0 right-0 bottom-0 bg-white z-40 overflow-y-auto border-t border-border">
         <div class="py-4 pb-10">
             <a href="#"
                 class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">Our
                 projects <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
                     <polyline points="9 18 15 12 9 6" />
                 </svg></a>
-            <a href="#"
+            <a href="how-it-works.html"
                 class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">How
                 it works <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
                     <polyline points="9 18 15 12 9 6" />
@@ -440,8 +436,30 @@
                 estimator <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
                     <polyline points="9 18 15 12 9 6" />
                 </svg></a>
+
+            <a href="about-us.html"
+                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">About
+                us <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
+                    <polyline points="9 18 15 12 9 6" />
+                </svg></a>
+            <a href="#"
+                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">Join
+                as Architect <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
+                    <polyline points="9 18 15 12 9 6" />
+                </svg></a>
+            <a href="#"
+                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">FAQs
+                <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
+                    <polyline points="9 18 15 12 9 6" />
+                </svg></a>
+            <a href="#"
+                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">Contact
+                us <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
+                    <polyline points="9 18 15 12 9 6" />
+                </svg></a>
+
             <div class="px-6 pt-5 flex flex-col gap-3">
-                <button class="w-full border border-orange text-orange py-2.5 rounded-xl font-medium">Login</button>
+                <!-- <button class="w-full border border-orange text-orange py-2.5 rounded-xl font-medium">Login</button> -->
                 <button
                     class="w-full bg-orange text-white py-2.5 rounded-xl font-medium hover:bg-orange-dark transition-colors">Book
                     a meeting</button>
@@ -450,7 +468,7 @@
     </div>
 
     <!-- ===================== HERO ===================== -->
-    <section class="hero-bg w-full px-6 lg:px-32 pt-14 pb-0 overflow-hidden">
+    <section class="hero-bg w-full px-6 lg:px-32 pt-14 pb-14 overflow-hidden">
         <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
             <div class="flex-1 text-center lg:text-left">
                 <h1 class="font-display text-4xl md:text-5xl font-semibold text-ink leading-tight mb-4 fade-up">You
@@ -619,7 +637,7 @@
                 </div>
             </div>
             <!-- Quote below gallery -->
-            <div
+            <!-- <div
                 class="mt-7 bg-white border border-border rounded-2xl px-6 py-5 flex flex-col md:flex-row md:items-center gap-4">
                 <div class="flex-1">
                     <p class="text-muted leading-relaxed italic">"We are very happy, JSW One Homes helped us build. You
@@ -635,7 +653,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="text-center mt-6">
                 <button
                     class="border border-ink text-ink font-medium px-6 py-2.5 rounded-xl hover:bg-ink hover:text-white transition-colors cursor-pointer">Explore
@@ -1101,6 +1119,7 @@
             </div>
             <div class="carousel-track" id="testimonialsTrack">
                 <div class="carousel-slide w-72 bg-[#F6F5EF] border border-border rounded-2xl overflow-hidden">
+
                     <div class="relative h-40 overflow-hidden bg-sand">
                         <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=400&q=80"
                             alt="Suresh M" class="w-full h-full object-cover opacity-70" onerror="this.remove()" />
@@ -1175,6 +1194,33 @@
                         </div>
                     </div>
                 </div>
+                <!--  -->
+                <div class="carousel-slide w-72 bg-[#F6F5EF] border border-border rounded-2xl overflow-hidden">
+                    <div class="relative h-40 overflow-hidden bg-sand">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Anil K"
+                            class="w-full h-full object-cover opacity-70" onerror="this.remove()" />
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="play-btn"><svg class="w-5 h-5 fill-orange" viewBox="0 0 24 24">
+                                    <polygon points="5 3 19 12 5 21 5 3" />
+                                </svg></div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex mb-2"><span class="text-orange">★★★★★</span></div>
+                        <p class="text-muted leading-relaxed mb-3">"From the very first meeting to housewarming, the
+                            experience was seamless. Highly recommend!"</p>
+                        <div class="flex items-center gap-2">
+                            <div
+                                class="w-7 h-7 rounded-full bg-orange flex items-center justify-center text-white text-xs font-bold">
+                                A</div>
+                            <div>
+                                <p class="text-sm font-semibold text-ink">Anil K.</p>
+                                <p class="text-xs text-muted">Chennai</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
                 <div class="carousel-slide w-72 bg-[#F6F5EF] border border-border rounded-2xl overflow-hidden">
                     <div class="relative h-40 overflow-hidden bg-sand">
                         <img src="https://images.unsplash.com/photo-1540569014015-19a7be504e3a?w=400&q=80" alt="Vijay S"
@@ -1226,8 +1272,10 @@
                     </div>
                 </div>
             </div>
-            <div class="flex items-center justify-between mt-5">
-                <div class="flex gap-1.5" id="tDots"></div>
+
+
+            <div class="flex items-center justify-end mt-5">
+                <!-- <div class="flex gap-1.5" id="tDots"></div> -->
                 <div class="flex gap-2">
                     <button class="carousel-btn" onclick="stepCarousel('testimonialsTrack','tDots',-1)"><svg
                             viewBox="0 0 24 24" class="w-4 h-4">
@@ -1316,9 +1364,36 @@
                         <a href="#" class="text-orange font-semibold hover:underline">Explore →</a>
                     </div>
                 </div>
+                <div class="carousel-slide w-72 centre-card bg-white border border-border rounded-2xl overflow-hidden">
+                    <div class="h-40 overflow-hidden"><img
+                            src="https://images.unsplash.com/photo-1519999482648-25049ddd37b1?w=500&q=80"
+                            alt="Hyderabad"
+                            class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                            onerror="this.style.background='#e0d8cc'" /></div>
+                    <div class="p-4">
+                        <h4 class="text-base font-semibold text-ink mb-1">Hyderabad</h4>
+                        <p class="text-muted mb-1">Rd. No. 2, Banjara Hills, Hyderabad – 500034</p>
+                        <p class="text-muted mb-3">Mon–Sat: 10am – 6pm</p>
+                        <a href="#" class="text-orange font-semibold hover:underline">Explore →</a>
+                    </div>
+                </div>
+                <div class="carousel-slide w-72 centre-card bg-white border border-border rounded-2xl overflow-hidden">
+                    <div class="h-40 overflow-hidden"><img
+                            src="https://images.unsplash.com/photo-1519999482648-25049ddd37b1?w=500&q=80"
+                            alt="Hyderabad"
+                            class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                            onerror="this.style.background='#e0d8cc'" /></div>
+                    <div class="p-4">
+                        <h4 class="text-base font-semibold text-ink mb-1">Hyderabad</h4>
+                        <p class="text-muted mb-1">Rd. No. 2, Banjara Hills, Hyderabad – 500034</p>
+                        <p class="text-muted mb-3">Mon–Sat: 10am – 6pm</p>
+                        <a href="#" class="text-orange font-semibold hover:underline">Explore →</a>
+                    </div>
+                </div>
             </div>
-            <div class="flex items-center justify-between mt-5">
-                <div class="flex gap-1.5" id="cDots"></div>
+            <div class="flex items-center justify-end mt-5">
+
+                <!-- <div class="flex gap-1.5" id="cDots"></div> -->
                 <div class="flex gap-2">
                     <button class="carousel-btn" onclick="stepCarousel('centresTrack','cDots',-1)"><svg
                             viewBox="0 0 24 24" class="w-4 h-4">
@@ -1407,7 +1482,7 @@
     </section>
 
     <!-- ===================== FOOTER ===================== -->
-    <footer class="bg-[#111] text-[#aaa] px-6 lg:px-16 pt-12 pb-7 w-full">
+    <footer class="bg-[#111] text-[#aaa] px-6 lg:px-32 pt-12 pb-7 w-full">
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 max-w-7xl mx-auto">
             <div class="col-span-2 md:col-span-1">
 
@@ -1450,7 +1525,7 @@
             </div>
             <div>
                 <h4 class="text-[11px] uppercase tracking-widest mb-4 font-semibold">Company</h4>
-                <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">About us</a>
+                <a href="about-us.html" class="block text-sm mb-2.5 hover:text-white transition-colors">About us</a>
                 <a href="how-it-works.html" class="block text-sm mb-2.5 hover:text-white transition-colors">How it
                     works</a>
                 <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Our projects</a>
@@ -1508,73 +1583,166 @@
             body.classList.toggle('open', !isOpen);
         }
 
+
+
+
+
+
+
+
+
         /* ---- Shared carousel engine ---- */
-        function getActiveIdx(trackEl) {
-            const slides = trackEl.querySelectorAll('.carousel-slide');
-            let closest = 0, minDist = Infinity;
-            slides.forEach((s, i) => {
-                const dist = Math.abs(s.getBoundingClientRect().left - trackEl.getBoundingClientRect().left);
-                if (dist < minDist) { minDist = dist; closest = i; }
-            });
-            return closest;
-        }
+
+        /* ---- Fixed Carousel Engine ---- */
 
         function goCarousel(trackId, dotsId, idx) {
             const track = document.getElementById(trackId);
             const slides = track.querySelectorAll('.carousel-slide');
             if (!slides[idx]) return;
-            track.scrollTo({ left: slides[idx].offsetLeft - track.offsetLeft, behavior: 'smooth' });
+
+            // Calculate the gap (Tailwind's gap-4 is 16px)
+            const gap = 16;
+            const slideWidth = slides[0].offsetWidth + gap;
+
+            // Check if the target index exceeds the maximum possible scroll
+            const maxScroll = track.scrollWidth - track.clientWidth;
+            const targetScroll = idx * slideWidth;
+
+            track.scrollTo({
+                left: Math.min(targetScroll, maxScroll),
+                behavior: 'smooth'
+            });
+
+            // Update the dots immediately for better UX
             syncDots(dotsId, idx, slides.length);
         }
 
         function stepCarousel(trackId, dotsId, dir) {
             const track = document.getElementById(trackId);
             const slides = track.querySelectorAll('.carousel-slide');
+
+            // Use the index calculated by the scroll position
             const current = getActiveIdx(track);
-            const next = Math.max(0, Math.min(slides.length - 1, current + dir));
+            let next = current + dir;
+
+            // Boundary checks
+            if (next < 0) next = 0;
+            if (next >= slides.length) next = slides.length - 1;
+
             goCarousel(trackId, dotsId, next);
         }
 
-        function syncDots(dotsId, active, total) {
-            const container = document.getElementById(dotsId);
-            container.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === active));
+        function getActiveIdx(trackEl) {
+            const scrollLeft = trackEl.scrollLeft;
+            const gap = 16;
+            const slideWidth = trackEl.querySelector('.carousel-slide').offsetWidth + gap;
+
+            // Math.round ensures that even if the scroll is off by a pixel, 
+            // it snaps to the closest dot.
+            return Math.round(scrollLeft / slideWidth);
         }
 
-        function buildDots(trackId, dotsId) {
+
+
+
+        // function getActiveIdx(trackEl) {
+        //     const slides = trackEl.querySelectorAll('.carousel-slide');
+        //     let closest = 0, minDist = Infinity;
+        //     slides.forEach((s, i) => {
+        //         const dist = Math.abs(s.getBoundingClientRect().left - trackEl.getBoundingClientRect().left);
+        //         if (dist < minDist) { minDist = dist; closest = i; }
+        //     });
+        //     return closest;
+        // }
+
+        /*function getActiveIdx(trackEl) {
+            const scrollLeft = trackEl.scrollLeft;
+            const slideWidth = trackEl.querySelector('.carousel-slide').offsetWidth + 16;
+            // Use Math.round to find the nearest slide index
+            return Math.round(scrollLeft / slideWidth);
+        }*/
+        // function goCarousel(trackId, dotsId, idx) {
+        //     const track = document.getElementById(trackId);
+        //     const slides = track.querySelectorAll('.carousel-slide');
+        //     if (!slides[idx]) return;
+        //     track.scrollTo({ left: slides[idx].offsetLeft - track.offsetLeft, behavior: 'smooth' });
+        //     syncDots(dotsId, idx, slides.length);
+        // }
+        /*function goCarousel(trackId, dotsId, idx) {
             const track = document.getElementById(trackId);
             const slides = track.querySelectorAll('.carousel-slide');
-            const container = document.getElementById(dotsId);
-            container.innerHTML = '';
-            slides.forEach((_, i) => {
-                const d = document.createElement('div');
-                d.className = 'dot' + (i === 0 ? ' active' : '');
-                d.addEventListener('click', () => goCarousel(trackId, dotsId, i));
-                container.appendChild(d);
+            if (!slides[idx]) return;
+
+            const slideWidth = slides[0].offsetWidth + 16;
+            track.scrollTo({
+                left: idx * slideWidth,
+                behavior: 'smooth'
             });
-            track.addEventListener('scroll', () => syncDots(dotsId, getActiveIdx(track), slides.length));
+
+            syncDots(dotsId, idx, slides.length);
         }
+        function stepCarousel(trackId, dotsId, dir) {
+            const track = document.getElementById(trackId);
+            const slides = track.querySelectorAll('.carousel-slide');
+            const current = getActiveIdx(track);
+
+            let next = current + dir;
+            // Ensure the index stays within the bounds of the actual 5 slides
+            if (next < 0) next = 0;
+            if (next >= slides.length) next = slides.length - 1;
+
+            goCarousel(trackId, dotsId, next);
+        }*/
+        // function stepCarousel(trackId, dotsId, dir) {
+        //     const track = document.getElementById(trackId);
+        //     const slides = track.querySelectorAll('.carousel-slide');
+        //     const current = getActiveIdx(track);
+        //     const next = Math.max(0, Math.min(slides.length - 1, current + dir));
+        //     goCarousel(trackId, dotsId, next);
+        // }
+
+        // function syncDots(dotsId, active, total) {
+        //     const container = document.getElementById(dotsId);
+        //     container.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === active));
+        // }
+
+        // function buildDots(trackId, dotsId) {
+        //     const track = document.getElementById(trackId);
+        //     const slides = track.querySelectorAll('.carousel-slide');
+        //     const container = document.getElementById(dotsId);
+        //     container.innerHTML = '';
+        //     slides.forEach((_, i) => {
+        //         const d = document.createElement('div');
+        //         d.className = 'dot' + (i === 0 ? ' active' : '');
+        //         d.addEventListener('click', () => goCarousel(trackId, dotsId, i));
+        //         container.appendChild(d);
+        //     });
+        //     track.addEventListener('scroll', () => syncDots(dotsId, getActiveIdx(track), slides.length));
+        // }
 
         /* ---- Gallery carousel ---- */
-        function buildGalleryDots() {
-            const track = document.getElementById('galleryTrack');
-            const slides = track.querySelectorAll('.gallery-slide');
-            const container = document.getElementById('galleryDots');
-            container.innerHTML = '';
-            slides.forEach((_, i) => {
-                const d = document.createElement('div');
-                d.className = 'dot' + (i === 0 ? ' active' : '');
-                d.addEventListener('click', () => goGallery(i));
-                container.appendChild(d);
-            });
-            track.addEventListener('scroll', () => {
-                let closest = 0, minDist = Infinity;
-                slides.forEach((s, i) => {
-                    const dist = Math.abs(s.getBoundingClientRect().left - track.getBoundingClientRect().left);
-                    if (dist < minDist) { minDist = dist; closest = i; }
-                });
-                container.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === closest));
-            });
-        }
+        // function buildGalleryDots() {
+        //     const track = document.getElementById('galleryTrack');
+        //     const slides = track.querySelectorAll('.gallery-slide');
+        //     const container = document.getElementById('galleryDots');
+        //     container.innerHTML = '';
+        //     slides.forEach((_, i) => {
+        //         const d = document.createElement('div');
+        //         d.className = 'dot' + (i === 0 ? ' active' : '');
+        //         d.addEventListener('click', () => goGallery(i));
+        //         container.appendChild(d);
+        //     });
+        //     track.addEventListener('scroll', () => {
+        //         let closest = 0, minDist = Infinity;
+        //         slides.forEach((s, i) => {
+        //             const dist = Math.abs(s.getBoundingClientRect().left - track.getBoundingClientRect().left);
+        //             if (dist < minDist) { minDist = dist; closest = i; }
+        //         });
+        //         container.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === closest));
+        //     });
+        // }
+
+        /* ---- Gallery carousel ---- */
 
         function goGallery(idx) {
             const track = document.getElementById('galleryTrack');
@@ -1595,10 +1763,26 @@
             goGallery(Math.max(0, Math.min(slides.length - 1, closest + dir)));
         }
 
+        // Intersection Observer to play video when visible
+        // const videoIframe = document.getElementById('heroVideo');
+
+        // const observer = new IntersectionObserver((entries) => {
+        //     entries.forEach(entry => {
+        //         if (entry.isIntersecting) {
+        //             // When section is in view, append autoplay command to src
+        //             if (!videoIframe.src.includes('autoplay=1')) {
+        //                 videoIframe.src += "&autoplay=1";
+        //             }
+        //         }
+        //     });
+        // }, { threshold: 0.5 }); // Trigger when 50% of the video is visible
+
+        // observer.observe(videoIframe);
+
         /* ---- Init ---- */
-        buildDots('testimonialsTrack', 'tDots');
-        buildDots('centresTrack', 'cDots');
-        buildGalleryDots();
+        // buildDots('testimonialsTrack', 'tDots');
+        // buildDots('centresTrack', 'cDots');
+        // buildGalleryDots();
     </script>
 </body>
 
