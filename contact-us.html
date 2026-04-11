@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us – JSW One Homes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @font-face {
+            font-family: 'Neue Montreal';
+            src: url('./NeueMontreal-Regular.otf') format('opentype');
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#f5f3ec',
+                        sand: '#ede9df',
+                        orange: '#e07b39',
+                        'orange-dark': '#c96b2a',
+                        ink: '#1a1a1a',
+                        muted: '#6b6b6b',
+                        border: '#ddd8ce',
+                    },
+                    fontFamily: {
+                        sans: ['Neue Montreal', 'sans-serif'],
+                        display: ['Neue Montreal', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Neue Montreal', sans-serif;
+            letter-spacing: 0.5px !important;
+        }
+
+        @keyframes dropIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(-6px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        .dropdown-open {
+            animation: dropIn .18s ease;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp .5s ease forwards;
+        }
+
+        .fade-up-delay-1 {
+            animation-delay: .1s;
+        }
+
+        .fade-up-delay-2 {
+            animation-delay: .2s;
+        }
+
+        /* Mobile nav */
+        #mobileNav {
+            transform: translateX(100%);
+            transition: transform .3s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        #mobileNav.open {
+            transform: translateX(0);
+        }
+
+        .bar {
+            display: block;
+            height: 2px;
+            background: #1a1a1a;
+            border-radius: 2px;
+            transition: transform .3s, opacity .3s, width .3s;
+            transform-origin: center;
+        }
+
+        .bar-1 {
+            width: 22px;
+        }
+
+        .bar-2 {
+            width: 16px;
+        }
+
+        .bar-3 {
+            width: 22px;
+        }
+
+        #hamburger.active .bar-1 {
+            width: 22px;
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        #hamburger.active .bar-2 {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        #hamburger.active .bar-3 {
+            width: 22px;
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #fff3eb;
+            border: 1px solid #f0c9a8;
+            color: #c96b2a;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 5px 12px;
+            border-radius: 99px;
+            margin-bottom: 12px;
+        }
+
+        /* Carousel */
+        .carousel-track {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            scroll-behavior: smooth;
+            padding-bottom: 10px;
+        }
+
+        .carousel-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .carousel-slide {
+            scroll-snap-align: start;
+            flex-shrink: 0;
+        }
+
+        .carousel-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #fff;
+            border: 1px solid #ddd8ce;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background .2s, border-color .2s;
+            flex-shrink: 0;
+        }
+
+        .carousel-btn:hover {
+            background: #e07b39;
+            border-color: #e07b39;
+        }
+
+        .carousel-btn:hover svg {
+            stroke: #fff;
+        }
+
+        .carousel-btn svg {
+            stroke: #1a1a1a;
+            fill: none;
+            stroke-width: 2;
+            transition: stroke .2s;
+        }
+
+        /* Centre card */
+        .centre-card {
+            transition: box-shadow .2s;
+        }
+
+        .centre-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .1);
+        }
+
+        /* Contact action buttons */
+        .contact-action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #fff8f2;
+            border: 1px solid #e8ddd0;
+            border-radius: 16px;
+            padding: 18px 22px;
+            font-size: 15px;
+            color: #1a1a1a;
+            cursor: pointer;
+            transition: background .2s, border-color .2s, box-shadow .2s;
+            text-decoration: none;
+        }
+
+        .contact-action-btn:hover {
+            background: #fff3e8;
+            border-color: #e07b39;
+            box-shadow: 0 4px 16px rgba(224, 123, 57, .1);
+        }
+
+        /* FAQ accordion */
+        .faq-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .3s ease, opacity .2s ease;
+            opacity: 0;
+        }
+
+        .faq-body.open {
+            max-height: 300px;
+            opacity: 1;
+        }
+
+        .faq-chevron {
+            transition: transform .25s;
+        }
+
+        .faq-row.open .faq-chevron {
+            transform: rotate(45deg);
+        }
+
+        /* Form inputs */
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #e07b39 !important;
+            outline: none;
+        }
+
+        /* CTA section bg */
+        .cta-bg {
+            background: linear-gradient(160deg, #fdf0e6 0%, #fce4d0 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-cream text-ink">
+
+    <!-- ===================== NAV ===================== -->
+    <nav
+        class="bg-[#FCFCF7] sticky top-0 z-50 px-6 min-[1201px]:px-32 h-20 flex items-center justify-between border-b border-border">
+        <div class="flex items-center gap-2 flex-shrink-0">
+            <a href="index.html" class="block">
+                <img src="images/logo.jpeg" alt="Hyderabad Constructions Logo" class="h-12 w-auto object-contain">
+            </a>
+        </div>
+
+        <div class="hidden min-[1201px]:flex items-center gap-7 lg:gap-9">
+            <a href="#" class="text-ink hover:text-orange transition-colors">Our projects</a>
+            <a href="how-it-works.html" class="text-ink hover:text-orange transition-colors">How it works</a>
+            <a href="#" class="text-ink hover:text-orange transition-colors">Testimonials</a>
+            <a href="#" class="text-ink hover:text-orange transition-colors">Cost estimator</a>
+            <div class="relative" id="navMore">
+                <button onclick="toggleMore(event)"
+                    class="flex items-center gap-1 text-ink hover:text-orange transition-colors bg-transparent border-0 cursor-pointer p-0 font-sans">
+                    More
+                    <svg id="moreChevron" viewBox="0 0 24 24"
+                        class="w-3.5 h-3.5 stroke-current fill-none stroke-2 transition-transform duration-200">
+                        <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                </button>
+                <div id="dropdownMenu"
+                    class="hidden absolute top-[calc(100%+14px)] left-1/2 -translate-x-1/2 bg-white border border-border rounded-xl shadow-lg min-w-[200px] py-2 z-50">
+                    <a href="about-us.html"
+                        class="flex items-center gap-2.5 px-4 py-2.5 text-ink hover:bg-cream hover:text-orange transition-colors">About
+                        us</a>
+                    <a href="#"
+                        class="flex items-center gap-2.5 px-4 py-2.5 text-ink hover:bg-cream hover:text-orange transition-colors">Join
+                        as Architect</a>
+                    <a href="#"
+                        class="flex items-center gap-2.5 px-4 py-2.5 text-ink hover:bg-cream hover:text-orange transition-colors">FAQS</a>
+                    <a href="contact-us.html"
+                        class="flex items-center gap-2.5 px-4 py-2.5 text-ink hover:bg-cream hover:text-orange transition-colors">Contact
+                        us</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hidden min-[1201px]:flex items-center gap-2.5">
+            <button
+                class="bg-orange border border-orange text-white px-5 py-1.5 rounded-xl hover:bg-orange-dark transition-colors cursor-pointer">Book
+                a meeting</button>
+
+        </div>
+
+        <button id="hamburger" onclick="toggleMobileNav()"
+            class="min-[1201px]:hidden flex flex-col justify-center items-start gap-[5px] w-9 h-9 bg-transparent border-0 cursor-pointer p-1 rounded-md hover:bg-cream transition-colors">
+            <span class="bar bar-1"></span><span class="bar bar-2"></span><span class="bar bar-3"></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileNav"
+        class="min-[1201px]:hidden fixed top-20 left-0 right-0 bottom-0 bg-white z-40 overflow-y-auto border-t border-border">
+        <div class="py-4 pb-10">
+            <a href="#"
+                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">Our
+                projects <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
+                    <polyline points="9 18 15 12 9 6" />
+                </svg></a>
+            <a href="how-it-works.html"
+                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">How
+                it works <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
+                    <polyline points="9 18 15 12 9 6" />
+                </svg></a>
+            <a href="#"
+                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">Testimonials
+                <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
+                    <polyline points="9 18 15 12 9 6" />
+                </svg></a>
+            <a href="#"
+                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">Cost
+                estimator <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
+                    <polyline points="9 18 15 12 9 6" />
+                </svg></a>
+            <a href="about-us.html"
+                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">About
+                us <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
+                    <polyline points="9 18 15 12 9 6" />
+                </svg></a>
+            <a href="#"
+                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">Join
+                as Architect <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
+                    <polyline points="9 18 15 12 9 6" />
+                </svg></a>
+            <a href="#"
+                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">FAQs
+                <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
+                    <polyline points="9 18 15 12 9 6" />
+                </svg></a>
+            <a href="contact-us.html"
+                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">Contact
+                us <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
+                    <polyline points="9 18 15 12 9 6" />
+                </svg></a>
+            <div class="px-6 pt-5 flex flex-col gap-3">
+                <button
+                    class="w-full bg-orange text-white py-2.5 rounded-xl font-medium hover:bg-orange-dark transition-colors">Book
+                    a meeting</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== HERO – GET IN TOUCH ===================== -->
+    <section class="w-full bg-cream px-6 md:px-12 xl:px-32 py-16 md:py-20">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+
+            <!-- Left -->
+            <div class="flex-1 w-full">
+                <h1 class="font-display text-4xl md:text-5xl font-semibold text-ink leading-tight mb-4 fade-up">Get in
+                    touch with us</h1>
+                <p class="text-base text-muted max-w-md leading-relaxed mb-8 fade-up fade-up-delay-1">
+                    If you have questions or need assistance, we're here to help. Contact us today and our team will
+                    provide the support you need.
+                </p>
+
+                <!-- Action buttons -->
+                <div class="flex flex-col gap-3 mb-10 fade-up fade-up-delay-2">
+                    <a href="#book-meeting" class="contact-action-btn">
+                        <span>Book a meeting</span>
+                        <!-- <button
+                        class="bg-orange text-white font-semibold py-3 px-8 rounded-xl hover:bg-orange-dark transition-colors cursor-pointer">Book
+                        a meeting</button> -->
+                        <svg viewBox="0 0 24 24" class="w-4 h-4 flex-shrink-0" fill="none" stroke="#6b6b6b"
+                            stroke-width="2">
+                            <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                    </a>
+                    <a href="#faqs" class="contact-action-btn">
+                        <span>Read frequently asked questions</span>
+                        <svg viewBox="0 0 24 24" class="w-4 h-4 flex-shrink-0" fill="none" stroke="#6b6b6b"
+                            stroke-width="2">
+                            <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Contact info row -->
+                <div
+                    class="flex flex-col sm:flex-row gap-6 sm:gap-0 sm:divide-x sm:divide-border fade-up fade-up-delay-2">
+                    <div class="sm:pr-8">
+                        <p class="text-xs text-muted uppercase tracking-widest mb-1">Email us</p>
+                        <a href="mailto:support.homes@jswone.in"
+                            class="text-base font-semibold text-ink hover:text-orange transition-colors">support.homes@jswone.in</a>
+                    </div>
+                    <div class="sm:pl-8">
+                        <p class="text-xs text-muted uppercase tracking-widest mb-1">Call us</p>
+                        <a href="tel:+917208055527"
+                            class="text-base font-semibold text-ink hover:text-orange transition-colors">+91 72080
+                            55527</a>
+                        <span class="text-sm text-muted ml-1.5">Mon-Sat, 10 AM to 6 PM</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right – image -->
+            <div class="flex-1 w-full max-w-xl lg:max-w-none fade-up fade-up-delay-1">
+                <div class="rounded-2xl overflow-hidden shadow-md bg-sand aspect-[4/3]">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80"
+                        alt="JSW One Homes Support Team" class="w-full h-full object-cover"
+                        onerror="this.style.background='#ede9df'; this.style.display='flex';" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== ANY QUERIES FORM ===================== -->
+    <section class="w-full bg-[#F6F5EF] px-6 md:px-12 xl:px-32 py-16 md:py-20" id="book-meeting">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-10">
+                <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-3">Any queries?</h2>
+                <p class="text-base text-muted max-w-xl mx-auto leading-relaxed">If you have questions or need
+                    assistance, we're here to help. Contact us today and our team will provide the support you need.</p>
+            </div>
+
+            <div class="bg-white max-w-3xl mx-auto rounded-2xl p-7 md:p-10 border border-border shadow-md">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-3.5">
+                    <div class="flex flex-col gap-1.5">
+                        <input type="text" placeholder="Full name"
+                            class="border border-border rounded-lg px-4 py-3 text-sm text-ink outline-none transition-colors placeholder-muted" />
+                    </div>
+                    <div class="flex flex-col gap-1.5">
+                        <input type="email" placeholder="Email"
+                            class="border border-border rounded-lg px-4 py-3 text-sm text-ink outline-none transition-colors placeholder-muted" />
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-3.5">
+                    <div class="flex flex-col gap-1.5">
+                        <input type="tel" placeholder="Mobile Number"
+                            class="border border-border rounded-lg px-4 py-3 text-sm text-ink outline-none transition-colors placeholder-muted" />
+                    </div>
+                    <div class="flex flex-col gap-1.5">
+                        <label class="text-xs text-muted font-medium px-0.5">Choose Type</label>
+                        <select
+                            class="border border-border rounded-lg px-4 py-3 text-sm text-ink outline-none transition-colors bg-white cursor-pointer appearance-none">
+                            <option>General Questions About Our Services</option>
+                            <option>Construction Query</option>
+                            <option>Package & Pricing</option>
+                            <option>Site Visit Request</option>
+                            <option>After-sales Support</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3.5">
+                    <textarea rows="4" placeholder="Your message"
+                        class="w-full border border-border rounded-lg px-4 py-3 text-sm text-ink outline-none transition-colors resize-none placeholder-muted"></textarea>
+                </div>
+                <div class="flex items-center gap-2 mb-6">
+                    <input type="checkbox" id="whatsapp" class="w-4 h-4 accent-orange cursor-pointer" checked />
+                    <label for="whatsapp" class="text-sm text-muted cursor-pointer">I agree to receive WhatsApp
+                        notifications for communication purposes.</label>
+                </div>
+                <div class="text-center">
+                    <button
+                        class="border border-ink text-ink font-medium py-3 px-10 rounded-xl hover:bg-ink hover:text-white transition-colors cursor-pointer bg-transparent">Send
+                        enquiry</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FAQ ===================== -->
+    <section class="w-full bg-cream px-6 md:px-12 xl:px-32 py-16 md:py-20" id="faqs">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-10 text-center">Frequently asked
+                questions</h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-x-16">
+                <!-- Col 1 -->
+                <div>
+                    <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
+                        <div class="flex items-center justify-between gap-4">
+                            <span class="text-base text-ink">Since how long has JSW been in the construction
+                                business?</span>
+                            <svg class="faq-chevron w-5 h-5 flex-shrink-0 stroke-muted fill-none stroke-2"
+                                viewBox="0 0 24 24">
+                                <line x1="12" y1="5" x2="12" y2="19" />
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                            </svg>
+                        </div>
+                        <div class="faq-body pt-3">
+                            <p class="text-sm text-muted leading-relaxed">JSW One Homes has been in the construction
+                                business for over a decade, with a strong presence across major cities in India,
+                                building thousands of quality homes.</p>
+                        </div>
+                    </div>
+                    <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
+                        <div class="flex items-center justify-between gap-4">
+                            <span class="text-base text-ink">Does JSW One Homes undertake home designing
+                                services?</span>
+                            <svg class="faq-chevron w-5 h-5 flex-shrink-0 stroke-muted fill-none stroke-2"
+                                viewBox="0 0 24 24">
+                                <line x1="12" y1="5" x2="12" y2="19" />
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                            </svg>
+                        </div>
+                        <div class="faq-body pt-3">
+                            <p class="text-sm text-muted leading-relaxed">Yes, JSW One Homes offers complete home design
+                                services, from architectural planning and interior design to material selection and
+                                landscape design.</p>
+                        </div>
+                    </div>
+                    <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
+                        <div class="flex items-center justify-between gap-4">
+                            <span class="text-base text-ink">Does JSW One Homes undertake any commercial
+                                projects?</span>
+                            <svg class="faq-chevron w-5 h-5 flex-shrink-0 stroke-muted fill-none stroke-2"
+                                viewBox="0 0 24 24">
+                                <line x1="12" y1="5" x2="12" y2="19" />
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                            </svg>
+                        </div>
+                        <div class="faq-body pt-3">
+                            <p class="text-sm text-muted leading-relaxed">JSW One Homes primarily focuses on residential
+                                construction. For commercial projects, please contact our team to discuss specific
+                                requirements.</p>
+                        </div>
+                    </div>
+                    <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
+                        <div class="flex items-center justify-between gap-4">
+                            <span class="text-base text-ink">Will I get to choose the materials that are planned to be
+                                used in my project?</span>
+                            <svg class="faq-chevron w-5 h-5 flex-shrink-0 stroke-muted fill-none stroke-2"
+                                viewBox="0 0 24 24">
+                                <line x1="12" y1="5" x2="12" y2="19" />
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                            </svg>
+                        </div>
+                        <div class="faq-body pt-3">
+                            <p class="text-sm text-muted leading-relaxed">Absolutely. Homeowners can select from a
+                                curated range of premium, verified materials. Our team guides you through the selection
+                                process at our experience centres.</p>
+                        </div>
+                    </div>
+                    <div class="faq-row border-b border-border lg:border-b-0 py-5 cursor-pointer"
+                        onclick="toggleFaq(this)">
+                        <div class="flex items-center justify-between gap-4">
+                            <span class="text-base text-ink">Which brands are partnered with JSW One Homes?</span>
+                            <svg class="faq-chevron w-5 h-5 flex-shrink-0 stroke-muted fill-none stroke-2"
+                                viewBox="0 0 24 24">
+                                <line x1="12" y1="5" x2="12" y2="19" />
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                            </svg>
+                        </div>
+                        <div class="faq-body pt-3">
+                            <p class="text-sm text-muted leading-relaxed">JSW One Homes partners with leading brands in
+                                steel, cement, tiles, plumbing, electrical fittings, and more — all carefully vetted for
+                                quality and reliability.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Col 2 -->
+                <div>
+                    <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
+                        <div class="flex items-center justify-between gap-4">
+                            <span class="text-base text-ink">How long does it take to construct a residential
+                                project?</span>
+                            <svg class="faq-chevron w-5 h-5 flex-shrink-0 stroke-muted fill-none stroke-2"
+                                viewBox="0 0 24 24">
+                                <line x1="12" y1="5" x2="12" y2="19" />
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                            </svg>
+                        </div>
+                        <div class="faq-body pt-3">
+                            <p class="text-sm text-muted leading-relaxed">Typically, a residential project takes 12–18
+                                months depending on the size, design complexity, and site conditions. Our project
+                                managers keep you updated throughout.</p>
+                        </div>
+                    </div>
+                    <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
+                        <div class="flex items-center justify-between gap-4">
+                            <span class="text-base text-ink">What are inclusions in the design package?</span>
+                            <svg class="faq-chevron w-5 h-5 flex-shrink-0 stroke-muted fill-none stroke-2"
+                                viewBox="0 0 24 24">
+                                <line x1="12" y1="5" x2="12" y2="19" />
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                            </svg>
+                        </div>
+                        <div class="faq-body pt-3">
+                            <p class="text-sm text-muted leading-relaxed">The design package includes architectural
+                                plans, structural drawings, 3D visualisations, interior design consultation, and
+                                material selection guidance.</p>
+                        </div>
+                    </div>
+                    <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
+                        <div class="flex items-center justify-between gap-4">
+                            <span class="text-base text-ink">Does JSW One Homes offer any construction
+                                warranties?</span>
+                            <svg class="faq-chevron w-5 h-5 flex-shrink-0 stroke-muted fill-none stroke-2"
+                                viewBox="0 0 24 24">
+                                <line x1="12" y1="5" x2="12" y2="19" />
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                            </svg>
+                        </div>
+                        <div class="faq-body pt-3">
+                            <p class="text-sm text-muted leading-relaxed">Yes, we offer a comprehensive
+                                post-construction warranty covering structural integrity and key installations, giving
+                                you complete peace of mind after handover.</p>
+                        </div>
+                    </div>
+                    <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
+                        <div class="flex items-center justify-between gap-4">
+                            <span class="text-base text-ink">What are the payments process &amp; controls in place for a
+                                project?</span>
+                            <svg class="faq-chevron w-5 h-5 flex-shrink-0 stroke-muted fill-none stroke-2"
+                                viewBox="0 0 24 24">
+                                <line x1="12" y1="5" x2="12" y2="19" />
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                            </svg>
+                        </div>
+                        <div class="faq-body pt-3">
+                            <p class="text-sm text-muted leading-relaxed">Payments are milestone-based and linked to
+                                verified construction progress. You pay only when agreed stages are completed, ensuring
+                                full transparency and control.</p>
+                        </div>
+                    </div>
+                    <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
+                        <div class="flex items-center justify-between gap-4">
+                            <span class="text-base text-ink">How do you ensure quality assurance and quality control on
+                                our project?</span>
+                            <svg class="faq-chevron w-5 h-5 flex-shrink-0 stroke-muted fill-none stroke-2"
+                                viewBox="0 0 24 24">
+                                <line x1="12" y1="5" x2="12" y2="19" />
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                            </svg>
+                        </div>
+                        <div class="faq-body pt-3">
+                            <p class="text-sm text-muted leading-relaxed">We deploy dedicated quality engineers on-site
+                                who conduct stage-wise inspections. All materials are sourced from verified brand
+                                partners and tested before use.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View more -->
+            <div class="text-center mt-10">
+                <button
+                    class="border border-ink text-ink font-medium py-3 px-10 rounded-xl hover:bg-ink hover:text-white transition-colors cursor-pointer bg-transparent">View
+                    more</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== EXPERIENCE CENTRES ===================== -->
+    <section class="w-full bg-[#F6F5EF] px-6 md:px-12 xl:px-32 py-16 md:py-20">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-10">
+                <div class="badge">Locations</div>
+                <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-2">Our experience centres</h2>
+                <p class="text-base text-muted">Visit our studio to connect with our team and begin your home-building
+                    journey with expert guidance.</p>
+            </div>
+            <div class="carousel-track" id="centresTrack">
+                <div class="carousel-slide w-72 centre-card bg-white border border-border rounded-2xl overflow-hidden">
+                    <div class="h-44 overflow-hidden"><img
+                            src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=500&q=80" alt="Kochi"
+                            class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                            onerror="this.style.background='#e0d8cc'" /></div>
+                    <div class="p-4">
+                        <h4 class="text-base font-semibold text-ink mb-1">Kochi Centre</h4>
+                        <p class="text-sm text-muted mb-1">First floor, Technoplaza, Opp. Volkswagen Showroom, NH
+                            Bypass, Ernakulam. Kerala – 682304</p>
+                        <p class="text-xs text-muted mb-3">Mon–Sat: 10am – 6pm</p>
+                        <a href="#" class="text-orange text-sm font-semibold hover:underline flex items-center gap-1">
+                            <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 fill-orange stroke-none">
+                                <path
+                                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                            </svg>
+                            Directions
+                        </a>
+                    </div>
+                </div>
+                <div class="carousel-slide w-72 centre-card bg-white border border-border rounded-2xl overflow-hidden">
+                    <div class="h-44 overflow-hidden"><img
+                            src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=500&q=80"
+                            alt="Bengaluru 1"
+                            class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                            onerror="this.style.background='#e0d8cc'" /></div>
+                    <div class="p-4">
+                        <h4 class="text-base font-semibold text-ink mb-1">Bengaluru Centre – 1</h4>
+                        <p class="text-sm text-muted mb-1">291, First floor, Outer Ring Road, 15th Cross, 5th Phase, J P
+                            Nagar, Bangalore – 560078</p>
+                        <p class="text-xs text-muted mb-3">Mon–Sat: 10am – 6pm</p>
+                        <a href="#" class="text-orange text-sm font-semibold hover:underline flex items-center gap-1">
+                            <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 fill-orange stroke-none">
+                                <path
+                                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                            </svg>
+                            Directions
+                        </a>
+                    </div>
+                </div>
+                <div class="carousel-slide w-72 centre-card bg-white border border-border rounded-2xl overflow-hidden">
+                    <div class="h-44 overflow-hidden"><img
+                            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=500&q=80"
+                            alt="Bengaluru 2"
+                            class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                            onerror="this.style.background='#e0d8cc'" /></div>
+                    <div class="p-4">
+                        <h4 class="text-base font-semibold text-ink mb-1">Bengaluru Centre – 2</h4>
+                        <p class="text-sm text-muted mb-1">2nd floor, No.18, Krishna Summit, Aswath Nagar, Marathahalli,
+                            Bengaluru, Karnataka 560037</p>
+                        <p class="text-xs text-muted mb-3">Mon–Sat: 10am – 6pm</p>
+                        <a href="#" class="text-orange text-sm font-semibold hover:underline flex items-center gap-1">
+                            <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 fill-orange stroke-none">
+                                <path
+                                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                            </svg>
+                            Directions
+                        </a>
+                    </div>
+                </div>
+                <div class="carousel-slide w-72 centre-card bg-white border border-border rounded-2xl overflow-hidden">
+                    <div class="h-44 overflow-hidden"><img
+                            src="https://images.unsplash.com/photo-1519999482648-25049ddd37b1?w=500&q=80"
+                            alt="Hyderabad"
+                            class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                            onerror="this.style.background='#e0d8cc'" /></div>
+                    <div class="p-4">
+                        <h4 class="text-base font-semibold text-ink mb-1">Hyderabad</h4>
+                        <p class="text-sm text-muted mb-1">Rd. No. 2, Banjara Hills, Hyderabad – 500034</p>
+                        <p class="text-xs text-muted mb-3">Mon–Sat: 10am – 6pm</p>
+                        <a href="#" class="text-orange text-sm font-semibold hover:underline flex items-center gap-1">
+                            <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 fill-orange stroke-none">
+                                <path
+                                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                            </svg>
+                            Directions
+                        </a>
+                    </div>
+                </div>
+                <div class="carousel-slide w-72 centre-card bg-white border border-border rounded-2xl overflow-hidden">
+                    <div class="h-44 overflow-hidden"><img
+                            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=500&q=80" alt="Chennai"
+                            class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                            onerror="this.style.background='#e0d8cc'" /></div>
+                    <div class="p-4">
+                        <h4 class="text-base font-semibold text-ink mb-1">Chennai</h4>
+                        <p class="text-sm text-muted mb-1">No. 5, Ground Floor, Phoenix Marketcity, Velachery, Chennai –
+                            600042</p>
+                        <p class="text-xs text-muted mb-3">Mon–Sat: 10am – 6pm</p>
+                        <a href="#" class="text-orange text-sm font-semibold hover:underline flex items-center gap-1">
+                            <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 fill-orange stroke-none">
+                                <path
+                                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                            </svg>
+                            Directions
+                        </a>
+                    </div>
+                </div>
+                <div class="carousel-slide w-72 centre-card bg-white border border-border rounded-2xl overflow-hidden">
+                    <div class="h-44 overflow-hidden"><img
+                            src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=500&q=80" alt="Mumbai"
+                            class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                            onerror="this.style.background='#e0d8cc'" /></div>
+                    <div class="p-4">
+                        <h4 class="text-base font-semibold text-ink mb-1">Mumbai</h4>
+                        <p class="text-sm text-muted mb-1">Level 3, High Street Phoenix, Lower Parel, Mumbai – 400013
+                        </p>
+                        <p class="text-xs text-muted mb-3">Mon–Sat: 10am – 6pm</p>
+                        <a href="#" class="text-orange text-sm font-semibold hover:underline flex items-center gap-1">
+                            <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 fill-orange stroke-none">
+                                <path
+                                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                            </svg>
+                            Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center justify-end mt-5">
+                <div class="flex gap-2">
+                    <button class="carousel-btn" onclick="stepCarousel('centresTrack', -1)">
+                        <svg viewBox="0 0 24 24" class="w-4 h-4">
+                            <polyline points="15 18 9 12 15 6" />
+                        </svg>
+                    </button>
+                    <button class="carousel-btn" onclick="stepCarousel('centresTrack', 1)">
+                        <svg viewBox="0 0 24 24" class="w-4 h-4">
+                            <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CTA / FORM ===================== -->
+    <section class="w-full px-6 md:px-12 xl:px-32 py-16 md:py-20 text-center cta-bg">
+        <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-3">You Dream. We Deliver.</h2>
+        <p class="text-base text-muted max-w-xl mx-auto mb-10 leading-relaxed">When it comes to building your home, we
+            believe you should be in complete control, with access to a host of verified professionals, quality
+            products, and complete safety – the JSW way.</p>
+        <div class="bg-white max-w-3xl mx-auto rounded-2xl p-7 md:p-8 border border-border shadow-md text-left">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-3.5">
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-sm text-muted font-medium">Full name</label>
+                    <input type="text" placeholder="Full name"
+                        class="border border-border rounded-lg px-3 py-2.5 text-sm text-ink outline-none transition-colors" />
+                </div>
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-sm text-muted font-medium">Email</label>
+                    <input type="email" placeholder="Email"
+                        class="border border-border rounded-lg px-3 py-2.5 text-sm text-ink outline-none transition-colors" />
+                </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-3.5">
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-sm text-muted font-medium">Mobile Number</label>
+                    <input type="tel" placeholder="Mobile Number"
+                        class="border border-border rounded-lg px-3 py-2.5 text-sm text-ink outline-none transition-colors" />
+                </div>
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-sm text-muted font-medium">Choose City </label>
+                    <select
+                        class="border border-border rounded-lg px-3 py-2.5 text-sm text-ink outline-none transition-colors bg-white cursor-pointer appearance-none">
+                        <option>Choose City</option>
+                        <option>Hyderabad</option>
+                        <option>Bangalore</option>
+                        <option>Mumbai</option>
+                        <option>Delhi NCR</option>
+                        <option>Chennai</option>
+                        <option>Kochi</option>
+                        <option>Pune</option>
+                    </select>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-3.5">
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-sm text-muted font-medium">I want to start construction in</label>
+                    <select
+                        class="border border-border rounded-lg px-3 py-2.5 text-sm text-ink outline-none transition-colors bg-white cursor-pointer appearance-none">
+                        <option>0–3 months</option>
+                        <option>3–6 months</option>
+                        <option>6–12 months</option>
+                        <option>More than 12 months</option>
+                    </select>
+                </div>
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-sm text-muted font-medium">Do you own a plot of land?</label>
+                    <div class="flex gap-5 items-center mt-2">
+                        <label class="flex items-center gap-1.5 text-sm text-ink cursor-pointer"><input type="radio"
+                                name="plot" value="yes" class="accent-orange" /> Yes</label>
+                        <label class="flex items-center gap-1.5 text-sm text-ink cursor-pointer"><input type="radio"
+                                name="plot" value="no" class="accent-orange" /> No</label>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 mb-5 mt-1">
+                <input type="checkbox" id="agree" class="w-4 h-4 accent-orange cursor-pointer" />
+                <span class="text-xs text-muted">I agree to <a href="#" class="text-orange underline">Privacy Policy</a>
+                    and <a href="#" class="text-orange underline">Terms &amp; Conditions</a></span>
+            </div>
+            <div class="text-center">
+                <button
+                    class="bg-orange text-white font-semibold py-3 px-7 rounded-lg hover:bg-orange-dark transition-colors cursor-pointer border-0">Book
+                    a meeting</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="bg-[#111] text-[#aaa] px-6 md:px-12 xl:px-32 pt-12 pb-7 w-full">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 max-w-7xl mx-auto">
+            <div class="col-span-2 md:col-span-1">
+                <a href="index.html" class="inline-block">
+                    <img src="images/logo.jpeg" alt="Hyderabad Constructions Logo"
+                        class="h-16 w-auto object-contain mb-4">
+                </a>
+                <p class="text-sm leading-relaxed mt-3 max-w-[220px]">Browse ideas, explore options and book a meeting
+                    with our expert consultants to finalise your design.</p>
+                <p class="text-[10px] uppercase tracking-widest mt-4 mb-1.5">Get in touch</p>
+                <a href="https://www.hyderabadconstructions.in"
+                    class="text-orange text-sm block mb-1 hover:underline">www.hyderabadconstructions.in</a>
+                <a href="mailto:abbas@hyderabadconstructions.in"
+                    class="text-orange text-sm block mb-1 hover:underline">abbas@hyderabadconstructions.in</a>
+                <a href="tel:+919703879886" class="text-orange text-sm block hover:underline">+91 97038 79886</a>
+                <div class="flex gap-3 mt-4">
+                    <div
+                        class="w-8 h-8 border border-[#333] rounded-md flex items-center justify-center cursor-pointer hover:border-orange transition-colors">
+                        <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 fill-[#888]">
+                            <path
+                                d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 01-1.93.07 4.28 4.28 0 004 2.98 8.521 8.521 0 01-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z" />
+                        </svg>
+                    </div>
+                    <div
+                        class="w-8 h-8 border border-[#333] rounded-md flex items-center justify-center cursor-pointer hover:border-orange transition-colors">
+                        <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 fill-[#888]">
+                            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+                        </svg>
+                    </div>
+                    <div
+                        class="w-8 h-8 border border-[#333] rounded-md flex items-center justify-center cursor-pointer hover:border-orange transition-colors">
+                        <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 fill-none stroke-[#888] stroke-[1.5]">
+                            <rect x="2" y="2" width="20" height="20" rx="5" />
+                            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-[11px] uppercase tracking-widest mb-4 font-semibold">Company</h4>
+                <a href="about-us.html" class="block text-sm mb-2.5 hover:text-white transition-colors">About us</a>
+                <a href="how-it-works.html" class="block text-sm mb-2.5 hover:text-white transition-colors">How it
+                    works</a>
+                <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Our projects</a>
+                <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Cost estimator</a>
+                <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Testimonials</a>
+                <a href="#" class="block text-sm hover:text-white transition-colors">Join as Architect</a>
+            </div>
+            <div>
+                <h4 class="text-[11px] uppercase tracking-widest mb-4 font-semibold">Support</h4>
+                <a href="contact-us.html" class="block text-sm mb-2.5 hover:text-white transition-colors">Contact us</a>
+                <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">FAQs</a>
+                <a href="#" class="block text-sm hover:text-white transition-colors">Sitemap</a>
+            </div>
+            <div>
+                <h4 class="text-[11px] uppercase tracking-widest mb-4 font-semibold">Legal</h4>
+                <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Terms &amp; Conditions</a>
+                <a href="#" class="block text-sm hover:text-white transition-colors">Privacy policy</a>
+            </div>
+        </div>
+        <div class="border-t border-[#222] mt-10 pt-5 text-center text-sm max-w-7xl mx-auto">
+            &copy; 2026 JSW One Homes. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        /* Nav */
+        function toggleMore(e) {
+            e.stopPropagation();
+            const menu = document.getElementById('dropdownMenu');
+            const chevron = document.getElementById('moreChevron');
+            const isHidden = menu.classList.contains('hidden');
+            menu.classList.toggle('hidden', !isHidden);
+            if (isHidden) menu.classList.add('dropdown-open');
+            chevron.style.transform = isHidden ? 'rotate(180deg)' : '';
+        }
+        document.addEventListener('click', () => {
+            document.getElementById('dropdownMenu').classList.add('hidden');
+            document.getElementById('moreChevron').style.transform = '';
+        });
+        function toggleMobileNav() {
+            const nav = document.getElementById('mobileNav');
+            const burger = document.getElementById('hamburger');
+            const isOpen = nav.classList.toggle('open');
+            burger.classList.toggle('active', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        }
+
+        /* FAQ accordion */
+        function toggleFaq(row) {
+            const body = row.querySelector('.faq-body');
+            const isOpen = row.classList.contains('open');
+            // close all others
+            document.querySelectorAll('.faq-row.open').forEach(r => {
+                r.classList.remove('open');
+                r.querySelector('.faq-body').classList.remove('open');
+            });
+            if (!isOpen) {
+                row.classList.add('open');
+                body.classList.add('open');
+            }
+        }
+
+        /* Carousel */
+        function stepCarousel(trackId, dir) {
+            const track = document.getElementById(trackId);
+            const slides = track.querySelectorAll('.carousel-slide');
+            const gap = 16;
+            const slideWidth = slides[0].offsetWidth + gap;
+            const current = Math.round(track.scrollLeft / slideWidth);
+            let next = Math.max(0, Math.min(slides.length - 1, current + dir));
+            track.scrollTo({ left: next * slideWidth, behavior: 'smooth' });
+        }
+    </script>
+</body>
+
+</html>

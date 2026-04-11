@@ -36,7 +36,7 @@
     <style>
         body {
             font-family: 'Neue Montreal', sans-serif;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.5px !important;
         }
 
         /* ---- Animations ---- */
@@ -127,7 +127,22 @@
             transform: translateY(-7px) rotate(-45deg);
         }
 
+        /* ---- Hero ---- */
+        .hero-bg {
+            background: linear-gradient(135deg, #fdf6ee 0%, #fce8d5 50%, #f9dfc8 100%);
+        }
+
         /* ---- Journey timeline ---- */
+        /* .timeline-line {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #e8ddd0;
+        } */
+
+        /* ---- Updated Journey timeline ---- */
         .timeline-line {
             position: absolute;
             top: 10px;
@@ -135,6 +150,29 @@
             right: 0;
             height: 2px;
             background: #e8ddd0;
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .timeline-line {
+                display: block;
+            }
+        }
+
+        /* Vertical line for Mobile (< 768px) */
+        /* Vertical line for Mobile (< 768px) */
+        @media (max-width: 767px) {
+
+            /* This removes the central line completely on mobile */
+            .timeline-grid::before {
+                display: none !important;
+                content: none !important;
+            }
+
+            /* This hides the horizontal line as well */
+            .timeline-line {
+                display: none !important;
+            }
         }
 
         /* ---- Experience centres carousel ---- */
@@ -233,8 +271,17 @@
             margin-bottom: 12px;
         }
 
+        /* ---- Centre card ---- */
+        .centre-card {
+            transition: box-shadow .2s;
+        }
+
+        .centre-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .1);
+        }
+
         /* ---- CTA bg ---- */
-        .cta-bg {
+        /* .cta-bg {
             background: linear-gradient(160deg, #fdf0e6 0%, #fce4d0 55%, #f9dfc8 100%);
             position: relative;
             overflow: hidden;
@@ -250,26 +297,31 @@
             background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=60') center/cover no-repeat;
             opacity: 0.15;
             pointer-events: none;
-        }
+        } */
 
-        /* ---- Input focus ---- */
+        /* ---- Form ---- */
         input:focus,
         select:focus {
             border-color: #e07b39 !important;
             outline: none;
         }
+
+        .check-icon {
+            color: #e07b39;
+        }
     </style>
 </head>
 
-<body class="bg-[#f5f2eb] text-ink">
+<!-- <body class="bg-[#f5f2eb] text-ink"> -->
 
+<body class="bg-cream text-ink">
     <!-- ===================== NAV ===================== -->
     <nav
         class="bg-[#FCFCF7] sticky top-0 z-50 px-6 min-[1201px]:px-32 h-20 flex items-center justify-between border-b border-border">
 
         <div class="flex items-center gap-2 flex-shrink-0">
             <a href="index.html" class="block">
-                <img src="images/Logo.png" alt="Hyderabad Constructions Logo" class="h-12 w-auto object-contain">
+                <img src="images/logo.jpeg" alt="Hyderabad Constructions Logo" class="h-12 w-auto object-contain">
             </a>
         </div>
 
@@ -297,7 +349,7 @@
                         as Architect</a>
                     <a href="#"
                         class="flex items-center gap-2.5 px-4 py-2.5 text-ink hover:bg-cream hover:text-orange transition-colors">FAQS</a>
-                    <a href="#"
+                    <a href="contact-us.html"
                         class="flex items-center gap-2.5 px-4 py-2.5 text-ink hover:bg-cream hover:text-orange transition-colors">Contact
                         us</a>
                 </div>
@@ -357,30 +409,36 @@
                 <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
                     <polyline points="9 18 15 12 9 6" />
                 </svg></a>
-            <a href="#"
+            <a href="contact-us.html"
                 class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">Contact
                 us <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
                     <polyline points="9 18 15 12 9 6" />
                 </svg></a>
 
             <div class="px-6 pt-5 flex flex-col gap-3">
+                <!-- <button class="w-full border border-orange text-orange py-2.5 rounded-xl font-medium">Login</button> -->
                 <button
                     class="w-full bg-orange text-white py-2.5 rounded-xl font-medium hover:bg-orange-dark transition-colors">Book
                     a meeting</button>
             </div>
         </div>
     </div>
+
     <!-- ===================== HERO — ABOUT US ===================== -->
     <section class="w-full bg-[#f5f2eb] px-6 lg:px-32 py-16">
         <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
 
             <!-- LEFT -->
             <div class="flex-1 max-w-[480px]">
-                <h1 class="font-display text-3xl md:text-[34px] font-medium text-ink mb-4">
+                <!-- <h1 class="font-display text-3xl md:text-[34px] font-medium text-ink mb-4">
                     About us
-                </h1>
+                </h1> -->
+                <h1 class="font-display text-4xl md:text-5xl font-semibold text-ink leading-tight mb-4 fade-up">
+                    About us </h1>
 
-                <p class="text-[14px] text-muted leading-relaxed">
+                <!-- <p class="text-[14px] text-muted leading-relaxed"> -->
+                <p class="text-base text-muted max-w-md mx-auto lg:mx-0 mb-7 leading-relaxed fade-up fade-up-delay-1">
+
                     JSW One Homes is a venture by the JSW Group, a leading name in steel,
                     cement, energy and other core sectors. We believe building a home should
                     put you firmly in control, with access to verified professionals,
@@ -390,7 +448,7 @@
 
             <!-- RIGHT IMAGE -->
             <div class="flex-1 flex justify-end">
-                <div class="w-full max-w-[520px] h-[280px] rounded-2xl overflow-hidden shadow-sm">
+                <div class="w-full max-w-[580px] h-[310px] rounded-2xl overflow-hidden shadow-sm">
                     <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80"
                         class="w-full h-full object-cover" />
                 </div>
@@ -413,7 +471,7 @@
                         <path d="M8 16v16h8v-8h8v8h8V16" />
                     </svg>
                     <div class="text-3xl font-semibold text-ink">180+</div>
-                    <div class="text-sm text-muted">Homes delivered</div>
+                    <div class="text-base text-muted">Homes delivered</div>
                 </div>
 
                 <!-- Stat 2 -->
@@ -429,7 +487,8 @@
                         <line x1="18" y1="10" x2="18" y2="30" />
                     </svg>
                     <div class="text-3xl font-semibold text-ink">227+</div>
-                    <div class="text-sm text-muted">Homes under construction</div>
+
+                    <div class="text-base text-muted">Homes under construction</div>
                 </div>
 
                 <!-- Stat 3 -->
@@ -444,7 +503,8 @@
                         <line x1="13" y1="28" x2="19" y2="28" />
                     </svg>
                     <div class="text-3xl font-semibold text-ink">1100+</div>
-                    <div class="text-sm text-muted">Unique designs delivered</div>
+                    <div class="text-base text-muted">
+                        Unique designs delivered</div>
                 </div>
 
             </div>
@@ -452,85 +512,82 @@
     </section>
 
     <!-- ===================== JOURNEY SO FAR ===================== -->
-    <section class="w-full bg-[#f5f2eb] px-6 lg:px-32 py-16 md:py-20">
+    <section class="w-full bg-cream px-6 lg:px-32 py-16 md:py-20">
         <div class="max-w-7xl mx-auto">
             <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink text-center mb-16">Journey so far</h2>
 
-            <!-- Timeline -->
             <div class="relative">
-                <!-- Horizontal line -->
                 <div class="timeline-line"></div>
 
-                <!-- Year dots + content -->
-                <div class="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-4 pt-0">
+                <div class="timeline-grid grid grid-cols-2 md:grid-cols-5 gap-y-12 gap-x-4 md:gap-4 pt-0">
 
-                    <!-- 2021 -->
-                    <div class="flex flex-col items-center text-center pt-0">
-                        <!-- dot on line -->
-                        <div class="w-5 h-5 rounded-full bg-orange border-4 border-[#f5f2eb] flex-shrink-0 relative z-10"
-                            style="margin-top:-2px;"></div>
+                    <div class="flex flex-col items-center text-center relative z-10">
+                        <div class="w-5 h-5 rounded-full bg-orange border-4 border-[#f5f2eb] relative z-20"></div>
                         <div class="mt-5">
-                            <div class="font-semibold text-ink text-lg mb-3">2021</div>
-                            <p class="text-sm text-muted leading-relaxed">We launched in 2021 with our first experience
-                                centre in Coimbatore, offering a hassle-free home-building experience for independent
-                                homeowners.</p>
+                            <div class="text-2xl font-semibold text-ink mb-3">2021</div>
+                            <p class="text-base text-muted">
+                                We launched in 2021 with our first
+                                experience
+                                centre in Coimbatore, offering a hassle-free home-building experience for
+                                independent
+                                homeowners.
+                            </p>
+
                         </div>
                     </div>
 
-                    <!-- 2022 -->
-                    <div class="flex flex-col items-center text-center pt-0">
-                        <div class="w-5 h-5 rounded-full bg-orange border-4 border-[#f5f2eb] flex-shrink-0 relative z-10"
-                            style="margin-top:-2px;"></div>
+                    <div class="flex flex-col items-center text-center relative z-10">
+                        <div class="w-5 h-5 rounded-full bg-orange border-4 border-[#f5f2eb] relative z-20"></div>
                         <div class="mt-5">
-                            <div class="font-semibold text-ink text-lg mb-3">2022</div>
-                            <p class="text-sm text-muted leading-relaxed">We expanded our footprint across Bengaluru and
-                                Chennai, deepening our presence in Karnataka and Tamil Nadu to meet growing demand.</p>
+                            <div class="text-2xl font-semibold text-ink mb-3">2022</div>
+                            <p class="text-base text-muted">We expanded our footprint across Bengaluru
+                                and
+                                Chennai, deepening our presence in Karnataka and Tamil Nadu to meet growing demand.
+                            </p>
                         </div>
                     </div>
 
-                    <!-- 2023 -->
-                    <div class="flex flex-col items-center text-center pt-0">
-                        <div class="w-5 h-5 rounded-full bg-orange border-4 border-[#f5f2eb] flex-shrink-0 relative z-10"
-                            style="margin-top:-2px;"></div>
+                    <div class="flex flex-col items-center text-center relative z-10">
+                        <div class="w-5 h-5 rounded-full bg-orange border-4 border-[#f5f2eb] relative z-20"></div>
                         <div class="mt-5">
-                            <div class="font-semibold text-ink text-lg mb-3">2023</div>
-                            <p class="text-sm text-muted leading-relaxed">We expanded rapidly across South and Central
-                                India, launching our services in Kerala, Telangana, Andhra Pradesh, Madhya Pradesh,
+                            <div class="text-2xl font-semibold text-ink mb-3">2023</div>
+                            <p class="text-base text-muted">We expanded rapidly across South and
+                                Central India, launching our services in Kerala, Telangana, Andhra Pradesh, Madhya
+                                Pradesh,
                                 Chhattisgarh and Odisha.</p>
+
                         </div>
                     </div>
 
-                    <!-- 2024 -->
-                    <div class="flex flex-col items-center text-center pt-0">
-                        <div class="w-5 h-5 rounded-full bg-orange border-4 border-[#f5f2eb] flex-shrink-0 relative z-10"
-                            style="margin-top:-2px;"></div>
+                    <div class="flex flex-col items-center text-center relative z-10">
+                        <div class="w-5 h-5 rounded-full bg-orange border-4 border-[#f5f2eb] relative z-20"></div>
                         <div class="mt-5">
-                            <div class="font-semibold text-ink text-lg mb-3">2024</div>
-                            <p class="text-sm text-muted leading-relaxed">We successfully delivered our 100th home
-                                across 17 active geographies in December 2024. We are on track to deliver the next 100
+                            <div class="text-2xl font-semibold text-ink mb-3">2024</div>
+                            <p class="text-base text-muted">We successfully delivered our 100th home
+                                across 17 active geographies in December 2024. We are on track to deliver the next
+                                100
                                 by July 2025. This is just the beginning.</p>
+
                         </div>
                     </div>
 
-                    <!-- 2025 -->
-                    <div class="flex flex-col items-center text-center pt-0">
-                        <div class="w-5 h-5 rounded-full bg-orange border-4 border-[#f5f2eb] flex-shrink-0 relative z-10"
+
+                    <div class="flex flex-col items-center text-center pt-0 relative z-10">
+                        <div class="w-5 h-5 rounded-full bg-orange border-4 border-[#f5f2eb] flex-shrink-0 relative z-20"
                             style="margin-top:-2px;"></div>
                         <div class="mt-5">
-                            <div class="font-semibold text-ink text-lg mb-3">2025</div>
-                            <p class="text-sm text-muted leading-relaxed">We now operate 10 experience centres across
-                                nine cities, with six more set to launch soon.</p>
+                            <div class="text-2xl font-semibold text-ink mb-3">2025</div>
+                            <p class="text-base text-muted">We now operate 10 experience centres across nine cities,
+                                with six more set to launch soon.</p>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===================== EXPERIENCE CENTRES ===================== -->
     <!-- ===================== EXPERIENCE CENTRES (SAME CAROUSEL) ===================== -->
-    <section class="w-full bg-[#F6F5EF] px-6 lg:px-32 py-16 md:py-20">
+    <section class="w-full bg-[#F6F5EF] px-6 md:px-12 xl:px-32 py-16 md:py-20">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-10">
                 <div class="badge">Locations</div>
@@ -647,91 +704,87 @@
         </div>
     </section>
 
-    <!-- ===================== CTA — YOU DREAM WE DELIVER ===================== -->
-    <section class="cta-bg w-full px-6 lg:px-32 py-16 md:py-24 text-center">
-        <div class="max-w-3xl mx-auto relative z-10">
-            <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-3">You Dream. We Deliver.</h2>
-            <p class="text-base text-muted max-w-xl mx-auto mb-10 leading-relaxed">
-                Ready to build your dream home? Schedule a free consultation to start your journey today!
-            </p>
-
-            <div class="bg-white max-w-2xl mx-auto rounded-2xl p-7 md:p-8 border border-border shadow-md text-left">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-3.5">
+    <!-- ===================== CTA / FORM ===================== -->
+    <section class="w-full px-6 md:px-12 xl:px-32 py-16 md:py-20 text-center"
+        style="background:linear-gradient(160deg,#fdf0e6 0%,#fce4d0 100%);">
+        <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-3">You Dream. We Deliver.</h2>
+        <p class="text-base text-muted max-w-xl mx-auto mb-10 leading-relaxed">Ready to build your dream home? Schedule
+            a free consultation today and begin the journey of turning your dream into reality.</p>
+        <div class="bg-white max-w-3xl mx-auto rounded-2xl p-7 md:p-8 border border-border shadow-md text-left">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-3.5">
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-sm text-muted font-medium">Full name</label>
                     <input type="text" placeholder="Full name"
-                        class="border border-border rounded-lg px-3.5 py-3 text-sm text-ink outline-none transition-colors placeholder-[#bbb]" />
+                        class="border border-border rounded-lg px-3 py-2.5 text-sm text-ink outline-none transition-colors" />
+                </div>
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-sm text-muted font-medium">Email</label>
                     <input type="email" placeholder="Email"
-                        class="border border-border rounded-lg px-3.5 py-3 text-sm text-ink outline-none transition-colors placeholder-[#bbb]" />
+                        class="border border-border rounded-lg px-3 py-2.5 text-sm text-ink outline-none transition-colors" />
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-3.5">
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-3.5">
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-sm text-muted font-medium">Mobile Number</label>
                     <input type="tel" placeholder="Mobile Number"
-                        class="border border-border rounded-lg px-3.5 py-3 text-sm text-ink outline-none transition-colors placeholder-[#bbb]" />
-                    <div class="relative">
-                        <span
-                            class="absolute top-1.5 left-3.5 text-[10px] text-muted pointer-events-none z-10 font-medium">Choose
-                            City</span>
-                        <select
-                            class="border border-border rounded-lg px-3.5 pt-5 pb-2.5 text-sm text-ink outline-none transition-colors bg-white cursor-pointer appearance-none w-full">
-                            <option value="">Choose City</option>
-                            <option>Hyderabad</option>
-                            <option>Bangalore</option>
-                            <option>Mumbai</option>
-                            <option>Delhi NCR</option>
-                            <option>Chennai</option>
-                            <option>Kochi</option>
-                            <option>Pune</option>
-                        </select>
-                        <svg class="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 stroke-muted fill-none stroke-2 pointer-events-none"
-                            viewBox="0 0 24 24">
-                            <polyline points="6 9 12 15 18 9" />
-                        </svg>
-                    </div>
+                        class="border border-border rounded-lg px-3 py-2.5 text-sm text-ink outline-none transition-colors" />
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-3.5">
-                    <div class="relative">
-                        <span
-                            class="absolute top-1.5 left-3.5 text-[10px] text-muted pointer-events-none z-10 font-medium">I
-                            want to start construction in</span>
-                        <select
-                            class="border border-border rounded-lg px-3.5 pt-5 pb-2.5 text-sm text-ink outline-none transition-colors bg-white cursor-pointer appearance-none w-full">
-                            <option>0–3 months</option>
-                            <option>3–6 months</option>
-                            <option>6–12 months</option>
-                            <option>More than 12 months</option>
-                        </select>
-                        <svg class="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 stroke-muted fill-none stroke-2 pointer-events-none"
-                            viewBox="0 0 24 24">
-                            <polyline points="6 9 12 15 18 9" />
-                        </svg>
-                    </div>
-                    <div class="flex items-center gap-4 px-1">
-                        <span class="text-sm text-muted whitespace-nowrap">Do you own a plot of land?</span>
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-sm text-muted font-medium">Choose City</label>
+                    <select
+                        class="border border-border rounded-lg px-3 py-2.5 text-sm text-ink outline-none transition-colors bg-white cursor-pointer appearance-none">
+                        <option>Hyderabad</option>
+                        <option>Bangalore</option>
+                        <option>Mumbai</option>
+                        <option>Delhi NCR</option>
+                        <option>Chennai</option>
+                        <option>Kochi</option>
+                        <option>Pune</option>
+                    </select>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-3.5">
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-sm text-muted font-medium">I need to start construction in</label>
+                    <select
+                        class="border border-border rounded-lg px-3 py-2.5 text-sm text-ink outline-none transition-colors bg-white cursor-pointer appearance-none">
+                        <option>0–3 months</option>
+                        <option>3–6 months</option>
+                        <option>6–12 months</option>
+                        <option>More than 12 months</option>
+                    </select>
+                </div>
+                <div class="flex flex-col gap-1.5">
+                    <label class="text-sm text-muted font-medium">Do you own a plot of land?</label>
+                    <div class="flex gap-5 items-center mt-2">
                         <label class="flex items-center gap-1.5 text-sm text-ink cursor-pointer"><input type="radio"
-                                name="ctaPlot" value="yes" class="accent-orange w-4 h-4" /> Yes</label>
+                                name="plot" value="yes" class="accent-orange" /> Yes</label>
                         <label class="flex items-center gap-1.5 text-sm text-ink cursor-pointer"><input type="radio"
-                                name="ctaPlot" value="no" class="accent-orange w-4 h-4" /> No</label>
+                                name="plot" value="no" class="accent-orange" /> No</label>
                     </div>
                 </div>
-                <div class="flex items-center gap-2 mb-5 mt-1">
-                    <input type="checkbox" id="ctaAgree" class="w-4 h-4 accent-orange cursor-pointer" />
-                    <span class="text-xs text-muted">I agree to <a href="#" class="text-orange underline">Privacy
-                            Policy</a> and <a href="#" class="text-orange underline">Terms &amp; Conditions</a></span>
-                </div>
-                <div class="text-center">
-                    <button
-                        class="bg-orange text-white font-semibold py-3 px-8 rounded-lg hover:bg-orange-dark transition-colors cursor-pointer border-0 w-full">Book
-                        a meeting</button>
-                </div>
+            </div>
+            <div class="flex items-center gap-2 mb-5 mt-1">
+                <input type="checkbox" id="agree" class="w-4 h-4 accent-orange cursor-pointer" />
+                <span class="text-xs text-muted">I agree to <a href="#" class="text-orange underline">Privacy Policy</a>
+                    and <a href="#" class="text-orange underline">Terms &amp; Conditions</a></span>
+            </div>
+            <div class="text-center">
+                <button
+                    class="bg-orange text-white font-semibold py-3 px-7 rounded-lg hover:bg-orange-dark transition-colors cursor-pointer border-0">Book
+                    a meeting</button>
             </div>
         </div>
     </section>
 
     <!-- ===================== FOOTER ===================== -->
-    <footer class="bg-[#111] text-[#aaa] px-6 lg:px-32 pt-12 pb-7 w-full">
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="bg-[#111] text-[#aaa] px-6 md:px-12 xl:px-32 pt-12 pb-7 w-full">
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 max-w-7xl mx-auto">
             <div class="col-span-2 md:col-span-1">
 
                 <a href="index.html" class="inline-block">
-                    <img src="images/Logo-footer.png" alt="Hyderabad Constructions Logo"
+                    <img src="images/logo.jpeg" alt="Hyderabad Constructions Logo"
                         class="h-16 w-auto object-contain mb-4">
                 </a>
                 <p class="text-sm leading-relaxed mt-3 max-w-[220px]">Browse ideas, explore options and book a meeting
@@ -780,7 +833,7 @@
             </div>
             <div>
                 <h4 class="text-[11px] uppercase tracking-widest mb-4 font-semibold">Support</h4>
-                <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Contact us</a>
+                <a href="contact-us.html" class="block text-sm mb-2.5 hover:text-white transition-colors">Contact us</a>
                 <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">FAQs</a>
                 <a href="#" class="block text-sm hover:text-white transition-colors">Sitemap</a>
             </div>
