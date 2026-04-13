@@ -142,7 +142,9 @@
             background: #e8ddd0;
         } */
 
-        /* ---- Updated Journey timeline ---- */
+        /* ---- Journey timeline ---- */
+
+        /* Desktop: horizontal line */
         .timeline-line {
             position: absolute;
             top: 10px;
@@ -159,20 +161,47 @@
             }
         }
 
-        /* Vertical line for Mobile (< 768px) */
-        /* Vertical line for Mobile (< 768px) */
-        @media (max-width: 767px) {
+        /* Mobile: vertical timeline */
+        .timeline-mobile {
+            position: relative;
+            padding-left: 28px;
+        }
 
-            /* This removes the central line completely on mobile */
-            .timeline-grid::before {
-                display: none !important;
-                content: none !important;
-            }
+        .timeline-mobile::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e8ddd0;
+            transform: translateX(-50%);
+        }
 
-            /* This hides the horizontal line as well */
-            .timeline-line {
-                display: none !important;
-            }
+        .timeline-mobile-item {
+            position: relative;
+            margin-bottom: 36px;
+        }
+
+        .timeline-mobile-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-mobile-dot {
+            position: absolute;
+            left: -20px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #e07b39;
+            border: 3px solid #f5f2eb;
+            z-index: 10;
+            transform: translateX(-50%);
+        }
+
+        .timeline-mobile-content {
+            padding-left: 4px;
         }
 
         /* ---- Experience centres carousel ---- */
@@ -280,24 +309,6 @@
             box-shadow: 0 8px 24px rgba(0, 0, 0, .1);
         }
 
-        /* ---- CTA bg ---- */
-        /* .cta-bg {
-            background: linear-gradient(160deg, #fdf0e6 0%, #fce4d0 55%, #f9dfc8 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-bg::after {
-            content: '';
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            width: 50%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=60') center/cover no-repeat;
-            opacity: 0.15;
-            pointer-events: none;
-        } */
 
         /* ---- Form ---- */
         input:focus,
@@ -511,69 +522,57 @@
         </div>
     </section>
 
+
+    <!-- Time line -->
     <!-- ===================== JOURNEY SO FAR ===================== -->
     <section class="w-full bg-cream px-6 lg:px-32 py-16 md:py-20">
+
         <div class="max-w-7xl mx-auto">
             <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink text-center mb-16">Journey so far</h2>
 
             <div class="relative">
+                <!-- Desktop horizontal line -->
                 <div class="timeline-line"></div>
 
-                <div class="timeline-grid grid grid-cols-2 md:grid-cols-5 gap-y-12 gap-x-4 md:gap-4 pt-0">
-
+                <!-- DESKTOP: 5-col grid (md and above) -->
+                <div class="timeline-grid hidden md:grid grid-cols-5 gap-4 pt-0">
                     <div class="flex flex-col items-center text-center relative z-10">
                         <div class="w-5 h-5 rounded-full bg-orange border-4 border-[#f5f2eb] relative z-20"></div>
                         <div class="mt-5">
                             <div class="text-2xl font-semibold text-ink mb-3">2021</div>
-                            <p class="text-base text-muted">
-                                We launched in 2021 with our first
-                                experience
-                                centre in Coimbatore, offering a hassle-free home-building experience for
-                                independent
-                                homeowners.
+                            <p class="text-base text-muted">We launched in 2021 with our first experience centre in
+                                Coimbatore, offering a hassle-free home-building experience for independent homeowners.
                             </p>
-
                         </div>
                     </div>
-
                     <div class="flex flex-col items-center text-center relative z-10">
                         <div class="w-5 h-5 rounded-full bg-orange border-4 border-[#f5f2eb] relative z-20"></div>
                         <div class="mt-5">
                             <div class="text-2xl font-semibold text-ink mb-3">2022</div>
-                            <p class="text-base text-muted">We expanded our footprint across Bengaluru
-                                and
-                                Chennai, deepening our presence in Karnataka and Tamil Nadu to meet growing demand.
-                            </p>
+                            <p class="text-base text-muted">We expanded our footprint across Bengaluru and Chennai,
+                                deepening our presence in Karnataka and Tamil Nadu to meet growing demand.</p>
                         </div>
                     </div>
-
                     <div class="flex flex-col items-center text-center relative z-10">
                         <div class="w-5 h-5 rounded-full bg-orange border-4 border-[#f5f2eb] relative z-20"></div>
                         <div class="mt-5">
                             <div class="text-2xl font-semibold text-ink mb-3">2023</div>
-                            <p class="text-base text-muted">We expanded rapidly across South and
-                                Central India, launching our services in Kerala, Telangana, Andhra Pradesh, Madhya
-                                Pradesh,
+                            <p class="text-base text-muted">We expanded rapidly across South and Central India,
+                                launching our services in Kerala, Telangana, Andhra Pradesh, Madhya Pradesh,
                                 Chhattisgarh and Odisha.</p>
-
                         </div>
                     </div>
-
                     <div class="flex flex-col items-center text-center relative z-10">
                         <div class="w-5 h-5 rounded-full bg-orange border-4 border-[#f5f2eb] relative z-20"></div>
                         <div class="mt-5">
                             <div class="text-2xl font-semibold text-ink mb-3">2024</div>
-                            <p class="text-base text-muted">We successfully delivered our 100th home
-                                across 17 active geographies in December 2024. We are on track to deliver the next
-                                100
-                                by July 2025. This is just the beginning.</p>
-
+                            <p class="text-base text-muted">We successfully delivered our 100th home across 17 active
+                                geographies in December 2024. We are on track to deliver the next 100 by July 2025. This
+                                is just the beginning.</p>
                         </div>
                     </div>
-
-
-                    <div class="flex flex-col items-center text-center pt-0 relative z-10">
-                        <div class="w-5 h-5 rounded-full bg-orange border-4 border-[#f5f2eb] flex-shrink-0 relative z-20"
+                    <div class="flex flex-col items-center text-center relative z-10">
+                        <div class="w-5 h-5 rounded-full bg-orange border-4 border-[#f5f2eb] relative z-20"
                             style="margin-top:-2px;"></div>
                         <div class="mt-5">
                             <div class="text-2xl font-semibold text-ink mb-3">2025</div>
@@ -582,6 +581,54 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- MOBILE: vertical timeline (below md) -->
+                <div class="md:hidden timeline-mobile">
+                    <div class="timeline-mobile-item">
+                        <div class="timeline-mobile-dot"></div>
+                        <div class="timeline-mobile-content">
+                            <div class="text-xl font-semibold text-ink mb-2">2021</div>
+                            <p class="text-sm text-muted">We launched in 2021 with our first experience centre in
+                                Coimbatore, offering a hassle-free home-building experience for independent homeowners.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-mobile-item">
+                        <div class="timeline-mobile-dot"></div>
+                        <div class="timeline-mobile-content">
+                            <div class="text-xl font-semibold text-ink mb-2">2022</div>
+                            <p class="text-sm text-muted">We expanded our footprint across Bengaluru and Chennai,
+                                deepening our presence in Karnataka and Tamil Nadu to meet growing demand.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-mobile-item">
+                        <div class="timeline-mobile-dot"></div>
+                        <div class="timeline-mobile-content">
+                            <div class="text-xl font-semibold text-ink mb-2">2023</div>
+                            <p class="text-sm text-muted">We expanded rapidly across South and Central India, launching
+                                our services in Kerala, Telangana, Andhra Pradesh, Madhya Pradesh, Chhattisgarh and
+                                Odisha.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-mobile-item">
+                        <div class="timeline-mobile-dot"></div>
+                        <div class="timeline-mobile-content">
+                            <div class="text-xl font-semibold text-ink mb-2">2024</div>
+                            <p class="text-sm text-muted">We successfully delivered our 100th home across 17 active
+                                geographies in December 2024. We are on track to deliver the next 100 by July 2025. This
+                                is just the beginning.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-mobile-item">
+                        <div class="timeline-mobile-dot"></div>
+                        <div class="timeline-mobile-content">
+                            <div class="text-xl font-semibold text-ink mb-2">2025</div>
+                            <p class="text-sm text-muted">We now operate 10 experience centres across nine cities, with
+                                six more set to launch soon.</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -706,33 +753,52 @@
 
     <!-- ===================== CTA / FORM ===================== -->
     <section class="w-full px-6 md:px-12 xl:px-32 py-16 md:py-20 text-center"
-        style="background:linear-gradient(160deg,#fdf0e6 0%,#fce4d0 100%);">
+        style="background: linear-gradient(160deg, #fdf0e6 0%, #fce4d0 100%);">
+
         <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-3">You Dream. We Deliver.</h2>
         <p class="text-base text-muted max-w-xl mx-auto mb-10 leading-relaxed">Ready to build your dream home? Schedule
             a free consultation today and begin the journey of turning your dream into reality.</p>
+
         <div class="bg-white max-w-3xl mx-auto rounded-2xl p-7 md:p-8 border border-border shadow-md text-left">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-3.5">
-                <div class="flex flex-col gap-1.5">
-                    <label class="text-sm text-muted font-medium">Full name</label>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                <div class="relative">
+                    <label
+                        class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
+                        Full name
+                    </label>
                     <input type="text" placeholder="Full name"
-                        class="border border-border rounded-lg px-3 py-2.5 text-sm text-ink outline-none transition-colors" />
+                        class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-300 transition-all placeholder-slate-300" />
                 </div>
-                <div class="flex flex-col gap-1.5">
-                    <label class="text-sm text-muted font-medium">Email</label>
+
+                <div class="relative">
+                    <label
+                        class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
+                        Email
+                    </label>
                     <input type="email" placeholder="Email"
-                        class="border border-border rounded-lg px-3 py-2.5 text-sm text-ink outline-none transition-colors" />
+                        class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-300 transition-all placeholder-slate-300" />
                 </div>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-3.5">
-                <div class="flex flex-col gap-1.5">
-                    <label class="text-sm text-muted font-medium">Mobile Number</label>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                <div class="relative">
+                    <label
+                        class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
+                        Mobile Number
+                    </label>
                     <input type="tel" placeholder="Mobile Number"
-                        class="border border-border rounded-lg px-3 py-2.5 text-sm text-ink outline-none transition-colors" />
+                        class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-300 transition-all placeholder-slate-300" />
                 </div>
-                <div class="flex flex-col gap-1.5">
-                    <label class="text-sm text-muted font-medium">Choose City</label>
+
+                <div class="relative flex items-center">
+                    <label
+                        class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
+                        Choose City
+                    </label>
                     <select
-                        class="border border-border rounded-lg px-3 py-2.5 text-sm text-ink outline-none transition-colors bg-white cursor-pointer appearance-none">
+                        class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none bg-white appearance-none cursor-pointer focus:border-orange-300 transition-all">
+                        <option>Choose City</option>
                         <option>Hyderabad</option>
                         <option>Bangalore</option>
                         <option>Mumbai</option>
@@ -741,34 +807,57 @@
                         <option>Kochi</option>
                         <option>Pune</option>
                     </select>
+                    <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none flex items-center">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </div>
                 </div>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-3.5">
-                <div class="flex flex-col gap-1.5">
-                    <label class="text-sm text-muted font-medium">I need to start construction in</label>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                <div class="relative flex items-center">
+                    <label
+                        class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
+                        I want to start construction in
+                    </label>
                     <select
-                        class="border border-border rounded-lg px-3 py-2.5 text-sm text-ink outline-none transition-colors bg-white cursor-pointer appearance-none">
+                        class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none bg-white appearance-none cursor-pointer focus:border-orange-300 transition-all">
                         <option>0–3 months</option>
                         <option>3–6 months</option>
                         <option>6–12 months</option>
                         <option>More than 12 months</option>
                     </select>
+                    <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none flex items-center">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </div>
                 </div>
-                <div class="flex flex-col gap-1.5">
-                    <label class="text-sm text-muted font-medium">Do you own a plot of land?</label>
-                    <div class="flex gap-5 items-center mt-2">
-                        <label class="flex items-center gap-1.5 text-sm text-ink cursor-pointer"><input type="radio"
-                                name="plot" value="yes" class="accent-orange" /> Yes</label>
-                        <label class="flex items-center gap-1.5 text-sm text-ink cursor-pointer"><input type="radio"
-                                name="plot" value="no" class="accent-orange" /> No</label>
+
+                <div class="flex items-center gap-4 pt-1">
+                    <span class="text-[14px] text-slate-700">Do you own a plot of land?</span>
+                    <div class="flex items-center gap-4">
+                        <label class="flex items-center gap-1.5 text-sm text-slate-700 cursor-pointer">
+                            <input type="radio" name="land" class="w-5 h-5 accent-[#ffb380]" /> Yes
+                        </label>
+                        <label class="flex items-center gap-1.5 text-sm text-slate-700 cursor-pointer">
+                            <input type="radio" name="land" class="w-5 h-5 accent-[#ffb380]" /> No
+                        </label>
                     </div>
                 </div>
             </div>
+
             <div class="flex items-center gap-2 mb-5 mt-1">
                 <input type="checkbox" id="agree" class="w-4 h-4 accent-orange cursor-pointer" />
-                <span class="text-xs text-muted">I agree to <a href="#" class="text-orange underline">Privacy Policy</a>
-                    and <a href="#" class="text-orange underline">Terms &amp; Conditions</a></span>
+                <span class="text-xs text-muted">I agree to <a href="privacy-policy.html"
+                        class="text-orange underline">Privacy Policy</a>
+                    and <a href="terms-and-conditions.html" class="text-orange underline">Terms &amp;
+                        Conditions</a></span>
             </div>
+
             <div class="text-center">
                 <button
                     class="bg-orange text-white font-semibold py-3 px-7 rounded-lg hover:bg-orange-dark transition-colors cursor-pointer border-0">Book
@@ -777,7 +866,7 @@
         </div>
     </section>
 
-    <!-- ===================== FOOTER ===================== -->
+
     <!-- ===================== FOOTER ===================== -->
     <footer class="bg-[#111] text-[#aaa] px-6 md:px-12 xl:px-32 pt-12 pb-7 w-full">
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 max-w-7xl mx-auto">
@@ -839,8 +928,10 @@
             </div>
             <div>
                 <h4 class="text-[11px] uppercase tracking-widest mb-4 font-semibold">Legal</h4>
-                <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Terms &amp; Conditions</a>
-                <a href="#" class="block text-sm hover:text-white transition-colors">Privacy policy</a>
+                <a href="terms-and-conditions.html"
+                    class="block text-sm mb-2.5 hover:text-white transition-colors">Terms &amp; Conditions</a>
+                <a href="privacy-policy.html" class="block text-sm hover:text-white transition-colors">Privacy
+                    policy</a>
             </div>
         </div>
         <div class="border-t border-[#222] mt-10 pt-5 text-center text-sm max-w-7xl mx-auto">

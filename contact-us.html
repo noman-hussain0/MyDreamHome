@@ -366,66 +366,81 @@
 
     <!-- ===================== HERO – GET IN TOUCH ===================== -->
     <section class="bg-[#FCFCF7] flex flex-col items-center w-full">
-        <div class="px-4 pb-10 w-full max-w-[768px] xl:max-w-[1440px] xl:p-20 xl:items-stretch">
+        <!-- <div class="px-6 py-10 md:px-12 xl:px-32 xl:py-20 w-full max-w-[1440px]"> -->
+        <div class="px-4 py-10 md:px-8 xl:px-32 xl:py-20 w-full max-w-full">
+
             <div
-                class="flex flex-col items-center justify-start gap-5 w-full max-w-[768px] xl:max-w-[1440px] xl:pb-0 xl:flex-row-reverse xl:items-stretch xl:justify-between xl:gap-[60px]">
-                <picture>
-                    <source media="(max-width: 1279px)"
-                        srcset="https://cdn.jswonehomes.com/About_us_Mob_42e2eb828c/About_us_Mob_42e2eb828c.webp 1x, https://cdn.jswonehomes.com/About_us_Mob_42e2eb828c/About_us_Mob_42e2eb828c.webp 2x">
-                    <source media="(min-width: 1280px)"
-                        srcset="https://cdn.jswonehomes.com/contactwebplaptop1_0420347806/contactwebplaptop1_0420347806.webp 1x, https://cdn.jswonehomes.com/contactwebplaptop1_0420347806/contactwebplaptop1_0420347806.webp 2x">
-                    <img alt="Welcome to JSW" loading="lazy" width="768" height="190" decoding="async"
-                        class="top-0 left-0 object-fill rounded-lg xl:rounded-xl xl:basis-1/2 xl:h-[404px] xl:w-[560px]"
-                        src="https://storage.googleapis.com/public-homes-web-media-prod/About_us_Mob_42e2eb828c/About_us_Mob_42e2eb828c.webp"
-                        style="color: transparent;">
-                </picture>
-                <div class="flex flex-col items-start gap-5 xl:gap-3 xl:basis-1/2 xl:items-start">
+                class="flex flex-col xl:flex-row-reverse items-center xl:items-stretch justify-between gap-8 xl:gap-[60px]">
+                <div class="w-full xl:basis-1/2">
+                    <picture>
+                        <source media="(max-width: 1279px)"
+                            srcset="https://cdn.jswonehomes.com/About_us_Mob_42e2eb828c/About_us_Mob_42e2eb828c.webp">
+                        <source media="(min-width: 1280px)"
+                            srcset="https://cdn.jswonehomes.com/contactwebplaptop1_0420347806/contactwebplaptop1_0420347806.webp">
+                        <img alt="Get in touch" loading="lazy"
+                            class="w-full h-auto object-cover rounded-2xl shadow-sm xl:h-[404px]"
+                            src="https://storage.googleapis.com/public-homes-web-media-prod/About_us_Mob_42e2eb828c/About_us_Mob_42e2eb828c.webp">
+                    </picture>
+                </div>
+                <div class="flex flex-col items-start w-full xl:basis-1/2">
                     <h1
-                        class="text-[#030712] text-3xl text-left xl:text-left font-medium xl:leading-[56px] tracking-[0.36px] xl:tracking-[0.48px] xl:text-5xl xl:w-[500px]">
-                        Get in touch with us</h1>
-                    <p
-                        class="text-[#6B7280] leading-5 xl:leading-8 tracking-[0.48px] text-xs font-medium text-left xl:text-left xl:text-lg">
+                        class="font-display text-3xl md:text-4xl xl:text-5xl font-semibold text-ink leading-tight mb-4 fade-up">
+                        Get in touch with us </h1>
+                    <p class="text-base leading-relaxed text-muted md:text-base xl:text-lg font-medium mb-8">
                         If you have questions or need assistance, we’re here to help. Contact us today and our team will
-                        provide the support you need.</p>
-                    <div class="flex flex-col w-full gap-2 xl:gap-5 xl:mt-5"><a href="?showForm=y"><button
-                                class="inline-flex items-center mt-2 gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border-2 border-input hover:bg-accent hover:text-accent-foreground py-2 bg-[#FAF0DC] rounded-lg tracking-[0.3px] h-11 px-3 w-full xl:rounded-xl xl:mb-0 xl:mt-0 justify-start xl:px-6 xl:w-[450px] xl:h-[68px]">
-                                <p class="text-[#464646] leading-8 tracking-[0.18px] text-xs xl:text-lg font-medium">
-                                    Book a meeting</p><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                    fill="currentColor" viewBox="0 0 256 256" class="text-[#464646] ml-auto">
+                        provide the support you need.
+                    </p>
+                    <div class="flex flex-col w-full gap-3 xl:gap-5 mb-8">
+                        <a href="?showForm=y" class="w-full xl:w-[450px]">
+                            <button
+                                class="flex items-center justify-between w-full bg-[#FAF0DC] border border-[#e8ddd0] hover:border-orange transition-all p-4 md:p-5 rounded-xl group">
+                                <span class="text-ink text-sm md:text-base xl:text-lg font-font-medium">Book a
+                                    meeting</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                    viewBox="0 0 256 256"
+                                    class="text-[#464646] group-hover:text-orange transition-colors">
                                     <path
                                         d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z">
                                     </path>
                                 </svg>
-                            </button></a><a href="#contact-faq"><button
-                                class="inline-flex items-center mt-2 gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border-2 border-input hover:bg-accent hover:text-accent-foreground py-2 bg-[#FAF0DC] rounded-lg tracking-[0.3px] h-11 px-3 w-full xl:rounded-xl xl:mb-0 xl:mt-0 justify-start xl:px-6 xl:w-[450px] xl:h-[68px]">
-                                <p class="text-[#464646] leading-8 tracking-[0.18px] text-xs xl:text-lg font-medium">
-                                    Read frequently asked questions</p><svg xmlns="http://www.w3.org/2000/svg"
-                                    width="20" height="20" fill="currentColor" viewBox="0 0 256 256"
-                                    class="text-[#464646] ml-auto">
+                            </button>
+                        </a>
+                        <a href="#faqs" class="w-full xl:w-[450px]">
+                            <button
+                                class="flex items-center justify-between w-full bg-[#FAF0DC] border border-[#e8ddd0] hover:border-orange transition-all p-4 md:p-5 rounded-xl group">
+                                <span class="text-ink text-sm md:text-base xl:text-lg font-font-medium">Read frequently
+                                    asked questions</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                    viewBox="0 0 256 256"
+                                    class="text-[#464646] group-hover:text-orange transition-colors">
                                     <path
                                         d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z">
                                     </path>
                                 </svg>
-                            </button></a></div>
-                    <div class="flex flex-col xl:flex-row justify-start xl:gap-5 gap-2 w-full xl:mt-5"><a
-                            class="border-b border-gray-200 pb-2 xl:border-b-0"
-                            href="mailTo: abbas@hyderabadconstructions.in">
+                            </button>
+                        </a>
+                    </div>
+                    <div
+                        class="flex flex-col md:flex-row items-start gap-6 md:gap-10 w-full pt-6 border-t border-border/50">
+                        <a href="mailto:abbas@hyderabadconstructions.in" class="group">
+                            <p class="text-[#70737A] text-xs uppercase tracking-widest font-bold mb-1">Email us</p>
                             <p
-                                class="text-[#70737A] text-xs xl:text-base font-medium xl:mt-2 leading-6 tracking-[0.36px]">
-                                Email us</p>
-                            <p class="leading-[20px] text-xs xl:text-lg font-medium">abbas@hyderabadconstructions.in</p>
-                        </a><a class="border-gray-200 xl:pl-5 xl:border-l-2 pb-2" href="tel: +919703879886">
+                                class="text-ink text-sm md:text-base xl:text-lg font-font-medium group-hover:text-orange transition-colors">
+                                abbas@hyderabadconstructions.in</p>
+                        </a>
+                        <a href="tel:+919703879886" class="group">
+                            <p class="text-[#70737A] text-xs uppercase tracking-widest font-bold mb-1">Call us</p>
                             <p
-                                class="text-[#70737A] text-xs xl:text-base font-medium xl:mt-2 leading-6 tracking-[0.36px]">
-                                Call us</p>
-                            <p class="leading-[20px] text-xs xl:text-lg font-medium">+91 97038 79886 <br>Mon-Sat, 10 AM
-                                to 6
-                                PM</p>
-                        </a></div>
+                                class="text-ink text-sm md:text-base xl:text-lg font-font-medium group-hover:text-orange transition-colors">
+                                +91 97038 79886</p>
+                            <p class="text-muted text-xs mt-1">Mon-Sat, 10 AM to 6 PM</p>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- ===================== ANY QUERIES FORM ===================== -->
     <section class="w-full bg-[#F6F5EF] px-6 md:px-12 xl:px-32 py-16 md:py-20" id="book-meeting">
@@ -661,9 +676,12 @@
 
             <!-- View more -->
             <div class="text-center mt-10">
-                <button
-                    class="border border-ink text-ink font-medium py-3 px-10 rounded-xl hover:bg-ink hover:text-white transition-colors cursor-pointer bg-transparent">View
-                    more</button>
+                <a href="faqs.html">
+                    <button
+                        class="border border-ink text-ink font-medium py-3 px-10 rounded-xl hover:bg-ink hover:text-white transition-colors cursor-pointer bg-transparent">
+                        View more
+                    </button>
+                </a>
             </div>
         </div>
     </section>
@@ -788,33 +806,52 @@
 
     <!-- ===================== CTA / FORM ===================== -->
     <section class="w-full px-6 md:px-12 xl:px-32 py-16 md:py-20 text-center"
-        style="background:linear-gradient(160deg,#fdf0e6 0%,#fce4d0 100%);">
+        style="background: linear-gradient(160deg, #fdf0e6 0%, #fce4d0 100%);">
+
         <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-3">You Dream. We Deliver.</h2>
         <p class="text-base text-muted max-w-xl mx-auto mb-10 leading-relaxed">Ready to build your dream home? Schedule
             a free consultation today and begin the journey of turning your dream into reality.</p>
+
         <div class="bg-white max-w-3xl mx-auto rounded-2xl p-7 md:p-8 border border-border shadow-md text-left">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-3.5">
-                <div class="flex flex-col gap-1.5">
-                    <label class="text-sm text-muted font-medium">Full name</label>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                <div class="relative">
+                    <label
+                        class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
+                        Full name
+                    </label>
                     <input type="text" placeholder="Full name"
-                        class="border border-border rounded-lg px-3 py-2.5 text-sm text-ink outline-none transition-colors" />
+                        class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-300 transition-all placeholder-slate-300" />
                 </div>
-                <div class="flex flex-col gap-1.5">
-                    <label class="text-sm text-muted font-medium">Email</label>
+
+                <div class="relative">
+                    <label
+                        class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
+                        Email
+                    </label>
                     <input type="email" placeholder="Email"
-                        class="border border-border rounded-lg px-3 py-2.5 text-sm text-ink outline-none transition-colors" />
+                        class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-300 transition-all placeholder-slate-300" />
                 </div>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-3.5">
-                <div class="flex flex-col gap-1.5">
-                    <label class="text-sm text-muted font-medium">Mobile Number</label>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                <div class="relative">
+                    <label
+                        class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
+                        Mobile Number
+                    </label>
                     <input type="tel" placeholder="Mobile Number"
-                        class="border border-border rounded-lg px-3 py-2.5 text-sm text-ink outline-none transition-colors" />
+                        class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-300 transition-all placeholder-slate-300" />
                 </div>
-                <div class="flex flex-col gap-1.5">
-                    <label class="text-sm text-muted font-medium">Choose City</label>
+
+                <div class="relative flex items-center">
+                    <label
+                        class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
+                        Choose City
+                    </label>
                     <select
-                        class="border border-border rounded-lg px-3 py-2.5 text-sm text-ink outline-none transition-colors bg-white cursor-pointer appearance-none">
+                        class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none bg-white appearance-none cursor-pointer focus:border-orange-300 transition-all">
+                        <option>Choose City</option>
                         <option>Hyderabad</option>
                         <option>Bangalore</option>
                         <option>Mumbai</option>
@@ -823,34 +860,57 @@
                         <option>Kochi</option>
                         <option>Pune</option>
                     </select>
+                    <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none flex items-center">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </div>
                 </div>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-3.5">
-                <div class="flex flex-col gap-1.5">
-                    <label class="text-sm text-muted font-medium">I need to start construction in</label>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                <div class="relative flex items-center">
+                    <label
+                        class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
+                        I want to start construction in
+                    </label>
                     <select
-                        class="border border-border rounded-lg px-3 py-2.5 text-sm text-ink outline-none transition-colors bg-white cursor-pointer appearance-none">
+                        class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none bg-white appearance-none cursor-pointer focus:border-orange-300 transition-all">
                         <option>0–3 months</option>
                         <option>3–6 months</option>
                         <option>6–12 months</option>
                         <option>More than 12 months</option>
                     </select>
+                    <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none flex items-center">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </div>
                 </div>
-                <div class="flex flex-col gap-1.5">
-                    <label class="text-sm text-muted font-medium">Do you own a plot of land?</label>
-                    <div class="flex gap-5 items-center mt-2">
-                        <label class="flex items-center gap-1.5 text-sm text-ink cursor-pointer"><input type="radio"
-                                name="plot" value="yes" class="accent-orange" /> Yes</label>
-                        <label class="flex items-center gap-1.5 text-sm text-ink cursor-pointer"><input type="radio"
-                                name="plot" value="no" class="accent-orange" /> No</label>
+
+                <div class="flex items-center gap-4 pt-1">
+                    <span class="text-[14px] text-slate-700">Do you own a plot of land?</span>
+                    <div class="flex items-center gap-4">
+                        <label class="flex items-center gap-1.5 text-sm text-slate-700 cursor-pointer">
+                            <input type="radio" name="land" class="w-5 h-5 accent-[#ffb380]" /> Yes
+                        </label>
+                        <label class="flex items-center gap-1.5 text-sm text-slate-700 cursor-pointer">
+                            <input type="radio" name="land" class="w-5 h-5 accent-[#ffb380]" /> No
+                        </label>
                     </div>
                 </div>
             </div>
+
             <div class="flex items-center gap-2 mb-5 mt-1">
                 <input type="checkbox" id="agree" class="w-4 h-4 accent-orange cursor-pointer" />
-                <span class="text-xs text-muted">I agree to <a href="#" class="text-orange underline">Privacy Policy</a>
-                    and <a href="#" class="text-orange underline">Terms &amp; Conditions</a></span>
+                <span class="text-xs text-muted">I agree to <a href="privacy-policy.html"
+                        class="text-orange underline">Privacy Policy</a>
+                    and <a href="terms-and-conditions.html" class="text-orange underline">Terms &amp;
+                        Conditions</a></span>
             </div>
+
             <div class="text-center">
                 <button
                     class="bg-orange text-white font-semibold py-3 px-7 rounded-lg hover:bg-orange-dark transition-colors cursor-pointer border-0">Book
@@ -917,8 +977,10 @@
             </div>
             <div>
                 <h4 class="text-[11px] uppercase tracking-widest mb-4 font-semibold">Legal</h4>
-                <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Terms &amp; Conditions</a>
-                <a href="#" class="block text-sm hover:text-white transition-colors">Privacy policy</a>
+                <a href="terms-and-conditions.html"
+                    class="block text-sm mb-2.5 hover:text-white transition-colors">Terms &amp; Conditions</a>
+                <a href="privacy-policy.html" class="block text-sm hover:text-white transition-colors">Privacy
+                    policy</a>
             </div>
         </div>
         <div class="border-t border-[#222] mt-10 pt-5 text-center text-sm max-w-7xl mx-auto">
