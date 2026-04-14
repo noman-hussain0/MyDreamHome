@@ -7,12 +7,7 @@
     <title>How it works – XYZ Homes</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="./NeueMontreal-Regular.otf" rel="stylesheet" />
-    <style>
-        @font-face {
-            font-family: 'Neue Montreal';
-            src: url('./NeueMontreal-Regular.otf') format('opentype');
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
     <script>
         tailwind.config = {
             theme: {
@@ -35,34 +30,6 @@
         }
     </script>
     <style>
-        body {
-            font-family: 'Neue Montreal', sans-serif;
-            letter-spacing: 0.5px !important;
-        }
-
-        @keyframes dropIn {
-            from {
-                opacity: 0;
-                transform: translateX(-50%) translateY(-6px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateX(-50%) translateY(0);
-            }
-        }
-
-        .dropdown-open {
-            animation: dropIn .18s ease;
-        }
-
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         .step-card {
             opacity: 0;
             transform: translateY(20px);
@@ -91,69 +58,6 @@
 
         .step-card:nth-child(11) {
             animation-delay: .6s;
-        }
-
-        #mobileNav {
-            transform: translateX(100%);
-            transition: transform .3s cubic-bezier(.4, 0, .2, 1);
-        }
-
-        #mobileNav.open {
-            transform: translateX(0);
-        }
-
-        .bar {
-            display: block;
-            height: 2px;
-            background: #1a1a1a;
-            border-radius: 2px;
-            transition: transform .3s, opacity .3s, width .3s;
-            transform-origin: center;
-        }
-
-        .bar-1 {
-            width: 22px;
-        }
-
-        .bar-2 {
-            width: 16px;
-        }
-
-        .bar-3 {
-            width: 22px;
-        }
-
-        #hamburger.active .bar-1 {
-            width: 22px;
-            transform: translateY(7px) rotate(45deg);
-        }
-
-        #hamburger.active .bar-2 {
-            opacity: 0;
-            transform: scaleX(0);
-        }
-
-        #hamburger.active .bar-3 {
-            width: 22px;
-            transform: translateY(-7px) rotate(-45deg);
-        }
-
-        #mobileMoreItems {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height .3s ease;
-        }
-
-        #mobileMoreItems.open {
-            max-height: 400px;
-        }
-
-        #mobileMoreChevron {
-            transition: transform .25s;
-        }
-
-        #mobileMoreBtn.open #mobileMoreChevron {
-            transform: rotate(180deg);
         }
 
         .step-icon-svg {
@@ -199,7 +103,7 @@
                     <a href="about-us.html"
                         class="flex items-center gap-2.5 px-4 py-2.5 text-ink hover:bg-cream hover:text-orange transition-colors">About
                         us</a>
-                    <a href="#"
+                    <a href="join-as-architect.html"
                         class="flex items-center gap-2.5 px-4 py-2.5 text-ink hover:bg-cream hover:text-orange transition-colors">Join
                         as Architect</a>
                     <a href="faqs.html"
@@ -253,7 +157,7 @@
                 us <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
                     <polyline points="9 18 15 12 9 6" />
                 </svg></a>
-            <a href="#"
+            <a href="join-as-architect.html"
                 class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">Join
                 as Architect <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
                     <polyline points="9 18 15 12 9 6" />
@@ -592,7 +496,8 @@
                 <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Cost estimator</a>
                 <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Testimonials</a>
                 <!-- <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Blogs &amp; articles</a> -->
-                <a href="#" class="block text-sm hover:text-white transition-colors">Join as Architect</a>
+                <a href="join-as-architect.html" class="block text-sm hover:text-white transition-colors">Join as
+                    Architect</a>
             </div>
             <div>
                 <h4 class="text-[11px] uppercase tracking-widest mb-4 font-semibold">Support</h4>
@@ -613,34 +518,7 @@
         </div>
     </footer>
 
-    <script>
-        function toggleMore(e) {
-            e.stopPropagation();
-            const menu = document.getElementById('dropdownMenu');
-            const chevron = document.getElementById('moreChevron');
-            const isHidden = menu.classList.contains('hidden');
-            menu.classList.toggle('hidden', !isHidden);
-            if (isHidden) menu.classList.add('dropdown-open');
-            chevron.style.transform = isHidden ? 'rotate(180deg)' : '';
-        }
-        document.addEventListener('click', () => {
-            document.getElementById('dropdownMenu').classList.add('hidden');
-            document.getElementById('moreChevron').style.transform = '';
-        });
-
-        function toggleMobileNav() {
-            const nav = document.getElementById('mobileNav');
-            const burger = document.getElementById('hamburger');
-            const isOpen = nav.classList.toggle('open');
-            burger.classList.toggle('active', isOpen);
-            document.body.style.overflow = isOpen ? 'hidden' : '';
-        }
-
-        function toggleMobileMore() {
-            document.getElementById('mobileMoreBtn').classList.toggle('open');
-            document.getElementById('mobileMoreItems').classList.toggle('open');
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>

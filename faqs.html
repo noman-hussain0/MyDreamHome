@@ -7,13 +7,6 @@
     <title>FAQs – JSW One Homes</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-    <style>
-        @font-face {
-            font-family: 'Neue Montreal';
-            src: url('./NeueMontreal-Regular.otf') format('opentype');
-        }
-    </style>
     <script>
         tailwind.config = {
             theme: {
@@ -36,91 +29,6 @@
         }
     </script>
     <style>
-        body {
-            font-family: 'Neue Montreal', sans-serif;
-            letter-spacing: 0.5px !important;
-        }
-
-        @keyframes dropIn {
-            from {
-                opacity: 0;
-                transform: translateX(-50%) translateY(-6px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateX(-50%) translateY(0);
-            }
-        }
-
-        .dropdown-open {
-            animation: dropIn .18s ease;
-        }
-
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-up {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeUp .5s ease forwards;
-        }
-
-        .fade-up-delay-1 {
-            animation-delay: .1s;
-        }
-
-
-        /* Mobile nav */
-        #mobileNav {
-            transform: translateX(100%);
-            transition: transform .3s cubic-bezier(.4, 0, .2, 1);
-        }
-
-        #mobileNav.open {
-            transform: translateX(0);
-        }
-
-        .bar {
-            display: block;
-            height: 2px;
-            background: #1a1a1a;
-            border-radius: 2px;
-            transition: transform .3s, opacity .3s, width .3s;
-            transform-origin: center;
-        }
-
-        .bar-1 {
-            width: 22px;
-        }
-
-        .bar-2 {
-            width: 16px;
-        }
-
-        .bar-3 {
-            width: 22px;
-        }
-
-        #hamburger.active .bar-1 {
-            width: 22px;
-            transform: translateY(7px) rotate(45deg);
-        }
-
-        #hamburger.active .bar-2 {
-            opacity: 0;
-            transform: scaleX(0);
-        }
-
-        #hamburger.active .bar-3 {
-            width: 22px;
-            transform: translateY(-7px) rotate(-45deg);
-        }
-
         /* Category pills */
         .cat-pill {
             border: 1px solid #c8c3b8;
@@ -167,14 +75,6 @@
         .faq-row.open .faq-plus {
             transform: rotate(45deg);
         }
-
-
-        /* ---- Form ---- */
-        input:focus,
-        select:focus {
-            border-color: #e07b39 !important;
-            outline: none;
-        }
     </style>
 </head>
 
@@ -209,7 +109,7 @@
                     <a href="about-us.html"
                         class="flex items-center gap-2.5 px-4 py-2.5 text-ink hover:bg-cream hover:text-orange transition-colors">About
                         us</a>
-                    <a href="#"
+                    <a href="join-as-architect.html"
                         class="flex items-center gap-2.5 px-4 py-2.5 text-ink hover:bg-cream hover:text-orange transition-colors">Join
                         as Architect</a>
                     <a href="#"
@@ -264,7 +164,7 @@
                 us <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
                     <polyline points="9 18 15 12 9 6" />
                 </svg></a>
-            <a href="#"
+            <a href="join-as-architect.html"
                 class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">Join
                 as Architect <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
                     <polyline points="9 18 15 12 9 6" />
@@ -1246,7 +1146,8 @@
                 <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Cost estimator</a>
                 <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Testimonials</a>
                 <!-- <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Blogs &amp; articles</a> -->
-                <a href="#" class="block text-sm hover:text-white transition-colors">Join as Architect</a>
+                <a href="join-as-architect.html" class="block text-sm hover:text-white transition-colors">Join as
+                    Architect</a>
             </div>
             <div>
                 <h4 class="text-[11px] uppercase tracking-widest mb-4 font-semibold">Support</h4>
@@ -1266,29 +1167,8 @@
             &copy; 2026 JSW One Homes. All rights reserved.
         </div>
     </footer>
-
+    <script src="script.js"></script>
     <script>
-        /* ── Nav ── */
-        function toggleMore(e) {
-            e.stopPropagation();
-            const menu = document.getElementById('dropdownMenu');
-            const chevron = document.getElementById('moreChevron');
-            const isHidden = menu.classList.contains('hidden');
-            menu.classList.toggle('hidden', !isHidden);
-            if (isHidden) menu.classList.add('dropdown-open');
-            chevron.style.transform = isHidden ? 'rotate(180deg)' : '';
-        }
-        document.addEventListener('click', () => {
-            document.getElementById('dropdownMenu').classList.add('hidden');
-            document.getElementById('moreChevron').style.transform = '';
-        });
-        function toggleMobileNav() {
-            const nav = document.getElementById('mobileNav');
-            const burger = document.getElementById('hamburger');
-            const isOpen = nav.classList.toggle('open');
-            burger.classList.toggle('active', isOpen);
-            document.body.style.overflow = isOpen ? 'hidden' : '';
-        }
 
         /* ── FAQ accordion ── */
         function toggleFaq(rowEl) {

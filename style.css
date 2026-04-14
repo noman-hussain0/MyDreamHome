@@ -1,0 +1,247 @@
+/* =============================================================
+   style.css — Shared styles for JSW One Homes
+   Covers: Font, Body, Navbar, Mobile Nav, Carousel, Gallery,
+           Centre Card, Badge, Form, CTA Section, Footer,
+           Animations, Utility classes
+   ============================================================= */
+
+/* ---- Font ---- */
+@font-face {
+    font-family: 'Neue Montreal';
+    src: url('./NeueMontreal-Regular.otf') format('opentype');
+}
+
+/* ---- Base ---- */
+body {
+    font-family: 'Neue Montreal', sans-serif;
+    letter-spacing: 0.5px !important;
+}
+
+/* ---- Animations ---- */
+@keyframes dropIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.dropdown-open {
+    animation: dropIn .18s ease;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp .5s ease forwards;
+}
+
+.fade-up-delay-1 {
+    animation-delay: .1s;
+}
+
+.fade-up-delay-2 {
+    animation-delay: .2s;
+}
+
+.fade-up-delay-3 {
+    animation-delay: .3s;
+}
+
+/* ---- Mobile Nav ---- */
+#mobileNav {
+    transform: translateX(100%);
+    transition: transform .3s cubic-bezier(.4, 0, .2, 1);
+}
+
+#mobileNav.open {
+    transform: translateX(0);
+}
+
+.bar {
+    display: block;
+    height: 2px;
+    background: #1a1a1a;
+    border-radius: 2px;
+    transition: transform .3s, opacity .3s, width .3s;
+    transform-origin: center;
+}
+
+.bar-1 {
+    width: 22px;
+}
+
+.bar-2 {
+    width: 16px;
+}
+
+.bar-3 {
+    width: 22px;
+}
+
+#hamburger.active .bar-1 {
+    width: 22px;
+    transform: translateY(7px) rotate(45deg);
+}
+
+#hamburger.active .bar-2 {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+#hamburger.active .bar-3 {
+    width: 22px;
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ---- Hero background ---- */
+/* .hero-bg {
+    background: linear-gradient(135deg, #fdf6ee 0%, #fce8d5 50%, #f9dfc8 100%);
+} */
+
+/* ---- Gallery carousel ---- */
+.gallery-track {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+}
+
+.gallery-track::-webkit-scrollbar {
+    display: none;
+}
+
+.gallery-slide {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+/* ---- Shared carousel (testimonials & experience centres) ---- */
+.carousel-track {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+    scroll-padding-left: 0px;
+    padding-bottom: 10px;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-slide {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+}
+
+/* ---- Carousel nav buttons ---- */
+.carousel-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid #ddd8ce;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background .2s, border-color .2s;
+    flex-shrink: 0;
+}
+
+.carousel-btn:hover {
+    background: #e07b39;
+    border-color: #e07b39;
+}
+
+.carousel-btn svg {
+    stroke: #1a1a1a;
+    fill: none;
+    stroke-width: 2;
+    transition: stroke .2s;
+}
+
+.carousel-btn:hover svg {
+    stroke: #fff;
+}
+
+/* ---- Experience centre card ---- */
+.centre-card {
+    transition: box-shadow .2s;
+}
+
+.centre-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .1);
+}
+
+/* ---- Section badge ---- */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff3eb;
+    border: 1px solid #f0c9a8;
+    color: #c96b2a;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 99px;
+    margin-bottom: 12px;
+}
+
+
+
+/* ---- Form ---- */
+input:focus,
+select:focus {
+    border-color: #e07b39 !important;
+    outline: none;
+}
+
+.check-icon {
+    color: #e07b39;
+}
+
+
+/* FAQ accordion */
+.faq-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease, opacity .2s ease;
+    opacity: 0;
+}
+
+.faq-body.open {
+    max-height: 300px;
+    opacity: 1;
+}
+
+.faq-chevron {
+    transition: transform .25s;
+}
+
+.faq-row.open .faq-chevron {
+    transform: rotate(45deg);
+}
