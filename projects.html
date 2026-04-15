@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Projects – JSW One Homes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#f5f3ec',
+                        sand: '#ede9df',
+                        orange: '#e07b39',
+                        'orange-dark': '#c96b2a',
+                        ink: '#1a1a1a',
+                        muted: '#6b6b6b',
+                        border: '#ddd8ce',
+                    },
+                    fontFamily: {
+                        sans: ['Neue Montreal', 'sans-serif'],
+                        display: ['Neue Montreal', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* ---- Card animation ---- */
+        .proj-card-anim {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp .45s ease forwards;
+        }
+
+        /* ---- Filter collapse (desktop sidebar) ---- */
+        .filter-body {
+            overflow: hidden;
+            transition: max-height .3s ease;
+        }
+
+        .filter-body.collapsed {
+            max-height: 0 !important;
+        }
+
+        .filter-chevron {
+            transition: transform .25s;
+        }
+
+        .filter-btn.collapsed .filter-chevron {
+            transform: rotate(180deg);
+        }
+
+        /* ---- Reset btn spin ---- */
+        .reset-spin {
+            transition: transform .3s;
+        }
+
+        .reset-spin:hover {
+            transform: rotate(-180deg);
+        }
+
+        /* ---- Project card ---- */
+        .proj-card {
+            transition: box-shadow .25s ease, transform .25s ease;
+        }
+
+        .proj-card:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, .12);
+            transform: translateY(-3px);
+        }
+
+        /* ---- Detail view ---- */
+        #projDetailView {
+            display: none;
+        }
+
+        #projDetailView.active {
+            display: block;
+        }
+
+        /* ============================================================
+           MOBILE FILTER BOTTOM SHEET
+           ============================================================ */
+
+        /* Overlay behind the sheet */
+        #filterOverlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 40;
+        }
+
+        #filterOverlay.open {
+            display: block;
+        }
+
+        /* The sheet itself slides up from the bottom */
+        #filterSheet {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 50;
+            background: #fff;
+            border-radius: 20px 20px 0 0;
+            transform: translateY(100%);
+            transition: transform .32s cubic-bezier(.4, 0, .2, 1);
+            max-height: 88vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #filterSheet.open {
+            transform: translateY(0);
+        }
+
+        /* Drag handle */
+        .sheet-handle {
+            width: 40px;
+            height: 4px;
+            background: #ddd8ce;
+            border-radius: 2px;
+            margin: 12px auto 4px;
+            flex-shrink: 0;
+        }
+
+        /* Sheet header */
+        .sheet-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 20px 12px;
+            border-bottom: 1px solid #ddd8ce;
+            flex-shrink: 0;
+        }
+
+        /* Scrollable filter content inside sheet */
+        #filterSheetContent {
+            overflow-y: auto;
+            flex: 1;
+            padding: 0 20px 20px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Mobile filter group toggle */
+        .mobile-filter-grp {
+            border-bottom: 1px solid #ddd8ce;
+        }
+
+        .mobile-filter-grp-btn {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0;
+            background: transparent;
+            border: 0;
+            font-family: 'Neue Montreal', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a1a;
+            cursor: pointer;
+            letter-spacing: 0.4px;
+        }
+
+        .mobile-grp-chevron {
+            transition: transform .25s;
+        }
+
+        .mobile-filter-grp-btn.collapsed .mobile-grp-chevron {
+            transform: rotate(180deg);
+        }
+
+        .mobile-filter-grp-body {
+            overflow: hidden;
+            transition: max-height .28s ease, opacity .2s ease;
+            opacity: 1;
+        }
+
+        .mobile-filter-grp-body.collapsed {
+            max-height: 0 !important;
+            opacity: 0;
+        }
+
+        /* Chip-style checkboxes inside sheet */
+        .filter-chip {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 14px;
+            border: 1px solid #ddd8ce;
+            border-radius: 99px;
+            font-size: 13px;
+            color: #1a1a1a;
+            cursor: pointer;
+            transition: background .15s, border-color .15s, color .15s;
+            user-select: none;
+            background: #fff;
+        }
+
+        .filter-chip input {
+            display: none;
+        }
+
+        .filter-chip.checked {
+            background: #1a1a1a;
+            border-color: #1a1a1a;
+            color: #fff;
+        }
+
+        /* Active filter count badge on toggle button */
+        .filter-badge {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: #e07b39;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            min-width: 18px;
+            height: 18px;
+            border-radius: 99px;
+            padding: 0 4px;
+            margin-left: 6px;
+        }
+
+        .filter-badge.visible {
+            display: inline-flex;
+        }
+
+        /* Apply button at sheet bottom */
+        #filterApplyBtn {
+            flex-shrink: 0;
+            padding: 14px 20px;
+            border-top: 1px solid #ddd8ce;
+        }
+    </style>
+</head>
+
+<body class="bg-cream text-ink">
+
+
+    <!-- ===================== NAV ===================== -->
+    <nav
+        class="bg-[#FCFCF7] sticky top-0 z-50 px-6 min-[1201px]:px-32 h-20 flex items-center justify-between border-b border-border">
+
+        <div class="flex items-center gap-2 flex-shrink-0">
+            <a href="index.html" class="block">
+                <img src="images/logo.jpeg" alt="Hyderabad Constructions Logo" class="h-12 w-auto object-contain">
+            </a>
+        </div>
+
+        <div class="hidden min-[1201px]:flex items-center gap-7 lg:gap-9">
+            <a href="#" class="text-ink hover:text-orange transition-colors">Our projects</a>
+            <a href="how-it-works.html" class="text-ink hover:text-orange transition-colors">How it works</a>
+            <a href="#" class="text-ink hover:text-orange transition-colors">Testimonials</a>
+            <a href="#" class="text-ink hover:text-orange transition-colors">Cost estimator</a>
+            <div class="relative" id="navMore">
+                <button onclick="toggleMore(event)"
+                    class="flex items-center gap-1 text-ink hover:text-orange transition-colors bg-transparent border-0 cursor-pointer p-0 font-sans">
+                    More
+                    <svg id="moreChevron" viewBox="0 0 24 24"
+                        class="w-3.5 h-3.5 stroke-current fill-none stroke-2 transition-transform duration-200">
+                        <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                </button>
+                <div id="dropdownMenu"
+                    class="hidden absolute top-[calc(100%+14px)] left-1/2 -translate-x-1/2 bg-white border border-border rounded-xl shadow-lg min-w-[200px] py-2 z-50">
+                    <a href="about-us.html"
+                        class="flex items-center gap-2.5 px-4 py-2.5 text-ink hover:bg-cream hover:text-orange transition-colors">About
+                        us</a>
+                    <a href="join-as-architect.html"
+                        class="flex items-center gap-2.5 px-4 py-2.5 text-ink hover:bg-cream hover:text-orange transition-colors">Join
+                        as Architect</a>
+                    <a href="faqs.html"
+                        class="flex items-center gap-2.5 px-4 py-2.5 text-ink hover:bg-cream hover:text-orange transition-colors">FAQs</a>
+                    <a href="contact-us.html"
+                        class="flex items-center gap-2.5 px-4 py-2.5 text-ink hover:bg-cream hover:text-orange transition-colors">Contact
+                        us</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hidden min-[1201px]:flex items-center gap-2.5">
+            <button
+                class="bg-orange border border-orange text-white px-5 py-1.5 rounded-xl hover:bg-orange-dark transition-colors cursor-pointer">Book
+                a meeting</button>
+        </div>
+
+        <button id="hamburger" onclick="toggleMobileNav()"
+            class="min-[1201px]:hidden flex flex-col justify-center items-start gap-[5px] w-9 h-9 bg-transparent border-0 cursor-pointer p-1 rounded-md hover:bg-cream transition-colors">
+            <span class="bar bar-1"></span><span class="bar bar-2"></span><span class="bar bar-3"></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Drawer -->
+
+    <div id="mobileNav"
+        class="min-[1201px]:hidden fixed top-20 left-0 right-0 bottom-0 bg-white z-40 overflow-y-auto border-t border-border">
+        <div class="py-4 pb-10">
+            <a href="#"
+                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">Our
+                projects <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
+                    <polyline points="9 18 15 12 9 6" />
+                </svg></a>
+            <a href="how-it-works.html"
+                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">How
+                it works <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
+                    <polyline points="9 18 15 12 9 6" />
+                </svg></a>
+            <a href="#"
+                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">Testimonials
+                <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
+                    <polyline points="9 18 15 12 9 6" />
+                </svg></a>
+            <a href="#"
+                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">Cost
+                estimator <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
+                    <polyline points="9 18 15 12 9 6" />
+                </svg></a>
+
+            <a href="about-us.html"
+                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">About
+                us <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
+                    <polyline points="9 18 15 12 9 6" />
+                </svg></a>
+            <a href="join-as-architect.html"
+                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">
+                Join as Architect <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
+                    <polyline points="9 18 15 12 9 6" />
+                </svg></a>
+            <a href="faqs.html"
+                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">FAQs
+                <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
+                    <polyline points="9 18 15 12 9 6" />
+                </svg></a>
+            <a href="contact-us.html"
+                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">Contact
+                us <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
+                    <polyline points="9 18 15 12 9 6" />
+                </svg></a>
+
+            <div class="px-6 pt-5 flex flex-col gap-3">
+                <!-- <button class="w-full border border-orange text-orange py-2.5 rounded-xl font-medium">Login</button> -->
+                <button
+                    class="w-full bg-orange text-white py-2.5 rounded-xl font-medium hover:bg-orange-dark transition-colors">Book
+                    a meeting</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== GALLERY PAGE ===================== -->
+    <div id="galleryPage" class="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-10 pt-8 pb-16">
+
+        <!-- Page title -->
+        <div class="mt-10 mb-10">
+            <h1 class="font-display text-3xl md:text-4xl font-semibold text-ink">Project gallery</h1>
+        </div>
+
+        <!-- ── MOBILE: Filter toggle pill (hidden on lg+) ── -->
+        <div class="lg:hidden mb-5">
+            <button id="mobileFilterBtn"
+                class="inline-flex items-center gap-2 bg-[#ede9df] hover:bg-[#e4ddd2] transition-colors rounded-2xl px-5 py-3.5 font-semibold text-ink text-sm cursor-pointer border-0 w-full">
+                <!-- filter icon -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0">
+                    <line x1="4" y1="6" x2="20" y2="6" />
+                    <line x1="8" y1="12" x2="16" y2="12" />
+                    <line x1="11" y1="18" x2="13" y2="18" />
+                </svg>
+                <span>Filters</span>
+                <span id="filterBadge" class="filter-badge">0</span>
+                <!-- chevron pushed to right -->
+                <svg class="ml-auto w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- ── MAIN LAYOUT ── -->
+        <div class="flex flex-col lg:flex-row gap-8 lg:gap-10 items-start">
+
+            <!-- ===== DESKTOP SIDEBAR (hidden on mobile) ===== -->
+            <aside class="hidden lg:block w-60 flex-shrink-0 bg-[#ede9df] rounded-2xl p-6 sticky top-24">
+                <div class="flex items-center justify-between mb-5">
+                    <span class="font-semibold text-ink text-base">Filters</span>
+                    <button id="resetFilters" title="Reset filters"
+                        class="reset-spin w-7 h-7 rounded-full flex items-center justify-center text-muted hover:bg-[#ddd8ce] hover:text-ink transition-all text-lg leading-none bg-transparent border-0 cursor-pointer">↺</button>
+                </div>
+
+                <!-- Cities -->
+                <div id="cityGroup" class="border-t border-border pt-0">
+                    <button data-group="city"
+                        class="filter-btn w-full flex items-center justify-between py-3.5 bg-transparent border-0 font-semibold text-ink text-sm cursor-pointer text-left font-sans">
+                        Cities
+                        <svg class="filter-chevron w-3.5 h-3.5 fill-none stroke-muted stroke-2" viewBox="0 0 24 24">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </button>
+                    <div class="filter-body flex flex-col gap-2.5 pb-3" style="max-height:400px;" id="cityBody">
+                        <label class="flex items-center gap-2.5 text-sm text-[#444] cursor-pointer select-none"><input
+                                type="checkbox" class="desk-cb w-4 h-4 accent-orange cursor-pointer flex-shrink-0"
+                                data-key="cities" value="Bellary" /> Bellary</label>
+                        <label class="flex items-center gap-2.5 text-sm text-[#444] cursor-pointer select-none"><input
+                                type="checkbox" class="desk-cb w-4 h-4 accent-orange cursor-pointer flex-shrink-0"
+                                data-key="cities" value="Bengaluru" /> Bengaluru</label>
+                        <label class="flex items-center gap-2.5 text-sm text-[#444] cursor-pointer select-none"><input
+                                type="checkbox" class="desk-cb w-4 h-4 accent-orange cursor-pointer flex-shrink-0"
+                                data-key="cities" value="Bhubaneswar" /> Bhubaneswar</label>
+                        <label class="flex items-center gap-2.5 text-sm text-[#444] cursor-pointer select-none"><input
+                                type="checkbox" class="desk-cb w-4 h-4 accent-orange cursor-pointer flex-shrink-0"
+                                data-key="cities" value="Chennai" /> Chennai</label>
+                        <label class="flex items-center gap-2.5 text-sm text-[#444] cursor-pointer select-none"><input
+                                type="checkbox" class="desk-cb w-4 h-4 accent-orange cursor-pointer flex-shrink-0"
+                                data-key="cities" value="Indore" /> Indore</label>
+                        <label class="flex items-center gap-2.5 text-sm text-[#444] cursor-pointer select-none"><input
+                                type="checkbox" class="desk-cb w-4 h-4 accent-orange cursor-pointer flex-shrink-0"
+                                data-key="cities" value="Kochi" /> Kochi</label>
+                        <label class="flex items-center gap-2.5 text-sm text-[#444] cursor-pointer select-none"><input
+                                type="checkbox" class="desk-cb w-4 h-4 accent-orange cursor-pointer flex-shrink-0"
+                                data-key="cities" value="Raipur" /> Raipur</label>
+                        <label class="flex items-center gap-2.5 text-sm text-[#444] cursor-pointer select-none"><input
+                                type="checkbox" class="desk-cb w-4 h-4 accent-orange cursor-pointer flex-shrink-0"
+                                data-key="cities" value="Nagpur" /> Nagpur</label>
+                        <label class="flex items-center gap-2.5 text-sm text-[#444] cursor-pointer select-none"><input
+                                type="checkbox" class="desk-cb w-4 h-4 accent-orange cursor-pointer flex-shrink-0"
+                                data-key="cities" value="Coimbatore" /> Coimbatore</label>
+                        <label class="flex items-center gap-2.5 text-sm text-[#444] cursor-pointer select-none"><input
+                                type="checkbox" class="desk-cb w-4 h-4 accent-orange cursor-pointer flex-shrink-0"
+                                data-key="cities" value="Hyderabad" /> Hyderabad</label>
+                        <label class="flex items-center gap-2.5 text-sm text-[#444] cursor-pointer select-none"><input
+                                type="checkbox" class="desk-cb w-4 h-4 accent-orange cursor-pointer flex-shrink-0"
+                                data-key="cities" value="Hubli" /> Hubli</label>
+                        <label class="flex items-center gap-2.5 text-sm text-[#444] cursor-pointer select-none"><input
+                                type="checkbox" class="desk-cb w-4 h-4 accent-orange cursor-pointer flex-shrink-0"
+                                data-key="cities" value="Pune" /> Pune</label>
+                    </div>
+                </div>
+
+                <!-- Floors -->
+                <div id="floorGroup" class="border-t border-border">
+                    <button data-group="floor"
+                        class="filter-btn w-full flex items-center justify-between py-3.5 bg-transparent border-0 font-semibold text-ink text-sm cursor-pointer text-left font-sans">
+                        Floors
+                        <svg class="filter-chevron w-3.5 h-3.5 fill-none stroke-muted stroke-2" viewBox="0 0 24 24">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </button>
+                    <div class="filter-body flex flex-col gap-2.5 pb-3" style="max-height:300px;" id="floorBody">
+                        <label class="flex items-center gap-2.5 text-sm text-[#444] cursor-pointer select-none"><input
+                                type="checkbox" class="desk-cb w-4 h-4 accent-orange cursor-pointer flex-shrink-0"
+                                data-key="floors" value="G+1" /> G+1</label>
+                        <label class="flex items-center gap-2.5 text-sm text-[#444] cursor-pointer select-none"><input
+                                type="checkbox" class="desk-cb w-4 h-4 accent-orange cursor-pointer flex-shrink-0"
+                                data-key="floors" value="G+2" /> G+2</label>
+                        <label class="flex items-center gap-2.5 text-sm text-[#444] cursor-pointer select-none"><input
+                                type="checkbox" class="desk-cb w-4 h-4 accent-orange cursor-pointer flex-shrink-0"
+                                data-key="floors" value="G+3" /> G+3</label>
+                        <label class="flex items-center gap-2.5 text-sm text-[#444] cursor-pointer select-none"><input
+                                type="checkbox" class="desk-cb w-4 h-4 accent-orange cursor-pointer flex-shrink-0"
+                                data-key="floors" value="G+4" /> G+4</label>
+                        <label class="flex items-center gap-2.5 text-sm text-[#444] cursor-pointer select-none"><input
+                                type="checkbox" class="desk-cb w-4 h-4 accent-orange cursor-pointer flex-shrink-0"
+                                data-key="floors" value="G+5" /> G+5</label>
+                    </div>
+                </div>
+
+                <!-- Plot Dimensions -->
+                <div id="plotGroup" class="border-t border-border">
+                    <button data-group="plot"
+                        class="filter-btn w-full flex items-center justify-between py-3.5 bg-transparent border-0 font-semibold text-ink text-sm cursor-pointer text-left font-sans">
+                        Plot dimensions
+                        <svg class="filter-chevron w-3.5 h-3.5 fill-none stroke-muted stroke-2" viewBox="0 0 24 24">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </button>
+                    <div class="filter-body flex flex-col gap-2.5 pb-3" style="max-height:300px;" id="plotBody">
+                        <label class="flex items-center gap-2.5 text-sm text-[#444] cursor-pointer select-none"><input
+                                type="checkbox" class="desk-cb w-4 h-4 accent-orange cursor-pointer flex-shrink-0"
+                                data-key="plots" value="20x40 sq.ft" /> 20×40 sq.ft</label>
+                        <label class="flex items-center gap-2.5 text-sm text-[#444] cursor-pointer select-none"><input
+                                type="checkbox" class="desk-cb w-4 h-4 accent-orange cursor-pointer flex-shrink-0"
+                                data-key="plots" value="30x40 sq.ft" /> 30×40 sq.ft</label>
+                        <label class="flex items-center gap-2.5 text-sm text-[#444] cursor-pointer select-none"><input
+                                type="checkbox" class="desk-cb w-4 h-4 accent-orange cursor-pointer flex-shrink-0"
+                                data-key="plots" value="30x50 sq.ft" /> 30×50 sq.ft</label>
+                        <label class="flex items-center gap-2.5 text-sm text-[#444] cursor-pointer select-none"><input
+                                type="checkbox" class="desk-cb w-4 h-4 accent-orange cursor-pointer flex-shrink-0"
+                                data-key="plots" value="30x60 sq.ft" /> 30×60 sq.ft</label>
+                        <label class="flex items-center gap-2.5 text-sm text-[#444] cursor-pointer select-none"><input
+                                type="checkbox" class="desk-cb w-4 h-4 accent-orange cursor-pointer flex-shrink-0"
+                                data-key="plots" value="40x50 sq.ft" /> 40×50 sq.ft</label>
+                        <label class="flex items-center gap-2.5 text-sm text-[#444] cursor-pointer select-none"><input
+                                type="checkbox" class="desk-cb w-4 h-4 accent-orange cursor-pointer flex-shrink-0"
+                                data-key="plots" value="40x60 sq.ft" /> 40×60 sq.ft</label>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- ===== MAIN GRID ===== -->
+            <div class="flex-1 min-w-0">
+                <div id="projGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 mb-8"></div>
+                <div id="projPagination" class="flex items-center justify-center gap-1.5 flex-wrap pb-4"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== MOBILE FILTER BOTTOM SHEET ===================== -->
+    <!-- Overlay -->
+    <div id="filterOverlay" onclick="closeFilterSheet()"></div>
+
+    <!-- Sheet -->
+    <div id="filterSheet" class="lg:hidden">
+        <div class="sheet-handle"></div>
+        <div class="sheet-header">
+            <span class="font-semibold text-ink text-base">Filters</span>
+            <div class="flex items-center gap-3">
+                <button id="resetFiltersMobile"
+                    class="text-sm text-muted hover:text-ink transition-colors bg-transparent border-0 cursor-pointer font-sans flex items-center gap-1">
+                    <span class="text-base">↺</span> Reset all
+                </button>
+                <button onclick="closeFilterSheet()"
+                    class="w-8 h-8 rounded-full bg-[#f0ece4] flex items-center justify-center cursor-pointer border-0 text-muted hover:text-ink transition-colors">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="filterSheetContent">
+
+            <!-- Cities group -->
+            <div class="mobile-filter-grp">
+                <button class="mobile-filter-grp-btn" data-mob-grp="mobCityBody">
+                    Cities
+                    <svg class="mobile-grp-chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                </button>
+                <div class="mobile-filter-grp-body pb-4" style="max-height:500px;" id="mobCityBody">
+                    <div class="flex flex-wrap gap-2">
+                        <label class="filter-chip"><input type="checkbox" class="mob-cb" data-key="cities"
+                                value="Bellary"> Bellary</label>
+                        <label class="filter-chip"><input type="checkbox" class="mob-cb" data-key="cities"
+                                value="Bengaluru"> Bengaluru</label>
+                        <label class="filter-chip"><input type="checkbox" class="mob-cb" data-key="cities"
+                                value="Bhubaneswar"> Bhubaneswar</label>
+                        <label class="filter-chip"><input type="checkbox" class="mob-cb" data-key="cities"
+                                value="Chennai"> Chennai</label>
+                        <label class="filter-chip"><input type="checkbox" class="mob-cb" data-key="cities"
+                                value="Indore"> Indore</label>
+                        <label class="filter-chip"><input type="checkbox" class="mob-cb" data-key="cities"
+                                value="Kochi"> Kochi</label>
+                        <label class="filter-chip"><input type="checkbox" class="mob-cb" data-key="cities"
+                                value="Raipur"> Raipur</label>
+                        <label class="filter-chip"><input type="checkbox" class="mob-cb" data-key="cities"
+                                value="Nagpur"> Nagpur</label>
+                        <label class="filter-chip"><input type="checkbox" class="mob-cb" data-key="cities"
+                                value="Coimbatore"> Coimbatore</label>
+                        <label class="filter-chip"><input type="checkbox" class="mob-cb" data-key="cities"
+                                value="Hyderabad"> Hyderabad</label>
+                        <label class="filter-chip"><input type="checkbox" class="mob-cb" data-key="cities"
+                                value="Hubli"> Hubli</label>
+                        <label class="filter-chip"><input type="checkbox" class="mob-cb" data-key="cities" value="Pune">
+                            Pune</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floors group -->
+            <div class="mobile-filter-grp">
+                <button class="mobile-filter-grp-btn" data-mob-grp="mobFloorBody">
+                    Floors
+                    <svg class="mobile-grp-chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                </button>
+                <div class="mobile-filter-grp-body pb-4" style="max-height:300px;" id="mobFloorBody">
+                    <div class="flex flex-wrap gap-2">
+                        <label class="filter-chip"><input type="checkbox" class="mob-cb" data-key="floors" value="G+1">
+                            G+1</label>
+                        <label class="filter-chip"><input type="checkbox" class="mob-cb" data-key="floors" value="G+2">
+                            G+2</label>
+                        <label class="filter-chip"><input type="checkbox" class="mob-cb" data-key="floors" value="G+3">
+                            G+3</label>
+                        <label class="filter-chip"><input type="checkbox" class="mob-cb" data-key="floors" value="G+4">
+                            G+4</label>
+                        <label class="filter-chip"><input type="checkbox" class="mob-cb" data-key="floors" value="G+5">
+                            G+5</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Plot dimensions group -->
+            <div class="mobile-filter-grp" style="border-bottom:none;">
+                <button class="mobile-filter-grp-btn" data-mob-grp="mobPlotBody">
+                    Plot dimensions
+                    <svg class="mobile-grp-chevron w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                </button>
+                <div class="mobile-filter-grp-body pb-4" style="max-height:300px;" id="mobPlotBody">
+                    <div class="flex flex-wrap gap-2">
+                        <label class="filter-chip"><input type="checkbox" class="mob-cb" data-key="plots"
+                                value="20x40 sq.ft"> 20×40</label>
+                        <label class="filter-chip"><input type="checkbox" class="mob-cb" data-key="plots"
+                                value="30x40 sq.ft"> 30×40</label>
+                        <label class="filter-chip"><input type="checkbox" class="mob-cb" data-key="plots"
+                                value="30x50 sq.ft"> 30×50</label>
+                        <label class="filter-chip"><input type="checkbox" class="mob-cb" data-key="plots"
+                                value="30x60 sq.ft"> 30×60</label>
+                        <label class="filter-chip"><input type="checkbox" class="mob-cb" data-key="plots"
+                                value="40x50 sq.ft"> 40×50</label>
+                        <label class="filter-chip"><input type="checkbox" class="mob-cb" data-key="plots"
+                                value="40x60 sq.ft"> 40×60</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Apply button -->
+        <div id="filterApplyBtn">
+            <button onclick="closeFilterSheet()"
+                class="w-full bg-orange text-white font-semibold py-3.5 rounded-xl hover:bg-orange-dark transition-colors cursor-pointer border-0">
+                Show results
+            </button>
+        </div>
+    </div>
+
+    <!-- ===== DETAIL VIEW ===== -->
+    <div id="projDetailView" class="max-w-[1320px] mx-auto px-6 lg:px-10 pt-8 pb-16">
+        <button onclick="hideDetail()"
+            class="inline-flex items-center gap-1.5 text-orange font-semibold text-sm mb-6 cursor-pointer hover:text-orange-dark transition-colors bg-transparent border-0 font-sans">
+            ‹ Back to projects
+        </button>
+        <div class="flex flex-col lg:flex-row gap-10 lg:gap-14 items-start">
+            <div id="detailInfo" class="w-full lg:w-72 flex-shrink-0"></div>
+            <div id="detailImgWrap" class="flex-1 w-full rounded-2xl overflow-hidden"></div>
+        </div>
+    </div>
+
+    <!-- ===================== CTA / FORM ===================== -->
+    <section class="w-full px-6 md:px-12 xl:px-32 py-16 md:py-20 text-center"
+        style="background: linear-gradient(160deg, #fdf0e6 0%, #fce4d0 100%);">
+
+        <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-3">You Dream. We Deliver.</h2>
+        <p class="text-base text-muted max-w-xl mx-auto mb-10 leading-relaxed">Ready to build your dream home? Schedule
+            a free consultation today and begin the journey of turning your dream into reality.</p>
+
+        <div class="bg-white max-w-3xl mx-auto rounded-2xl p-7 md:p-8 border border-border shadow-md text-left">
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                <div class="relative">
+                    <label
+                        class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
+                        Full name
+                    </label>
+                    <input type="text" placeholder="Full name"
+                        class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-300 transition-all placeholder-slate-300" />
+                </div>
+
+                <div class="relative">
+                    <label
+                        class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
+                        Email
+                    </label>
+                    <input type="email" placeholder="Email"
+                        class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-300 transition-all placeholder-slate-300" />
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                <div class="relative">
+                    <label
+                        class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
+                        Mobile Number
+                    </label>
+                    <input type="tel" placeholder="Mobile Number"
+                        class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-300 transition-all placeholder-slate-300" />
+                </div>
+
+                <div class="relative flex items-center">
+                    <label
+                        class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
+                        Choose City
+                    </label>
+                    <select
+                        class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none bg-white appearance-none cursor-pointer focus:border-orange-300 transition-all">
+                        <option>Choose City</option>
+                        <option>Hyderabad</option>
+                        <option>Bangalore</option>
+                        <option>Mumbai</option>
+                        <option>Delhi NCR</option>
+                        <option>Chennai</option>
+                        <option>Kochi</option>
+                        <option>Pune</option>
+                    </select>
+                    <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none flex items-center">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                <div class="relative flex items-center">
+                    <label
+                        class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
+                        I want to start construction in
+                    </label>
+                    <select
+                        class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none bg-white appearance-none cursor-pointer focus:border-orange-300 transition-all">
+                        <option>0–3 months</option>
+                        <option>3–6 months</option>
+                        <option>6–12 months</option>
+                        <option>More than 12 months</option>
+                    </select>
+                    <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none flex items-center">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 9l6 6 6-6"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4 pt-1">
+                    <span class="text-[14px] text-slate-700">Do you own a plot of land?</span>
+                    <div class="flex items-center gap-4">
+                        <label class="flex items-center gap-1.5 text-sm text-slate-700 cursor-pointer">
+                            <input type="radio" name="land" class="w-5 h-5 accent-[#ffb380]" /> Yes
+                        </label>
+                        <label class="flex items-center gap-1.5 text-sm text-slate-700 cursor-pointer">
+                            <input type="radio" name="land" class="w-5 h-5 accent-[#ffb380]" /> No
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2 mb-5 mt-1">
+                <input type="checkbox" id="agree" class="w-4 h-4 accent-orange cursor-pointer" />
+                <span class="text-xs text-muted">I agree to <a href="privacy-policy.html"
+                        class="text-orange underline">Privacy Policy</a>
+                    and <a href="terms-and-conditions.html" class="text-orange underline">Terms &amp;
+                        Conditions</a></span>
+            </div>
+
+            <div class="text-center">
+                <button
+                    class="bg-orange text-white font-semibold py-3 px-7 rounded-lg hover:bg-orange-dark transition-colors cursor-pointer border-0">Book
+                    a meeting</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="bg-[#111] text-[#aaa] px-6 md:px-12 xl:px-32 pt-12 pb-7 w-full">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 max-w-7xl mx-auto">
+            <div class="col-span-2 md:col-span-1">
+
+                <a href="index.html" class="inline-block">
+                    <img src="images/logo.jpeg" alt="Hyderabad Constructions Logo"
+                        class="h-16 w-auto object-contain mb-4">
+                </a>
+                <p class="text-sm leading-relaxed mt-3 max-w-[220px]">Browse ideas, explore options and book a meeting
+                    with our expert consultants to finalise your design.</p>
+                <p class="text-[10px] uppercase tracking-widest mt-4 mb-1.5">Get in touch</p>
+                <a href="www.hyderabadconstructions.in"
+                    class="text-orange text-sm block mb-1 hover:underline">www.hyderabadconstructions.in</a>
+                <a href="abbas@hyderabadconstructions.in"
+                    class="text-orange text-sm block mb-1 hover:underline">abbas@hyderabadconstructions.in</a>
+
+                <a href="tel:+919703879886" class="text-orange text-sm block hover:underline">+91 97038 79886</a>
+                <div class="flex gap-3 mt-4">
+                    <div
+                        class="w-8 h-8 border border-[#333] rounded-md flex items-center justify-center cursor-pointer hover:border-orange transition-colors">
+                        <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 fill-[#888]">
+                            <path
+                                d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 01-1.93.07 4.28 4.28 0 004 2.98 8.521 8.521 0 01-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z" />
+                        </svg>
+                    </div>
+                    <div
+                        class="w-8 h-8 border border-[#333] rounded-md flex items-center justify-center cursor-pointer hover:border-orange transition-colors">
+                        <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 fill-[#888]">
+                            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+                        </svg>
+                    </div>
+                    <div
+                        class="w-8 h-8 border border-[#333] rounded-md flex items-center justify-center cursor-pointer hover:border-orange transition-colors">
+                        <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 fill-none stroke-[#888] stroke-[1.5]">
+                            <rect x="2" y="2" width="20" height="20" rx="5" />
+                            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-[11px] uppercase tracking-widest mb-4 font-semibold">Company</h4>
+                <a href="about-us.html" class="block text-sm mb-2.5 hover:text-white transition-colors">About us</a>
+                <a href="how-it-works.html" class="block text-sm mb-2.5 hover:text-white transition-colors">How it
+                    works</a>
+                <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Our projects</a>
+                <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Cost estimator</a>
+                <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Testimonials</a>
+                <!-- <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Blogs &amp; articles</a> -->
+                <a href="join-as-architect.html" class="block text-sm hover:text-white transition-colors">Join as
+                    Architect</a>
+            </div>
+            <div>
+                <h4 class="text-[11px] uppercase tracking-widest mb-4 font-semibold">Support</h4>
+                <a href="contact-us.html" class="block text-sm mb-2.5 hover:text-white transition-colors">Contact us</a>
+                <a href="faqs.html" class="block text-sm mb-2.5 hover:text-white transition-colors">FAQs</a>
+                <a href="#" class="block text-sm hover:text-white transition-colors">Sitemap</a>
+            </div>
+            <div>
+                <h4 class="text-[11px] uppercase tracking-widest mb-4 font-semibold">Legal</h4>
+                <a href="terms-and-conditions.html"
+                    class="block text-sm mb-2.5 hover:text-white transition-colors">Terms &amp; Conditions</a>
+                <a href="privacy-policy.html" class="block text-sm hover:text-white transition-colors">Privacy
+                    policy</a>
+            </div>
+        </div>
+        <div class="border-t border-[#222] mt-10 pt-5 text-center text-sm max-w-7xl mx-auto">
+            &copy; 2026 JSW One Homes. All rights reserved.
+        </div>
+    </footer>
+    <script src="script.js"></script>
+
+    <script>
+        /* =============================================
+           DATA
+           ============================================= */
+        const ALL_PROJECTS = [
+            { id: 1, name: "Mr Afzal Khan's Residence", city: "Kochi", floors: "G+1", plot: "30x50 sq.ft", facing: "North", budget: "40-50L", desc: "", img: "https://storage.googleapis.com/public-homes-web-media-prod/Hero_Image_Mobile_7ac9626f02/Hero_Image_Mobile_7ac9626f02.webp" },
+            { id: 2, name: "Mr Lloyd Lopez's Residence", city: "Kochi", floors: "G+1", plot: "40x60 sq.ft", facing: "North", budget: "80-90L", desc: "", img: "https://storage.googleapis.com/public-homes-web-media-prod/website26_b34cf72ce5/website26_b34cf72ce5.webp" },
+            { id: 3, name: "Mr Harshit Pandey's Residence", city: "Nagpur", floors: "G+1", plot: "20x40 sq.ft", facing: "South", budget: "--", desc: "", img: "https://storage.googleapis.com/public-homes-web-media-prod/xba8q1miav8fmbryw8n8_cf06d0966b/xba8q1miav8fmbryw8n8_cf06d0966b.webp" },
+            { id: 4, name: "Mr Sreekanth Gunda's Residence", city: "Hyderabad", floors: "G+3", plot: "30x50 sq.ft", facing: "North", budget: "80-90L", desc: "", img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=700&q=80" },
+            { id: 5, name: "Mr. Vishwanathan's Residence", city: "Chennai", floors: "G+1", plot: "40x50 sq.ft", facing: "South", budget: "70-80L", desc: "It's a modern, minimal, thoughtfully designed home that blends practicality and style. This home keeps it class...", img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=700&q=80" },
+            { id: 6, name: "Mr. Toshi Daggar's Residence", city: "Raipur", floors: "G+2", plot: "30x40 sq.ft", facing: "West", budget: "--", desc: "", img: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=700&q=80" },
+            { id: 7, name: "Ms Kasina Shravya's Residence", city: "Hyderabad", floors: "G+2", plot: "40x60 sq.ft", facing: "East", budget: "80-90L", desc: "", img: "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=700&q=80" },
+            { id: 8, name: "Mr Sunil Katta's Residence", city: "Hyderabad", floors: "G+3", plot: "30x50 sq.ft", facing: "West", budget: "70-80L", desc: "", img: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=700&q=80" },
+            { id: 9, name: "Mr Basavaraj Madiggond's Residence", city: "Hubli", floors: "G+1", plot: "30x50 sq.ft", facing: "South", budget: "70-80L", desc: "", img: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=700&q=80" },
+            { id: 10, name: "Mr Arun Balaji's Residence", city: "Coimbatore", floors: "G+1", plot: "40x60 sq.ft", facing: "West", budget: "40-50L", desc: "", img: "https://images.unsplash.com/photo-1600210492493-0946911123ea?w=700&q=80" },
+            { id: 11, name: "Mr Gururaj Naik's Residence", city: "Hubli", floors: "G+2", plot: "30x40 sq.ft", facing: "East", budget: "60-70L", desc: "", img: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=700&q=80" },
+            { id: 12, name: "Mr Hariharasudan's Residence", city: "Chennai", floors: "G+1", plot: "40x50 sq.ft", facing: "North", budget: "50-60L", desc: "", img: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=700&q=80" },
+            { id: 13, name: "Mr Radhakrishna's Residence", city: "Bengaluru", floors: "G+2", plot: "30x60 sq.ft", facing: "South", budget: "90-1Cr", desc: "", img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80" },
+            { id: 14, name: "Mr RP Sharma's Residence", city: "Indore", floors: "G+3", plot: "40x60 sq.ft", facing: "North", budget: "1Cr+", desc: "", img: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=700&q=80" },
+            { id: 15, name: "Mr Santosh's Residence", city: "Bengaluru", floors: "G+1", plot: "30x50 sq.ft", facing: "East", budget: "55-65L", desc: "", img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=700&q=80" },
+            { id: 16, name: "Mr Suryanarayanan's Residence", city: "Chennai", floors: "G+2", plot: "40x60 sq.ft", facing: "West", budget: "75-85L", desc: "", img: "https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=700&q=80" }
+        ];
+
+        const PER_PAGE = 8;
+        let currentPage = 1;
+        let filteredProjects = [...ALL_PROJECTS];
+        const filterState = { cities: [], floors: [], plots: [] };
+
+        /* ---- Icons ---- */
+        const iLoc = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="inline-block flex-shrink-0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>`;
+        const iFloor = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="inline-block flex-shrink-0"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`;
+        const iPlot = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="inline-block flex-shrink-0"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>`;
+        const iFacing = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="inline-block flex-shrink-0"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>`;
+        const iBudget = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="inline-block flex-shrink-0"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>`;
+
+        /* =============================================
+           RENDER GRID
+           ============================================= */
+        function renderGrid() {
+            const grid = document.getElementById('projGrid');
+            const start = (currentPage - 1) * PER_PAGE;
+            const items = filteredProjects.slice(start, start + PER_PAGE);
+
+            if (!filteredProjects.length) {
+                grid.innerHTML = `<div class="col-span-2 text-center py-20 text-muted text-base">No projects found matching your filters.</div>`;
+                renderPagination();
+                return;
+            }
+
+            grid.innerHTML = items.map((p, i) => `
+        <div class="proj-card proj-card-anim bg-white rounded-2xl overflow-hidden cursor-pointer"
+             style="animation-delay:${i * 0.06}s"
+             onclick="showDetail(${p.id})">
+            <img src="${p.img}" alt="${p.name}"
+                 class="w-full object-cover block"
+                 style="height:230px; background:linear-gradient(135deg,#e8e0d0,#c9a96e);"
+                 onerror="this.style.background='linear-gradient(135deg,#e8e0d0,#c9a96e)';this.src=''"
+                 loading="lazy"/>
+            <div class="p-5">
+                <div class="font-semibold text-ink text-base mb-1.5 leading-snug">${p.name}</div>
+                ${p.desc ? `<div class="text-xs text-muted mb-2 leading-relaxed line-clamp-2">${p.desc}</div>` : ''}
+                <div class="flex items-center gap-1 text-[#555] text-xs mb-2">${iLoc} <span>${p.city}</span></div>
+                <div class="flex flex-wrap gap-x-3 gap-y-1">
+                    <span class="flex items-center gap-1 text-[#555] text-xs">${iFloor} ${p.floors}</span>
+                    <span class="flex items-center gap-1 text-[#555] text-xs">${iPlot} ${p.plot}</span>
+                    <span class="flex items-center gap-1 text-[#555] text-xs">${iFacing} ${p.facing}</span>
+                    <span class="flex items-center gap-1 text-[#555] text-xs">${iBudget} ${p.budget === '--' ? '–' : p.budget}</span>
+                </div>
+            </div>
+        </div>`).join('');
+
+            renderPagination();
+        }
+
+        /* =============================================
+           PAGINATION
+           ============================================= */
+        function renderPagination() {
+            const el = document.getElementById('projPagination');
+            const total = Math.ceil(filteredProjects.length / PER_PAGE);
+            if (total <= 1) { el.innerHTML = ''; return; }
+
+            const btnBase = 'min-w-[42px] h-[42px] rounded-lg border border-border bg-white text-ink text-sm font-medium flex items-center justify-center cursor-pointer transition-colors hover:border-orange hover:text-orange px-2.5';
+            const btnActive = 'min-w-[42px] h-[42px] rounded-lg bg-orange border border-orange text-white text-sm font-bold flex items-center justify-center cursor-pointer px-2.5';
+            const btnDots = 'min-w-[42px] h-[42px] flex items-center justify-center text-muted text-sm px-2';
+            const btnDisabled = 'min-w-[42px] h-[42px] rounded-lg border border-border bg-white text-ink text-sm flex items-center justify-center opacity-40 cursor-not-allowed px-2.5';
+
+            let html = `<button class="${currentPage === 1 ? btnDisabled : btnBase}" onclick="goPage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>&#8249;</button>`;
+
+            getPageNumbers(currentPage, total).forEach(p => {
+                if (p === '...') html += `<span class="${btnDots}">…</span>`;
+                else html += `<button class="${p === currentPage ? btnActive : btnBase}" onclick="goPage(${p})">${p}</button>`;
+            });
+
+            html += `<button class="${currentPage === total ? btnDisabled : btnBase}" onclick="goPage(${currentPage + 1})" ${currentPage === total ? 'disabled' : ''}>&#8250;</button>`;
+            el.innerHTML = html;
+        }
+
+        function getPageNumbers(cur, tot) {
+            if (tot <= 7) return Array.from({ length: tot }, (_, i) => i + 1);
+            const pages = [1];
+            if (cur > 3) pages.push('...');
+            for (let i = Math.max(2, cur - 1); i <= Math.min(tot - 1, cur + 1); i++) pages.push(i);
+            if (cur < tot - 2) pages.push('...');
+            pages.push(tot);
+            return pages;
+        }
+
+        function goPage(p) {
+            const tot = Math.ceil(filteredProjects.length / PER_PAGE);
+            if (p < 1 || p > tot) return;
+            currentPage = p;
+            renderGrid();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        /* =============================================
+           FILTERS
+           ============================================= */
+        function applyFilters() {
+            filteredProjects = ALL_PROJECTS.filter(p => {
+                const cOk = !filterState.cities.length || filterState.cities.includes(p.city);
+                const fOk = !filterState.floors.length || filterState.floors.includes(p.floors);
+                const pOk = !filterState.plots.length || filterState.plots.includes(p.plot);
+                return cOk && fOk && pOk;
+            });
+            currentPage = 1;
+            renderGrid();
+        }
+
+        /* =============================================
+           DETAIL VIEW
+           ============================================= */
+        function showDetail(id) {
+            const p = ALL_PROJECTS.find(x => x.id === id);
+            if (!p) return;
+
+            document.getElementById('galleryPage').style.display = 'none';
+            document.getElementById('projDetailView').classList.add('active');
+
+            document.getElementById('detailInfo').innerHTML = `
+        <h1 class="font-display text-2xl md:text-3xl font-semibold text-ink mb-8 leading-snug">${p.name}</h1>
+        <div class="grid grid-cols-2 gap-x-5 gap-y-7">
+            <div>
+                <div class="flex items-center gap-1.5 text-xs text-muted font-medium mb-1">${iLoc} Location</div>
+                <div class="font-bold text-ink text-base">${p.city}</div>
+            </div>
+            <div>
+                <div class="flex items-center gap-1.5 text-xs text-muted font-medium mb-1">${iPlot} Plot Dimensions</div>
+                <div class="font-bold text-ink text-base">${p.plot}</div>
+            </div>
+            <div>
+                <div class="flex items-center gap-1.5 text-xs text-muted font-medium mb-1">${iBudget} Budget</div>
+                <div class="font-bold text-ink text-base">${p.budget === '--' ? '–' : p.budget}</div>
+            </div>
+            <div>
+                <div class="flex items-center gap-1.5 text-xs text-muted font-medium mb-1">${iFloor} Floors</div>
+                <div class="font-bold text-ink text-base">${p.floors}</div>
+            </div>
+            <div>
+                <div class="flex items-center gap-1.5 text-xs text-muted font-medium mb-1">${iFacing} Road Facing</div>
+                <div class="font-bold text-ink text-base">${p.facing}</div>
+            </div>
+        </div>`;
+
+            document.getElementById('detailImgWrap').innerHTML = `
+        <img src="${p.img}" alt="${p.name}"
+             class="w-full object-cover block rounded-2xl"
+             style="height:430px; background:linear-gradient(135deg,#e8e0d0,#c9a96e);"
+             onerror="this.style.background='linear-gradient(135deg,#e8e0d0,#c9a96e)';this.src=''"/>`;
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function hideDetail() {
+            document.getElementById('projDetailView').classList.remove('active');
+            document.getElementById('galleryPage').style.display = '';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        /* =============================================
+           INIT
+           ============================================= */
+        document.addEventListener('DOMContentLoaded', function () {
+
+            renderGrid();
+
+            /* ── DESKTOP SIDEBAR: filter checkboxes ── */
+            document.querySelectorAll('.desk-cb').forEach(cb => {
+                cb.addEventListener('change', function () {
+                    const key = this.dataset.key;
+                    if (this.checked) filterState[key].push(this.value);
+                    else filterState[key] = filterState[key].filter(v => v !== this.value);
+                    applyFilters();
+                    updateBadge();
+                });
+            });
+
+            /* ── DESKTOP SIDEBAR: collapsible groups ── */
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const body = document.getElementById(this.dataset.group + 'Body');
+                    if (!body) return;
+                    body.classList.toggle('collapsed');
+                    this.classList.toggle('collapsed');
+                });
+            });
+
+            /* ── DESKTOP SIDEBAR: reset ── */
+            document.getElementById('resetFilters').addEventListener('click', resetAll);
+
+            /* ── MOBILE: open sheet ── */
+            document.getElementById('mobileFilterBtn').addEventListener('click', openFilterSheet);
+
+            /* ── MOBILE: sheet group toggles ── */
+            document.querySelectorAll('.mobile-filter-grp-btn').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const bodyId = this.dataset.mobGrp;
+                    const body = document.getElementById(bodyId);
+                    if (!body) return;
+                    body.classList.toggle('collapsed');
+                    this.classList.toggle('collapsed');
+                });
+            });
+
+            /* ── MOBILE: chip checkboxes ── */
+            document.querySelectorAll('.mob-cb').forEach(cb => {
+                cb.addEventListener('change', function () {
+                    const chip = this.closest('.filter-chip');
+                    chip.classList.toggle('checked', this.checked);
+                    const key = this.dataset.key;
+                    if (this.checked) filterState[key].push(this.value);
+                    else filterState[key] = filterState[key].filter(v => v !== this.value);
+                    applyFilters();
+                    updateBadge();
+                    syncDesktop(key, this.value, this.checked);
+                });
+            });
+
+            /* ── MOBILE: reset ── */
+            document.getElementById('resetFiltersMobile').addEventListener('click', resetAll);
+        });
+
+        /* ── Open/close sheet ── */
+        function openFilterSheet() {
+            document.getElementById('filterSheet').classList.add('open');
+            document.getElementById('filterOverlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeFilterSheet() {
+            document.getElementById('filterSheet').classList.remove('open');
+            document.getElementById('filterOverlay').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        /* ── Reset all filters ── */
+        function resetAll() {
+            filterState.cities = []; filterState.floors = []; filterState.plots = [];
+            document.querySelectorAll('.desk-cb').forEach(cb => cb.checked = false);
+            document.querySelectorAll('.mob-cb').forEach(cb => {
+                cb.checked = false;
+                cb.closest('.filter-chip').classList.remove('checked');
+            });
+            filteredProjects = [...ALL_PROJECTS];
+            currentPage = 1;
+            renderGrid();
+            updateBadge();
+        }
+
+        /* ── Badge count ── */
+        function updateBadge() {
+            const total = filterState.cities.length + filterState.floors.length + filterState.plots.length;
+            const badge = document.getElementById('filterBadge');
+            badge.textContent = total;
+            badge.classList.toggle('visible', total > 0);
+        }
+
+        /* ── Sync desktop checkbox when mobile changes ── */
+        function syncDesktop(key, value, checked) {
+            document.querySelectorAll('.desk-cb').forEach(cb => {
+                if (cb.dataset.key === key && cb.value === value) cb.checked = checked;
+            });
+        }
+    </script>
+</body>
+
+</html>
