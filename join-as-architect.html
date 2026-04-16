@@ -101,7 +101,7 @@
         </div>
 
         <div class="hidden min-[1201px]:flex items-center gap-2.5">
-            <button
+            <button onclick="openBookingModal()"
                 class="bg-orange border border-orange text-white px-5 py-1.5 rounded-xl hover:bg-orange-dark transition-colors cursor-pointer">Book
                 a meeting</button>
         </div>
@@ -161,7 +161,7 @@
 
             <div class="px-6 pt-5 flex flex-col gap-3">
                 <!-- <button class="w-full border border-orange text-orange py-2.5 rounded-xl font-medium">Login</button> -->
-                <button
+                <button onclick="openBookingModal()"
                     class="w-full bg-orange text-white py-2.5 rounded-xl font-medium hover:bg-orange-dark transition-colors">Book
                     a meeting</button>
             </div>
@@ -169,8 +169,11 @@
     </div>
 
     <!-- ===================== HERO ===================== -->
-    <section class="bg-cream w-full px-6 lg:px-16 pt-14 pb-0 overflow-hidden">
-        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10 lg:gap-16 pb-0 lg:pb-0">
+    <!-- <section class="bg-cream w-full px-6 lg:px-16 pt-14 pb-0 overflow-hidden"> -->
+    <section class="bg-cream w-full px-6 lg:px-32 py-16">
+        <!-- <div class="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-16 pb-0 lg:pb-0"> -->
+
+        <div class="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-14">
             <!-- Left -->
             <div class="flex-1 text-center lg:text-left py-8 lg:py-16">
 
@@ -495,7 +498,7 @@
                 border-[#DADADA] border-dashed z-0">
                 </div>
 
-                <div class="grid grid-cols-1 xl:grid-cols-3 gap-12 xl:gap-0 relative z-10">
+                <div class="grid grid-cols-1 xl:grid-cols-3 gap-12 xl:gap-32 relative z-10">
 
                     <div class="flex flex-row xl:flex-col items-start xl:items-center text-left xl:text-center gap-6">
                         <div class="flex-shrink-0 bg-[#F6F5EF] p-1 xl:p-2 rounded-full">
@@ -556,36 +559,52 @@
     </section>
 
     <!-- ===================== JOIN FORM ===================== -->
-    <section id="join-form" class="w-full bg-white border-t border-border px-6 lg:px-16 py-16 md:py-20">
+    <section id="join-form" class="w-full bg-white border-t border-border px-6 lg:px-32 py-16 md:py-20">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-10">
-
                 <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-2">Join us now</h2>
                 <p class="text-base text-muted max-w-md mx-auto leading-relaxed">Collaborate, grow, and shape the future
                     of homebuilding with JSW One Homes.</p>
             </div>
 
-            <div class="bg-white max-w-2xl mx-auto rounded-2xl p-7 md:p-10 border border-border shadow-md">
-                <form id="architectForm" class="flex flex-col gap-4">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <input id="archName" type="text" placeholder="Full name"
-                            class="border border-border rounded-lg px-4 py-3 text-sm text-ink bg-[#fafafa] outline-none transition-colors" />
-                        <input id="archEmail" type="email" placeholder="Email"
-                            class="border border-border rounded-lg px-4 py-3 text-sm text-ink bg-[#fafafa] outline-none transition-colors" />
-                    </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <input id="archPhone" type="tel" placeholder="Mobile Number"
-                            class="border border-border rounded-lg px-4 py-3 text-sm text-ink bg-[#fafafa] outline-none transition-colors" />
-                        <textarea id="archExperience" placeholder="Tell us about your professional experience" rows="4"
-                            class="border border-border rounded-lg px-4 py-3 text-sm text-ink bg-[#fafafa] outline-none transition-colors resize-none"></textarea>
-                    </div>
-                    <!-- City select with floating label -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="bg-white max-w-2xl mx-auto rounded-2xl p-7 md:p-8 border border-border shadow-md text-left">
+                <form id="architectForm" class="flex flex-col">
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
                         <div class="relative">
-                            <span class="absolute top-2 left-4 text-[11px] text-muted pointer-events-none z-10">Choose
-                                City</span>
+                            <label
+                                class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
+                                Full name
+                            </label>
+                            <input id="archName" type="text" placeholder="Full name"
+                                class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-300 transition-all placeholder-slate-300" />
+                        </div>
+                        <div class="relative">
+                            <label
+                                class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
+                                Email
+                            </label>
+                            <input id="archEmail" type="email" placeholder="Email"
+                                class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-300 transition-all placeholder-slate-300" />
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                        <div class="relative">
+                            <label
+                                class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
+                                Mobile Number
+                            </label>
+                            <input id="archPhone" type="tel" placeholder="Mobile Number"
+                                class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-300 transition-all placeholder-slate-300" />
+                        </div>
+                        <div class="relative flex items-center">
+                            <label
+                                class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
+                                Choose City
+                            </label>
                             <select id="archCity"
-                                class="border border-border rounded-lg px-4 pt-6 pb-3 text-sm text-ink bg-[#fafafa] outline-none transition-colors w-full appearance-none cursor-pointer">
+                                class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none bg-white appearance-none cursor-pointer focus:border-orange-300 transition-all">
                                 <option value="Bellary">Bellary</option>
                                 <option>Bengaluru</option>
                                 <option>Hyderabad</option>
@@ -595,32 +614,59 @@
                                 <option>Kochi</option>
                                 <option>Other</option>
                             </select>
+                            <div
+                                class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none flex items-center">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M6 9l6 6 6-6"></path>
+                                </svg>
+                            </div>
                         </div>
-                        <div></div>
                     </div>
+
+                    <div class="mb-6">
+                        <div class="relative">
+                            <label
+                                class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
+                                Tell us about your professional experience
+                            </label>
+                            <textarea id="archExperience" placeholder="Tell us about your professional experience"
+                                rows="4"
+                                class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-300 transition-all resize-none placeholder-slate-300"></textarea>
+                        </div>
+                    </div>
+
                     <!-- COA Radio -->
-                    <div class="flex items-center gap-4 flex-wrap">
-                        <span class="text-sm text-ink font-medium">Registered with COA?</span>
-                        <label class="flex items-center gap-1.5 text-sm text-ink cursor-pointer"><input type="radio"
-                                name="coa" value="yes" class="accent-orange w-4 h-4" /> Yes</label>
-                        <label class="flex items-center gap-1.5 text-sm text-ink cursor-pointer"><input type="radio"
-                                name="coa" value="no" class="accent-orange w-4 h-4" /> No</label>
+                    <div class="flex items-center gap-4 flex-wrap mb-6">
+                        <span class="text-[14px] text-slate-700">Registered with COA?</span>
+                        <div class="flex items-center gap-4">
+                            <label class="flex items-center gap-1.5 text-sm text-slate-700 cursor-pointer">
+                                <input type="radio" name="coa" value="yes" class="w-5 h-5 accent-[#ffb380]" /> Yes
+                            </label>
+                            <label class="flex items-center gap-1.5 text-sm text-slate-700 cursor-pointer">
+                                <input type="radio" name="coa" value="no" class="w-5 h-5 accent-[#ffb380]" /> No
+                            </label>
+                        </div>
                     </div>
+
                     <!-- Agree -->
-                    <div class="flex items-center gap-2">
+                    <div class="flex items-center gap-2 mb-5">
                         <input type="checkbox" id="archAgree"
                             class="w-4 h-4 accent-orange cursor-pointer flex-shrink-0" />
                         <span class="text-xs text-muted">I agree to <a href="#" class="text-orange underline">Privacy
                                 Policy</a> and <a href="#" class="text-orange underline">Terms &amp;
                                 Conditions</a></span>
                     </div>
-                    <div id="archFormStatus" class="text-center text-sm min-h-[18px]"></div>
+
+                    <div id="archFormStatus" class="text-center text-sm min-h-[18px] mb-2"></div>
+
                     <div class="text-center">
                         <button id="archSubmitBtn" type="submit"
-                            class="bg-orange text-white font-semibold py-3 px-16 rounded-lg hover:bg-orange-dark transition-colors cursor-pointer border-0 hover:-translate-y-0.5 hover:shadow-md transition-all">
+                            class="bg-orange text-white font-semibold py-3 px-16 rounded-lg hover:bg-orange-dark hover:-translate-y-0.5 hover:shadow-md transition-all cursor-pointer border-0">
                             Submit
                         </button>
                     </div>
+
                 </form>
             </div>
         </div>
@@ -637,44 +683,49 @@
                 <div>
                     <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                         <div class="flex items-center justify-between gap-4">
-                            <span class="text-base text-ink">Since how long has JSW been in the construction
-                                business?</span>
-                            <svg class="faq-chevron w-5 h-5 flex-shrink-0 stroke-muted fill-none stroke-2"
-                                viewBox="0 0 24 24">
-                                <line x1="12" y1="5" x2="12" y2="19" />
-                                <line x1="5" y1="12" x2="19" y2="12" />
+                            <span class="text-base text-ink leading-snug">Since how long has JSW been in the
+                                construction business?</span>
+                            <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
+                                stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="12" y1="8" x2="12" y2="16" />
+                                <line x1="8" y1="12" x2="16" y2="12" />
                             </svg>
                         </div>
                         <div class="faq-body pt-3">
-                            <p class="text-sm text-muted leading-relaxed">JSW One Homes has been in the construction
+                            <p class="text-sm text-muted leading-relaxed">JSW One Homes has been in the
+                                construction
                                 business for over a decade, with a strong presence across major cities in India,
                                 building thousands of quality homes.</p>
                         </div>
                     </div>
                     <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                         <div class="flex items-center justify-between gap-4">
-                            <span class="text-base text-ink">Does JSW One Homes undertake home designing
-                                services?</span>
-                            <svg class="faq-chevron w-5 h-5 flex-shrink-0 stroke-muted fill-none stroke-2"
-                                viewBox="0 0 24 24">
-                                <line x1="12" y1="5" x2="12" y2="19" />
-                                <line x1="5" y1="12" x2="19" y2="12" />
+                            <span class="text-base text-ink leading-snug">Does JSW One Homes undertake home
+                                designing services?</span>
+                            <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
+                                stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="12" y1="8" x2="12" y2="16" />
+                                <line x1="8" y1="12" x2="16" y2="12" />
                             </svg>
                         </div>
                         <div class="faq-body pt-3">
-                            <p class="text-sm text-muted leading-relaxed">Yes, JSW One Homes offers complete home design
+                            <p class="text-sm text-muted leading-relaxed">Yes, JSW One Homes offers complete
+                                home design
                                 services, from architectural planning and interior design to material selection and
                                 landscape design.</p>
                         </div>
                     </div>
                     <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                         <div class="flex items-center justify-between gap-4">
-                            <span class="text-base text-ink">Does JSW One Homes undertake any commercial
-                                projects?</span>
-                            <svg class="faq-chevron w-5 h-5 flex-shrink-0 stroke-muted fill-none stroke-2"
-                                viewBox="0 0 24 24">
-                                <line x1="12" y1="5" x2="12" y2="19" />
-                                <line x1="5" y1="12" x2="19" y2="12" />
+                            <span class="text-base text-ink leading-snug">Does JSW One Homes undertake any
+                                commercial projects?</span>
+                            <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
+                                stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="12" y1="8" x2="12" y2="16" />
+                                <line x1="8" y1="12" x2="16" y2="12" />
                             </svg>
                         </div>
                         <div class="faq-body pt-3">
@@ -685,12 +736,14 @@
                     </div>
                     <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                         <div class="flex items-center justify-between gap-4">
-                            <span class="text-base text-ink">Will I get to choose the materials that are planned to be
+                            <span class="text-base text-ink leading-snug">Will I get to choose the materials that are
+                                planned to be
                                 used in my project?</span>
-                            <svg class="faq-chevron w-5 h-5 flex-shrink-0 stroke-muted fill-none stroke-2"
-                                viewBox="0 0 24 24">
-                                <line x1="12" y1="5" x2="12" y2="19" />
-                                <line x1="5" y1="12" x2="19" y2="12" />
+                            <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
+                                stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="12" y1="8" x2="12" y2="16" />
+                                <line x1="8" y1="12" x2="16" y2="12" />
                             </svg>
                         </div>
                         <div class="faq-body pt-3">
@@ -699,14 +752,15 @@
                                 process at our experience centres.</p>
                         </div>
                     </div>
-                    <div class="faq-row border-b border-border lg:border-b-0 py-5 cursor-pointer"
-                        onclick="toggleFaq(this)">
+                    <div class="faq-row border-b border-border  py-5 cursor-pointer" onclick="toggleFaq(this)">
                         <div class="flex items-center justify-between gap-4">
-                            <span class="text-base text-ink">Which brands are partnered with JSW One Homes?</span>
-                            <svg class="faq-chevron w-5 h-5 flex-shrink-0 stroke-muted fill-none stroke-2"
-                                viewBox="0 0 24 24">
-                                <line x1="12" y1="5" x2="12" y2="19" />
-                                <line x1="5" y1="12" x2="19" y2="12" />
+                            <span class="text-base text-ink leading-snug">Which brands are partnered with JSW One
+                                Homes?</span>
+                            <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
+                                stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="12" y1="8" x2="12" y2="16" />
+                                <line x1="8" y1="12" x2="16" y2="12" />
                             </svg>
                         </div>
                         <div class="faq-body pt-3">
@@ -721,12 +775,14 @@
                 <div>
                     <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                         <div class="flex items-center justify-between gap-4">
-                            <span class="text-base text-ink">How long does it take to construct a residential
+                            <span class="text-base text-ink leading-snug">How long does it take to construct a
+                                residential
                                 project?</span>
-                            <svg class="faq-chevron w-5 h-5 flex-shrink-0 stroke-muted fill-none stroke-2"
-                                viewBox="0 0 24 24">
-                                <line x1="12" y1="5" x2="12" y2="19" />
-                                <line x1="5" y1="12" x2="19" y2="12" />
+                            <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
+                                stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="12" y1="8" x2="12" y2="16" />
+                                <line x1="8" y1="12" x2="16" y2="12" />
                             </svg>
                         </div>
                         <div class="faq-body pt-3">
@@ -737,11 +793,13 @@
                     </div>
                     <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                         <div class="flex items-center justify-between gap-4">
-                            <span class="text-base text-ink">What are inclusions in the design package?</span>
-                            <svg class="faq-chevron w-5 h-5 flex-shrink-0 stroke-muted fill-none stroke-2"
-                                viewBox="0 0 24 24">
-                                <line x1="12" y1="5" x2="12" y2="19" />
-                                <line x1="5" y1="12" x2="19" y2="12" />
+                            <span class="text-base text-ink leading-snug">What are inclusions in the design
+                                package?</span>
+                            <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
+                                stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="12" y1="8" x2="12" y2="16" />
+                                <line x1="8" y1="12" x2="16" y2="12" />
                             </svg>
                         </div>
                         <div class="faq-body pt-3">
@@ -752,12 +810,13 @@
                     </div>
                     <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                         <div class="flex items-center justify-between gap-4">
-                            <span class="text-base text-ink">Does JSW One Homes offer any construction
+                            <span class="text-base text-ink leading-snug">Does JSW One Homes offer any construction
                                 warranties?</span>
-                            <svg class="faq-chevron w-5 h-5 flex-shrink-0 stroke-muted fill-none stroke-2"
-                                viewBox="0 0 24 24">
-                                <line x1="12" y1="5" x2="12" y2="19" />
-                                <line x1="5" y1="12" x2="19" y2="12" />
+                            <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
+                                stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="12" y1="8" x2="12" y2="16" />
+                                <line x1="8" y1="12" x2="16" y2="12" />
                             </svg>
                         </div>
                         <div class="faq-body pt-3">
@@ -768,12 +827,14 @@
                     </div>
                     <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                         <div class="flex items-center justify-between gap-4">
-                            <span class="text-base text-ink">What are the payments process &amp; controls in place for a
+                            <span class="text-base text-ink leading-snug">What are the payments process &amp; controls
+                                in place for a
                                 project?</span>
-                            <svg class="faq-chevron w-5 h-5 flex-shrink-0 stroke-muted fill-none stroke-2"
-                                viewBox="0 0 24 24">
-                                <line x1="12" y1="5" x2="12" y2="19" />
-                                <line x1="5" y1="12" x2="19" y2="12" />
+                            <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
+                                stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="12" y1="8" x2="12" y2="16" />
+                                <line x1="8" y1="12" x2="16" y2="12" />
                             </svg>
                         </div>
                         <div class="faq-body pt-3">
@@ -784,12 +845,14 @@
                     </div>
                     <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                         <div class="flex items-center justify-between gap-4">
-                            <span class="text-base text-ink">How do you ensure quality assurance and quality control on
+                            <span class="text-base text-ink leading-snug">How do you ensure quality assurance and
+                                quality control on
                                 our project?</span>
-                            <svg class="faq-chevron w-5 h-5 flex-shrink-0 stroke-muted fill-none stroke-2"
-                                viewBox="0 0 24 24">
-                                <line x1="12" y1="5" x2="12" y2="19" />
-                                <line x1="5" y1="12" x2="19" y2="12" />
+                            <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
+                                stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10" />
+                                <line x1="12" y1="8" x2="12" y2="16" />
+                                <line x1="8" y1="12" x2="16" y2="12" />
                             </svg>
                         </div>
                         <div class="faq-body pt-3">
@@ -884,6 +947,150 @@
             &copy; 2026 JSW One Homes. All rights reserved.
         </div>
     </footer>
+
+    <!-- =====================================================
+     BOOK A MEETING — POPUP MODAL
+     ===================================================== -->
+
+    <!-- ── Overlay ─────────────────────────────────────────── -->
+    <div id="bookingModal" class="fixed inset-0 z-[999] flex items-center justify-center px-4"
+        style="display:none!important">
+
+        <!-- Backdrop -->
+        <div id="modalBackdrop" class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closeBookingModal()">
+        </div>
+
+        <!-- Modal panel -->
+        <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-2xl mx-auto z-10
+                max-h-[90vh] overflow-y-auto" style="animation: modalSlideUp .3s cubic-bezier(.4,0,.2,1) both">
+
+            <!-- Header -->
+            <div class="flex items-start justify-between px-7 pt-7 pb-4 border-b border-slate-100">
+                <div>
+                    <h2 class="font-display text-2xl font-semibold text-ink leading-tight">Book a Meeting</h2>
+                    <p class="text-sm text-muted mt-1">Schedule a free consultation with our experts.</p>
+                </div>
+                <!-- Close button -->
+                <button onclick="closeBookingModal()"
+                    class="ml-4 mt-0.5 flex-shrink-0 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors cursor-pointer border-0">
+                    <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-ink fill-none stroke-2 stroke-linecap-round">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Form body -->
+            <div class="px-7 py-6">
+
+                <!-- Row 1: Name + Email -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+                    <div class="relative">
+                        <label
+                            class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
+                            Full name
+                        </label>
+                        <input type="text" placeholder="Full name"
+                            class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-400 transition-all placeholder-slate-300" />
+                    </div>
+                    <div class="relative">
+                        <label
+                            class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
+                            Email
+                        </label>
+                        <input type="email" placeholder="Email"
+                            class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-400 transition-all placeholder-slate-300" />
+                    </div>
+                </div>
+
+                <!-- Row 2: Mobile + City -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+                    <div class="relative">
+                        <label
+                            class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
+                            Mobile Number
+                        </label>
+                        <input type="tel" placeholder="Mobile Number"
+                            class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-400 transition-all placeholder-slate-300" />
+                    </div>
+                    <div class="relative flex items-center">
+                        <label
+                            class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
+                            Choose City
+                        </label>
+                        <select
+                            class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none bg-white appearance-none cursor-pointer focus:border-orange-400 transition-all">
+                            <option>Choose City</option>
+                            <option>Hyderabad</option>
+                            <option>Bangalore</option>
+                            <option>Mumbai</option>
+                            <option>Delhi NCR</option>
+                            <option>Chennai</option>
+                            <option>Kochi</option>
+                            <option>Pune</option>
+                        </select>
+                        <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 3: Timeline + Land -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+                    <div class="relative flex items-center">
+                        <label
+                            class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
+                            I want to start construction in
+                        </label>
+                        <select
+                            class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none bg-white appearance-none cursor-pointer focus:border-orange-400 transition-all">
+                            <option>0–3 months</option>
+                            <option>3–6 months</option>
+                            <option>6–12 months</option>
+                            <option>More than 12 months</option>
+                        </select>
+                        <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 pt-1">
+                        <span class="text-[14px] text-slate-700 whitespace-nowrap">Do you own a plot?</span>
+                        <div class="flex items-center gap-4">
+                            <label class="flex items-center gap-1.5 text-sm text-slate-700 cursor-pointer">
+                                <input type="radio" name="modal_land" class="w-4 h-4 accent-[#e07b39]" /> Yes
+                            </label>
+                            <label class="flex items-center gap-1.5 text-sm text-slate-700 cursor-pointer">
+                                <input type="radio" name="modal_land" class="w-4 h-4 accent-[#e07b39]" /> No
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Consent -->
+                <div class="flex items-center gap-2 mb-6 mt-1">
+                    <input type="checkbox" id="modal_agree" class="w-4 h-4 accent-[#e07b39] cursor-pointer" />
+                    <span class="text-xs text-muted">I agree to <a href="privacy-policy.html"
+                            class="text-[#e07b39] underline">Privacy Policy</a> and <a href="terms-and-conditions.html"
+                            class="text-[#e07b39] underline">Terms &amp; Conditions</a></span>
+                </div>
+
+                <!-- Submit -->
+                <div class="text-center">
+                    <button onclick="openBookingModal()"
+                        class="bg-[#e07b39] text-white font-semibold py-3 px-10 rounded-xl hover:bg-[#c96b2a] transition-colors cursor-pointer border-0 text-sm tracking-wide">
+                        Book a Meeting
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 

@@ -130,3 +130,36 @@ function toggleFaq(row) {
         body.classList.add('open');
     }
 }
+
+/* =============================================
+   BOOK A MEETING MODAL
+   ============================================= */
+
+function openBookingModal() {
+    const modal = document.getElementById('bookingModal');
+    if (!modal) return;
+    modal.style.removeProperty('display');          // clear inline display:none
+    modal.style.display = 'flex';
+    document.body.classList.add('modal-open');
+
+    // Close mobile nav if it's open
+    const mobileNav = document.getElementById('mobileNav');
+    const burger = document.getElementById('hamburger');
+    if (mobileNav && mobileNav.classList.contains('open')) {
+        mobileNav.classList.remove('open');
+        if (burger) burger.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+function closeBookingModal() {
+    const modal = document.getElementById('bookingModal');
+    if (!modal) return;
+    modal.style.display = 'none';
+    document.body.classList.remove('modal-open');
+}
+
+// Close on Escape key
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeBookingModal();
+});
