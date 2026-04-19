@@ -242,7 +242,7 @@
                             class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
                             Full name
                         </label>
-                        <input type="text" placeholder="Full name"
+                        <input type="text" id="con_name" placeholder="Full name"
                             class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-300 transition-all placeholder-slate-300" />
                     </div>
 
@@ -251,7 +251,7 @@
                             class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
                             Email
                         </label>
-                        <input type="email" placeholder="Email"
+                        <input type="email" id="con_email" placeholder="Email"
                             class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-300 transition-all placeholder-slate-300" />
                     </div>
                 </div>
@@ -262,7 +262,7 @@
                             class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
                             Mobile Number
                         </label>
-                        <input type="tel" placeholder="Mobile Number"
+                        <input type="tel" id="con_mobile" placeholder="Mobile Number"
                             class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-300 transition-all placeholder-slate-300" />
                     </div>
 
@@ -271,7 +271,7 @@
                             class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
                             Choose Type
                         </label>
-                        <select
+                        <select id="con_type"
                             class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none bg-white appearance-none cursor-pointer focus:border-orange-300 transition-all">
                             <option>Choose Type</option>
                             <option>General Questions About Our Services</option>
@@ -295,7 +295,7 @@
                         class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
                         Your message
                     </label>
-                    <textarea rows="4" placeholder="Your message"
+                    <textarea rows="4" id="con_message" placeholder="Your message"
                         class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-300 transition-all resize-none placeholder-slate-300"></textarea>
                 </div>
 
@@ -306,9 +306,20 @@
                 </div>
 
                 <div class="text-center">
-                    <button
-                        class="bg-orange text-white font-semibold py-3 px-7 rounded-lg hover:bg-orange-dark transition-colors cursor-pointer border-0">Send
-                        enquiry</button>
+                    <!-- Success message -->
+                    <div id="conSuccess" style="display:none"
+                        class="mb-4 px-5 py-3 bg-green-50 border border-green-200 rounded-xl text-green-700 text-sm font-medium">
+                        ✅ Your enquiry has been submitted! We'll get back to you shortly.
+                    </div>
+                    <!-- Error message -->
+                    <div id="conError" style="display:none"
+                        class="mb-4 px-5 py-3 bg-red-50 border border-red-200 rounded-xl text-red-600 text-sm font-medium">
+                    </div>
+
+                    <button id="conSubmitBtn" onclick="submitContact()"
+                        class="bg-orange text-white font-semibold py-3 px-7 rounded-lg hover:bg-orange-dark transition-colors cursor-pointer border-0">
+                        Send enquiry
+                    </button>
                 </div>
             </div>
         </div>
@@ -653,7 +664,7 @@
                         class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
                         Full name
                     </label>
-                    <input type="text" placeholder="Full name"
+                    <input type="text" id="cta_name" placeholder="Full name"
                         class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-300 transition-all placeholder-slate-300" />
                 </div>
 
@@ -662,7 +673,7 @@
                         class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
                         Email
                     </label>
-                    <input type="email" placeholder="Email"
+                    <input type="email" id="cta_email" placeholder="Email"
                         class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-300 transition-all placeholder-slate-300" />
                 </div>
             </div>
@@ -673,7 +684,7 @@
                         class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
                         Mobile Number
                     </label>
-                    <input type="tel" placeholder="Mobile Number"
+                    <input type="tel" id="cta_mobile" placeholder="Mobile Number"
                         class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-300 transition-all placeholder-slate-300" />
                 </div>
 
@@ -682,7 +693,7 @@
                         class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
                         Choose City
                     </label>
-                    <select
+                    <select id="cta_city"
                         class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none bg-white appearance-none cursor-pointer focus:border-orange-300 transition-all">
                         <option>Choose City</option>
                         <option>Hyderabad</option>
@@ -708,7 +719,7 @@
                         class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
                         I want to start construction in
                     </label>
-                    <select
+                    <select id="cta_timeline"
                         class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none bg-white appearance-none cursor-pointer focus:border-orange-300 transition-all">
                         <option>0–3 months</option>
                         <option>3–6 months</option>
@@ -727,17 +738,17 @@
                     <span class="text-[14px] text-slate-700">Do you own a plot of land?</span>
                     <div class="flex items-center gap-4">
                         <label class="flex items-center gap-1.5 text-sm text-slate-700 cursor-pointer">
-                            <input type="radio" name="land" class="w-5 h-5 accent-[#ffb380]" /> Yes
+                            <input type="radio" name="land" value="Yes" class="w-5 h-5 accent-[#ffb380]" /> Yes
                         </label>
                         <label class="flex items-center gap-1.5 text-sm text-slate-700 cursor-pointer">
-                            <input type="radio" name="land" class="w-5 h-5 accent-[#ffb380]" /> No
+                            <input type="radio" name="land" value="No" class="w-5 h-5 accent-[#ffb380]" /> No
                         </label>
                     </div>
                 </div>
             </div>
 
             <div class="flex items-center gap-2 mb-5 mt-1">
-                <input type="checkbox" id="agree" class="w-4 h-4 accent-orange cursor-pointer" />
+                <input type="checkbox" id="cta_agree" class="w-4 h-4 accent-orange cursor-pointer" />
                 <span class="text-xs text-muted">I agree to <a href="privacy-policy.html"
                         class="text-orange underline">Privacy Policy</a>
                     and <a href="terms-and-conditions.html" class="text-orange underline">Terms &amp;
@@ -745,9 +756,22 @@
             </div>
 
             <div class="text-center">
-                <button
-                    class="bg-orange text-white font-semibold py-3 px-7 rounded-lg hover:bg-orange-dark transition-colors cursor-pointer border-0">Book
-                    a meeting</button>
+                <!-- Success message -->
+                <div id="ctaSuccess" style="display:none"
+                    class="mb-4 px-5 py-3 bg-green-50 border border-green-200 rounded-xl text-green-700 text-sm font-medium">
+                    ✅ Your meeting has been booked! We'll contact you shortly.
+                </div>
+                <!-- Error message -->
+                <div id="ctaError" style="display:none"
+                    class="mb-4 px-5 py-3 bg-red-50 border border-red-200 rounded-xl text-red-600 text-sm font-medium">
+                </div>
+
+                <button id="ctaSubmitBtn"
+                    onclick="submitBooking('ctaSubmitBtn','ctaSuccess','ctaError','cta_name','cta_email','cta_mobile','cta_city','cta_timeline','land','cta_agree', false)"
+                    class="bg-orange text-white font-semibold py-3 px-7 rounded-lg hover:bg-orange-dark transition-colors cursor-pointer border-0">
+                    Book a meeting
+                </button>
+
             </div>
         </div>
     </section>
@@ -756,6 +780,7 @@
     <footer class="bg-[#111] text-[#aaa] px-6 md:px-12 xl:px-32 pt-12 pb-7 w-full">
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 max-w-7xl mx-auto">
             <div class="col-span-2 md:col-span-1">
+
                 <a href="index.html" class="inline-block">
                     <img src="images/logo.jpeg" alt="Hyderabad Constructions Logo"
                         class="h-16 w-auto object-contain mb-4">
@@ -763,10 +788,11 @@
                 <p class="text-sm leading-relaxed mt-3 max-w-[220px]">Browse ideas, explore options and book a meeting
                     with our expert consultants to finalise your design.</p>
                 <p class="text-[10px] uppercase tracking-widest mt-4 mb-1.5">Get in touch</p>
-                <a href="https://www.hyderabadconstructions.in"
+                <a href="www.hyderabadconstructions.in"
                     class="text-orange text-sm block mb-1 hover:underline">www.hyderabadconstructions.in</a>
-                <a href="mailto:abbas@hyderabadconstructions.in"
+                <a href="abbas@hyderabadconstructions.in"
                     class="text-orange text-sm block mb-1 hover:underline">abbas@hyderabadconstructions.in</a>
+
                 <a href="tel:+919703879886" class="text-orange text-sm block hover:underline">+91 97038 79886</a>
                 <div class="flex gap-3 mt-4">
                     <div
@@ -800,6 +826,7 @@
                 <a href="projects.html" class="block text-sm mb-2.5 hover:text-white transition-colors">Our projects</a>
                 <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Cost estimator</a>
                 <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Testimonials</a>
+                <!-- <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Blogs &amp; articles</a> -->
                 <a href="join-as-architect.html" class="block text-sm hover:text-white transition-colors">Join as
                     Architect</a>
             </div>
@@ -807,7 +834,6 @@
                 <h4 class="text-[11px] uppercase tracking-widest mb-4 font-semibold">Support</h4>
                 <a href="contact-us.html" class="block text-sm mb-2.5 hover:text-white transition-colors">Contact us</a>
                 <a href="faqs.html" class="block text-sm mb-2.5 hover:text-white transition-colors">FAQs</a>
-                <a href="#" class="block text-sm hover:text-white transition-colors">Sitemap</a>
             </div>
             <div>
                 <h4 class="text-[11px] uppercase tracking-widest mb-4 font-semibold">Legal</h4>
@@ -818,7 +844,7 @@
             </div>
         </div>
         <div class="border-t border-[#222] mt-10 pt-5 text-center text-sm max-w-7xl mx-auto">
-            &copy; 2026 JSW One Homes. All rights reserved.
+            &copy; 2026 Hyderabad Constructions. All rights reserved.
         </div>
     </footer>
     <!-- =====================================================
@@ -863,7 +889,7 @@
                             class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
                             Full name
                         </label>
-                        <input type="text" placeholder="Full name"
+                        <input type="text" id="modal_name" placeholder="Full name"
                             class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-400 transition-all placeholder-slate-300" />
                     </div>
                     <div class="relative">
@@ -871,7 +897,7 @@
                             class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
                             Email
                         </label>
-                        <input type="email" placeholder="Email"
+                        <input type="email" id="modal_email" placeholder="Email"
                             class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-400 transition-all placeholder-slate-300" />
                     </div>
                 </div>
@@ -883,7 +909,7 @@
                             class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
                             Mobile Number
                         </label>
-                        <input type="tel" placeholder="Mobile Number"
+                        <input type="tel" id="modal_mobile" placeholder="Mobile Number"
                             class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-400 transition-all placeholder-slate-300" />
                     </div>
                     <div class="relative flex items-center">
@@ -891,7 +917,7 @@
                             class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
                             Choose City
                         </label>
-                        <select
+                        <select id="modal_city"
                             class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none bg-white appearance-none cursor-pointer focus:border-orange-400 transition-all">
                             <option>Choose City</option>
                             <option>Hyderabad</option>
@@ -918,7 +944,7 @@
                             class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
                             I want to start construction in
                         </label>
-                        <select
+                        <select id="modal_timeline"
                             class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none bg-white appearance-none cursor-pointer focus:border-orange-400 transition-all">
                             <option>0–3 months</option>
                             <option>3–6 months</option>
@@ -936,10 +962,11 @@
                         <span class="text-[14px] text-slate-700 whitespace-nowrap">Do you own a plot?</span>
                         <div class="flex items-center gap-4">
                             <label class="flex items-center gap-1.5 text-sm text-slate-700 cursor-pointer">
-                                <input type="radio" name="modal_land" class="w-4 h-4 accent-[#e07b39]" /> Yes
+                                <input type="radio" name="modal_land" value="Yes" class="w-4 h-4 accent-[#e07b39]" />
+                                Yes
                             </label>
                             <label class="flex items-center gap-1.5 text-sm text-slate-700 cursor-pointer">
-                                <input type="radio" name="modal_land" class="w-4 h-4 accent-[#e07b39]" /> No
+                                <input type="radio" name="modal_land" value="No" class="w-4 h-4 accent-[#e07b39]" /> No
                             </label>
                         </div>
                     </div>
@@ -955,7 +982,18 @@
 
                 <!-- Submit -->
                 <div class="text-center">
-                    <button
+                    <!-- Success message (hidden by default) -->
+                    <div id="bookingSuccess" style="display:none"
+                        class="mb-4 px-5 py-3 bg-green-50 border border-green-200 rounded-xl text-green-700 text-sm font-medium">
+                        ✅ Your meeting has been booked! We'll contact you shortly.
+                    </div>
+
+                    <!-- Error message (hidden by default) -->
+                    <div id="bookingError" style="display:none"
+                        class="mb-4 px-5 py-3 bg-red-50 border border-red-200 rounded-xl text-red-600 text-sm font-medium">
+                    </div>
+
+                    <button id="bookingSubmitBtn" onclick="submitBooking()"
                         class="bg-[#e07b39] text-white font-semibold py-3 px-10 rounded-xl hover:bg-[#c96b2a] transition-colors cursor-pointer border-0 text-sm tracking-wide">
                         Book a Meeting
                     </button>
@@ -965,7 +1003,10 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+
+
+
+    <script src="script.js?v=2"></script>
 
 
 
