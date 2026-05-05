@@ -4,10 +4,7 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Content-Type');
 
-$host   = '127.0.0.1';
-$dbname = 'hyderabad_constructions';
-$user   = 'root';
-$pass   = '';
+include 'includes/connection.php';
 
 $data = json_decode(file_get_contents('php://input'), true);
 
