@@ -580,6 +580,7 @@
         </div>
     </section>
 
+    <?php include 'includes/action-buttons.php'; ?>
     <?php include 'includes/footer.php'; ?>
 
     <!-- =====================================================
