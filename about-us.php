@@ -2,118 +2,42 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us – JSW One Homes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta name="title" content="About Us - Hyderabad Constructions">
+    <meta name="description" content="About Us - Hyderabad Constructions">
+    <meta name="keywords" content="Hyderabad Constructions">
+
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="30 days">
+    <meta name="author" content="Hyderabad Constructions">
+
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+
+    <meta name="theme-color" content="#c96b2a">
+    <meta name="apple-mobile-web-app-status-bar" content="#c96b2a">
+
+    <title>About Us - Hyderabad Constructions</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        cream: '#f5f3ec',
-                        sand: '#ede9df',
-                        orange: '#e07b39',
-                        'orange-dark': '#c96b2a',
-                        ink: '#1a1a1a',
-                        muted: '#6b6b6b',
-                        border: '#ddd8ce',
-                    },
-                    fontFamily: {
-                        sans: ['Neue Montreal', 'sans-serif'],
-                        display: ['Neue Montreal', 'serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    <style>
-        /* ---- Journey timeline ---- */
-
-        /* Desktop: horizontal line */
-        .timeline-line {
-            position: absolute;
-            top: 10px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: #e8ddd0;
-            display: none;
-        }
-
-        @media (min-width: 768px) {
-            .timeline-line {
-                display: block;
-            }
-        }
-
-        /* Mobile: vertical timeline */
-        .timeline-mobile {
-            position: relative;
-            padding-left: 28px;
-        }
-
-        .timeline-mobile::before {
-            content: '';
-            position: absolute;
-            left: 8px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: #e8ddd0;
-            transform: translateX(-50%);
-        }
-
-        .timeline-mobile-item {
-            position: relative;
-            margin-bottom: 36px;
-        }
-
-        .timeline-mobile-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .timeline-mobile-dot {
-            position: absolute;
-            left: -20px;
-            top: 5px;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: #e07b39;
-            border: 3px solid #f5f2eb;
-            z-index: 10;
-            transform: translateX(-50%);
-        }
-
-        .timeline-mobile-content {
-            padding-left: 4px;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/theme-config.js"></script>
 </head>
-
-<!-- <body class="bg-[#f5f2eb] text-ink"> -->
 
 <body class="bg-cream text-ink">
 
     <?php include 'includes/navbar.php'; ?>
 
-    <!-- ===================== HERO — ABOUT US ===================== -->
     <section class="w-full bg-[#f5f2eb] px-6 lg:px-12 xl:px-32 py-16">
         <div class="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-14">
-
-            <!-- LEFT -->
-            <div class="flex-1 max-w-[480px]">
-                <!-- <h1 class="font-display text-3xl md:text-[34px] font-medium text-ink mb-4">
-                    About us
-                </h1> -->
+            <div class="flex-1">
                 <h1 class="font-display text-4xl md:text-5xl font-semibold text-ink leading-tight mb-4 fade-up">
                     About us </h1>
-
-                <!-- <p class="text-[14px] text-muted leading-relaxed"> -->
-                <p class="text-base text-muted max-w-md mx-auto lg:mx-0 mb-7 leading-relaxed fade-up fade-up-delay-1">
+                <p class="text-base text-muted w-full mx-auto lg:mx-0 mb-7 leading-relaxed fade-up fade-up-delay-1">
                     Hyderabad Constructions is Hyderabad’s No 1 tech-enabled construction company.
                     We believe that every structure is more than just bricks and concrete — it is a dream built with
                     trust, quality, and commitment. With more than 10 years of experience in the construction industry,
@@ -121,11 +45,9 @@
                     the unique needs of our clients.
                 </p>
             </div>
-
-            <!-- RIGHT IMAGE -->
             <div class="flex-1 flex justify-end">
                 <div class="w-full max-w-[580px] h-[310px] rounded-2xl overflow-hidden shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80"
+                    <img src="assets/images/about-us1.jpg" alt="About us image"
                         class="w-full h-full object-cover" />
                 </div>
             </div>
@@ -135,19 +57,14 @@
 
     <section class="w-full bg-[#f5f2eb] px-6 lg:px-12 xl:px-32 py-16">
         <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
-
-            <!-- LEFT IMAGE -->
-            <div class="flex-1 max-w-[480px]">
+            <div class="flex-1">
                 <div class="w-full max-w-[580px] h-[310px] rounded-2xl overflow-hidden shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80"
+                    <img src="assets/images/about-us2.jpg" alt="About us image"
                         class="w-full h-full object-cover" />
                 </div>
             </div>
-
-            <!-- RIGHT -->
             <div class="flex-1 flex justify-end">
                 <div>
-                    <!-- <p class="text-[14px] text-muted leading-relaxed"> -->
                     <p class="text-base text-muted w-full max-w-[580px] leading-relaxed fade-up fade-up-delay-1 mb-7">
                         We are a dedicated team of construction professionals offering end-to-end services in
                         residential buildings , commercial buildings, farmhouses, renovations, interior works,
@@ -163,13 +80,9 @@
                     </p>
                 </div>
             </div>
-
-
-
         </div>
     </section>
 
-    <!-- ===================== STATS BAR ===================== -->
     <section class="w-full bg-[#f0e8d8] px-6 lg:px-12 xl:px-32 py-14">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col sm:flex-row items-stretch divide-y sm:divide-y-0 sm:divide-x divide-[#ddd0c0]">
@@ -223,9 +136,6 @@
         </div>
     </section>
 
-
-    <!-- Time line -->
-    <!-- ===================== JOURNEY SO FAR ===================== -->
     <section class="w-full bg-cream px-6 lg:px-12 xl:px-32 py-16 md:py-20">
 
         <div class="max-w-7xl mx-auto">
@@ -273,8 +183,7 @@
                         </div>
                     </div>
                     <div class="flex flex-col items-center text-center relative z-10">
-                        <div class="w-5 h-5 rounded-full bg-orange border-4 border-[#f5f2eb] relative z-20"
-                            style="margin-top:-2px;"></div>
+                        <div class="w-5 h-5 rounded-full bg-orange border-4 border-[#f5f2eb] relative z-20"></div>
                         <div class="mt-5">
                             <div class="text-2xl font-semibold text-ink mb-3">2025</div>
                             <p class="text-base text-muted">We now operate 10 experience centres across nine cities,
@@ -334,7 +243,6 @@
         </div>
     </section>
 
-    <!-- ===================== EXPERIENCE CENTRES (SAME CAROUSEL) ===================== -->
     <section class="w-full bg-[#F6F5EF] px-6 md:px-12 xl:px-32 py-16 md:py-20">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-10">
@@ -353,7 +261,6 @@
                         <h4 class="text-base font-semibold text-ink mb-1">Kochi Centre</h4>
                         <p class="text-muted mb-1">Ground Floor, Oberon Mall, NH-47, Edappally, Kochi – 682024</p>
                         <p class="text-muted mb-3">Mon–Sat: 10am – 6pm</p>
-                        <a href="#" class="text-orange font-semibold hover:underline">Explore →</a>
                     </div>
                 </div>
                 <div class="carousel-slide w-72 centre-card bg-white border border-border rounded-2xl overflow-hidden">
@@ -366,7 +273,6 @@
                         <h4 class="text-base font-semibold text-ink mb-1">Bengaluru/Devarc–1</h4>
                         <p class="text-muted mb-1">No. 12, 3rd Floor, Devarc Mall, Old Madras Rd, Bangalore – 560016</p>
                         <p class="text-muted mb-3">Mon–Sat: 10am – 6pm</p>
-                        <a href="#" class="text-orange font-semibold hover:underline">Explore →</a>
                     </div>
                 </div>
                 <div class="carousel-slide w-72 centre-card bg-white border border-border rounded-2xl overflow-hidden">
@@ -379,7 +285,6 @@
                         <h4 class="text-base font-semibold text-ink mb-1">Bengaluru/Devarc–2</h4>
                         <p class="text-muted mb-1">No. 31, 1st Floor, Total Mall, Sarjapur Rd, Bengaluru – 560035</p>
                         <p class="text-muted mb-3">Mon–Sat: 10am – 6pm</p>
-                        <a href="#" class="text-orange font-semibold hover:underline">Explore →</a>
                     </div>
                 </div>
                 <div class="carousel-slide w-72 centre-card bg-white border border-border rounded-2xl overflow-hidden">
@@ -392,7 +297,6 @@
                         <h4 class="text-base font-semibold text-ink mb-1">Hyderabad</h4>
                         <p class="text-muted mb-1">Rd. No. 2, Banjara Hills, Hyderabad – 500034</p>
                         <p class="text-muted mb-3">Mon–Sat: 10am – 6pm</p>
-                        <a href="#" class="text-orange font-semibold hover:underline">Explore →</a>
                     </div>
                 </div>
                 <div class="carousel-slide w-72 centre-card bg-white border border-border rounded-2xl overflow-hidden">
@@ -405,7 +309,6 @@
                         <p class="text-muted mb-1">No. 5, Ground Floor, Phoenix Marketcity, Velachery, Chennai – 600042
                         </p>
                         <p class="text-muted mb-3">Mon–Sat: 10am – 6pm</p>
-                        <a href="#" class="text-orange font-semibold hover:underline">Explore →</a>
                     </div>
                 </div>
                 <div class="carousel-slide w-72 centre-card bg-white border border-border rounded-2xl overflow-hidden">
@@ -418,7 +321,6 @@
                         <h4 class="text-base font-semibold text-ink mb-1">Hyderabad</h4>
                         <p class="text-muted mb-1">Rd. No. 2, Banjara Hills, Hyderabad – 500034</p>
                         <p class="text-muted mb-3">Mon–Sat: 10am – 6pm</p>
-                        <a href="#" class="text-orange font-semibold hover:underline">Explore →</a>
                     </div>
                 </div>
                 <div class="carousel-slide w-72 centre-card bg-white border border-border rounded-2xl overflow-hidden">
@@ -431,13 +333,10 @@
                         <h4 class="text-base font-semibold text-ink mb-1">Hyderabad</h4>
                         <p class="text-muted mb-1">Rd. No. 2, Banjara Hills, Hyderabad – 500034</p>
                         <p class="text-muted mb-3">Mon–Sat: 10am – 6pm</p>
-                        <a href="#" class="text-orange font-semibold hover:underline">Explore →</a>
                     </div>
                 </div>
             </div>
             <div class="flex items-center justify-end mt-5">
-
-                <!-- <div class="flex gap-1.5" id="cDots"></div> -->
                 <div class="flex gap-2">
                     <button class="carousel-btn" onclick="stepCarousel('centresTrack','cDots',-1)"><svg
                             viewBox="0 0 24 24" class="w-4 h-4">
@@ -457,7 +356,7 @@
     <?php include 'includes/footer.php'; ?>
     <?php include 'includes/book-meeting-popup.php'; ?>
 
-    <script src="script.js?v=2"></script>
+    <script src="assets/js/script.js"></script>
 
 </body>
 

@@ -2,87 +2,36 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FAQs – JSW One Homes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta name="title" content="FAQs - Hyderabad Constructions">
+    <meta name="description" content="FAQs - Hyderabad Constructions">
+    <meta name="keywords" content="Hyderabad Constructions">
+
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="30 days">
+    <meta name="author" content="Hyderabad Constructions">
+
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+
+    <meta name="theme-color" content="#c96b2a">
+    <meta name="apple-mobile-web-app-status-bar" content="#c96b2a">
+
+    <title>FAQs - Hyderabad Constructions</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        cream: '#f5f3ec',
-                        sand: '#ede9df',
-                        orange: '#e07b39',
-                        'orange-dark': '#c96b2a',
-                        ink: '#1a1a1a',
-                        muted: '#6b6b6b',
-                        border: '#ddd8ce',
-                    },
-                    fontFamily: {
-                        sans: ['Neue Montreal', 'sans-serif'],
-                        display: ['Neue Montreal', 'serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    <style>
-        /* Category pills */
-        .cat-pill {
-            border: 1px solid #c8c3b8;
-            color: #1a1a1a;
-            background: transparent;
-            border-radius: 99px;
-            padding: 7px 20px;
-            font-size: 14px;
-            font-family: 'Neue Montreal', sans-serif;
-            cursor: pointer;
-            transition: background .2s, color .2s, border-color .2s;
-            white-space: nowrap;
-            letter-spacing: 0.4px;
-        }
-
-        .cat-pill:hover {
-            border-color: #1a1a1a;
-        }
-
-        .cat-pill.active {
-            background: #1a1a1a;
-            color: #fff;
-            border-color: #1a1a1a;
-        }
-
-        /* FAQ accordion */
-        .faq-body {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height .35s ease, opacity .25s ease;
-            opacity: 0;
-        }
-
-        .faq-body.open {
-            max-height: 400px;
-            opacity: 1;
-        }
-
-        .faq-plus {
-            transition: transform .25s ease;
-            flex-shrink: 0;
-        }
-
-        .faq-row.open .faq-plus {
-            transform: rotate(45deg);
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/theme-config.js"></script>
 </head>
 
 <body class="bg-cream text-ink">
 
     <?php include 'includes/navbar.php'; ?>
 
-    <!-- ===================== HERO — Title + Banner Image ===================== -->
     <section class="bg-[#FCFCF7] flex flex-col items-center w-full  ">
         <div
             class="flex flex-col-reverse items-center justify-start gap-5 px-4 py-10 w-full max-w-[768px] xl:max-w-[1440px] xl:p-20 xl:gap-10">
@@ -90,7 +39,7 @@
                 <img alt="e8vaeucvzyzicq1licwp.webp" loading="lazy" width="480" height="190" decoding="async"
                     class="h-[190px] top-0 left-0 w-full object-cover rounded-lg xl:rounded-xl xl:h-[368px] xl:w-[1280px] xl:basis-1/3"
                     style="color:transparent"
-                    src="https://storage.googleapis.com/public-homes-web-media-prod/FAQ_Mob_8da89e65c5/FAQ_Mob_8da89e65c5.webp">
+                    src="assets/images/faqs.jpg">
             </picture>
             <div>
                 <h1 class="text-center font-display text-3xl md:text-4xl font-semibold text-ink mb-2">
@@ -99,35 +48,23 @@
         </div>
     </section>
 
-    <!-- ===================== CATEGORIES + FAQ ACCORDION ===================== -->
     <section class="w-full bg-cream px-6 md:px-12 xl:px-32 py-20">
         <div class="max-w-7xl mx-auto">
-
-            <!-- Heading + filter pills -->
             <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-6">Categories</h2>
             <div class="flex flex-wrap gap-2.5 mb-10">
                 <button class="cat-pill active" data-cat="all" onclick="filterFaqs(this)">All</button>
-                <button class="cat-pill" data-cat="jsw" onclick="filterFaqs(this)">JSW One Homes</button>
+                <button class="cat-pill" data-cat="jsw" onclick="filterFaqs(this)">Hyderabad Constructions</button>
                 <button class="cat-pill" data-cat="material" onclick="filterFaqs(this)">Material procurement</button>
                 <button class="cat-pill" data-cat="construction" onclick="filterFaqs(this)">Construction</button>
                 <button class="cat-pill" data-cat="design" onclick="filterFaqs(this)">Design</button>
             </div>
-
-            <!--
-            KEY FIX: Two completely independent flex columns side by side.
-            Each column is its own vertical stack — opening a row in column 1
-            CANNOT push anything in column 2 because they are separate containers.
-        -->
             <div class="flex flex-col lg:flex-row gap-0 lg:gap-16" id="faqGrid">
-
-                <!-- ══ LEFT COLUMN ══════════════════════════════════════════ -->
                 <div class="flex-1 min-w-0" id="faqColLeft">
-
-                    <!-- JSW One Homes -->
+                    <!-- Hyderabad Constructions -->
                     <div class="faq-item" data-cat="jsw">
                         <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                             <div class="flex items-start justify-between gap-4">
-                                <span class="text-base text-ink leading-snug">Since how long has JSW been in the
+                                <span class="text-base text-ink leading-snug">Since how long has Hyderabad Constructions been in the
                                     construction business?</span>
                                 <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
                                     stroke-width="1.5">
@@ -139,8 +76,8 @@
                             <div class="faq-body">
                                 <p class="text-sm text-muted leading-relaxed pt-2 pb-1">
 
-                                    JSW One Homes has been in the
-                                    construction and home-building space for over a decade, backed by the JSW Group's
+                                    Hyderabad Constructions has been in the
+                                    construction and home-building space for over a decade, backed by the Hyderabad Constructions Group's
                                     legacy in steel, cement, and infrastructure. We've delivered thousands of quality
                                     homes across India.
                                 </p>
@@ -151,7 +88,7 @@
                     <div class="faq-item" data-cat="jsw">
                         <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                             <div class="flex items-start justify-between gap-4">
-                                <span class="text-base text-ink leading-snug">Does JSW One Homes undertake home
+                                <span class="text-base text-ink leading-snug">Does Hyderabad Constructions undertake home
                                     designing services?</span>
                                 <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
                                     stroke-width="1.5">
@@ -171,7 +108,7 @@
                     <div class="faq-item" data-cat="jsw">
                         <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                             <div class="flex items-start justify-between gap-4">
-                                <span class="text-base text-ink leading-snug">Does JSW One Homes undertake any
+                                <span class="text-base text-ink leading-snug">Does Hyderabad Constructions undertake any
                                     commercial projects?</span>
                                 <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
                                     stroke-width="1.5">
@@ -181,7 +118,7 @@
                                 </svg>
                             </div>
                             <div class="faq-body">
-                                <p class="text-sm text-muted leading-relaxed pt-2 pb-1">JSW One Homes primarily focuses
+                                <p class="text-sm text-muted leading-relaxed pt-2 pb-1">Hyderabad Constructions primarily focuses
                                     on residential construction. Please contact our team directly for commercial
                                     enquiries.</p>
                             </div>
@@ -191,7 +128,7 @@
                     <div class="faq-item" data-cat="jsw">
                         <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                             <div class="flex items-start justify-between gap-4">
-                                <span class="text-base text-ink leading-snug">Does JSW One Homes offer any construction
+                                <span class="text-base text-ink leading-snug">Does Hyderabad Constructions offer any construction
                                     warranties?</span>
                                 <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
                                     stroke-width="1.5">
@@ -252,7 +189,7 @@
                         <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                             <div class="flex items-start justify-between gap-4">
                                 <span class="text-base text-ink leading-snug">Is it mandatory to purchase all materials
-                                    through JSW One Homes?</span>
+                                    through Hyderabad Constructions?</span>
                                 <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
                                     stroke-width="1.5">
                                     <circle cx="12" cy="12" r="10" />
@@ -262,7 +199,7 @@
                             </div>
                             <div class="faq-body">
                                 <p class="text-sm text-muted leading-relaxed pt-2 pb-1">Structural and core materials
-                                    must be procured through JSW One Homes to maintain quality and warranty eligibility.
+                                    must be procured through Hyderabad Constructions to maintain quality and warranty eligibility.
                                     For finishing items you have more flexibility with guidance from our team.</p>
                             </div>
                         </div>
@@ -271,8 +208,7 @@
                     <div class="faq-item" data-cat="jsw">
                         <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                             <div class="flex items-start justify-between gap-4">
-                                <span class="text-base text-ink leading-snug">Which material categories does JSW One
-                                    Homes support?</span>
+                                <span class="text-base text-ink leading-snug">Which material categories does Hyderabad Constructions support?</span>
                                 <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
                                     stroke-width="1.5">
                                     <circle cx="12" cy="12" r="10" />
@@ -353,7 +289,7 @@
                         <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                             <div class="flex items-start justify-between gap-4">
                                 <span class="text-base text-ink leading-snug">Is it mandatory to purchase all materials
-                                    through JSW One Homes?</span>
+                                    through Hyderabad Constructions?</span>
                                 <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
                                     stroke-width="1.5">
                                     <circle cx="12" cy="12" r="10" />
@@ -363,7 +299,7 @@
                             </div>
                             <div class="faq-body">
                                 <p class="text-sm text-muted leading-relaxed pt-2 pb-1">Structural and core materials
-                                    must be procured through JSW One Homes to maintain quality and warranty eligibility.
+                                    must be procured through Hyderabad Constructions to maintain quality and warranty eligibility.
                                     For finishing items you have more flexibility with guidance from our team.</p>
                             </div>
                         </div>
@@ -372,8 +308,7 @@
                     <div class="faq-item" data-cat="material">
                         <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                             <div class="flex items-start justify-between gap-4">
-                                <span class="text-base text-ink leading-snug">Which material categories does JSW One
-                                    Homes support?</span>
+                                <span class="text-base text-ink leading-snug">Which material categories does Hyderabad Constructions support?</span>
                                 <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
                                     stroke-width="1.5">
                                     <circle cx="12" cy="12" r="10" />
@@ -513,12 +448,10 @@
                         </div>
                     </div>
 
-                </div><!-- /faqColLeft -->
+                </div>
 
-                <!-- ══ RIGHT COLUMN ═════════════════════════════════════════ -->
                 <div class="flex-1 min-w-0" id="faqColRight">
-
-                    <!-- JSW One Homes -->
+                    <!-- Hyderabad Constructions -->
                     <div class="faq-item" data-cat="jsw">
                         <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                             <div class="flex items-start justify-between gap-4">
@@ -542,7 +475,7 @@
                     <div class="faq-item" data-cat="jsw">
                         <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                             <div class="flex items-start justify-between gap-4">
-                                <span class="text-base text-ink leading-snug">Does JSW One Homes undertake home interior
+                                <span class="text-base text-ink leading-snug">Does Hyderabad Constructions undertake home interior
                                     services?</span>
                                 <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
                                     stroke-width="1.5">
@@ -562,7 +495,7 @@
                     <div class="faq-item" data-cat="jsw">
                         <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                             <div class="flex items-start justify-between gap-4">
-                                <span class="text-base text-ink leading-snug">Does JSW One Homes assist in getting
+                                <span class="text-base text-ink leading-snug">Does Hyderabad Constructions assist in getting
                                     government approvals &amp; loans?</span>
                                 <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
                                     stroke-width="1.5">
@@ -582,7 +515,7 @@
                     <div class="faq-item" data-cat="jsw">
                         <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                             <div class="flex items-start justify-between gap-4">
-                                <span class="text-base text-ink leading-snug">Does JSW One Homes provide any protection
+                                <span class="text-base text-ink leading-snug">Does Hyderabad Constructions provide any protection
                                     against delays in completion of the project?</span>
                                 <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
                                     stroke-width="1.5">
@@ -616,7 +549,7 @@
                             <div class="faq-body">
                                 <p class="text-sm text-muted leading-relaxed pt-2 pb-1">Material prices are locked in at
                                     the time of contract signing. Any subsequent price changes for agreed materials are
-                                    absorbed by JSW One Homes, protecting you from market fluctuations.</p>
+                                    absorbed by Hyderabad Constructions, protecting you from market fluctuations.</p>
                             </div>
                         </div>
                     </div>
@@ -645,7 +578,7 @@
                         <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                             <div class="flex items-start justify-between gap-4">
                                 <span class="text-base text-ink leading-snug">What are the benefits of procuring
-                                    materials through JSW One Homes?</span>
+                                    materials through Hyderabad Constructions?</span>
                                 <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
                                     stroke-width="1.5">
                                     <circle cx="12" cy="12" r="10" />
@@ -664,8 +597,7 @@
                     <div class="faq-item" data-cat="jsw">
                         <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                             <div class="flex items-start justify-between gap-4">
-                                <span class="text-base text-ink leading-snug">Which brands are partnered with JSW One
-                                    Homes?</span>
+                                <span class="text-base text-ink leading-snug">Which brands are partnered with Hyderabad Constructions?</span>
                                 <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
                                     stroke-width="1.5">
                                     <circle cx="12" cy="12" r="10" />
@@ -675,7 +607,7 @@
                             </div>
                             <div class="faq-body">
                                 <p class="text-sm text-muted leading-relaxed pt-2 pb-1">Leading Indian and international
-                                    brands in steel (JSW Steel), cement, tiles, plumbing, electrical, paint, and more —
+                                    brands in steel, cement, tiles, plumbing, electrical, paint, and more —
                                     all carefully vetted for quality and reliability.</p>
                             </div>
                         </div>
@@ -698,7 +630,7 @@
                             <div class="faq-body">
                                 <p class="text-sm text-muted leading-relaxed pt-2 pb-1">Material prices are locked in at
                                     the time of contract signing. Any subsequent price changes for agreed materials are
-                                    absorbed by JSW One Homes, protecting you from market fluctuations.</p>
+                                    absorbed by Hyderabad Constructions, protecting you from market fluctuations.</p>
                             </div>
                         </div>
                     </div>
@@ -727,7 +659,7 @@
                         <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                             <div class="flex items-start justify-between gap-4">
                                 <span class="text-base text-ink leading-snug">What are the benefits of procuring
-                                    materials through JSW One Homes?</span>
+                                    materials through Hyderabad Constructions?</span>
                                 <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
                                     stroke-width="1.5">
                                     <circle cx="12" cy="12" r="10" />
@@ -746,8 +678,7 @@
                     <div class="faq-item" data-cat="material">
                         <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                             <div class="flex items-start justify-between gap-4">
-                                <span class="text-base text-ink leading-snug">Which brands are partnered with JSW One
-                                    Homes?</span>
+                                <span class="text-base text-ink leading-snug">Which brands are partnered with Hyderabad Constructions?</span>
                                 <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
                                     stroke-width="1.5">
                                     <circle cx="12" cy="12" r="10" />
@@ -757,7 +688,7 @@
                             </div>
                             <div class="faq-body">
                                 <p class="text-sm text-muted leading-relaxed pt-2 pb-1">Leading Indian and international
-                                    brands in steel (JSW Steel), cement, tiles, plumbing, electrical, paint, and more —
+                                    brands in steel, cement, tiles, plumbing, electrical, paint, and more —
                                     all carefully vetted for quality and reliability.</p>
                             </div>
                         </div>
@@ -865,9 +796,9 @@
                         </div>
                     </div>
 
-                </div><!-- /faqColRight -->
+                </div>
 
-            </div><!-- /faqGrid -->
+            </div>
         </div>
     </section>
 
@@ -876,38 +807,8 @@
     <?php include 'includes/footer.php'; ?>
     <?php include 'includes/book-meeting-popup.php'; ?>
 
-    <script src="script.js?v=2"></script>
-    <script>
+    <script src="assets/js/script.js"></script>
 
-        /* ── FAQ accordion ── */
-        function toggleFaq(rowEl) {
-            const body = rowEl.querySelector('.faq-body');
-            const isOpen = rowEl.classList.contains('open');
-            document.querySelectorAll('.faq-row.open').forEach(r => {
-                r.classList.remove('open');
-                r.querySelector('.faq-body').classList.remove('open');
-            });
-            if (!isOpen) {
-                rowEl.classList.add('open');
-                body.classList.add('open');
-            }
-        }
-
-        /* ── Category filter ── */
-        function filterFaqs(btn) {
-            document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
-            btn.classList.add('active');
-            const cat = btn.dataset.cat;
-            // close any open accordion
-            document.querySelectorAll('.faq-row.open').forEach(r => {
-                r.classList.remove('open');
-                r.querySelector('.faq-body').classList.remove('open');
-            });
-            document.querySelectorAll('.faq-item').forEach(item => {
-                item.style.display = (cat === 'all' || item.dataset.cat === cat) ? '' : 'none';
-            });
-        }
-    </script>
 </body>
 
 </html>

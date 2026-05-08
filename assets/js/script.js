@@ -1,24 +1,30 @@
 /* =============================================================
-   script.js — Shared JavaScript for JSW One Homes
-   Covers: Navbar dropdown, Mobile nav, Carousel engine,
-           Gallery carousel, FAQ accordion, Package expand/collapse
+   Covers: Navbar, Mobile Nav, Carousels, FAQ, Packages,
+           Modals, Form Submissions
    ============================================================= */
 
-
 /* =============================================
-   NAVBAR
+   NAVIGATION
    ============================================= */
 
 function toggleMore(e) {
     e.stopPropagation();
     const menu = document.getElementById('dropdownMenu');
     const chevron = document.getElementById('moreChevron');
+    if (!menu || !chevron) return;
+
     const isHidden = menu.classList.contains('hidden');
     menu.classList.toggle('hidden', !isHidden);
-    if (isHidden) menu.classList.add('dropdown-open');
-    chevron.style.transform = isHidden ? 'rotate(180deg)' : '';
+    
+    if (isHidden) {
+        menu.classList.add('dropdown-open');
+        chevron.style.transform = 'rotate(180deg)';
+    } else {
+        chevron.style.transform = '';
+    }
 }
 
+// Close dropdown when clicking outside
 document.addEventListener('click', () => {
     const menu = document.getElementById('dropdownMenu');
     const chevron = document.getElementById('moreChevron');
@@ -29,26 +35,27 @@ document.addEventListener('click', () => {
 function toggleMobileNav() {
     const nav = document.getElementById('mobileNav');
     const burger = document.getElementById('hamburger');
+    if (!nav || !burger) return;
+
     const isOpen = nav.classList.toggle('open');
     burger.classList.toggle('active', isOpen);
     document.body.style.overflow = isOpen ? 'hidden' : '';
 }
 
-
 /* =============================================
-   SHARED CAROUSEL ENGINE
+   CAROUSELS
    ============================================= */
 
+// Shared Carousel Engine
 function goCarousel(trackId, dotsId, idx) {
     const track = document.getElementById(trackId);
+    if (!track) return;
+
     const slides = track.querySelectorAll('.carousel-slide');
     if (!slides[idx]) return;
 
-    // Calculate the gap (Tailwind's gap-4 is 16px)
     const gap = 16;
     const slideWidth = slides[0].offsetWidth + gap;
-
-    // Check if the target index exceeds the maximum possible scroll
     const maxScroll = track.scrollWidth - track.clientWidth;
     const targetScroll = idx * slideWidth;
 
@@ -56,20 +63,16 @@ function goCarousel(trackId, dotsId, idx) {
         left: Math.min(targetScroll, maxScroll),
         behavior: 'smooth'
     });
-
-    // Update the dots immediately for better UX
-    //syncDots(dotsId, idx, slides.length);
 }
 
 function stepCarousel(trackId, dotsId, dir) {
     const track = document.getElementById(trackId);
-    const slides = track.querySelectorAll('.carousel-slide');
+    if (!track) return;
 
-    // Use the index calculated by the scroll position
     const current = getActiveIdx(track);
     let next = current + dir;
 
-    // Boundary checks
+    const slides = track.querySelectorAll('.carousel-slide');
     if (next < 0) next = 0;
     if (next >= slides.length) next = slides.length - 1;
 
@@ -79,73 +82,129 @@ function stepCarousel(trackId, dotsId, dir) {
 function getActiveIdx(trackEl) {
     const scrollLeft = trackEl.scrollLeft;
     const gap = 16;
-    const slideWidth = trackEl.querySelector('.carousel-slide').offsetWidth + gap;
+    const slide = trackEl.querySelector('.carousel-slide');
+    if (!slide) return 0;
 
-    // Math.round ensures that even if the scroll is off by a pixel, 
-    // it snaps to the closest dot.
+    const slideWidth = slide.offsetWidth + gap;
     return Math.round(scrollLeft / slideWidth);
 }
 
-
-
-/* =============================================
-   GALLERY CAROUSEL
-   ============================================= */
-
-/* ---- Gallery carousel ---- */
-
+// Gallery Carousel (Specific)
 function goGallery(idx) {
     const track = document.getElementById('galleryTrack');
+    if (!track) return;
+
     const slides = track.querySelectorAll('.gallery-slide');
     if (!slides[idx]) return;
-    track.scrollTo({ left: slides[idx].offsetLeft - track.offsetLeft, behavior: 'smooth' });
-    document.getElementById('galleryDots').querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+
+    track.scrollTo({
+        left: slides[idx].offsetLeft - track.offsetLeft,
+        behavior: 'smooth'
+    });
+
+    // Update dots
+    const dotsContainer = document.getElementById('galleryDots');
+    if (dotsContainer) {
+        dotsContainer.querySelectorAll('.dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === idx);
+        });
+    }
 }
 
 function stepGallery(dir) {
     const track = document.getElementById('galleryTrack');
     if (!track) return;
+
     const slides = track.querySelectorAll('.gallery-slide');
+    if (!slides.length) return;
+
     let closest = 0, minDist = Infinity;
-    slides.forEach((s, i) => {
-        const dist = Math.abs(s.getBoundingClientRect().left - track.getBoundingClientRect().left);
-        if (dist < minDist) { minDist = dist; closest = i; }
+    const trackRect = track.getBoundingClientRect();
+
+    slides.forEach((slide, i) => {
+        const dist = Math.abs(slide.getBoundingClientRect().left - trackRect.left);
+        if (dist < minDist) {
+            minDist = dist;
+            closest = i;
+        }
     });
+
     const next = Math.max(0, Math.min(slides.length - 1, closest + dir));
     goGallery(next);
 }
 
+/* =============================================
+   ACCORDIONS & EXPANDABLES
+   ============================================= */
 
-/* FAQ accordion */
+// FAQ Accordion
 function toggleFaq(row) {
     const body = row.querySelector('.faq-body');
+    if (!body) return;
+
     const isOpen = row.classList.contains('open');
-    // close all others
+
+    // Close all other FAQs
     document.querySelectorAll('.faq-row.open').forEach(r => {
         r.classList.remove('open');
-        r.querySelector('.faq-body').classList.remove('open');
+        const b = r.querySelector('.faq-body');
+        if (b) b.classList.remove('open');
     });
+
     if (!isOpen) {
         row.classList.add('open');
         body.classList.add('open');
     }
 }
 
+function filterFaqs(btn) {
+    // Update active category pill
+    document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+
+    const cat = btn.dataset.cat;
+
+    // Close open accordion
+    document.querySelectorAll('.faq-row.open').forEach(r => {
+        r.classList.remove('open');
+        const body = r.querySelector('.faq-body');
+        if (body) body.classList.remove('open');
+    });
+
+    // Filter FAQ items
+    document.querySelectorAll('.faq-item').forEach(item => {
+        item.style.display = (cat === 'all' || item.dataset.cat === cat) ? '' : 'none';
+    });
+}
+
+// Package Features Expand/Collapse
+function toggleFeature(btn) {
+    const row = btn.closest('.pkg-feature-row');
+    if (!row) return;
+
+    const body = row.querySelector('.pkg-feature-body');
+    if (!body) return;
+
+    const isOpen = row.classList.contains('open');
+    row.classList.toggle('open', !isOpen);
+    body.classList.toggle('open', !isOpen);
+}
+
 /* =============================================
-   BOOK A MEETING MODAL
+   MODALS
    ============================================= */
 
 function openBookingModal() {
     const modal = document.getElementById('bookingModal');
     if (!modal) return;
-    modal.style.removeProperty('display');          // clear inline display:none
+
     modal.style.display = 'flex';
     document.body.classList.add('modal-open');
 
-    // Close mobile nav if it's open
+    // Close mobile nav if open
     const mobileNav = document.getElementById('mobileNav');
     const burger = document.getElementById('hamburger');
-    if (mobileNav && mobileNav.classList.contains('open')) {
+    if (mobileNav?.classList.contains('open')) {
         mobileNav.classList.remove('open');
         if (burger) burger.classList.remove('active');
         document.body.style.overflow = '';
@@ -155,46 +214,52 @@ function openBookingModal() {
 function closeBookingModal() {
     const modal = document.getElementById('bookingModal');
     if (!modal) return;
+
     modal.style.display = 'none';
     document.body.classList.remove('modal-open');
 }
 
-// Close on Escape key
-document.addEventListener('keydown', function (e) {
+// Close modal with Escape key
+document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeBookingModal();
 });
 
 /* =============================================
-   BOOKING FORM SUBMIT both popup + CTA Form
+   FORM SUBMISSIONS
    ============================================= */
 
-async function submitBooking(
-    btnId = 'bookingSubmitBtn',
-    successId = 'bookingSuccess',
-    errorId = 'bookingError',
-    nameId = 'modal_name',
-    emailId = 'modal_email',
-    mobileId = 'modal_mobile',
-    cityId = 'modal_city',
-    timelineId = 'modal_timeline',
-    radioName = 'modal_land',
-    agreeId = 'modal_agree',
-    isModal = true
-) {
+// Booking Form (Used by Modal + CTA Form)
+async function submitBooking(config = {}) {
+    const {
+        btnId = 'bookingSubmitBtn',
+        successId = 'bookingSuccess',
+        errorId = 'bookingError',
+        nameId = 'modal_name',
+        emailId = 'modal_email',
+        mobileId = 'modal_mobile',
+        cityId = 'modal_city',
+        timelineId = 'modal_timeline',
+        radioName = 'modal_land',
+        agreeId = 'modal_agree',
+        isModal = true
+    } = config;
+
     const btn = document.getElementById(btnId);
     const successEl = document.getElementById(successId);
     const errorEl = document.getElementById(errorId);
 
+    if (!btn || !successEl || !errorEl) return;
+
     successEl.style.display = 'none';
     errorEl.style.display = 'none';
 
-    const full_name = document.getElementById(nameId).value.trim();
-    const email = document.getElementById(emailId).value.trim();
-    const mobile = document.getElementById(mobileId).value.trim();
-    const city = document.getElementById(cityId).value;
-    const timeline = document.getElementById(timelineId).value;
+    const full_name = document.getElementById(nameId)?.value.trim() || '';
+    const email = document.getElementById(emailId)?.value.trim() || '';
+    const mobile = document.getElementById(mobileId)?.value.trim() || '';
+    const city = document.getElementById(cityId)?.value || '';
+    const timeline = document.getElementById(timelineId)?.value || '';
     const owns_plot = document.querySelector(`input[name="${radioName}"]:checked`)?.value || '';
-    const agreed_terms = document.getElementById(agreeId).checked;
+    const agreed_terms = document.getElementById(agreeId)?.checked || false;
 
     if (!full_name || !email || !mobile || city === 'Choose City') {
         errorEl.textContent = 'Please fill in all required fields.';
@@ -211,7 +276,7 @@ async function submitBooking(
     btn.textContent = 'Submitting…';
 
     try {
-        const res = await fetch('submit_booking.php', {
+        const res = await fetch('../../backend/submit_booking.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ full_name, email, mobile, city, timeline, owns_plot, agreed_terms })
@@ -224,32 +289,13 @@ async function submitBooking(
             btn.style.display = 'none';
 
             setTimeout(() => {
+                resetBookingForm(nameId, emailId, mobileId, cityId, timelineId, radioName, agreeId, isModal);
                 successEl.style.display = 'none';
                 btn.style.display = '';
                 btn.disabled = false;
                 btn.textContent = 'Book a Meeting';
 
-                if (isModal) {
-                    document.getElementById('modal_name').value = '';
-                    document.getElementById('modal_email').value = '';
-                    document.getElementById('modal_mobile').value = '';
-                    document.getElementById('modal_city').value = 'Choose City';
-                    document.getElementById('modal_timeline').value = '0–3 months';
-                    document.getElementById('modal_agree').checked = false;
-                    const modalRadios = document.querySelectorAll('input[name="modal_land"]');
-                    modalRadios.forEach(r => r.checked = false);
-                    closeBookingModal();
-                } else {
-                    // Reset CTA form fields
-                    document.getElementById(nameId).value = '';
-                    document.getElementById(emailId).value = '';
-                    document.getElementById(mobileId).value = '';
-                    document.getElementById(cityId).value = 'Choose City';
-                    document.getElementById(agreeId).checked = false;
-                    // Reset radio buttons
-                    const ctaRadios = document.querySelectorAll(`input[name="${radioName}"]`);
-                    ctaRadios.forEach(r => r.checked = false);
-                }
+                if (isModal) closeBookingModal();
             }, 3000);
         } else {
             errorEl.textContent = result.message || 'Something went wrong. Please try again.';
@@ -265,15 +311,34 @@ async function submitBooking(
     }
 }
 
+// Helper to reset booking form fields
+function resetBookingForm(nameId, emailId, mobileId, cityId, timelineId, radioName, agreeId, isModal) {
+    const fields = {
+        [nameId]: '',
+        [emailId]: '',
+        [mobileId]: '',
+        [cityId]: 'Choose City',
+        [timelineId]: '0–3 months'
+    };
 
-/* =============================================
-   JOIN AS ARCHITECT FORM SUBMIT
-   ============================================= */
+    Object.entries(fields).forEach(([id, val]) => {
+        const el = document.getElementById(id);
+        if (el) el.value = val;
+    });
 
+    document.getElementById(agreeId).checked = false;
+
+    const radios = document.querySelectorAll(`input[name="${radioName}"]`);
+    radios.forEach(r => r.checked = false);
+}
+
+// Join as Architect Form
 async function submitArchitect() {
     const btn = document.getElementById('archSubmitBtn');
     const successEl = document.getElementById('archSuccess');
     const errorEl = document.getElementById('archError');
+
+    if (!btn || !successEl || !errorEl) return;
 
     successEl.style.display = 'none';
     errorEl.style.display = 'none';
@@ -301,7 +366,7 @@ async function submitArchitect() {
     btn.textContent = 'Submitting…';
 
     try {
-        const res = await fetch('submit_architect.php', {
+        const res = await fetch('../../backend/submit_architect.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ full_name, email, mobile, city, experience, coa_registered, agreed_terms })
@@ -314,20 +379,19 @@ async function submitArchitect() {
             btn.style.display = 'none';
 
             setTimeout(() => {
-                successEl.style.display = 'none';
-                btn.style.display = '';
-                btn.disabled = false;
-                btn.textContent = 'Submit';
-                // Reset fields
+                // Reset form
                 document.getElementById('archName').value = '';
                 document.getElementById('archEmail').value = '';
                 document.getElementById('archPhone').value = '';
                 document.getElementById('archCity').value = 'Choose City';
                 document.getElementById('archExperience').value = '';
                 document.getElementById('archAgree').checked = false;
-                // ADD THESE TWO LINES:
-                const coaRadios = document.querySelectorAll('input[name="coa"]');
-                coaRadios.forEach(r => r.checked = false);
+                document.querySelectorAll('input[name="coa"]').forEach(r => r.checked = false);
+
+                successEl.style.display = 'none';
+                btn.style.display = '';
+                btn.disabled = false;
+                btn.textContent = 'Submit';
             }, 3000);
         } else {
             errorEl.textContent = result.message || 'Something went wrong. Please try again.';
@@ -343,16 +407,13 @@ async function submitArchitect() {
     }
 }
 
-
-
-/* =============================================
-   CONTACT PAGE QUERY FORM
-   ============================================= */
-
+// Contact Page Form
 async function submitContact() {
     const btn = document.getElementById('conSubmitBtn');
     const successEl = document.getElementById('conSuccess');
     const errorEl = document.getElementById('conError');
+
+    if (!btn || !successEl || !errorEl) return;
 
     successEl.style.display = 'none';
     errorEl.style.display = 'none';
@@ -374,7 +435,7 @@ async function submitContact() {
     btn.textContent = 'Sending…';
 
     try {
-        const res = await fetch('submit_contact.php', {
+        const res = await fetch('../../backend/submit_contact.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ full_name, email, mobile, query_type, message, whatsapp_optin })
@@ -387,17 +448,18 @@ async function submitContact() {
             btn.style.display = 'none';
 
             setTimeout(() => {
-                successEl.style.display = 'none';
-                btn.style.display = '';
-                btn.disabled = false;
-                btn.textContent = 'Send enquiry';
-                // Reset fields
+                // Reset form
                 document.getElementById('con_name').value = '';
                 document.getElementById('con_email').value = '';
                 document.getElementById('con_mobile').value = '';
                 document.getElementById('con_type').value = 'Choose Type';
                 document.getElementById('con_message').value = '';
                 document.getElementById('whatsapp').checked = false;
+
+                successEl.style.display = 'none';
+                btn.style.display = '';
+                btn.disabled = false;
+                btn.textContent = 'Send enquiry';
             }, 3000);
         } else {
             errorEl.textContent = result.message || 'Something went wrong. Please try again.';

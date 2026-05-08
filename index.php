@@ -2,150 +2,43 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home Construction in Hyderabad – JSW One Homes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta name="title" content="Home - Hyderabad Constructions">
+    <meta name="description" content="Home - Hyderabad Constructions">
+    <meta name="keywords" content="Hyderabad Constructions">
+
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="30 days">
+    <meta name="author" content="Hyderabad Constructions">
+
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+
+    <meta name="theme-color" content="#c96b2a">
+    <meta name="apple-mobile-web-app-status-bar" content="#c96b2a">
+
+    <title>Home - Hyderabad Constructions</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        cream: '#f5f3ec',
-                        sand: '#ede9df',
-                        orange: '#e07b39',
-                        'orange-dark': '#c96b2a',
-                        ink: '#1a1a1a',
-                        muted: '#6b6b6b',
-                        border: '#ddd8ce',
-                    },
-                    fontFamily: {
-                        sans: ['Neue Montreal', 'sans-serif'],
-                        display: ['Neue Montreal', 'serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    <style>
-        /* ---- Hero ---- */
-        .hero-bg {
-            background: linear-gradient(135deg, #fdf6ee 0%, #fce8d5 50%, #f9dfc8 100%);
-        }
-
-        /* ---- Package expand/collapse ---- */
-        .pkg-feature-body {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height .3s ease, opacity .2s ease;
-            opacity: 0;
-        }
-
-        .pkg-feature-body.open {
-            max-height: 200px;
-            opacity: 1;
-        }
-
-        .pkg-chevron {
-            transition: transform .25s;
-        }
-
-        .pkg-feature-row.open .pkg-chevron {
-            transform: rotate(180deg);
-        }
-
-        /* ---- Stat card ---- */
-        .stat-card {
-            transition: transform .2s, box-shadow .2s;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
-        }
-
-        /* ---- Pkg card ---- */
-        .pkg-card {
-            transition: transform .2s, box-shadow .2s;
-        }
-
-        .pkg-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, .1);
-        }
-
-        .pkg-premium {
-            border: 2px solid #e07b39;
-        }
-
-        /* ---- Process card ---- */
-        .process-card {
-            transition: transform .2s, box-shadow .2s;
-        }
-
-        .process-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
-        }
-
-        /* ---- Why icon ---- */
-        .why-icon-bg {
-            background: #fff8f2;
-            border: 1px solid #f0c9a8;
-        }
-
-
-
-        /* ---- Video ---- */
-        .video-wrap {
-            position: relative;
-            border-radius: 16px;
-            overflow: hidden;
-        }
-
-        .video-wrap iframe {
-            display: block;
-            width: 100%;
-            height: 100%;
-            border-radius: 16px;
-        }
-
-
-
-        /* ---- Play button ---- */
-        /* .play-btn {
-            width: 44px;
-            height: 44px;
-            background: rgba(255, 255, 255, .92);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, .18);
-            cursor: pointer;
-            transition: transform .2s;
-        }
-
-        .play-btn:hover {
-            transform: scale(1.08);
-        } */
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/theme-config.js"></script>
 </head>
 
 <body class="bg-cream text-ink">
 
     <?php include 'includes/navbar.php'; ?>
 
-    <!-- ===================== HERO ===================== -->
-    <section class="hero-bg w-full px-6 md:px-12 xl:px-32 pt-14 pb-14 overflow-hidden">
+    <section class="hero-bg w-full px-6 md:px-12 xl:px-32 py-14 overflow-hidden">
         <div class="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-16">
             <div class="flex-1 text-center lg:text-left">
                 <h1 class="font-display text-4xl md:text-5xl font-semibold text-ink leading-tight mb-4 fade-up">You
                     Dream.<br />We Build.</h1>
                 <p class="text-base text-muted max-w-md mx-auto lg:mx-0 mb-7 leading-relaxed fade-up fade-up-delay-1">
-                    Build your dream home hassle-free with JSW One Homes.</p>
+                    Build your dream home hassle-free with Hyderabad Constructions.</p>
                 <div class="flex flex-wrap gap-3 justify-center lg:justify-start mb-8 fade-up fade-up-delay-2">
                     <div
                         class="stat-card bg-white border border-border rounded-xl px-5 py-3 flex flex-col items-center">
@@ -156,13 +49,13 @@
                     <div
                         class="stat-card bg-white border border-border rounded-xl px-5 py-3 flex flex-col items-center">
                         <span class="text-2xl font-semibold text-ink">980<span
-                                class="text-sm font-normal text-orange">+</span></span>
+                                class="text-lg font-normal text-orange">+</span></span>
                         <span class="text-xs text-muted mt-0.5">Homes Delivered</span>
                     </div>
                     <div
                         class="stat-card bg-white border border-border rounded-xl px-5 py-3 flex flex-col items-center">
-                        <span class="text-2xl font-semibold text-ink">22<span
-                                class="text-sm font-normal text-orange">M+</span></span>
+                        <span class="text-2xl font-semibold text-ink">22M<span
+                                class="text-lg font-normal text-orange">+</span></span>
                         <span class="text-xs text-muted mt-0.5">Happy Customers</span>
                     </div>
                 </div>
@@ -174,26 +67,25 @@
             </div>
             <div class="flex-1 w-full sm:w-3/4 lg:w-full fade-up fade-up-delay-2">
                 <div class="relative rounded-2xl overflow-hidden shadow-xl" style="aspect-ratio:4/3">
-                    <img src="images/home-image.jpeg" alt="Modern home"
+                    <img src="assets/images/home-image.jpeg" alt="Modern home"
                         class="w-full h-full" onerror="this.style.background='#e8ddd0'" />
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===================== WHY JSW ONE HOMES ===================== -->
     <section class="w-full bg-white px-6 md:px-12 xl:px-32 py-16 md:py-20">
         <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 items-center">
             <div class="flex-1 w-full sm:w-3/4 lg:w-full">
                 <div class="relative rounded-2xl overflow-hidden shadow-lg" style="aspect-ratio:4/3;">
-                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80"
-                        alt="Family with home app" class="w-full h-full object-cover"
+                    <img src="assets/images/hyderabad-constructions1.jpg"
+                        alt="hyderabad-constructions" class="w-full h-full object-cover"
                         onerror="this.style.background='#e8ddd0'" />
                 </div>
             </div>
             <div class="flex-1">
                 <div class="badge">Why Choose Us</div>
-                <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-3">Why JSW One Homes</h2>
+                <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-3">Why Hyderabad Constructions?</h2>
                 <p class="text-base text-muted mb-8 leading-relaxed">We make building your dream home simple,
                     transparent, and stress-free.</p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -217,7 +109,7 @@
                         </div>
                         <div>
                             <h4 class="text-base font-semibold text-ink mb-1">High quality materials</h4>
-                            <p class="text-muted leading-relaxed">JSW Group's construction materials for superior
+                            <p class="text-muted leading-relaxed">Hyderabad Constructions construction materials for superior
                                 quality &amp; durability.</p>
                         </div>
                     </div>
@@ -252,7 +144,6 @@
         </div>
     </section>
 
-    <!-- ===================== PROJECT GALLERY (IMAGE CAROUSEL) ===================== -->
     <section class="w-full bg-[#F6F5EF] px-6 md:px-12 xl:px-32 py-16 md:py-20">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-10">
@@ -294,33 +185,14 @@
                         </svg></button>
                 </div>
             </div>
-            <!-- Quote below gallery -->
-            <!-- <div
-                class="mt-7 bg-white border border-border rounded-2xl px-6 py-5 flex flex-col md:flex-row md:items-center gap-4">
-                <div class="flex-1">
-                    <p class="text-muted leading-relaxed italic">"We are very happy, JSW One Homes helped us build. You
-                        just have to have money in your hand and they will build your dream home with expert care and
-                        honest pricing."</p>
-                    <div class="flex items-center gap-2 mt-3">
-                        <div
-                            class="w-7 h-7 rounded-full bg-orange flex items-center justify-center text-white text-xs font-bold">
-                            R</div>
-                        <div>
-                            <p class="text-sm font-semibold text-ink">Ramesh K.</p>
-                            <span class="text-orange text-xs">★★★★★</span>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
             <div class="text-center mt-6">
-                <button
+                <a href="projects.php"
                     class="border border-ink text-ink font-medium px-6 py-2.5 rounded-xl hover:bg-ink hover:text-white transition-colors cursor-pointer">Explore
-                    more projects</button>
+                    more projects</a>
             </div>
         </div>
     </section>
 
-    <!-- ===================== BUILD YOUR DREAM HOME (VIDEO) ===================== -->
     <section class="w-full px-6 md:px-12 xl:px-32 py-16 md:py-20"
         style="background:linear-gradient(135deg,#fdf0e6 0%,#fce4d0 60%,#f9dfc8 100%);">
         <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10 items-center">
@@ -335,18 +207,13 @@
             </div>
             <div class="flex-1 w-full">
                 <div class="video-wrap shadow-xl" style="aspect-ratio:16/9;">
-                    <video style="width:100%;height:100%;border-radius:16px;display:block;" controls>
-                        <source src="videos/v1.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                    <img src="assets/images/hyderabad-constructions2.jpg" alt="hyderabad-constructions" width="100%" height="100%" 
+                        class="object-cover" onerror="this.style.background='#e8ddd0'" />
                 </div>
-                <p class="text-xs text-muted text-center mt-2">Watch how we build your dream home from start to finish
-                </p>
             </div>
         </div>
     </section>
 
-    <!-- ===================== PACKAGES ===================== -->
     <section class="w-full bg-white px-6 md:px-12 xl:px-32 py-16 md:py-20">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-10">
@@ -460,7 +327,7 @@
                             </div>
                         </div>
                     </div>
-                    <button
+                    <button onclick="openBookingModal()"
                         class="w-full mt-6 border border-border text-ink font-medium py-2.5 rounded-xl hover:bg-cream transition-colors cursor-pointer">Get
                         started</button>
                 </div>
@@ -572,7 +439,7 @@
                             </div>
                         </div>
                     </div>
-                    <button
+                    <button onclick="openBookingModal()"
                         class="w-full mt-6 bg-orange text-white font-semibold py-2.5 rounded-xl hover:bg-orange-dark transition-colors cursor-pointer">Get
                         started</button>
                 </div>
@@ -681,7 +548,7 @@
                             </div>
                         </div>
                     </div>
-                    <button
+                    <button onclick="openBookingModal()"
                         class="w-full mt-6 border border-border text-ink font-medium py-2.5 rounded-xl hover:bg-cream transition-colors cursor-pointer">Get
                         started</button>
                 </div>
@@ -691,7 +558,6 @@
         </div>
     </section>
 
-    <!-- ===================== BUILDING PROCESS ===================== -->
     <section class="w-full bg-[#F6F5EF] px-6 md:px-12 xl:px-32 py-16 md:py-20">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-12">
@@ -759,33 +625,26 @@
                 </div>
             </div>
             <div class="text-center mt-8">
-                <a href="#"
+                <a href="how-it-works.php"
                     class="text-orange font-semibold underline underline-offset-2 hover:text-orange-dark transition-colors">Learn
                     more →</a>
             </div>
         </div>
     </section>
 
-    <!-- ===================== TESTIMONIALS (SHARED CAROUSEL) ===================== -->
     <section class="w-full bg-white px-6 md:px-12 xl:px-32 py-16 md:py-20">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-10">
                 <div class="badge">Reviews</div>
                 <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-2">Happy customers, real stories
                 </h2>
-                <p class="text-base text-muted">Real reviews from homeowners who built with JSW One Homes.</p>
+                <p class="text-base text-muted">Real reviews from homeowners who built with Hyderabad Constructions.</p>
             </div>
             <div class="carousel-track" id="testimonialsTrack">
                 <div class="carousel-slide w-72 bg-[#F6F5EF] border border-border rounded-2xl overflow-hidden">
-
                     <div class="relative h-40 overflow-hidden bg-sand">
-                        <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=400&q=80"
-                            alt="Suresh M" class="w-full h-full object-cover opacity-70" onerror="this.remove()" />
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <!-- <div class="play-btn"><svg class="w-5 h-5 fill-orange" viewBox="0 0 24 24">
-                                    <polygon points="5 3 19 12 5 21 5 3" />
-                                </svg></div> -->
-                        </div>
+                        <img src="assets/images/profile-picture.png"
+                            alt="profile-picture" class="w-full h-full object-cover opacity-70" onerror="this.remove()" />
                     </div>
                     <div class="p-4">
                         <div class="flex mb-2"><span class="text-orange">★★★★★</span></div>
@@ -804,15 +663,11 @@
                 </div>
                 <div class="carousel-slide w-72 bg-[#F6F5EF] border border-border rounded-2xl overflow-hidden">
                     <div class="relative h-40 overflow-hidden bg-sand">
-                        <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?w=400&q=80" alt="Priya R"
-                            class="w-full h-full object-cover opacity-70" onerror="this.remove()" />
-                        <div class="absolute inset-0 flex items-center justify-center">
-
-                        </div>
+                        <img src="assets/images/profile-picture.png" alt="profile-picture" class="w-full h-full object-cover opacity-70" onerror="this.remove()" />
                     </div>
                     <div class="p-4">
                         <div class="flex mb-2"><span class="text-orange">★★★★★</span></div>
-                        <p class="text-muted leading-relaxed mb-3">"JSW One Homes delivered on every promise. The app
+                        <p class="text-muted leading-relaxed mb-3">"Hyderabad Constructions delivered on every promise. The app
                             tracking was incredibly helpful."</p>
                         <div class="flex items-center gap-2">
                             <div
@@ -827,11 +682,7 @@
                 </div>
                 <div class="carousel-slide w-72 bg-[#F6F5EF] border border-border rounded-2xl overflow-hidden">
                     <div class="relative h-40 overflow-hidden bg-sand">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Anil K"
-                            class="w-full h-full object-cover opacity-70" onerror="this.remove()" />
-                        <div class="absolute inset-0 flex items-center justify-center">
-
-                        </div>
+                        <img src="assets/images/profile-picture.png" alt="profile-picture" class="w-full h-full object-cover opacity-70" onerror="this.remove()" />
                     </div>
                     <div class="p-4">
                         <div class="flex mb-2"><span class="text-orange">★★★★★</span></div>
@@ -848,14 +699,9 @@
                         </div>
                     </div>
                 </div>
-                <!--  -->
                 <div class="carousel-slide w-72 bg-[#F6F5EF] border border-border rounded-2xl overflow-hidden">
                     <div class="relative h-40 overflow-hidden bg-sand">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Anil K"
-                            class="w-full h-full object-cover opacity-70" onerror="this.remove()" />
-                        <div class="absolute inset-0 flex items-center justify-center">
-
-                        </div>
+                        <img src="assets/images/profile-picture.png" alt="profile-picture" class="w-full h-full object-cover opacity-70" onerror="this.remove()" />
                     </div>
                     <div class="p-4">
                         <div class="flex mb-2"><span class="text-orange">★★★★★</span></div>
@@ -872,14 +718,9 @@
                         </div>
                     </div>
                 </div>
-                <!--  -->
                 <div class="carousel-slide w-72 bg-[#F6F5EF] border border-border rounded-2xl overflow-hidden">
                     <div class="relative h-40 overflow-hidden bg-sand">
-                        <img src="https://images.unsplash.com/photo-1540569014015-19a7be504e3a?w=400&q=80" alt="Vijay S"
-                            class="w-full h-full object-cover opacity-70" onerror="this.remove()" />
-                        <div class="absolute inset-0 flex items-center justify-center">
-
-                        </div>
+                        <img src="assets/images/profile-picture.png" alt="profile-picture" class="w-full h-full object-cover opacity-70" onerror="this.remove()" />
                     </div>
                     <div class="p-4">
                         <div class="flex mb-2"><span class="text-orange">★★★★★</span></div>
@@ -898,16 +739,12 @@
                 </div>
                 <div class="carousel-slide w-72 bg-[#F6F5EF] border border-border rounded-2xl overflow-hidden">
                     <div class="relative h-40 overflow-hidden bg-sand">
-                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80" alt="Meera T"
-                            class="w-full h-full object-cover opacity-70" onerror="this.remove()" />
-                        <div class="absolute inset-0 flex items-center justify-center">
-
-                        </div>
+                        <img src="assets/images/profile-picture.png" alt="profile-picture" class="w-full h-full object-cover opacity-70" onerror="this.remove()" />
                     </div>
                     <div class="p-4">
                         <div class="flex mb-2"><span class="text-orange">★★★★★</span></div>
                         <p class="text-muted leading-relaxed mb-3">"Our dream home is now a reality thanks to the
-                            dedicated team at JSW One Homes. Incredible!"</p>
+                            dedicated team at Hyderabad Constructions. Incredible!"</p>
                         <div class="flex items-center gap-2">
                             <div
                                 class="w-7 h-7 rounded-full bg-orange flex items-center justify-center text-white text-xs font-bold">
@@ -921,9 +758,7 @@
                 </div>
             </div>
 
-
             <div class="flex items-center justify-end mt-5">
-                <!-- <div class="flex gap-1.5" id="tDots"></div> -->
                 <div class="flex gap-2">
                     <button class="carousel-btn" onclick="stepCarousel('testimonialsTrack','tDots',-1)"><svg
                             viewBox="0 0 24 24" class="w-4 h-4">
@@ -938,7 +773,6 @@
         </div>
     </section>
 
-    <!-- ===================== EXPERIENCE CENTRES (SAME CAROUSEL) ===================== -->
     <section class="w-full bg-[#F6F5EF] px-6 md:px-12 xl:px-32 py-16 md:py-20">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-10">
@@ -957,7 +791,6 @@
                         <h4 class="text-base font-semibold text-ink mb-1">Kochi Centre</h4>
                         <p class="text-muted mb-1">Ground Floor, Oberon Mall, NH-47, Edappally, Kochi – 682024</p>
                         <p class="text-muted mb-3">Mon–Sat: 10am – 6pm</p>
-                        <a href="#" class="text-orange font-semibold hover:underline">Explore →</a>
                     </div>
                 </div>
                 <div class="carousel-slide w-72 centre-card bg-white border border-border rounded-2xl overflow-hidden">
@@ -970,7 +803,6 @@
                         <h4 class="text-base font-semibold text-ink mb-1">Bengaluru/Devarc–1</h4>
                         <p class="text-muted mb-1">No. 12, 3rd Floor, Devarc Mall, Old Madras Rd, Bangalore – 560016</p>
                         <p class="text-muted mb-3">Mon–Sat: 10am – 6pm</p>
-                        <a href="#" class="text-orange font-semibold hover:underline">Explore →</a>
                     </div>
                 </div>
                 <div class="carousel-slide w-72 centre-card bg-white border border-border rounded-2xl overflow-hidden">
@@ -983,7 +815,6 @@
                         <h4 class="text-base font-semibold text-ink mb-1">Bengaluru/Devarc–2</h4>
                         <p class="text-muted mb-1">No. 31, 1st Floor, Total Mall, Sarjapur Rd, Bengaluru – 560035</p>
                         <p class="text-muted mb-3">Mon–Sat: 10am – 6pm</p>
-                        <a href="#" class="text-orange font-semibold hover:underline">Explore →</a>
                     </div>
                 </div>
                 <div class="carousel-slide w-72 centre-card bg-white border border-border rounded-2xl overflow-hidden">
@@ -996,7 +827,6 @@
                         <h4 class="text-base font-semibold text-ink mb-1">Hyderabad</h4>
                         <p class="text-muted mb-1">Rd. No. 2, Banjara Hills, Hyderabad – 500034</p>
                         <p class="text-muted mb-3">Mon–Sat: 10am – 6pm</p>
-                        <a href="#" class="text-orange font-semibold hover:underline">Explore →</a>
                     </div>
                 </div>
                 <div class="carousel-slide w-72 centre-card bg-white border border-border rounded-2xl overflow-hidden">
@@ -1009,7 +839,6 @@
                         <p class="text-muted mb-1">No. 5, Ground Floor, Phoenix Marketcity, Velachery, Chennai – 600042
                         </p>
                         <p class="text-muted mb-3">Mon–Sat: 10am – 6pm</p>
-                        <a href="#" class="text-orange font-semibold hover:underline">Explore →</a>
                     </div>
                 </div>
                 <div class="carousel-slide w-72 centre-card bg-white border border-border rounded-2xl overflow-hidden">
@@ -1022,7 +851,6 @@
                         <h4 class="text-base font-semibold text-ink mb-1">Hyderabad</h4>
                         <p class="text-muted mb-1">Rd. No. 2, Banjara Hills, Hyderabad – 500034</p>
                         <p class="text-muted mb-3">Mon–Sat: 10am – 6pm</p>
-                        <a href="#" class="text-orange font-semibold hover:underline">Explore →</a>
                     </div>
                 </div>
                 <div class="carousel-slide w-72 centre-card bg-white border border-border rounded-2xl overflow-hidden">
@@ -1035,7 +863,6 @@
                         <h4 class="text-base font-semibold text-ink mb-1">Hyderabad</h4>
                         <p class="text-muted mb-1">Rd. No. 2, Banjara Hills, Hyderabad – 500034</p>
                         <p class="text-muted mb-3">Mon–Sat: 10am – 6pm</p>
-                        <a href="#" class="text-orange font-semibold hover:underline">Explore →</a>
                     </div>
                 </div>
             </div>
@@ -1056,25 +883,13 @@
         </div>
     </section>
 
-
     <?php include 'includes/cta-form.php'; ?>
     <?php include 'includes/action-buttons.php'; ?>
     <?php include 'includes/footer.php'; ?>
     <?php include 'includes/book-meeting-popup.php'; ?>
 
-    <script src="script.js?v=2"></script>
-    <script>
+    <script src="assets/js/script.js"></script>
 
-        /* ---- Package feature expand/collapse ---- */
-        function toggleFeature(btn) {
-            const row = btn.closest('.pkg-feature-row');
-            const body = row.querySelector('.pkg-feature-body');
-            const isOpen = row.classList.contains('open');
-            row.classList.toggle('open', !isOpen);
-            body.classList.toggle('open', !isOpen);
-        }
-
-    </script>
 </body>
 
 </html>

@@ -2,74 +2,39 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Join as Architect – JSW One Homes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta name="title" content="Join as architect - Hyderabad Constructions">
+    <meta name="description" content="Join as architect - Hyderabad Constructions">
+    <meta name="keywords" content="Hyderabad Constructions">
+
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="30 days">
+    <meta name="author" content="Hyderabad Constructions">
+
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+
+    <meta name="theme-color" content="#c96b2a">
+    <meta name="apple-mobile-web-app-status-bar" content="#c96b2a">
+
+    <title>Join as architect - Hyderabad Constructions</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        cream: '#f5f3ec',
-                        sand: '#ede9df',
-                        orange: '#e07b39',
-                        'orange-dark': '#c96b2a',
-                        ink: '#1a1a1a',
-                        muted: '#6b6b6b',
-                        border: '#ddd8ce',
-                    },
-                    fontFamily: {
-                        sans: ['Neue Montreal', 'sans-serif'],
-                        display: ['Neue Montreal', 'serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    <style>
-        /* ---- Why cards hover ---- */
-        .why-card {
-            transition: box-shadow .25s, transform .25s;
-        }
-
-        .why-card:hover {
-            box-shadow: 0 8px 28px rgba(0, 0, 0, .1);
-            transform: translateY(-2px);
-        }
-
-
-
-
-
-
-
-
-        /* ---- Form focus ---- */
-        input:focus,
-        select:focus,
-        textarea:focus {
-            border-color: #e07b39 !important;
-            outline: none;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/theme-config.js"></script>
 </head>
 
 <body class="bg-cream text-ink">
 
     <?php include 'includes/navbar.php'; ?>
 
-    <!-- ===================== HERO ===================== -->
-    <!-- <section class="bg-cream w-full px-6 lg:px-16 pt-14 pb-0 overflow-hidden"> -->
     <section class="bg-cream w-full px-6 lg:px-12 xl:px-32 py-16">
-        <!-- <div class="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-16 pb-0 lg:pb-0"> -->
-
         <div class="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-14">
-            <!-- Left -->
             <div class="flex-1 text-center lg:text-left ">
-
                 <h1
                     class="font-display text-4xl md:text-5xl lg:text-[3.6rem] font-semibold text-ink leading-tight mb-5">
                     Join us as an<br />Architect
@@ -82,28 +47,15 @@
                     Join Now
                 </a>
             </div>
-            <!-- Right — video -->
-            <!-- <div class="flex-1 w-full">
-                <div class="rounded-2xl overflow-hidden shadow-2xl" style="aspect-ratio:4/3;">
-                    <video class="w-full h-full object-cover" autoplay muted loop playsinline>
-                        <source src="./join_as_architect.mp4" type="video/mp4" />
-                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80"
-                            alt="Architect at work" class="w-full h-full object-cover" />
-                    </video>
-                </div>
-            </div> -->
-            <!-- Right — image -->
             <div class="flex-1 flex justify-end">
                 <div class="w-full max-w-[580px] h-[310px] rounded-2xl overflow-hidden shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80"
+                    <img src="assets/images/join-as-architect1.jpg"
                         alt="Architect at work" alt="Modern House" class="w-full h-full object-cover">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===================== STATS BAR ===================== -->
-    <!-- <section class="w-full bg-cream border-t border-border px-6 lg:px-16 py-12"> -->
     <section class="w-full bg-[#f0e8d8] border-t border-border px-6 lg:px-12 xl:px-32 py-12">
 
         <div class="max-w-7xl mx-auto grid grid-cols-1 grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
@@ -130,27 +82,24 @@
         </div>
     </section>
 
-    <!-- ===================== WHY JSW ONE HOMES ===================== -->
     <section class="w-full bg-white px-6 lg:px-12 xl:px-32 py-16 lg:py-20">
         <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
-            <!-- Image -->
             <div class="flex-1 flex">
                 <div class="w-full max-w-[580px] h-[310px] rounded-2xl overflow-hidden shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=700&q=80"
+                    <img src="assets/images/join-as-architect2.jpg"
                         alt="Architect at work" class="w-full h-full object-cover"
                         onerror="this.style.background='#e8ddd0';this.src=''" />
                 </div>
             </div>
-            <!-- Content -->
             <div class="flex-1">
 
-                <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-3">Why JSW One Homes</h2>
+                <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-3">Why Hyderabad Constructions</h2>
                 <p class="text-base text-muted mb-8 leading-relaxed">Be part of a network where architects grow,
                     collaborate, and craft homes with passion and purpose.</p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div class="why-card bg-cream border border-border rounded-xl p-5">
                         <h4 class="font-semibold text-ink mb-1.5">Strong brand association</h4>
-                        <p class="text-muted leading-relaxed">Elevate your work with the global presence of JSW.
+                        <p class="text-muted leading-relaxed">Elevate your work with the global presence of Hyderabad Constructions.
                         </p>
                     </div>
                     <div class="why-card bg-cream border border-border rounded-xl p-5">
@@ -171,39 +120,25 @@
         </div>
     </section>
 
-    <!-- ===================== TESTIMONIALS CAROUSEL ===================== -->
     <section class="w-full bg-white px-6 md:px-12 xl:px-32 py-16 md:py-20">
         <div class="max-w-7xl mx-auto">
-
-            <!-- Header -->
             <div class="text-center mb-10">
-
                 <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-2">Trusted by Architects,
                     nationwide</h2>
                 <p class="text-base text-muted">Helping architects turn blueprints into projects with trust, technology,
                     and consistency.</p>
             </div>
-
-            <!-- Carousel track — same class as home page -->
             <div class="carousel-track" id="archTestimonialsTrack">
-
-                <!-- Card 1 -->
                 <div class="carousel-slide w-72 bg-[#F6F5EF] border border-border rounded-2xl overflow-hidden">
                     <div class="relative h-40 overflow-hidden bg-sand">
-                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80"
-                            alt="Ar. Venkat" class="w-full h-full object-cover opacity-70" onerror="this.remove()" />
+                        <img src="assets/images/profile-picture.png" alt="Ar. Venkat" class="w-full h-full object-cover opacity-70" onerror="this.remove()" />
                         <div class="absolute inset-0 flex items-center justify-center">
-                            <!-- <div class="play-btn">
-                                <svg class="w-5 h-5 fill-orange" viewBox="0 0 24 24">
-                                    <polygon points="5 3 19 12 5 21 5 3" />
-                                </svg>
-                            </div> -->
                         </div>
                     </div>
                     <div class="p-4">
                         <div class="flex mb-2"><span class="text-orange">★★★★★</span></div>
-                        <p class="text-muted leading-relaxed mb-3">"Partnering with JSW One Homes brought steady project
-                            flow, wider reach, and stronger client trust under the JSW brand."</p>
+                        <p class="text-muted leading-relaxed mb-3">"Partnering with Hyderabad Constructions brought steady project
+                            flow, wider reach, and stronger client trust under the Hyderabad Constructions brand."</p>
                         <div class="flex items-center gap-2">
                             <div
                                 class="w-7 h-7 rounded-full bg-orange flex items-center justify-center text-white text-xs font-bold">
@@ -216,10 +151,9 @@
                     </div>
                 </div>
 
-                <!-- Card 2 -->
                 <div class="carousel-slide w-72 bg-[#F6F5EF] border border-border rounded-2xl overflow-hidden">
                     <div class="relative h-40 overflow-hidden bg-sand">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80"
+                        <img src="assets/images/profile-picture.png"
                             alt="Ar. Aswid Varma" class="w-full h-full object-cover opacity-70"
                             onerror="this.remove()" />
                         <div class="absolute inset-0 flex items-center justify-center">
@@ -227,7 +161,7 @@
                     </div>
                     <div class="p-4">
                         <div class="flex mb-2"><span class="text-orange">★★★★★</span></div>
-                        <p class="text-muted leading-relaxed mb-3">"Great working with JSW One Homes: ensured cash
+                        <p class="text-muted leading-relaxed mb-3">"Great working with Hyderabad Constructions: ensured cash
                             flows, SOP's, balanced ROI. PM tool enables easy data sharing &amp; transparency."</p>
                         <div class="flex items-center gap-2">
                             <div
@@ -241,12 +175,9 @@
                     </div>
                 </div>
 
-                <!-- Card 3 -->
                 <div class="carousel-slide w-72 bg-[#F6F5EF] border border-border rounded-2xl overflow-hidden">
                     <div class="relative h-40 overflow-hidden bg-sand">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80"
-                            alt="Ar. Jeshna Parveen" class="w-full h-full object-cover opacity-70"
-                            onerror="this.remove()" />
+                        <img src="assets/images/profile-picture.png" alt="Ar. Jeshna Parveen" class="w-full h-full object-cover opacity-70" onerror="this.remove()" />
                         <div class="absolute inset-0 flex items-center justify-center">
 
                         </div>
@@ -268,19 +199,16 @@
                     </div>
                 </div>
 
-                <!-- Card 4 -->
                 <div class="carousel-slide w-72 bg-[#F6F5EF] border border-border rounded-2xl overflow-hidden">
                     <div class="relative h-40 overflow-hidden bg-sand">
-                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80"
-                            alt="Ar. Rajesh Kumar" class="w-full h-full object-cover opacity-70"
-                            onerror="this.remove()" />
+                        <img src="assets/images/profile-picture.png" alt="Ar. Rajesh Kumar" class="w-full h-full object-cover opacity-70" onerror="this.remove()" />
                         <div class="absolute inset-0 flex items-center justify-center">
 
                         </div>
                     </div>
                     <div class="p-4">
                         <div class="flex mb-2"><span class="text-orange">★★★★★</span></div>
-                        <p class="text-muted leading-relaxed mb-3">"JSW One Homes gave me access to quality clients and
+                        <p class="text-muted leading-relaxed mb-3">"Hyderabad Constructions gave me access to quality clients and
                             seamless project management. It's truly a game changer for independent architects."</p>
                         <div class="flex items-center gap-2">
                             <div
@@ -294,19 +222,16 @@
                     </div>
                 </div>
 
-                <!-- Card 5 -->
                 <div class="carousel-slide w-72 bg-[#F6F5EF] border border-border rounded-2xl overflow-hidden">
                     <div class="relative h-40 overflow-hidden bg-sand">
-                        <img src="https://images.unsplash.com/photo-1540569014015-19a7be504e3a?w=400&q=80"
-                            alt="Ar. Sneha Patil" class="w-full h-full object-cover opacity-70"
-                            onerror="this.remove()" />
+                        <img src="assets/images/profile-picture.png" alt="Ar. Sneha Patil" class="w-full h-full object-cover opacity-70" onerror="this.remove()" />
                         <div class="absolute inset-0 flex items-center justify-center">
 
                         </div>
                     </div>
                     <div class="p-4">
                         <div class="flex mb-2"><span class="text-orange">★★★★★</span></div>
-                        <p class="text-muted leading-relaxed mb-3">"The support system at JSW One Homes is unmatched.
+                        <p class="text-muted leading-relaxed mb-3">"The support system at Hyderabad Constructions is unmatched.
                             From lead generation to project handover, everything is streamlined and professional."</p>
                         <div class="flex items-center gap-2">
                             <div
@@ -320,11 +245,9 @@
                     </div>
                 </div>
 
-                <!-- Card 6 -->
                 <div class="carousel-slide w-72 bg-[#F6F5EF] border border-border rounded-2xl overflow-hidden">
                     <div class="relative h-40 overflow-hidden bg-sand">
-                        <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=400&q=80"
-                            alt="Ar. Meera Nair" class="w-full h-full object-cover opacity-70"
+                        <img src="assets/images/profile-picture.png" alt="Ar. Meera Nair" class="w-full h-full object-cover opacity-70"
                             onerror="this.remove()" />
                         <div class="absolute inset-0 flex items-center justify-center">
 
@@ -348,7 +271,6 @@
 
             </div>
 
-            <!-- Prev / Next buttons — identical to home page -->
             <div class="flex items-center justify-end mt-5">
                 <div class="flex gap-2">
                     <button class="carousel-btn" onclick="stepCarousel('archTestimonialsTrack','',  -1)">
@@ -367,7 +289,6 @@
         </div>
     </section>
 
-    <!-- ===================== 3 STEPS ===================== -->
     <section class="bg-[#F6F5EF] flex flex-col items-center w-full py-16 xl:py-24" id="process-section">
         <div class="flex flex-col items-center gap-12 px-4 w-full max-w-[1440px]">
 
@@ -451,14 +372,14 @@
             </div>
         </div>
     </section>
-    <!-- ===================== JOIN FORM ===================== -->
+
     <section id="join-form" class="w-full px-6 md:px-12 xl:px-32 py-16 md:py-20"
         style="background: linear-gradient(160deg, #fdf0e6 0%, #fce4d0 100%);">
 
         <div class="text-center mb-10">
             <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-2">Join us now</h2>
             <p class="text-base text-muted max-w-md mx-auto leading-relaxed">Collaborate, grow, and shape the future
-                of homebuilding with JSW One Homes.</p>
+                of homebuilding with Hyderabad Constructions.</p>
         </div>
 
         <div class="bg-white max-w-3xl mx-auto rounded-2xl p-7 md:p-8 border border-border shadow-md text-left">
@@ -529,7 +450,6 @@
                     </div>
                 </div>
 
-                <!-- COA Radio -->
                 <div class="flex items-center gap-4 flex-wrap mb-6">
                     <span class="text-[14px] text-slate-700">Registered with COA?</span>
                     <div class="flex items-center gap-4">
@@ -542,7 +462,6 @@
                     </div>
                 </div>
 
-                <!-- Agree -->
                 <div class="flex items-center gap-2 mb-5">
                     <input type="checkbox" id="archAgree" class="w-4 h-4 accent-orange cursor-pointer flex-shrink-0" />
                     <span class="text-xs text-muted">I agree to <a href="#" class="text-orange underline">Privacy
@@ -573,18 +492,16 @@
         </div>
     </section>
 
-    <!-- ===================== FAQ ===================== -->
     <section class="w-full bg-cream px-6 md:px-12 xl:px-32 py-16 md:py-20" id="faqs">
         <div class="max-w-7xl mx-auto">
             <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-10 text-center">Frequently asked
                 questions</h2>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-x-16">
-                <!-- Col 1 -->
                 <div>
                     <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                         <div class="flex items-center justify-between gap-4">
-                            <span class="text-base text-ink leading-snug">Since how long has JSW been in the
+                            <span class="text-base text-ink leading-snug">Since how long has Hyderabad Constructions been in the
                                 construction business?</span>
                             <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
                                 stroke-width="1.5">
@@ -594,7 +511,7 @@
                             </svg>
                         </div>
                         <div class="faq-body pt-3">
-                            <p class="text-sm text-muted leading-relaxed">JSW One Homes has been in the
+                            <p class="text-sm text-muted leading-relaxed">Hyderabad Constructions has been in the
                                 construction
                                 business for over a decade, with a strong presence across major cities in India,
                                 building thousands of quality homes.</p>
@@ -602,7 +519,7 @@
                     </div>
                     <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                         <div class="flex items-center justify-between gap-4">
-                            <span class="text-base text-ink leading-snug">Does JSW One Homes undertake home
+                            <span class="text-base text-ink leading-snug">Does Hyderabad Constructions undertake home
                                 designing services?</span>
                             <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
                                 stroke-width="1.5">
@@ -612,7 +529,7 @@
                             </svg>
                         </div>
                         <div class="faq-body pt-3">
-                            <p class="text-sm text-muted leading-relaxed">Yes, JSW One Homes offers complete
+                            <p class="text-sm text-muted leading-relaxed">Yes, Hyderabad Constructions offers complete
                                 home design
                                 services, from architectural planning and interior design to material selection and
                                 landscape design.</p>
@@ -620,7 +537,7 @@
                     </div>
                     <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                         <div class="flex items-center justify-between gap-4">
-                            <span class="text-base text-ink leading-snug">Does JSW One Homes undertake any
+                            <span class="text-base text-ink leading-snug">Does Hyderabad Constructions undertake any
                                 commercial projects?</span>
                             <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
                                 stroke-width="1.5">
@@ -630,7 +547,7 @@
                             </svg>
                         </div>
                         <div class="faq-body pt-3">
-                            <p class="text-sm text-muted leading-relaxed">JSW One Homes primarily focuses on residential
+                            <p class="text-sm text-muted leading-relaxed">Hyderabad Constructions primarily focuses on residential
                                 construction. For commercial projects, please contact our team to discuss specific
                                 requirements.</p>
                         </div>
@@ -655,7 +572,7 @@
                     </div>
                     <div class="faq-row border-b border-border  py-5 cursor-pointer" onclick="toggleFaq(this)">
                         <div class="flex items-center justify-between gap-4">
-                            <span class="text-base text-ink leading-snug">Which brands are partnered with JSW One
+                            <span class="text-base text-ink leading-snug">Which brands are partnered with Hyderabad Constructions One
                                 Homes?</span>
                             <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
                                 stroke-width="1.5">
@@ -665,14 +582,13 @@
                             </svg>
                         </div>
                         <div class="faq-body pt-3">
-                            <p class="text-sm text-muted leading-relaxed">JSW One Homes partners with leading brands in
+                            <p class="text-sm text-muted leading-relaxed">Hyderabad Constructions partners with leading brands in
                                 steel, cement, tiles, plumbing, electrical fittings, and more — all carefully vetted for
                                 quality and reliability.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Col 2 -->
                 <div>
                     <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                         <div class="flex items-center justify-between gap-4">
@@ -711,7 +627,7 @@
                     </div>
                     <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                         <div class="flex items-center justify-between gap-4">
-                            <span class="text-base text-ink leading-snug">Does JSW One Homes offer any construction
+                            <span class="text-base text-ink leading-snug">Does Hyderabad Constructions offer any construction
                                 warranties?</span>
                             <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
                                 stroke-width="1.5">
@@ -765,9 +681,8 @@
                 </div>
             </div>
 
-            <!-- View more -->
             <div class="text-center mt-10">
-                <a href="faqs.html">
+                <a href="faqs.php">
                     <button
                         class="border border-ink text-ink font-medium py-3 px-10 rounded-xl hover:bg-ink hover:text-white transition-colors cursor-pointer bg-transparent">
                         View more
@@ -781,11 +696,9 @@
     <?php include 'includes/footer.php'; ?>
     <?php include 'includes/book-meeting-popup.php'; ?>
 
-    <script src="script.js?v=2"></script>
+    <script src="assets/js/script.js"></script>
     <script>
-        /* =============================================
-           JOIN FORM
-           ============================================= */
+        /* JOIN FORM SUBMISSION */
         document.getElementById('architectForm').addEventListener('submit', async function (e) {
             e.preventDefault();
             const name = document.getElementById('archName').value.trim();
@@ -818,6 +731,7 @@
             setTimeout(() => { status.textContent = ''; status.className = 'text-center text-sm min-h-[18px]'; }, 7000);
         });
     </script>
+
 </body>
 
 </html>

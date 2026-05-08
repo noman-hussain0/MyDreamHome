@@ -1,0 +1,534 @@
+/* ============================================= */
+/* BASE & GLOBAL STYLES */
+/* ============================================= */
+
+@font-face {
+    font-family: 'Neue Montreal';
+    src: url('../fonts/NeueMontreal-Regular.otf') format('opentype');
+}
+
+body {
+    font-family: 'Neue Montreal', sans-serif;
+    letter-spacing: 0.5px !important;
+}
+
+/* Form Focus States */
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #e07b39 !important;
+    outline: none;
+}
+
+/* Check Icon */
+.check-icon {
+    color: #e07b39;
+}
+
+/* ============================================= */
+/* ANIMATIONS */
+/* ============================================= */
+
+@keyframes dropIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes modalSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp .5s ease forwards;
+}
+
+.fade-up-delay-1 {
+    animation-delay: .1s;
+}
+
+.fade-up-delay-2 {
+    animation-delay: .2s;
+}
+
+.fade-up-delay-3 {
+    animation-delay: .3s;
+}
+
+.dropdown-open {
+    animation: dropIn .18s ease;
+}
+
+/* ============================================= */
+/* COMMON COMPONENTS */
+/* ============================================= */
+
+/* Floating Action Buttons */
+.floating-action-buttons {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.fab {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #25d366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+    transition: box-shadow 0.2s, transform 0.2s;
+    text-decoration: none;
+}
+
+.fab.phone {
+    background: #34b7f1;
+}
+
+.fab img {
+    width: 56px;
+    height: 56px;
+    display: block;
+}
+
+.fab:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+    transform: translateY(-2px) scale(1.05);
+}
+
+/* Carousel (Shared) */
+.carousel-track {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+    scroll-padding-left: 0px;
+    padding-bottom: 10px;
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-slide {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+}
+
+.carousel-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid #ddd8ce;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background .2s, border-color .2s;
+    flex-shrink: 0;
+}
+
+.carousel-btn:hover {
+    background: #e07b39;
+    border-color: #e07b39;
+}
+
+.carousel-btn svg {
+    stroke: #1a1a1a;
+    fill: none;
+    stroke-width: 2;
+    transition: stroke .2s;
+}
+
+.carousel-btn:hover svg {
+    stroke: #fff;
+}
+
+/* Badges */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff3eb;
+    border: 1px solid #f0c9a8;
+    color: #c96b2a;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 99px;
+    margin-bottom: 12px;
+}
+
+/* ============================================= */
+/* HOME PAGE */
+/* ============================================= */
+
+.hero-bg {
+    background: linear-gradient(135deg, #fdf6ee 0%, #fce8d5 50%, #f9dfc8 100%);
+}
+
+.pkg-feature-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease, opacity .2s ease;
+    opacity: 0;
+}
+
+.pkg-feature-body.open {
+    max-height: 200px;
+    opacity: 1;
+}
+
+.pkg-chevron {
+    transition: transform .25s;
+}
+
+.pkg-feature-row.open .pkg-chevron {
+    transform: rotate(180deg);
+}
+
+.stat-card {
+    transition: transform .2s, box-shadow .2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
+}
+
+.pkg-card {
+    transition: transform .2s, box-shadow .2s;
+}
+
+.pkg-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, .1);
+}
+
+.pkg-premium {
+    border: 2px solid #e07b39;
+}
+
+.process-card {
+    transition: transform .2s, box-shadow .2s;
+}
+
+.process-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
+}
+
+.why-icon-bg {
+    background: #fff8f2;
+    border: 1px solid #f0c9a8;
+}
+
+.video-wrap {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.video-wrap iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+}
+
+/* Gallery Carousel */
+.gallery-track {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+}
+
+.gallery-track::-webkit-scrollbar {
+    display: none;
+}
+
+.gallery-slide {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+/* ============================================= */
+/* HOW IT WORKS */
+/* ============================================= */
+
+.step-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp .5s ease forwards;
+}
+
+.step-card:nth-child(1) {
+    animation-delay: .1s;
+}
+
+.step-card:nth-child(3) {
+    animation-delay: .2s;
+}
+
+.step-card:nth-child(5) {
+    animation-delay: .3s;
+}
+
+.step-card:nth-child(7) {
+    animation-delay: .4s;
+}
+
+.step-card:nth-child(9) {
+    animation-delay: .5s;
+}
+
+.step-card:nth-child(11) {
+    animation-delay: .6s;
+}
+
+.step-icon-svg {
+    width: 22px;
+    height: 22px;
+    stroke: #1a1a1a;
+    fill: none;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* ============================================= */
+/* ABOUT US */
+/* ============================================= */
+
+.timeline-line {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #e8ddd0;
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .timeline-line {
+        display: block;
+    }
+}
+
+/* Mobile: vertical timeline */
+.timeline-mobile {
+    position: relative;
+    padding-left: 28px;
+}
+
+.timeline-mobile::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e8ddd0;
+    transform: translateX(-50%);
+}
+
+.timeline-mobile-item {
+    position: relative;
+    margin-bottom: 36px;
+}
+
+.timeline-mobile-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-mobile-dot {
+    position: absolute;
+    left: -20px;
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #e07b39;
+    border: 3px solid #f5f2eb;
+    z-index: 10;
+    transform: translateX(-50%);
+}
+
+.timeline-mobile-content {
+    padding-left: 4px;
+}
+
+/* ============================================= */
+/* JOIN AS ARCHITECT */
+/* ============================================= */
+
+.why-card {
+    transition: box-shadow .25s, transform .25s;
+}
+
+.why-card:hover {
+    box-shadow: 0 8px 28px rgba(0, 0, 0, .1);
+    transform: translateY(-2px);
+}
+
+/* ============================================= */
+/* EXPERIENCE CENTRES */
+/* ============================================= */
+
+.centre-card {
+    transition: box-shadow .2s;
+}
+
+.centre-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .1);
+}
+
+/* ============================================= */
+/* FAQS */
+/* ============================================= */
+
+.cat-pill {
+    border: 1px solid #c8c3b8;
+    color: #1a1a1a;
+    background: transparent;
+    border-radius: 99px;
+    padding: 7px 20px;
+    font-size: 14px;
+    font-family: 'Neue Montreal', sans-serif;
+    cursor: pointer;
+    transition: background .2s, color .2s, border-color .2s;
+    white-space: nowrap;
+    letter-spacing: 0.4px;
+}
+
+.cat-pill:hover {
+    border-color: #1a1a1a;
+}
+
+.cat-pill.active {
+    background: #1a1a1a;
+    color: #fff;
+    border-color: #1a1a1a;
+}
+
+/* FAQ Accordion */
+.faq-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s ease, opacity .25s ease;
+    opacity: 0;
+}
+
+.faq-body.open {
+    max-height: 400px;
+    opacity: 1;
+}
+
+.faq-plus {
+    transition: transform .25s ease;
+    flex-shrink: 0;
+}
+
+.faq-row.open .faq-plus {
+    transform: rotate(45deg);
+}
+
+/* ============================================= */
+/* MOBILE NAV */
+/* ============================================= */
+
+#mobileNav {
+    transform: translateX(100%);
+    transition: transform .3s cubic-bezier(.4, 0, .2, 1);
+}
+
+#mobileNav.open {
+    transform: translateX(0);
+}
+
+.bar {
+    display: block;
+    height: 2px;
+    background: #1a1a1a;
+    border-radius: 2px;
+    transition: transform .3s, opacity .3s, width .3s;
+    transform-origin: center;
+}
+
+.bar-1 {
+    width: 22px;
+}
+
+.bar-2 {
+    width: 16px;
+}
+
+.bar-3 {
+    width: 22px;
+}
+
+#hamburger.active .bar-1 {
+    width: 22px;
+    transform: translateY(7px) rotate(45deg);
+}
+
+#hamburger.active .bar-2 {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+#hamburger.active .bar-3 {
+    width: 22px;
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ============================================= */
+/* MODALS */
+/* ============================================= */
+
+/* Prevent body scroll when modal is open */
+body.modal-open {
+    overflow: hidden;
+}

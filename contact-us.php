@@ -2,50 +2,38 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us – JSW One Homes</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        cream: '#f5f3ec',
-                        sand: '#ede9df',
-                        orange: '#e07b39',
-                        'orange-dark': '#c96b2a',
-                        ink: '#1a1a1a',
-                        muted: '#6b6b6b',
-                        border: '#ddd8ce',
-                    },
-                    fontFamily: {
-                        sans: ['Neue Montreal', 'sans-serif'],
-                        display: ['Neue Montreal', 'serif'],
-                    },
-                }
-            }
-        }
-    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
+    <meta name="title" content="Contact Us - Hyderabad Constructions">
+    <meta name="description" content="Contact Us - Hyderabad Constructions">
+    <meta name="keywords" content="Hyderabad Constructions">
+
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="30 days">
+    <meta name="author" content="Hyderabad Constructions">
+
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+
+    <meta name="theme-color" content="#c96b2a">
+    <meta name="apple-mobile-web-app-status-bar" content="#c96b2a">
+
+    <title>Contact Us - Hyderabad Constructions</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/theme-config.js"></script>
 </head>
 
 <body class="bg-cream text-ink">
 
     <?php include 'includes/navbar.php'; ?>
 
-    <!-- ===================== HERO – GET IN TOUCH ===================== -->
-    <!--
-    FIX: Changed xl: breakpoints → lg: breakpoints throughout
-    so the two-column side-by-side layout kicks in at 1024px
-    (matching the navbar and all other sections on this site)
-    instead of 1280px which was causing stacking on 1210px screens.
--->
     <section class="w-full bg-[#FCFCF7] px-6 lg:px-12 xl:px-32 py-16">
         <div class="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-14">
-
-            <!-- LEFT: text content -->
             <div class="flex-1 max-w-[480px] flex flex-col items-start">
                 <h1 class="font-display text-4xl md:text-5xl font-semibold text-ink leading-tight mb-4 fade-up">
                     Get in touch with us
@@ -54,8 +42,6 @@
                     If you have questions or need assistance, we're here to help. Contact us today and our team will
                     provide the support you need.
                 </p>
-
-                <!-- Action buttons -->
                 <div class="flex flex-col w-full gap-3 mb-8">
                     <a href="#book-meeting" class="w-full max-w-[450px]">
                         <button
@@ -85,8 +71,6 @@
                         </button>
                     </a>
                 </div>
-
-                <!-- Email / Phone -->
                 <div class="flex flex-col sm:flex-row items-start gap-6 sm:gap-10 w-full pt-6 border-t border-border">
                     <a href="mailto:abbas@hyderabadconstructions.in" class="group">
                         <p class="text-[#70737A] text-xs uppercase tracking-widest font-bold mb-1">Email us</p>
@@ -101,18 +85,11 @@
                     </a>
                 </div>
             </div>
-
-            <!-- RIGHT: image -->
             <div class="flex-1 flex justify-end">
                 <div class="w-full max-w-[580px] h-[410px] rounded-2xl overflow-hidden shadow-sm">
-                    <!-- <div class="w-full max-w-[560px] rounded-2xl overflow-hidden shadow-sm"> -->
                     <picture>
-                        <source media="(max-width: 1023px)"
-                            srcset="https://cdn.jswonehomes.com/About_us_Mob_42e2eb828c/About_us_Mob_42e2eb828c.webp">
-                        <source media="(min-width: 1024px)"
-                            srcset="https://cdn.jswonehomes.com/contactwebplaptop1_0420347806/contactwebplaptop1_0420347806.webp">
                         <img alt="Get in touch" loading="lazy" class="w-full h-full object-cover"
-                            src="https://storage.googleapis.com/public-homes-web-media-prod/About_us_Mob_42e2eb828c/About_us_Mob_42e2eb828c.webp"
+                            src="assets/images/contact-us.jpg"
                             onerror="this.parentElement.style.background='#ede9df'">
                     </picture>
                 </div>
@@ -121,8 +98,6 @@
         </div>
     </section>
 
-
-    <!-- ===================== ANY QUERIES FORM ===================== -->
     <section class="w-full bg-[#F6F5EF] px-6 md:px-12 xl:px-32 py-16 md:py-20" id="book-meeting">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-10">
@@ -222,19 +197,16 @@
         </div>
     </section>
 
-
-    <!-- ===================== FAQ ===================== -->
     <section class="w-full bg-cream px-6 md:px-12 xl:px-32 py-16 md:py-20" id="faqs">
         <div class="max-w-7xl mx-auto">
             <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-10 text-center">Frequently asked
                 questions</h2>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-x-16">
-                <!-- Col 1 -->
                 <div>
                     <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                         <div class="flex items-center justify-between gap-4">
-                            <span class="text-base text-ink leading-snug">Since how long has JSW been in the
+                            <span class="text-base text-ink leading-snug">Since how long has Hyderabad Constructions been in the
                                 construction business?</span>
                             <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
                                 stroke-width="1.5">
@@ -244,7 +216,7 @@
                             </svg>
                         </div>
                         <div class="faq-body pt-3">
-                            <p class="text-sm text-muted leading-relaxed">JSW One Homes has been in the
+                            <p class="text-sm text-muted leading-relaxed">Hyderabad Constructions has been in the
                                 construction
                                 business for over a decade, with a strong presence across major cities in India,
                                 building thousands of quality homes.</p>
@@ -252,7 +224,7 @@
                     </div>
                     <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                         <div class="flex items-center justify-between gap-4">
-                            <span class="text-base text-ink leading-snug">Does JSW One Homes undertake home
+                            <span class="text-base text-ink leading-snug">Does Hyderabad Constructions undertake home
                                 designing services?</span>
                             <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
                                 stroke-width="1.5">
@@ -262,7 +234,7 @@
                             </svg>
                         </div>
                         <div class="faq-body pt-3">
-                            <p class="text-sm text-muted leading-relaxed">Yes, JSW One Homes offers complete
+                            <p class="text-sm text-muted leading-relaxed">Yes, Hyderabad Constructions One Homes offers complete
                                 home design
                                 services, from architectural planning and interior design to material selection and
                                 landscape design.</p>
@@ -270,7 +242,7 @@
                     </div>
                     <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                         <div class="flex items-center justify-between gap-4">
-                            <span class="text-base text-ink leading-snug">Does JSW One Homes undertake any
+                            <span class="text-base text-ink leading-snug">Does Hyderabad Constructions undertake any
                                 commercial projects?</span>
                             <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
                                 stroke-width="1.5">
@@ -280,7 +252,7 @@
                             </svg>
                         </div>
                         <div class="faq-body pt-3">
-                            <p class="text-sm text-muted leading-relaxed">JSW One Homes primarily focuses on residential
+                            <p class="text-sm text-muted leading-relaxed">Hyderabad Constructions primarily focuses on residential
                                 construction. For commercial projects, please contact our team to discuss specific
                                 requirements.</p>
                         </div>
@@ -305,8 +277,7 @@
                     </div>
                     <div class="faq-row border-b border-border  py-5 cursor-pointer" onclick="toggleFaq(this)">
                         <div class="flex items-center justify-between gap-4">
-                            <span class="text-base text-ink leading-snug">Which brands are partnered with JSW One
-                                Homes?</span>
+                            <span class="text-base text-ink leading-snug">Which brands are partnered with Hyderabad Constructions?</span>
                             <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
                                 stroke-width="1.5">
                                 <circle cx="12" cy="12" r="10" />
@@ -315,14 +286,12 @@
                             </svg>
                         </div>
                         <div class="faq-body pt-3">
-                            <p class="text-sm text-muted leading-relaxed">JSW One Homes partners with leading brands in
+                            <p class="text-sm text-muted leading-relaxed">Hyderabad Constructions partners with leading brands in
                                 steel, cement, tiles, plumbing, electrical fittings, and more — all carefully vetted for
                                 quality and reliability.</p>
                         </div>
                     </div>
                 </div>
-
-                <!-- Col 2 -->
                 <div>
                     <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                         <div class="flex items-center justify-between gap-4">
@@ -361,7 +330,7 @@
                     </div>
                     <div class="faq-row border-b border-border py-5 cursor-pointer" onclick="toggleFaq(this)">
                         <div class="flex items-center justify-between gap-4">
-                            <span class="text-base text-ink leading-snug">Does JSW One Homes offer any construction
+                            <span class="text-base text-ink leading-snug">Does Hyderabad Constructions offer any construction
                                 warranties?</span>
                             <svg class="faq-plus w-6 h-6 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#888"
                                 stroke-width="1.5">
@@ -414,10 +383,8 @@
                     </div>
                 </div>
             </div>
-
-            <!-- View more -->
             <div class="text-center mt-10">
-                <a href="faqs.html">
+                <a href="faqs.php">
                     <button
                         class="border border-ink text-ink font-medium py-3 px-10 rounded-xl hover:bg-ink hover:text-white transition-colors cursor-pointer bg-transparent">
                         View more
@@ -427,7 +394,6 @@
         </div>
     </section>
 
-    <!-- ===================== EXPERIENCE CENTRES (SAME CAROUSEL) ===================== -->
     <section class="w-full bg-[#F6F5EF] px-6 md:px-12 xl:px-32 py-16 md:py-20">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-10">
@@ -446,7 +412,6 @@
                         <h4 class="text-base font-semibold text-ink mb-1">Kochi Centre</h4>
                         <p class="text-muted mb-1">Ground Floor, Oberon Mall, NH-47, Edappally, Kochi – 682024</p>
                         <p class="text-muted mb-3">Mon–Sat: 10am – 6pm</p>
-                        <a href="#" class="text-orange font-semibold hover:underline">Explore →</a>
                     </div>
                 </div>
                 <div class="carousel-slide w-72 centre-card bg-white border border-border rounded-2xl overflow-hidden">
@@ -459,7 +424,6 @@
                         <h4 class="text-base font-semibold text-ink mb-1">Bengaluru/Devarc–1</h4>
                         <p class="text-muted mb-1">No. 12, 3rd Floor, Devarc Mall, Old Madras Rd, Bangalore – 560016</p>
                         <p class="text-muted mb-3">Mon–Sat: 10am – 6pm</p>
-                        <a href="#" class="text-orange font-semibold hover:underline">Explore →</a>
                     </div>
                 </div>
                 <div class="carousel-slide w-72 centre-card bg-white border border-border rounded-2xl overflow-hidden">
@@ -472,7 +436,6 @@
                         <h4 class="text-base font-semibold text-ink mb-1">Bengaluru/Devarc–2</h4>
                         <p class="text-muted mb-1">No. 31, 1st Floor, Total Mall, Sarjapur Rd, Bengaluru – 560035</p>
                         <p class="text-muted mb-3">Mon–Sat: 10am – 6pm</p>
-                        <a href="#" class="text-orange font-semibold hover:underline">Explore →</a>
                     </div>
                 </div>
                 <div class="carousel-slide w-72 centre-card bg-white border border-border rounded-2xl overflow-hidden">
@@ -485,7 +448,6 @@
                         <h4 class="text-base font-semibold text-ink mb-1">Hyderabad</h4>
                         <p class="text-muted mb-1">Rd. No. 2, Banjara Hills, Hyderabad – 500034</p>
                         <p class="text-muted mb-3">Mon–Sat: 10am – 6pm</p>
-                        <a href="#" class="text-orange font-semibold hover:underline">Explore →</a>
                     </div>
                 </div>
                 <div class="carousel-slide w-72 centre-card bg-white border border-border rounded-2xl overflow-hidden">
@@ -498,7 +460,6 @@
                         <p class="text-muted mb-1">No. 5, Ground Floor, Phoenix Marketcity, Velachery, Chennai – 600042
                         </p>
                         <p class="text-muted mb-3">Mon–Sat: 10am – 6pm</p>
-                        <a href="#" class="text-orange font-semibold hover:underline">Explore →</a>
                     </div>
                 </div>
                 <div class="carousel-slide w-72 centre-card bg-white border border-border rounded-2xl overflow-hidden">
@@ -511,7 +472,6 @@
                         <h4 class="text-base font-semibold text-ink mb-1">Hyderabad</h4>
                         <p class="text-muted mb-1">Rd. No. 2, Banjara Hills, Hyderabad – 500034</p>
                         <p class="text-muted mb-3">Mon–Sat: 10am – 6pm</p>
-                        <a href="#" class="text-orange font-semibold hover:underline">Explore →</a>
                     </div>
                 </div>
                 <div class="carousel-slide w-72 centre-card bg-white border border-border rounded-2xl overflow-hidden">
@@ -524,13 +484,10 @@
                         <h4 class="text-base font-semibold text-ink mb-1">Hyderabad</h4>
                         <p class="text-muted mb-1">Rd. No. 2, Banjara Hills, Hyderabad – 500034</p>
                         <p class="text-muted mb-3">Mon–Sat: 10am – 6pm</p>
-                        <a href="#" class="text-orange font-semibold hover:underline">Explore →</a>
                     </div>
                 </div>
             </div>
             <div class="flex items-center justify-end mt-5">
-
-                <!-- <div class="flex gap-1.5" id="cDots"></div> -->
                 <div class="flex gap-2">
                     <button class="carousel-btn" onclick="stepCarousel('centresTrack','cDots',-1)"><svg
                             viewBox="0 0 24 24" class="w-4 h-4">
@@ -550,7 +507,7 @@
     <?php include 'includes/footer.php'; ?>
     <?php include 'includes/book-meeting-popup.php'; ?>
 
-    <script src="script.js?v=2"></script>
+    <script src="assets/js/script.js"></script>
 
 </body>
 

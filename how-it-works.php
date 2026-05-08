@@ -2,93 +2,44 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>How it works – XYZ Homes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta name="title" content="How it works - Hyderabad Constructions">
+    <meta name="description" content="How it works - Hyderabad Constructions">
+    <meta name="keywords" content="Hyderabad Constructions">
+
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="30 days">
+    <meta name="author" content="Hyderabad Constructions">
+
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+
+    <meta name="theme-color" content="#c96b2a">
+    <meta name="apple-mobile-web-app-status-bar" content="#c96b2a">
+
+    <title>How it works - Hyderabad Constructions</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="./NeueMontreal-Regular.otf" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        cream: '#f5f3ec',
-                        sand: '#ede9df',
-                        orange: '#e07b39',
-                        'orange-dark': '#c96b2a',
-                        ink: '#1a1a1a',
-                        muted: '#6b6b6b',
-                        border: '#ddd8ce',
-                    },
-                    fontFamily: {
-                        sans: ['Neue Montreal', 'sans-serif'],
-                        display: ['Neue Montreal', 'serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    <style>
-        .step-card {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeUp .5s ease forwards;
-        }
-
-        .step-card:nth-child(1) {
-            animation-delay: .1s;
-        }
-
-        .step-card:nth-child(3) {
-            animation-delay: .2s;
-        }
-
-        .step-card:nth-child(5) {
-            animation-delay: .3s;
-        }
-
-        .step-card:nth-child(7) {
-            animation-delay: .4s;
-        }
-
-        .step-card:nth-child(9) {
-            animation-delay: .5s;
-        }
-
-        .step-card:nth-child(11) {
-            animation-delay: .6s;
-        }
-
-        .step-icon-svg {
-            width: 22px;
-            height: 22px;
-            stroke: #1a1a1a;
-            fill: none;
-            stroke-width: 1.6;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/theme-config.js"></script>
 </head>
 
 <body class="bg-cream text-ink">
 
     <?php include 'includes/navbar.php'; ?>
 
-    <!-- HERO -->
     <section class="bg-[#FCFCF7] flex flex-col items-center w-full  ">
         <div
             class="flex flex-col-reverse items-center justify-start gap-5 px-4 py-10 w-full max-w-[768px] xl:max-w-[1440px] xl:p-20 xl:gap-10">
             <picture>
-                <source media="(max-width: 1279px)"
-                    srcset="https://cdn.jswonehomes.com/e8vaeucvzyzicq1licwp_ca9bd68b20/e8vaeucvzyzicq1licwp_ca9bd68b20.webp 1x, https://cdn.jswonehomes.com/e8vaeucvzyzicq1licwp_ca9bd68b20/e8vaeucvzyzicq1licwp_ca9bd68b20.webp 2x">
-                <source media="(min-width: 1280px)"
-                    srcset="https://cdn.jswonehomes.com/ky1otg6bcuwxb0fm2iyd_61c19122ae/ky1otg6bcuwxb0fm2iyd_61c19122ae.webp 1x, https://cdn.jswonehomes.com/ky1otg6bcuwxb0fm2iyd_61c19122ae/ky1otg6bcuwxb0fm2iyd_61c19122ae.webp 2x">
                 <img alt="e8vaeucvzyzicq1licwp.webp" loading="lazy" width="480" height="190" decoding="async"
                     class="h-[190px] top-0 left-0 w-full object-cover rounded-lg xl:rounded-xl xl:h-[368px] xl:w-[1280px] xl:basis-1/3"
                     style="color:transparent"
-                    src="https://storage.googleapis.com/public-homes-web-media-prod/e8vaeucvzyzicq1licwp_ca9bd68b20/e8vaeucvzyzicq1licwp_ca9bd68b20.webp">
+                    src="assets/images/how-it-works.jpg">
             </picture>
             <div>
                 <h1 class="text-center font-display text-3xl md:text-4xl font-semibold text-ink mb-2">
@@ -99,7 +50,6 @@
         </div>
     </section>
 
-    <!-- PROCESS STEPS -->
     <section class="bg-[#F6F5EF] w-full px-6 md:px-12 py-16 md:py-20">
         <div class="text-center mb-12">
             <h2 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-2">Our building process at glance
@@ -228,7 +178,7 @@
     <?php include 'includes/footer.php'; ?>
     <?php include 'includes/book-meeting-popup.php'; ?>
 
-    <script src="script.js?v=2"></script>
+    <script src="assets/js/script.js"></script>
 
 </body>
 

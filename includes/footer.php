@@ -4,7 +4,7 @@
         <div class="col-span-2 md:col-span-1">
 
             <a href="index.php" class="inline-block">
-                <img src="images/logo.jpeg" alt="Hyderabad Constructions Logo"
+                <img src="assets/images/logo.jpeg" alt="Hyderabad Constructions Logo"
                     class="h-16 w-auto object-contain mb-4">
             </a>
             <p class="text-sm leading-relaxed mt-3">ER MOHAMMED ABBAS</p>
