@@ -50,7 +50,6 @@
             <a href="projects.php" class="block text-sm mb-2.5 hover:text-white transition-colors">Our projects</a>
             <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Cost estimator</a>
             <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Testimonials</a>
-            <!-- <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Blogs &amp; articles</a> -->
             <a href="join-as-architect.php" class="block text-sm hover:text-white transition-colors">Join as
                 Architect</a>
         </div>

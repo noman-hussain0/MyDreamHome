@@ -4,7 +4,7 @@
 
     <div class="flex items-center gap-2 flex-shrink-0">
         <a href="index.php" class="block">
-            <img src="assets/images/logo.jpeg" alt="Hyderabad Constructions Logo" class="h-12 w-auto object-contain">
+            <img src="assets/images/hyderabad-constructions.png" alt="Hyderabad Constructions Logo" class="h-12 w-auto object-contain">
         </a>
     </div>
 
