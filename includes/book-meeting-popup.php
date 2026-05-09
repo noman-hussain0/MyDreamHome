@@ -122,8 +122,8 @@
             <!-- Consent -->
             <div class="flex items-center gap-2 mb-6 mt-1">
                 <input type="checkbox" id="modal_agree" class="w-4 h-4 accent-[#e07b39] cursor-pointer" />
-                <span class="text-xs text-muted">I agree to <a href="privacy-policy.html"
-                        class="text-[#e07b39] underline">Privacy Policy</a> and <a href="terms-and-conditions.html"
+                <span class="text-xs text-muted">I agree to <a href="privacy-policy.php"
+                        class="text-[#e07b39] underline">Privacy Policy</a> and <a href="terms-and-conditions.php"
                         class="text-[#e07b39] underline">Terms &amp; Conditions</a></span>
             </div>
 

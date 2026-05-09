@@ -15,7 +15,7 @@ function toggleMore(e) {
 
     const isHidden = menu.classList.contains('hidden');
     menu.classList.toggle('hidden', !isHidden);
-    
+
     if (isHidden) {
         menu.classList.add('dropdown-open');
         chevron.style.transform = 'rotate(180deg)';
@@ -229,20 +229,17 @@ document.addEventListener('keydown', (e) => {
    ============================================= */
 
 // Booking Form (Used by Modal + CTA Form)
-async function submitBooking(config = {}) {
-    const {
-        btnId = 'bookingSubmitBtn',
-        successId = 'bookingSuccess',
-        errorId = 'bookingError',
-        nameId = 'modal_name',
-        emailId = 'modal_email',
-        mobileId = 'modal_mobile',
-        cityId = 'modal_city',
-        timelineId = 'modal_timeline',
-        radioName = 'modal_land',
-        agreeId = 'modal_agree',
-        isModal = true
-    } = config;
+async function submitBooking(btnId = 'bookingSubmitBtn',
+    successId = 'bookingSuccess',
+    errorId = 'bookingError',
+    nameId = 'modal_name',
+    emailId = 'modal_email',
+    mobileId = 'modal_mobile',
+    cityId = 'modal_city',
+    timelineId = 'modal_timeline',
+    radioName = 'modal_land',
+    agreeId = 'modal_agree',
+    isModal = true) {
 
     const btn = document.getElementById(btnId);
     const successEl = document.getElementById(successId);

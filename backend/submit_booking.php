@@ -4,7 +4,7 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Content-Type');
 
-include 'includes/connection.php';
+include '../includes/connection.php';
 
 $data = json_decode(file_get_contents('php://input'), true);
 
@@ -49,6 +49,27 @@ try {
         ':owns_plot'    => $owns_plot,
         ':agreed_terms' => $agreed_terms,
     ]);
+
+    // Include the email function
+    include 'send_booking_email.php';
+
+    // Prepare data for email
+    $bookingData = [
+        'full_name' => $full_name,
+        'email'     => $email,
+        'mobile'    => $mobile,
+        'city'      => $city,
+        'timeline'  => $timeline,
+        'owns_plot' => $owns_plot
+    ];
+
+    // Send email
+    $emailSent = sendBookingEmail($bookingData);
+
+    if (!$emailSent) {
+        // Optional: log error but still show success to user
+        error_log("Failed to send email to: " . $email);
+    }
 
     echo json_encode(['success' => true, 'message' => 'Booking submitted successfully!']);
 } catch (PDOException $e) {
