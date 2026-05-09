@@ -2,256 +2,54 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Privacy Policy – JSW One Homes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta name="title" content="Privacy Policy - Hyderabad Constructions">
+    <meta name="description" content="Privacy Policy - Hyderabad Constructions">
+    <meta name="keywords" content="Hyderabad Constructions">
+
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="30 days">
+    <meta name="author" content="Hyderabad Constructions">
+
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+
+    <meta name="theme-color" content="#c96b2a">
+    <meta name="apple-mobile-web-app-status-bar" content="#c96b2a">
+
+    <title>Privacy Policy - Hyderabad Constructions</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        cream: '#f5f3ec',
-                        sand: '#ede9df',
-                        orange: '#e07b39',
-                        'orange-dark': '#c96b2a',
-                        ink: '#1a1a1a',
-                        muted: '#6b6b6b',
-                        border: '#ddd8ce',
-                    },
-                    fontFamily: {
-                        sans: ['Neue Montreal', 'sans-serif'],
-                        display: ['Neue Montreal', 'serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    <style>
-        /* ---- Policy content typography ---- */
-        .policy-content p {
-            font-size: 15px;
-            line-height: 1.8;
-            color: #1a1a1a;
-            margin-bottom: 1.2rem;
-        }
-
-        .policy-content p.uppercase-notice {
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 14px;
-            line-height: 1.75;
-            margin-bottom: 1.4rem;
-        }
-
-        .policy-content h2 {
-            font-size: 17px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-top: 2.2rem;
-            margin-bottom: 0.9rem;
-        }
-
-        .policy-content h3 {
-            font-size: 15px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-top: 1.4rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .policy-content a {
-            color: #e07b39;
-            text-decoration: none;
-        }
-
-        .policy-content a:hover {
-            text-decoration: underline;
-        }
-
-        .policy-content strong {
-            font-weight: 700;
-        }
-
-        .policy-content ul {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 1.2rem 0;
-        }
-
-        .policy-content ul li {
-            font-size: 15px;
-            line-height: 1.8;
-            color: #1a1a1a;
-            padding-left: 0;
-            margin-bottom: 0.2rem;
-        }
-
-        .policy-content ol {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 1.2rem 0;
-        }
-
-        .policy-content ol li {
-            font-size: 15px;
-            line-height: 1.8;
-            color: #1a1a1a;
-            margin-bottom: 0.3rem;
-        }
-
-        /* Divider between sections */
-        .policy-content .section-divider {
-            border: none;
-            border-top: 1px solid #ddd8ce;
-            margin: 2.5rem 0;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/theme-config.js"></script>
 </head>
 
 <body class="bg-cream text-ink">
 
-    <!-- ===================== NAV ===================== -->
-    <nav
-        class="bg-[#FCFCF7] sticky top-0 z-50 px-6 min-[1201px]:px-32 h-20 flex items-center justify-between border-b border-border">
-
-        <div class="flex items-center gap-2 flex-shrink-0">
-            <a href="index.html" class="block">
-                <img src="images/logo.jpeg" alt="Hyderabad Constructions Logo" class="h-12 w-auto object-contain">
-            </a>
-        </div>
-
-        <div class="hidden min-[1201px]:flex items-center gap-7 lg:gap-9">
-            <a href="projects.html" class="text-ink hover:text-orange transition-colors">Our projects</a>
-            <a href="how-it-works.html" class="text-ink hover:text-orange transition-colors">How it works</a>
-            <a href="#" class="text-ink hover:text-orange transition-colors">Testimonials</a>
-            <a href="#" class="text-ink hover:text-orange transition-colors">Cost estimator</a>
-            <div class="relative" id="navMore">
-                <button onclick="toggleMore(event)"
-                    class="flex items-center gap-1 text-ink hover:text-orange transition-colors bg-transparent border-0 cursor-pointer p-0 font-sans">
-                    More
-                    <svg id="moreChevron" viewBox="0 0 24 24"
-                        class="w-3.5 h-3.5 stroke-current fill-none stroke-2 transition-transform duration-200">
-                        <polyline points="6 9 12 15 18 9" />
-                    </svg>
-                </button>
-                <div id="dropdownMenu"
-                    class="hidden absolute top-[calc(100%+14px)] left-1/2 -translate-x-1/2 bg-white border border-border rounded-xl shadow-lg min-w-[200px] py-2 z-50">
-                    <a href="about-us.html"
-                        class="flex items-center gap-2.5 px-4 py-2.5 text-ink hover:bg-cream hover:text-orange transition-colors">About
-                        us</a>
-                    <a href="join-as-architect.html"
-                        class="flex items-center gap-2.5 px-4 py-2.5 text-ink hover:bg-cream hover:text-orange transition-colors">Join
-                        as Architect</a>
-                    <a href="faqs.html"
-                        class="flex items-center gap-2.5 px-4 py-2.5 text-ink hover:bg-cream hover:text-orange transition-colors">FAQs</a>
-                    <a href="contact-us.html"
-                        class="flex items-center gap-2.5 px-4 py-2.5 text-ink hover:bg-cream hover:text-orange transition-colors">Contact
-                        us</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="hidden min-[1201px]:flex items-center gap-2.5">
-            <button onclick="openBookingModal()"
-                class="bg-orange border border-orange text-white px-5 py-1.5 rounded-xl hover:bg-orange-dark transition-colors cursor-pointer">Book
-                a meeting</button>
-        </div>
-
-        <button id="hamburger" onclick="toggleMobileNav()"
-            class="min-[1201px]:hidden flex flex-col justify-center items-start gap-[5px] w-9 h-9 bg-transparent border-0 cursor-pointer p-1 rounded-md hover:bg-cream transition-colors">
-            <span class="bar bar-1"></span><span class="bar bar-2"></span><span class="bar bar-3"></span>
-        </button>
-    </nav>
-
-    <!-- Mobile Drawer -->
-
-    <div id="mobileNav"
-        class="min-[1201px]:hidden fixed top-20 left-0 right-0 bottom-0 bg-white z-40 overflow-y-auto border-t border-border">
-        <div class="py-4 pb-10">
-            <a href="#"
-                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">Our
-                projects <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
-                    <polyline points="9 18 15 12 9 6" />
-                </svg></a>
-            <a href="how-it-works.html"
-                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">How
-                it works <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
-                    <polyline points="9 18 15 12 9 6" />
-                </svg></a>
-            <a href="#"
-                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">Testimonials
-                <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
-                    <polyline points="9 18 15 12 9 6" />
-                </svg></a>
-            <a href="#"
-                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">Cost
-                estimator <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
-                    <polyline points="9 18 15 12 9 6" />
-                </svg></a>
-
-            <a href="about-us.html"
-                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">About
-                us <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
-                    <polyline points="9 18 15 12 9 6" />
-                </svg></a>
-            <a href="join-as-architect.html"
-                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">Join
-                as Architect <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
-                    <polyline points="9 18 15 12 9 6" />
-                </svg></a>
-            <a href="faqs.html"
-                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">FAQs
-                <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
-                    <polyline points="9 18 15 12 9 6" />
-                </svg></a>
-            <a href="contact-us.html"
-                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">Contact
-                us <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
-                    <polyline points="9 18 15 12 9 6" />
-                </svg></a>
-
-            <div class="px-6 pt-5 flex flex-col gap-3">
-                <!-- <button class="w-full border border-orange text-orange py-2.5 rounded-xl font-medium">Login</button> -->
-                <button onclick="openBookingModal()"
-                    class="w-full bg-orange text-white py-2.5 rounded-xl font-medium hover:bg-orange-dark transition-colors">Book
-                    a meeting</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- ===================== HERO ===================== -->
+    <?php include 'includes/navbar.php'; ?>
 
     <section class="bg-[#FCFCF7] flex flex-col items-center w-full">
         <div
             class="flex flex-col items-center justify-start gap-5 px-4 pt-10 pb-2 w-full max-w-[768px] xl:max-w-[1440px] xl:px-20 xl:pt-14">
 
             <div class="text-center">
-                <!-- <h1 class="font-display text-4xl md:text-5xl font-semibold text-ink mb-5">
-                    Privacy policy v1.03
-                </h1> -->
-                <h1 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-5">Privacy policy v1.03</h1>
-                <!-- <h1 class="text-center font-display text-3xl md:text-4xl font-semibold text-ink mb-12">Frequently
-                    asked questions</h1> -->
-                <p class="text-base text-muted">Last updated: November 11, 2025</p>
+                <h1 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-5">Privacy policy</h1>
+                <p class="text-base text-muted">Last updated: May 08, 2026</p>
             </div>
 
             <picture class="w-full mt-4">
-                <source media="(max-width: 1279px)"
-                    srcset="https://cdn.jswonehomes.com/Privacy_Policy_M_1d539711b8/Privacy_Policy_M_1d539711b8.webp 1x">
-                <source media="(min-width: 1280px)"
-                    srcset="https://cdn.jswonehomes.com/web_background_b9f9605d62/web_background_b9f9605d62.webp 1x">
-                <img alt="Legal Page Banner" loading="lazy"
+                <img alt="Terms of Use Banner" loading="lazy"
                     class="h-[190px] w-full object-cover rounded-lg xl:rounded-xl xl:h-[368px]"
-                    src="https://storage.googleapis.com/public-homes-web-media-prod/Privacy_Policy_M_1d539711b8/Privacy_Policy_M_1d539711b8.webp">
+                    src="assets/images/terms-and-conditions.jpg"
+                    onerror="this.style.background='#e0d8cc'" >
             </picture>
         </div>
     </section>
 
-    <!-- ===================== POLICY CONTENT ===================== -->
-    <!-- <section class="w-full bg-[#FCFCF7] flex flex-col items-center px-4 md:px-12 xl:px-20 pb-20">
-        <div class="w-full max-w-[768px] xl:max-w-[1440px] policy-content pt-8"> -->
     <section class="w-full bg-[#FCFCF7] flex flex-col items-center pb-20">
         <div class="w-full max-w-[768px] xl:max-w-[1440px] px-4 xl:px-20 policy-content pt-10">
             <!-- Opening uppercase notice -->
@@ -269,10 +67,10 @@
                 MEANINGS ASCRIBED TO SUCH TERMS IN THE TERMS OF USE.</p>
 
             <p>The <strong>"Platform"</strong> shall mean this internet-based ecommerce services platform <a
-                    href="https://www.jswonehomes.com/" target="_blank">https://www.jswonehomes.com/</a> and/or an
+                    href="https://www.Hyderabadconstructions.in/" target="_blank">https://www.Hyderabadconstructions.in/</a> and/or an
                 application, website and/or web-page (including but not limited to any web app, marketing landing
                 page(s), and/or iOS/Android app or any other app that the buyer may be using to access/communicate with
-                JSW One) (<strong>"Platform"</strong>), owned and/or operated, directly or indirectly, by JSW One
+                Hyderabad Constructions) (<strong>"Platform"</strong>), owned and/or operated, directly or indirectly, by Hyderabad Constructions
                 Platforms Limited (referred collectively as <strong>"We"/ "Us"/ "Our"</strong>), that enables individual
                 home builders, customers and service providers to interact, engage and independently contract for
                 construction of residential properties and to continually monitor progress of construction
@@ -388,7 +186,7 @@
                 collect details including Your information such as passwords, financial information such as bank account
                 information or credit card or debit card or other payment instrument details, any other items of
                 "sensitive personal data or information" as such term is defined under the SPDI Rules; identification
-                code of your communication device which You use to access the Platform or otherwise deal with any JSW
+                code of your communication device which You use to access the Platform or otherwise deal with any Hyderabad Constructions
                 One entity, any other Information that You provide during Your registration process, if any, on the
                 Platform and any other information that You voluntarily choose to provide to us.</p>
 
@@ -473,7 +271,7 @@
                 by the User and reproduce / publish such edited or paraphrased versions of the testimonials and reviews
                 on the Platform. If the User has any concerns with the reproduction / publication of any testimonial or
                 review provided by the User on the Platform, the User may contact Us at <a
-                    href="mailto:jswone.compliance@jsw.in">jswone.compliance@jsw.in</a>.</p>
+                    href="mailto:team@hyderabadconstructions.in">team@hyderabadconstructions.in</a>.</p>
 
             <p>Additionally, We use Demographic Information, Behavioural and Indirect Information of the Users
                 collectively, such as what areas Users visit most frequently and what Services Users access the most.
@@ -508,11 +306,11 @@
                     behalf including but not limited to those which provide administrative or other services to Us such
                     as mailing houses, telecommunication companies, information technology companies and data centres,
                     to improve the Platform;</li>
-                <li>We may share Your Information with Our partners, JSW Companies, Affiliates and service providers on
+                <li>We may share Your Information with Our partners, Hyderabad Constructions Companies, Affiliates and service providers on
                     the Platform (both for commercial and non-commercial purposes), so that they too may understand the
                     activities of Users and visitors on the Platform and related information, and can contribute in
                     creation of a better overall experience for Users and visitors. We may also share Your information
-                    with the partners, JSW Companies, Affiliates and, other Platform visitors, and other third parties
+                    with the partners, Hyderabad Constructions Companies, Affiliates and, other Platform visitors, and other third parties
                     so that they can understand the kinds of visitors and how they use the Platform in order to serve
                     advertisements and other kinds of marketing information to You on the Platform;</li>
                 <li>(c) We may disclose and transfer Your Information or User Information to a third party who acquires
@@ -528,7 +326,7 @@
             <p>4.2. We or Our Affiliates, parent company, group companies, subsidiaries, associates, affiliates,
                 suppliers, vendors, sister concerns, service providers and service partners and other third parties
                 (collectively referred to as "Other Parties") may merge with or be acquired by another business entity.
-                In such an event, We, JSW Companies, and the Other Parties may be required to transfer the Personal
+                In such an event, We, Hyderabad Constructions Companies, and the Other Parties may be required to transfer the Personal
                 Information to such merging or acquiring party, as the case may be. While sharing such Personal
                 Information with the acquiring or merging entity, as the case may be, We and the Other Parties shall
                 make reasonable endeavours to ensure that the Users' Personal Information is duly protected by the
@@ -701,14 +499,14 @@
             <p>Users can access, modify, correct and eliminate the data about him/her/it which has been collected
                 pursuant to his/her/its decision to become a User. If you believe that your rights are being infringed
                 or you have any grievances, complaints or concerns, including in relation to the information shared by
-                the User with JSW One on the Platform, you may reach out to our grievance officer through telephonic or
+                the User with Hyderabad Constructions on the Platform, you may reach out to our grievance officer through telephonic or
                 electronic mode in the following manner:</p>
 
             <p>
-                <strong>Name:</strong> Sherien Kaul<br>
-                <strong>Address:</strong> 6th Floor, Grande Palladium, CST Road, Kalina, Mumbai 400098.<br>
-                <strong>Email:</strong> <a href="mailto:jswone.compliance@jsw.in">jswone.compliance@jsw.in</a><br>
-                <strong>Phone Number:</strong> <a href="tel:+912268542400">+91 22 68542400</a>
+                <strong>Name:</strong> ER MOHAMMED ABBAS<br>
+                <strong>Address:</strong> 13-6-437/A/98/3, Khader Bagh, Tolichowki, Hyderabad.<br>
+                <strong>Email:</strong> <a href="mailto:team@hyderabadconstructions.in">team@hyderabadconstructions.in</a><br>
+                <strong>Phone Number:</strong> <a href="tel:+919703879886">+91 97038 79886</a>
             </p>
 
             <p>We respond expeditiously to rights owners and their agents who communicate their concerns about any
@@ -754,240 +552,11 @@
         </div>
     </section>
 
-    <!-- ===================== FOOTER ===================== -->
-    <footer class="bg-[#111] text-[#aaa] px-6 md:px-12 xl:px-32 pt-12 pb-7 w-full">
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 max-w-7xl mx-auto">
-            <div class="col-span-2 md:col-span-1">
+    <?php include 'includes/action-buttons.php'; ?>
+    <?php include 'includes/footer.php'; ?>
+    <?php include 'includes/book-meeting-popup.php'; ?>
 
-                <a href="index.html" class="inline-block">
-                    <img src="images/logo.jpeg" alt="Hyderabad Constructions Logo"
-                        class="h-16 w-auto object-contain mb-4">
-                </a>
-                <p class="text-sm leading-relaxed mt-3 max-w-[220px]">Browse ideas, explore options and book a meeting
-                    with our expert consultants to finalise your design.</p>
-                <p class="text-[10px] uppercase tracking-widest mt-4 mb-1.5">Get in touch</p>
-                <a href="www.hyderabadconstructions.in"
-                    class="text-orange text-sm block mb-1 hover:underline">www.hyderabadconstructions.in</a>
-                <a href="abbas@hyderabadconstructions.in"
-                    class="text-orange text-sm block mb-1 hover:underline">abbas@hyderabadconstructions.in</a>
-
-                <a href="tel:+919703879886" class="text-orange text-sm block hover:underline">+91 97038 79886</a>
-                <div class="flex gap-3 mt-4">
-                    <div
-                        class="w-8 h-8 border border-[#333] rounded-md flex items-center justify-center cursor-pointer hover:border-orange transition-colors">
-                        <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 fill-[#888]">
-                            <path
-                                d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 01-1.93.07 4.28 4.28 0 004 2.98 8.521 8.521 0 01-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z" />
-                        </svg>
-                    </div>
-                    <div
-                        class="w-8 h-8 border border-[#333] rounded-md flex items-center justify-center cursor-pointer hover:border-orange transition-colors">
-                        <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 fill-[#888]">
-                            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
-                        </svg>
-                    </div>
-                    <div
-                        class="w-8 h-8 border border-[#333] rounded-md flex items-center justify-center cursor-pointer hover:border-orange transition-colors">
-                        <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 fill-none stroke-[#888] stroke-[1.5]">
-                            <rect x="2" y="2" width="20" height="20" rx="5" />
-                            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
-                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                        </svg>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <h4 class="text-[11px] uppercase tracking-widest mb-4 font-semibold">Company</h4>
-                <a href="about-us.html" class="block text-sm mb-2.5 hover:text-white transition-colors">About us</a>
-                <a href="how-it-works.html" class="block text-sm mb-2.5 hover:text-white transition-colors">How it
-                    works</a>
-                <a href="projects.html" class="block text-sm mb-2.5 hover:text-white transition-colors">Our projects</a>
-                <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Cost estimator</a>
-                <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Testimonials</a>
-                <!-- <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Blogs &amp; articles</a> -->
-                <a href="join-as-architect.html" class="block text-sm hover:text-white transition-colors">Join as
-                    Architect</a>
-            </div>
-            <div>
-                <h4 class="text-[11px] uppercase tracking-widest mb-4 font-semibold">Support</h4>
-                <a href="contact-us.html" class="block text-sm mb-2.5 hover:text-white transition-colors">Contact us</a>
-                <a href="faqs.html" class="block text-sm mb-2.5 hover:text-white transition-colors">FAQs</a>
-            </div>
-            <div>
-                <h4 class="text-[11px] uppercase tracking-widest mb-4 font-semibold">Legal</h4>
-                <a href="terms-and-conditions.html"
-                    class="block text-sm mb-2.5 hover:text-white transition-colors">Terms &amp; Conditions</a>
-                <a href="privacy-policy.html" class="block text-sm hover:text-white transition-colors">Privacy
-                    policy</a>
-            </div>
-        </div>
-        <div class="border-t border-[#222] mt-10 pt-5 text-center text-sm max-w-7xl mx-auto">
-            &copy; 2026 Hyderabad Constructions. All rights reserved.
-        </div>
-    </footer>
-
-
-    <!-- =====================================================
-     BOOK A MEETING — POPUP MODAL
-     ===================================================== -->
-
-    <!-- ── Overlay ─────────────────────────────────────────── -->
-    <div id="bookingModal" class="fixed inset-0 z-[999] flex items-center justify-center px-4"
-        style="display:none!important">
-
-        <!-- Backdrop -->
-        <div id="modalBackdrop" class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closeBookingModal()">
-        </div>
-
-        <!-- Modal panel -->
-        <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-2xl mx-auto z-10
-                max-h-[90vh] overflow-y-auto" style="animation: modalSlideUp .3s cubic-bezier(.4,0,.2,1) both">
-
-            <!-- Header -->
-            <div class="flex items-start justify-between px-7 pt-7 pb-4 border-b border-slate-100">
-                <div>
-                    <h2 class="font-display text-2xl font-semibold text-ink leading-tight">Book a Meeting</h2>
-                    <p class="text-sm text-muted mt-1">Schedule a free consultation with our experts.</p>
-                </div>
-                <!-- Close button -->
-                <button onclick="closeBookingModal()"
-                    class="ml-4 mt-0.5 flex-shrink-0 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors cursor-pointer border-0">
-                    <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-ink fill-none stroke-2 stroke-linecap-round">
-                        <line x1="18" y1="6" x2="6" y2="18" />
-                        <line x1="6" y1="6" x2="18" y2="18" />
-                    </svg>
-                </button>
-            </div>
-
-            <!-- Form body -->
-            <div class="px-7 py-6">
-
-                <!-- Row 1: Name + Email -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
-                    <div class="relative">
-                        <label
-                            class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
-                            Full name
-                        </label>
-                        <input type="text" id="modal_name" placeholder="Full name"
-                            class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-400 transition-all placeholder-slate-300" />
-                    </div>
-                    <div class="relative">
-                        <label
-                            class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
-                            Email
-                        </label>
-                        <input type="email" id="modal_email" placeholder="Email"
-                            class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-400 transition-all placeholder-slate-300" />
-                    </div>
-                </div>
-
-                <!-- Row 2: Mobile + City -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
-                    <div class="relative">
-                        <label
-                            class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
-                            Mobile Number
-                        </label>
-                        <input type="tel" id="modal_mobile" placeholder="Mobile Number"
-                            class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-400 transition-all placeholder-slate-300" />
-                    </div>
-                    <div class="relative flex items-center">
-                        <label
-                            class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
-                            Choose City
-                        </label>
-                        <select id="modal_city"
-                            class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none bg-white appearance-none cursor-pointer focus:border-orange-400 transition-all">
-                            <option>Choose City</option>
-                            <option>Hyderabad</option>
-                            <option>Bangalore</option>
-                            <option>Mumbai</option>
-                            <option>Delhi NCR</option>
-                            <option>Chennai</option>
-                            <option>Kochi</option>
-                            <option>Pune</option>
-                        </select>
-                        <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b"
-                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Row 3: Timeline + Land -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
-                    <div class="relative flex items-center">
-                        <label
-                            class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
-                            I want to start construction in
-                        </label>
-                        <select id="modal_timeline"
-                            class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none bg-white appearance-none cursor-pointer focus:border-orange-400 transition-all">
-                            <option>0–3 months</option>
-                            <option>3–6 months</option>
-                            <option>6–12 months</option>
-                            <option>More than 12 months</option>
-                        </select>
-                        <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b"
-                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-4 pt-1">
-                        <span class="text-[14px] text-slate-700 whitespace-nowrap">Do you own a plot?</span>
-                        <div class="flex items-center gap-4">
-                            <label class="flex items-center gap-1.5 text-sm text-slate-700 cursor-pointer">
-                                <input type="radio" name="modal_land" value="Yes" class="w-4 h-4 accent-[#e07b39]" />
-                                Yes
-                            </label>
-                            <label class="flex items-center gap-1.5 text-sm text-slate-700 cursor-pointer">
-                                <input type="radio" name="modal_land" value="No" class="w-4 h-4 accent-[#e07b39]" /> No
-                            </label>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Consent -->
-                <div class="flex items-center gap-2 mb-6 mt-1">
-                    <input type="checkbox" id="modal_agree" class="w-4 h-4 accent-[#e07b39] cursor-pointer" />
-                    <span class="text-xs text-muted">I agree to <a href="privacy-policy.html"
-                            class="text-[#e07b39] underline">Privacy Policy</a> and <a href="terms-and-conditions.html"
-                            class="text-[#e07b39] underline">Terms &amp; Conditions</a></span>
-                </div>
-
-                <!-- Submit -->
-                <div class="text-center">
-                    <!-- Success message (hidden by default) -->
-                    <div id="bookingSuccess" style="display:none"
-                        class="mb-4 px-5 py-3 bg-green-50 border border-green-200 rounded-xl text-green-700 text-sm font-medium">
-                        ✅ Your meeting has been booked! We'll contact you shortly.
-                    </div>
-
-                    <!-- Error message (hidden by default) -->
-                    <div id="bookingError" style="display:none"
-                        class="mb-4 px-5 py-3 bg-red-50 border border-red-200 rounded-xl text-red-600 text-sm font-medium">
-                    </div>
-
-                    <button id="bookingSubmitBtn" onclick="submitBooking()"
-                        class="bg-[#e07b39] text-white font-semibold py-3 px-10 rounded-xl hover:bg-[#c96b2a] transition-colors cursor-pointer border-0 text-sm tracking-wide">
-                        Book a Meeting
-                    </button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-
-
-
-    <script src="script.js?v=2"></script>
-
+    <script src="assets/js/script.js"></script>
 
 </body>
 

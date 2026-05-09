@@ -2,247 +2,64 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Terms of Use – JSW One Homes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta name="title" content="Terms and Conditions - Hyderabad Constructions">
+    <meta name="description" content="Terms and Conditions - Hyderabad Constructions">
+    <meta name="keywords" content="Hyderabad Constructions">
+
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="30 days">
+    <meta name="author" content="Hyderabad Constructions">
+
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+
+    <meta name="theme-color" content="#c96b2a">
+    <meta name="apple-mobile-web-app-status-bar" content="#c96b2a">
+
+    <title>Terms and Conditions - Hyderabad Constructions</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        cream: '#f5f3ec',
-                        sand: '#ede9df',
-                        orange: '#e07b39',
-                        'orange-dark': '#c96b2a',
-                        ink: '#1a1a1a',
-                        muted: '#6b6b6b',
-                        border: '#ddd8ce',
-                    },
-                    fontFamily: {
-                        sans: ['Neue Montreal', 'sans-serif'],
-                        display: ['Neue Montreal', 'serif'],
-                    },
-                }
-            }
-        }
-    </script>
-    <style>
-        /* ---- Policy content typography ---- */
-        .policy-content p {
-            font-size: 15px;
-            line-height: 1.8;
-            color: #1a1a1a;
-            margin-bottom: 1.2rem;
-        }
-
-        .policy-content p.uppercase-notice {
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 14px;
-            line-height: 1.75;
-            margin-bottom: 1.4rem;
-        }
-
-        .policy-content h2 {
-            font-size: 17px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-top: 2.2rem;
-            margin-bottom: 0.9rem;
-        }
-
-        .policy-content a {
-            color: #e07b39;
-            text-decoration: none;
-        }
-
-        .policy-content a:hover {
-            text-decoration: underline;
-        }
-
-        .policy-content strong {
-            font-weight: 700;
-        }
-
-        .policy-content ul {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 1.2rem 0;
-        }
-
-        .policy-content ul li {
-            font-size: 15px;
-            line-height: 1.8;
-            color: #1a1a1a;
-            padding-left: 0;
-            margin-bottom: 0.2rem;
-        }
-
-        .policy-content ol {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 1.2rem 0;
-        }
-
-        .policy-content ol li {
-            font-size: 15px;
-            line-height: 1.8;
-            color: #1a1a1a;
-            margin-bottom: 0.3rem;
-        }
-
-        .policy-content .section-divider {
-            border: none;
-            border-top: 1px solid #ddd8ce;
-            margin: 2.5rem 0;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/theme-config.js"></script>
 </head>
 
 <body class="bg-[#FCFCF7] text-ink">
 
-    <!-- ===================== NAV ===================== -->
-    <nav
-        class="bg-[#FCFCF7] sticky top-0 z-50 px-6 min-[1201px]:px-32 h-20 flex items-center justify-between border-b border-border">
+    <?php include 'includes/navbar.php'; ?>
 
-        <div class="flex items-center gap-2 flex-shrink-0">
-            <a href="index.html" class="block">
-                <img src="images/logo.jpeg" alt="Hyderabad Constructions Logo" class="h-12 w-auto object-contain">
-            </a>
-        </div>
-
-        <div class="hidden min-[1201px]:flex items-center gap-7 lg:gap-9">
-            <a href="projects.html" class="text-ink hover:text-orange transition-colors">Our projects</a>
-            <a href="how-it-works.html" class="text-ink hover:text-orange transition-colors">How it works</a>
-            <a href="#" class="text-ink hover:text-orange transition-colors">Testimonials</a>
-            <a href="#" class="text-ink hover:text-orange transition-colors">Cost estimator</a>
-            <div class="relative" id="navMore">
-                <button onclick="toggleMore(event)"
-                    class="flex items-center gap-1 text-ink hover:text-orange transition-colors bg-transparent border-0 cursor-pointer p-0 font-sans">
-                    More
-                    <svg id="moreChevron" viewBox="0 0 24 24"
-                        class="w-3.5 h-3.5 stroke-current fill-none stroke-2 transition-transform duration-200">
-                        <polyline points="6 9 12 15 18 9" />
-                    </svg>
-                </button>
-                <div id="dropdownMenu"
-                    class="hidden absolute top-[calc(100%+14px)] left-1/2 -translate-x-1/2 bg-white border border-border rounded-xl shadow-lg min-w-[200px] py-2 z-50">
-                    <a href="about-us.html"
-                        class="flex items-center gap-2.5 px-4 py-2.5 text-ink hover:bg-cream hover:text-orange transition-colors">About
-                        us</a>
-                    <a href="join-as-architect.html"
-                        class="flex items-center gap-2.5 px-4 py-2.5 text-ink hover:bg-cream hover:text-orange transition-colors">Join
-                        as Architect</a>
-                    <a href="faqs.html"
-                        class="flex items-center gap-2.5 px-4 py-2.5 text-ink hover:bg-cream hover:text-orange transition-colors">FAQs</a>
-                    <a href="contact-us.html"
-                        class="flex items-center gap-2.5 px-4 py-2.5 text-ink hover:bg-cream hover:text-orange transition-colors">Contact
-                        us</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="hidden min-[1201px]:flex items-center gap-2.5">
-            <button onclick="openBookingModal()"
-                class="bg-orange border border-orange text-white px-5 py-1.5 rounded-xl hover:bg-orange-dark transition-colors cursor-pointer">Book
-                a meeting</button>
-        </div>
-
-        <button id="hamburger" onclick="toggleMobileNav()"
-            class="min-[1201px]:hidden flex flex-col justify-center items-start gap-[5px] w-9 h-9 bg-transparent border-0 cursor-pointer p-1 rounded-md hover:bg-cream transition-colors">
-            <span class="bar bar-1"></span><span class="bar bar-2"></span><span class="bar bar-3"></span>
-        </button>
-    </nav>
-
-    <!-- Mobile Drawer -->
-    <div id="mobileNav"
-        class="min-[1201px]:hidden fixed top-20 left-0 right-0 bottom-0 bg-white z-40 overflow-y-auto border-t border-border">
-        <div class="py-4 pb-10">
-            <a href="#"
-                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">Our
-                projects <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
-                    <polyline points="9 18 15 12 9 6" />
-                </svg></a>
-            <a href="how-it-works.html"
-                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">How
-                it works <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
-                    <polyline points="9 18 15 12 9 6" />
-                </svg></a>
-            <a href="#"
-                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">Testimonials
-                <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
-                    <polyline points="9 18 15 12 9 6" />
-                </svg></a>
-            <a href="#"
-                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">Cost
-                estimator <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
-                    <polyline points="9 18 15 12 9 6" />
-                </svg></a>
-            <a href="about-us.html"
-                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">About
-                us <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
-                    <polyline points="9 18 15 12 9 6" />
-                </svg></a>
-            <a href="join-as-architect.html"
-                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">Join
-                as Architect <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
-                    <polyline points="9 18 15 12 9 6" />
-                </svg></a>
-            <a href="faqs.html"
-                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">FAQs
-                <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
-                    <polyline points="9 18 15 12 9 6" />
-                </svg></a>
-            <a href="contact-us.html"
-                class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">Contact
-                us <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
-                    <polyline points="9 18 15 12 9 6" />
-                </svg></a>
-            <div class="px-6 pt-5 flex flex-col gap-3">
-                <button onclick="openBookingModal()"
-                    class="w-full bg-orange text-white py-2.5 rounded-xl font-medium hover:bg-orange-dark transition-colors">Book
-                    a meeting</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- ===================== HERO ===================== -->
     <section class="bg-[#FCFCF7] flex flex-col items-center w-full">
         <div
             class="flex flex-col items-center justify-start gap-5 px-4 pt-10 pb-2 w-full max-w-[768px] xl:max-w-[1440px] xl:px-20 xl:pt-14">
             <div class="text-center">
-                <!-- <h1 class="font-display text-4xl md:text-5xl font-semibold text-ink mb-5">
-                    Terms of use (ToU v1.03)
-                </h1> -->
-                <h1 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-5">Terms of use (ToU v1.03)</h1>
-                <p class="text-base text-muted">Last updated: November 11, 2025</p>
+                <h1 class="font-display text-3xl md:text-4xl font-semibold text-ink mb-5">Terms and Conditions</h1>
+                <p class="text-base text-muted">Last updated: May 08, 2026</p>
             </div>
             <picture class="w-full mt-4">
-                <source media="(max-width: 1279px)"
-                    srcset="https://cdn.jswonehomes.com/Privacy_Policy_M_1d539711b8/Privacy_Policy_M_1d539711b8.webp 1x">
-                <source media="(min-width: 1280px)"
-                    srcset="https://cdn.jswonehomes.com/web_background_b9f9605d62/web_background_b9f9605d62.webp 1x">
                 <img alt="Terms of Use Banner" loading="lazy"
                     class="h-[190px] w-full object-cover rounded-lg xl:rounded-xl xl:h-[368px]"
-                    src="https://storage.googleapis.com/public-homes-web-media-prod/Privacy_Policy_M_1d539711b8/Privacy_Policy_M_1d539711b8.webp"
-                    onerror="this.src='https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1400&q=80'">
+                    src="assets/images/terms-and-conditions.jpg"
+                    onerror="this.style.background='#e0d8cc'" >
             </picture>
         </div>
     </section>
 
-    <!-- ===================== CONTENT ===================== -->
     <section class="w-full bg-[#FCFCF7] flex flex-col items-center pb-20">
         <div class="w-full max-w-[768px] xl:max-w-[1440px] px-4 xl:px-20 policy-content pt-10">
 
             <!-- Opening uppercase notices -->
             <p class="uppercase-notice">BY ACCESSING OR USING THIS PLATFORM, YOU AGREE TO BE BOUND BY THESE TERMS OF
                 USE, PRIVACY POLICY AND SUCH OTHER AGREEMENTS, AS MAY BE ADOPTED BY US FROM TIME TO TIME. PLEASE READ
-                THESE TERMS CAREFULLY BEFORE ENTERING INTO A TRANSACTION ON THIS PLATFORM.<br>
+                THESE TERMS CAREFULLY BEFORE ENTERING INTO A TRANSACTION ON THIS PLATFORM.</p>
+            <p class="uppercase-notice">
                 THIS DOCUMENT IS AN ELECTRONIC RECORD UNDER THE INFORMATION TECHNOLOGY ACT, 2000 AND RULES THEREUNDER.
                 THIS ELECTRONIC RECORD IS GENERATED BY A COMPUTER SYSTEM AND DOES NOT REQUIRE ANY PHYSICAL OR DIGITAL
-                SIGNATURES.<br>
+                SIGNATURES.</p>
+             <p class="uppercase-notice">
                 THIS DOCUMENT IS PUBLISHED IN ACCORDANCE WITH THE PROVISIONS OF RULE 3 (1) OF THE INFORMATION TECHNOLOGY
                 (INTERMEDIARIES GUIDELINES) RULES, 2021 THAT REQUIRE PUBLISHING THE RULES AND REGULATIONS, PRIVACY
                 POLICY AND TERMS OF USE FOR ACCESS TO OR USAGE OF THIS PLATFORM.</p>
@@ -252,7 +69,7 @@
             <!-- Section 1 -->
             <h2>1. General</h2>
 
-            <p>1.1 The Platform is owned and operated by JSW One Platforms Limited (<strong>"JSW One"</strong>), having
+            <p>1.1 The Platform is owned and operated by Hyderabad Constructions Platforms Limited (<strong>"Hyderabad Constructions"</strong>), having
                 its registered corporate office at 6th Floor, Grande Palladium, 175 CST Road, Kalina, Santacruz (East),
                 Mumbai – 400098.</p>
 
@@ -260,8 +77,8 @@
                 (defined below) provided separately on the Platform and which are or may hereafter be incorporated
                 herein by way of reference (<strong>"Terms of Use"</strong>). If You transact on the Platform, You shall
                 also be subject to the Agreements that are applicable to the Platform for such Transaction. By mere use
-                of the Platform, You shall be contracting with JSW One, and these Terms of Use including the Agreements
-                constitute Your binding obligations, with JSW One.</p>
+                of the Platform, You shall be contracting with Hyderabad Constructions, and these Terms of Use including the Agreements
+                constitute Your binding obligations, with Hyderabad Constructions.</p>
 
             <p>1.3 For the purpose of these Terms of Use, wherever the context so requires:</p>
 
@@ -274,22 +91,22 @@
                 or otherwise controlling the other;</p>
 
             <p>(b) <strong>"Platform"</strong> shall mean this internet based e-commerce services platform <a
-                    href="https://jswonehomes.com/" target="_blank">https://jswonehomes.com/</a> and/or an application,
+                    href="https://hyderabadconstructions.in/" target="_blank">https://hyderabadconstructions.in/</a> and/or an application,
                 website and/or web-page (including but not limited to any web app, marketing landing page(s), and/or
-                iOS/Android app or any other app that the buyer may be using to access/communicate with JSW One)
-                (<strong>"Platform"</strong>), owned and/or operated, directly or indirectly, by JSW One;</p>
+                iOS/Android app or any other app that the buyer may be using to access/communicate with Hyderabad Constructions)
+                (<strong>"Platform"</strong>), owned and/or operated, directly or indirectly, by Hyderabad Constructions;</p>
 
             <p>(c) <strong>"GST"</strong> means the goods and service tax as levied under the Central Goods and Services
                 Tax Act and Rules (CGST), Integrated Goods and Services Tax Act and Rules (IGST), State Goods and
                 Services Tax Acts and Rules (SGST) levied by the States, Union Territory Goods and Services Tax Act and
                 Rules (UTGST) levied by the Union Territories, and all allied cesses, duties and taxes;</p>
 
-            <p>(d) <strong>"JSW Companies"</strong> shall mean and include JSW Steel Limited, JSW Cement, JSW Paints
+            <p>(d) <strong>"Hyderabad Constructions Companies"</strong> shall mean and include Hyderabad Constructions Steel Limited, Hyderabad Constructions Cement, Hyderabad Constructions Paints
                 Limited, and their respective subsidiaries, associate companies, joint ventures, and Affiliates, whether
                 existing now or established at any time in the future.</p>
 
             <p>(e) <strong>"KYC Documents"</strong> means such 'know your customer' documents as may be required to be
-                submitted to JSW One from time to time;</p>
+                submitted to Hyderabad Constructions from time to time;</p>
 
             <p>(f) <strong>"Profile"</strong> means the individually identifiable profile of User created at the time of
                 registering on the Platform;</p>
@@ -304,8 +121,8 @@
                 emails, designs, catalogues, posts and other communication that Users provide or receive, through
                 Platform and any other project related information and documentation shared with the User;</p>
 
-            <p>(i) <strong>"We"</strong> or <strong>"Us"</strong> or <strong>"Our"</strong> or <strong>"JSW
-                    One"</strong> means JSW One or any of its subsidiaries or Affiliates; and</p>
+            <p>(i) <strong>"We"</strong> or <strong>"Us"</strong> or <strong>"Our"</strong> or <strong>"Hyderabad Constructions
+                    One"</strong> means Hyderabad Constructions or any of its subsidiaries or Affiliates; and</p>
 
             <p>(j) <strong>"You"</strong> or <strong>"Your"</strong> or <strong>"User/s"</strong> means a legal person
                 who is given access to use the Platform for the purpose of availing services on the Platform.</p>
@@ -333,14 +150,14 @@
             <!-- Section 2 -->
             <h2>2. Services</h2>
 
-            <p>2.1 JSW One owns and operates the Platform, wherein JSW One, using its proprietary technology and
+            <p>2.1 Hyderabad Constructions owns and operates the Platform, wherein Hyderabad Constructions, using its proprietary technology and
                 platform services, connects its Users with Contractors and facilitates delivery of building construction
                 services (<strong>"Services"</strong>).</p>
 
-            <p>2.2 The User understands and agrees that the Platform services offered by JSW One are not absolute or
-                unconditional. Such services are subject to repudiation by JSW One at any time and without any
+            <p>2.2 The User understands and agrees that the Platform services offered by Hyderabad Constructions are not absolute or
+                unconditional. Such services are subject to repudiation by Hyderabad Constructions at any time and without any
                 obligation to assign or provide any reason for such repudiation and without any consent from the User
-                and without any liability or any obligation towards the User. You understand and agree that JSW One has
+                and without any liability or any obligation towards the User. You understand and agree that Hyderabad Constructions has
                 the right to cancel any Transaction (a) for any reason, or (b) under an order or instruction from any
                 statutory, quasi-judicial or judicial authority.</p>
 
@@ -351,14 +168,14 @@
 
             <p>3.1 You may access and use the Platform only if You are 18 (eighteen) years of age or older and are
                 legally capable of entering into a binding contract as per applicable law, including, in particular, the
-                Indian Contract Act, 1872. JSW One reserves the right to terminate Your registration and / or refuse to
-                provide You access to the Platform if it is brought to JSW One's notice or if it is discovered that You
-                are a minor, insolvent or in any manner barred from entering into a contract. JSW One reserves the right
+                Indian Contract Act, 1872. Hyderabad Constructions reserves the right to terminate Your registration and / or refuse to
+                provide You access to the Platform if it is brought to Hyderabad Constructions's notice or if it is discovered that You
+                are a minor, insolvent or in any manner barred from entering into a contract. Hyderabad Constructions reserves the right
                 to refuse access to use the Services offered at the Platform to new Users or to terminate access granted
                 to existing Users at any time without according any reasons for doing so.</p>
 
             <p>3.2 On the condition that You comply with these Terms of Use and the Agreements, We grant You a personal,
-                non-exclusive, non-transferable, revocable, limited privilege to access and use the Platform. JSW One
+                non-exclusive, non-transferable, revocable, limited privilege to access and use the Platform. Hyderabad Constructions
                 further grants You a limited licence to access and make personal use of the Platform, but not to
                 download (other than page caching) or modify it, or any portion of it. This license does not include any
                 resale or commercial use of this Platform or its contents; any derivative use of this Platform or its
@@ -376,7 +193,7 @@
                 confidential as You are responsible for all acts or omissions committed on the Platform using Your
                 username or password and for all the information / content posted under Your Profile. Users are
                 prohibited from selling, trading, or otherwise transferring their Profiles to other persons.
-                Representatives of JSW One may assist the Users with creating their account and registering them on the
+                Representatives of Hyderabad Constructions may assist the Users with creating their account and registering them on the
                 Platform.</p>
 
             <p>4.2 By creating a Profile, You confirm that the information in Your Profile is accurate, genuine and will
@@ -384,15 +201,15 @@
                 other breach of these Terms of Use or security known to You.</p>
 
             <p>4.3 If You provide any information that is untrue, inaccurate, not current or incomplete (or becomes
-                untrue, inaccurate, not current or incomplete), or JSW One has reasonable grounds to suspect that such
-                information is untrue, inaccurate, not current or incomplete, JSW One has the right to suspend or
+                untrue, inaccurate, not current or incomplete), or Hyderabad Constructions has reasonable grounds to suspect that such
+                information is untrue, inaccurate, not current or incomplete, Hyderabad Constructions has the right to suspend or
                 terminate Your Profile and refuse any and all current or future use of the Platform / Services (or any
                 portion thereof).</p>
 
             <p>4.4 By creating a Profile, You will be responsible for maintaining the confidentiality and security of
                 Your Profile, and are fully responsible for all activities that are carried out through Your Profile.
-                You agree to (a) immediately notify JSW One of any unauthorized use of Your Profile or any other breach
-                of security, and (b) ensure that You exit from Your Profile at the end of each session. JSW One cannot
+                You agree to (a) immediately notify Hyderabad Constructions of any unauthorized use of Your Profile or any other breach
+                of security, and (b) ensure that You exit from Your Profile at the end of each session. Hyderabad Constructions cannot
                 and will not be liable for any loss or damage arising from Your failure to comply with these
                 requirements.</p>
 
@@ -401,24 +218,24 @@
                 on the Platform at all times. You agree to notify Us promptly if your mobile phone number or e-mail
                 address changes by updating the same on the Platform through a onetime password verification.</p>
 
-            <p>4.6 You agree that JSW One shall not be liable or responsible for the activities or consequences of use
+            <p>4.6 You agree that Hyderabad Constructions shall not be liable or responsible for the activities or consequences of use
                 or misuse of any information that occurs in Your Profile in cases, including, where You have failed to
                 update Your revised mobile phone number and/or e-mail address on the Platform.</p>
 
-            <p>4.7 JSW One does not pre-screen Your Profile information or User Content. However, JSW One at its
+            <p>4.7 Hyderabad Constructions does not pre-screen Your Profile information or User Content. However, Hyderabad Constructions at its
                 discretion and in accordance with applicable law may monitor any content or information posted by You
-                and may remove any User Content from the Platform if JSW One determines in its sole discretion that such
-                User Content is in violation of these Terms of Use or any applicable law. Where JSW One removes User
-                Content from the Platform, JSW One will make reasonable efforts to inform the User who had posted such
-                User Content. Such actions do not in any manner, negate or dilute JSW One's position as an intermediary
-                or impose any liability on JSW One with respect to User Content.</p>
+                and may remove any User Content from the Platform if Hyderabad Constructions determines in its sole discretion that such
+                User Content is in violation of these Terms of Use or any applicable law. Where Hyderabad Constructions removes User
+                Content from the Platform, Hyderabad Constructions will make reasonable efforts to inform the User who had posted such
+                User Content. Such actions do not in any manner, negate or dilute Hyderabad Constructions's position as an intermediary
+                or impose any liability on Hyderabad Constructions with respect to User Content.</p>
 
             <p>4.8 Depending upon the nature of Services You wish to avail from the Platform, You may be required to
-                provide certain personal information and JSW One may collect certain personal information. Your
-                provision of, and JSW One's collection, storage, use, disclosure and otherwise dealing of such personal
-                information shall be governed by JSW One's privacy policy.</p>
+                provide certain personal information and Hyderabad Constructions may collect certain personal information. Your
+                provision of, and Hyderabad Constructions's collection, storage, use, disclosure and otherwise dealing of such personal
+                information shall be governed by Hyderabad Constructions's privacy policy.</p>
 
-            <p>4.9 Further, You authorize JSW Companies and JSW One to:</p>
+            <p>4.9 Further, You authorize Hyderabad Constructions Companies and Hyderabad Constructions to:</p>
             <ul>
                 <li>(a) collect, use, share, process and store all information, including personal information, provided
                     by You and Your access information including the IP address, IMEI number and MAC address of the
@@ -436,13 +253,13 @@
             <h2>5. Electronic Execution and Communications</h2>
 
             <p>5.1 When You use the Platform or send emails or other data, information or communication to Us, You agree
-                and understand that You are communicating with JSW Companies and JSW One through electronic records and
-                You consent to receive communications via electronic records or otherwise from JSW Companies and JSW One
+                and understand that You are communicating with Hyderabad Constructions Companies and Hyderabad Constructions through electronic records and
+                You consent to receive communications via electronic records or otherwise from Hyderabad Constructions Companies and Hyderabad Constructions
                 periodically to the electronic or residential address provided to us at the time of registration, and as
-                and when required. JSW Companies and JSW One may communicate with You by email or by such other mode of
+                and when required. Hyderabad Constructions Companies and Hyderabad Constructions may communicate with You by email or by such other mode of
                 communication, electronic or otherwise.</p>
 
-            <p>5.2 JSW One will undertake reasonable efforts to ensure that availability of the Platform will be
+            <p>5.2 Hyderabad Constructions will undertake reasonable efforts to ensure that availability of the Platform will be
                 uninterrupted and that transmissions will be error-free. However, due to the inherent nature of the
                 internet, this cannot be guaranteed. The Platform may also be occasionally suspended or restricted to
                 carry out repairs, maintenance, or the introduction of new facilities, upgradations or services at any
@@ -456,7 +273,7 @@
             <p>6.1 The Platform is only for providing a venue for communication and payment services and it is agreed
                 that the contract in respect of the construction services shall be a strictly bipartite works contract
                 between the Users and the Contractors. At no time shall any right, title or interest over the items vest
-                with JSW One nor shall JSW One have any obligations or liabilities in respect of such contract, except
+                with Hyderabad Constructions nor shall Hyderabad Constructions have any obligations or liabilities in respect of such contract, except
                 for certain facilitative, transaction support and payment-related services as provided in agreements
                 entered into between Users, Contractors, franchisees and Us.</p>
 
@@ -469,8 +286,8 @@
                 prejudice to the foregoing, the Platform may provide certain transaction support services to Users and
                 Contractors of the Platform.</p>
 
-            <p>6.3 JSW One is not responsible for any non-performance or breach of any contract entered into between
-                Users and Contractors. JSW One cannot and does not guarantee, warrant, assure or ensure that the Users
+            <p>6.3 Hyderabad Constructions is not responsible for any non-performance or breach of any contract entered into between
+                Users and Contractors. Hyderabad Constructions cannot and does not guarantee, warrant, assure or ensure that the Users
                 and Contractors will perform, undertake, consume or conclude any transaction on the Platform. Platform
                 shall not and is not required to mediate or resolve any dispute or disagreement between the Users and
                 Contractors.</p>
@@ -542,7 +359,7 @@
                     brand name or domain name used by Us;</li>
                 <li>(h) make any negative, denigrating or defamatory statement(s) or comment(s) about Us or the brand
                     name used by Us, or otherwise engage in any conduct that might tarnish the image or reputation of
-                    JSW Companies or JSW One;</li>
+                    Hyderabad Constructions Companies or Hyderabad Constructions;</li>
                 <li>(i) take any action that imposes an unreasonable or disproportionately large load on the
                     infrastructure of the Platform or Our systems or networks;</li>
                 <li>(j) circumvent or manipulate our Platform, Platform Services, registration process, billing system,
@@ -570,15 +387,15 @@
                 use of the services. You are responsible for all such fees.</p>
 
             <p>7.5 You hereby expressly agree that any Services availed by the You will not be bartered or in any way
-                used for any commercial purposes or for profit. Accordingly, JSW One reserves the right to cancel any
-                orders that classify as 'Business Use' as determined by JSW One, including but not limited to:</p>
+                used for any commercial purposes or for profit. Accordingly, Hyderabad Constructions reserves the right to cancel any
+                orders that classify as 'Business Use' as determined by Hyderabad Constructions, including but not limited to:</p>
             <ul>
                 <li>(a) Services availed for commercial use and not for self-consumption;</li>
                 <li>(b) Multiple orders placed for same Services at the same address;</li>
                 <li>(c) Invalid address given in order details; or</li>
                 <li>(d) Any malpractice used to place the order.</li>
-                <li>(e) There may be certain orders that JSW One is unable to process or pass on User's order to the
-                    Contractor and must cancel. Some situations that may result in JSW One's inability to process or
+                <li>(e) There may be certain orders that Hyderabad Constructions is unable to process or pass on User's order to the
+                    Contractor and must cancel. Some situations that may result in Hyderabad Constructions's inability to process or
                     pass on User's order include, without limitation, non-availability of the Platform, force majeure,
                     credit limitations or suspected fraud.</li>
             </ul>
@@ -596,11 +413,11 @@
                 <strong>"Posted Content"</strong>). You, being the originator of the Posted Content, are responsible for
                 the Posted Content that You upload, post, publish, transmit or otherwise make available on the Platform.
                 You represent that you have obtained all relevant consents and approvals in order to post any Posted
-                Content. JSW One reserves the right to disable access to the Posted Content on the Platform.
+                Content. Hyderabad Constructions reserves the right to disable access to the Posted Content on the Platform.
             </p>
 
             <p>7.9 Unless otherwise specified, the Services provided on the Platform is presented solely for use in
-                India. JSW One makes no representation that the Services offered on the Platform are appropriate or
+                India. Hyderabad Constructions makes no representation that the Services offered on the Platform are appropriate or
                 available for use in other locations other than India.</p>
 
             <hr class="section-divider">
@@ -608,9 +425,9 @@
             <!-- Section 8 -->
             <h2>8. Payment</h2>
 
-            <p>8.1 Presently, JSW One does not levy any fee for browsing the Platform. JSW One may charge You certain
+            <p>8.1 Presently, Hyderabad Constructions does not levy any fee for browsing the Platform. Hyderabad Constructions may charge You certain
                 fees for the use of the Platform and Services as a whole, or certain features of the Platform/Services.
-                You agree to pay any such fees, as may be applicable to the Services that You use. You agree that JSW
+                You agree to pay any such fees, as may be applicable to the Services that You use. You agree that Hyderabad Constructions
                 One may, at any time, charge, modify or waive fees required to use the Platform. Your continued use of
                 the Platform / Services after such change in the fees will be considered to be Your acceptance of such
                 changes.</p>
@@ -619,31 +436,31 @@
                 the approved payment gateway or pre-paid payment instrument account details or net banking or e-wallet
                 details for availing Services on the Platform. The information provided by You will not be utilized or
                 shared with any third party unless required in relation to fraud verifications or by law, regulation or
-                court order. JSW One expressly disclaims all liabilities that may arise as a consequence of any
+                court order. Hyderabad Constructions expressly disclaims all liabilities that may arise as a consequence of any
                 unauthorized use of Your credit/ debit card or pre-paid instrument account or net banking details or
                 e-wallet.</p>
 
             <p>8.3 You agree that the Transactions, transaction price and all commercial terms such as provision of
                 Services are principal to principal bipartite contractual obligations between the User and the
                 Contractors listed on the Platform, and the payment management and coordination facilities offered by
-                JSW One are merely platform services used by the Users to facilitate the Transaction.</p>
+                Hyderabad Constructions are merely platform services used by the Users to facilitate the Transaction.</p>
 
-            <p>8.4 You acknowledge that JSW One as an ecommerce platform is required to deduct TCS on GST as per CGTS
+            <p>8.4 You acknowledge that Hyderabad Constructions as an ecommerce platform is required to deduct TCS on GST as per CGTS
                 Act 2017 and TDS as per Income Tax Act 1961. All payment to the Contractors shall be made net of such
                 deductions as applicable.</p>
 
             <p>8.5 Users may be required to pay additional charges / fees for Services availed by them on the Platform.
-                Use of the payment facility shall not render JSW One liable or responsible for non-delivery,
+                Use of the payment facility shall not render Hyderabad Constructions liable or responsible for non-delivery,
                 non-receipt, non-payment, breach of representations and warranties, non-provision of services or
                 warranty services or fraud as regards the Services listed and/or offered on the Platform.</p>
 
             <p>8.6 All payments made against the provision of Services on the Platform shall compulsorily be in Indian
                 Rupees or such other currencies as may be notified by the Platform from time to time. The Platform
                 facilitates payments through one or more of: (i) net banking, (ii) NEFT, (iii) RTGS (iv) credit / debit
-                card; (v) cheque and (vi) e-wallets or any other facilities as made available by JSW One from time to
+                card; (v) cheque and (vi) e-wallets or any other facilities as made available by Hyderabad Constructions from time to
                 time.</p>
 
-            <p>8.7 You hereby specifically authorize JSW One or its service providers to collect, process, facilitate,
+            <p>8.7 You hereby specifically authorize Hyderabad Constructions or its service providers to collect, process, facilitate,
                 and remit payments and / or the transaction price electronically or by cheque, as the case may be, to
                 and from You in respect of Transactions through payment facility.</p>
 
@@ -663,27 +480,27 @@
 
             <p>8.11 Users may also avail of financing facilities from financial partners on the Platform. In case a
                 financial partner fails to disburse monies when required by the Platform on an order placed by You, You
-                shall be liable to make such payment as and when demanded by JSW One. In case of any breach of terms by
+                shall be liable to make such payment as and when demanded by Hyderabad Constructions. In case of any breach of terms by
                 You with respect to the financing availed on the Platform, We reserve the right to suspend your account
                 in the Platform.</p>
 
-            <p>8.12 JSW One may have existing arrangements with banks, regarding limits on the amounts You can pay in
-                the course of a single transaction. JSW One shall be under no liability whatsoever in respect of any
+            <p>8.12 Hyderabad Constructions may have existing arrangements with banks, regarding limits on the amounts You can pay in
+                the course of a single transaction. Hyderabad Constructions shall be under no liability whatsoever in respect of any
                 loss or damage arising directly or indirectly out of the decline of authorization for any transaction.
             </p>
 
-            <p>8.13 JSW One, at its sole discretion, may from time to time, and pursuant to applicable laws, provide
+            <p>8.13 Hyderabad Constructions, at its sole discretion, may from time to time, and pursuant to applicable laws, provide
                 credit support in the form of first loss default guarantee or such other means as deemed appropriate to
-                facilitate third party financing. In case JSW One has provided such credit support on the financing
-                availed by You, and You fail to make required payments, JSW One shall have the right to recover such
+                facilitate third party financing. In case Hyderabad Constructions has provided such credit support on the financing
+                availed by You, and You fail to make required payments, Hyderabad Constructions shall have the right to recover such
                 defaulted amount to the extent of the guarantee.</p>
 
-            <p>8.14 Where no credit support provided by JSW One with respect to financing availed by You, JSW One will
+            <p>8.14 Where no credit support provided by Hyderabad Constructions with respect to financing availed by You, Hyderabad Constructions will
                 not be responsible in any manner, for the obligations of the Users under such financial arrangements
                 between the Users and the financial partners.</p>
 
-            <p>8.15 You understand, accept, and agree that the payment facility provided by JSW One is neither a banking
-                nor financial service, and that JSW One is merely a Service Provider providing an electronic, automated
+            <p>8.15 You understand, accept, and agree that the payment facility provided by Hyderabad Constructions is neither a banking
+                nor financial service, and that Hyderabad Constructions is merely a Service Provider providing an electronic, automated
                 online electronic payment facility for receiving payment through cash, collection and remittance for
                 transactions on the Platform using the existing authorized banking infrastructure and credit card
                 payment gateway network.</p>
@@ -705,9 +522,9 @@
                 (whether in whole or in part) any of material referred to above.</p>
 
             <p>9.2 You may not frame or use framing techniques to enclose any trademark, logo, or other proprietary
-                information (including images, text, page layout, or form) of JSW One without our prior written consent.
-                You may not use any meta tags or any other "hidden text" utilising JSW One's or its affiliates' names or
-                trademarks without the prior written consent of JSW One and / or its Affiliates, as applicable.</p>
+                information (including images, text, page layout, or form) of Hyderabad Constructions without our prior written consent.
+                You may not use any meta tags or any other "hidden text" utilising Hyderabad Constructions's or its affiliates' names or
+                trademarks without the prior written consent of Hyderabad Constructions and / or its Affiliates, as applicable.</p>
 
             <p>9.3 All material on the Platform including images, illustrations, audio clips, and video clips, are
                 protected by copyrights, trademarks and other intellectual property rights. You must not copy,
@@ -731,7 +548,7 @@
 
             <p>11.1 The Platform and the processes, and their selection and arrangement, including but not limited to
                 the text, graphics, user interfaces, visual interfaces, sounds and music (if any), artwork and computer
-                code on the Platform is owned and controlled by JSW One or its licensors and the design, structure,
+                code on the Platform is owned and controlled by Hyderabad Constructions or its licensors and the design, structure,
                 selection, coordination, expression, look and feel and arrangement of such content is protected by
                 copyright, patent and trademark laws, and various other intellectual property rights. Through Your use
                 of the Platform, by no means are any rights impliedly or expressly granted to You in respect of such
@@ -744,9 +561,9 @@
                 to any such information, and (d) do not make any additional representations or warranties relating to
                 such documents.</p>
 
-            <p>11.3 Any software that is available on the Platform is the property of JSW One or its vendors. You may
+            <p>11.3 Any software that is available on the Platform is the property of Hyderabad Constructions or its vendors. You may
                 not use, download or install any software available at the Platform, unless otherwise expressly
-                permitted by the Terms of Use or by the express written permission of JSW One.</p>
+                permitted by the Terms of Use or by the express written permission of Hyderabad Constructions.</p>
 
             <hr class="section-divider">
 
@@ -767,7 +584,7 @@
             <p>13.1 We are committed to removing listing or content on the Platform which infringes any intellectual
                 property rights of others. In the event that You believe that Your intellectual property right has been
                 infringed by any of our Users, please email Us immediately at <a
-                    href="mailto:jswone.compliance@jsw.in">jswone.compliance@jsw.in</a> along with the information set
+                    href="mailto:team@hyderabadconstructions.in">team@hyderabadconstructions.in</a> along with the information set
                 out below:</p>
             <ul>
                 <li>(a) Description of the alleged intellectual property right that has been infringed along with
@@ -806,7 +623,7 @@
                 may include, asking further details from you or taking down the content that was the subject matter of
                 Your infringement notice.</p>
 
-            <p>13.6 JSW One has the right to restore listing of the services in the event that You are unable to produce
+            <p>13.6 Hyderabad Constructions has the right to restore listing of the services in the event that You are unable to produce
                 the orders of the competent court having jurisdiction as set out above.</p>
 
             <hr class="section-divider">
@@ -824,14 +641,14 @@
             <!-- Section 15 -->
             <h2>15. Third Party Content</h2>
 
-            <p>15.1 Notwithstanding its reasonable efforts in that behalf, JSW One cannot take responsibility or control
+            <p>15.1 Notwithstanding its reasonable efforts in that behalf, Hyderabad Constructions cannot take responsibility or control
                 the information such as catalogues, description and specifications, lists of dealers, reports on news,
                 entertainment, technology and features, advertisements including videos, images and photographs of the
                 products, links to third party websites and other data from external sources provided by third parties
                 on the Platform (<strong>"Third Party Content"</strong>). All Third Party Content is provided on an 'As
                 Is' basis.</p>
 
-            <p>15.2 JSW One shall not be held liable for any loss suffered by You based on Your reliance on or use of
+            <p>15.2 Hyderabad Constructions shall not be held liable for any loss suffered by You based on Your reliance on or use of
                 such Third Party Content.</p>
 
             <p>15.3 All third party advertisements, hyperlinks or other redirection tools on the Platform which take You
@@ -865,11 +682,11 @@
                 arising out of any Transaction conducted using the services of the Platform shall not exceed the total
                 fees paid to Us directly by the User for such Transaction.</p>
 
-            <p>16.3 JSW One neither recommends You to avail the construction services of any Contractor on the Platform
-                nor does JSW One endorse, control or accept any responsibility for any such services offered by the
+            <p>16.3 Hyderabad Constructions neither recommends You to avail the construction services of any Contractor on the Platform
+                nor does Hyderabad Constructions endorse, control or accept any responsibility for any such services offered by the
                 Contractor and/or other Service Providers on the Platform.</p>
 
-            <p>16.4 Notwithstanding anything contrary contained in this Terms of Use and/or the Agreement, JSW One is
+            <p>16.4 Notwithstanding anything contrary contained in this Terms of Use and/or the Agreement, Hyderabad Constructions is
                 and shall not be responsible for any services rendered by the third-party Contractors and/or any other
                 Service Providers listed on the Platform.</p>
 
@@ -878,7 +695,7 @@
                 damage to their computer systems or loss of data that results from the download of such material or
                 data.</p>
 
-            <p>16.6 You expressly understand and agree that, to the maximum extent permitted by applicable law JSW One
+            <p>16.6 You expressly understand and agree that, to the maximum extent permitted by applicable law Hyderabad Constructions
                 will not be liable for any loss that you may incur as a consequence of unauthorized use of your account
                 or account information in connection with the Platform or any Services, either with or without your
                 knowledge.</p>
@@ -886,9 +703,9 @@
             <p>16.7 In the event You have purchased / downloaded the Purchase from any online application stores,
                 whether provided by Apple, Inc., Google, Inc. or Blackberry Limited (or their respective affiliates)
                 (collectively referred to as <strong>"Store Providers"</strong>), the Store Providers shall not be
-                liable for any (i) warranty obligations of JSW One and related claims; (ii) product liability / consumer
+                liable for any (i) warranty obligations of Hyderabad Constructions and related claims; (ii) product liability / consumer
                 protection claims; and (iii) any third party claims of infringement of intellectual property rights by
-                the Platform/JSW One.</p>
+                the Platform/Hyderabad Constructions.</p>
 
             <p>16.8 You understand, agree and acknowledge that Platform uses third party service providers to store and
                 process Your personal information and other information which You provide to the Platform and such third
@@ -902,12 +719,12 @@
                 omission, misconduct, fraud or negligence of these third parties unless directly caused by misconduct
                 and gross negligence of the Platform.</p>
 
-            <p>16.10 JSW One's entire and aggregate liability in any circumstance including these terms and conditions
+            <p>16.10 Hyderabad Constructions's entire and aggregate liability in any circumstance including these terms and conditions
                 shall not exceed the greater of Indian Rupees One Hundred (INR 100) or the amount of fees, if any, paid
-                by You to JSW One under the relevant order to which the cause of action for the liability related.</p>
+                by You to Hyderabad Constructions under the relevant order to which the cause of action for the liability related.</p>
 
             <p>16.11 In addition to any limitation of liability and various disclaimers provided elsewhere in this Terms
-                of Use, JSW One's entire liability and Your sole and exclusive remedy in any circumstance is limited to
+                of Use, Hyderabad Constructions's entire liability and Your sole and exclusive remedy in any circumstance is limited to
                 exercise its reasonable efforts to enable to You get the refund of the services from the Contractor on
                 the Platform.</p>
 
@@ -916,34 +733,34 @@
             <!-- Section 17 -->
             <h2>17. Indemnity</h2>
 
-            <p>17.1 You agree to indemnify JSW One, its Affiliates and its licensors, subsidiaries, group companies (as
+            <p>17.1 You agree to indemnify Hyderabad Constructions, its Affiliates and its licensors, subsidiaries, group companies (as
                 applicable) and their respective officers, directors, agents, and employees, on demand, against any
                 claim, action, damage, loss, liability, cost, charge, expense or payment which We may pay, suffer, incur
                 or are liable for, in relation to any act You do or cause to be done, in breach of the Terms of Use or
                 any additional terms applicable to You or Your violation of any law, rules or regulations (including
                 infringement of intellectual property rights) of a third party.</p>
 
-            <p>17.2 JSW One may notify You of any claims which You shall be liable to indemnify JSW One against. You
-                will then be required to consult with JSW One regarding the course of action to be undertaken in
+            <p>17.2 Hyderabad Constructions may notify You of any claims which You shall be liable to indemnify Hyderabad Constructions against. You
+                will then be required to consult with Hyderabad Constructions regarding the course of action to be undertaken in
                 defending such a claim. Further, You shall not compromise or settle any claim or admit any liability or
-                wrongdoing on the part of JSW One without the express prior written consent of JSW One.</p>
+                wrongdoing on the part of Hyderabad Constructions without the express prior written consent of Hyderabad Constructions.</p>
 
             <hr class="section-divider">
 
             <!-- Section 18 -->
             <h2>18. Feedback and Information</h2>
 
-            <p>18.1 Any feedback You provide to this Platform shall be deemed to be non-confidential. JSW One shall be
+            <p>18.1 Any feedback You provide to this Platform shall be deemed to be non-confidential. Hyderabad Constructions shall be
                 free to use such information on an unrestricted basis. Further, by submitting the feedback, You
                 represent and warrant that (i) Your feedback does not contain confidential or proprietary information of
-                You or of third parties; (ii) JSW One is not under any obligation of confidentiality, express or
-                implied, with respect to the feedback; (iii) JSW One may have something similar to the feedback already
+                You or of third parties; (ii) Hyderabad Constructions is not under any obligation of confidentiality, express or
+                implied, with respect to the feedback; (iii) Hyderabad Constructions may have something similar to the feedback already
                 under consideration or in development; and (iv) You are not entitled to any compensation or
-                reimbursement of any kind from JSW One for the feedback under any circumstances.</p>
+                reimbursement of any kind from Hyderabad Constructions for the feedback under any circumstances.</p>
 
-            <p>18.2 To clarify, JSW One may at its discretion, make any modifications or changes to the
-                Platform/Services on the basis of such feedback, however JSW One is not obliged to do so. You expressly
-                waive any and all rights in such changes or modifications to the Platform/Services, and assign to JSW
+            <p>18.2 To clarify, Hyderabad Constructions may at its discretion, make any modifications or changes to the
+                Platform/Services on the basis of such feedback, however Hyderabad Constructions is not obliged to do so. You expressly
+                waive any and all rights in such changes or modifications to the Platform/Services, and assign to Hyderabad Constructions
                 One, all worldwide rights and title (including any intellectual property rights) to such changes or
                 modifications to the Platform/Services, in perpetuity.</p>
 
@@ -982,8 +799,8 @@
 
             <p>You cannot assign or otherwise transfer the Terms of Use, or any rights granted hereunder or any
                 obligations, to any third party and any such assignment or transfer or purported assignment or transfer
-                shall be void ab initio. JSW One's rights and/or obligations under the Terms of Use are freely
-                assignable or otherwise transferable by JSW One to any third parties without the requirement of seeking
+                shall be void ab initio. Hyderabad Constructions's rights and/or obligations under the Terms of Use are freely
+                assignable or otherwise transferable by Hyderabad Constructions to any third parties without the requirement of seeking
                 Your prior consent.</p>
 
             <hr class="section-divider">
@@ -991,14 +808,14 @@
             <!-- Section 23 -->
             <h2>23. Force Majeure</h2>
 
-            <p>If performance of any service or obligation under these Terms of Use or other Agreement by JSW One is
+            <p>If performance of any service or obligation under these Terms of Use or other Agreement by Hyderabad Constructions is
                 prevented, restricted, delayed or interfered with by reason of labor disputes, strikes, acts of God,
                 floods, lightning, severe weather, shortages of materials, rationing, utility or communication failures,
                 earthquakes, war, revolution, acts of terrorism, civil commotion, acts of public enemies, blockade,
                 embargo or any law, order, proclamation, regulation, ordinance, demand or requirement having legal
                 effect of any government or any judicial authority (each, a <strong>"Force Majeure Event"</strong>),
-                then JSW One shall be excused from such performance to the extent of and during the period of such Force
-                Majeure Event. JSW One shall exercise all reasonable commercial efforts to continue to perform its
+                then Hyderabad Constructions shall be excused from such performance to the extent of and during the period of such Force
+                Majeure Event. Hyderabad Constructions shall exercise all reasonable commercial efforts to continue to perform its
                 obligations hereunder.</p>
 
             <hr class="section-divider">
@@ -1051,14 +868,14 @@
             <p>Users can access, modify, correct and eliminate the data about him/her/it which has been collected
                 pursuant to his/her/its decision to become a User. If you believe that your rights are being infringed
                 or you have any grievances, complaints or concerns, including in relation to the information shared by
-                the User with JSW One on the Platform, you may reach out to our grievance officer through telephonic or
+                the User with Hyderabad Constructions on the Platform, you may reach out to our grievance officer through telephonic or
                 electronic mode in the following manner:</p>
 
             <p>
-                <strong>Name:</strong> Sherien Kaul<br>
-                <strong>Address:</strong> 6th Floor, Grande Palladium, CST Road, Kalina, Mumbai 400098.<br>
-                <strong>Email:</strong> <a href="mailto:jswone.compliance@jsw.in">jswone.compliance@jsw.in</a><br>
-                <strong>Phone Number:</strong> <a href="tel:+912268542400">+91 22 68542400</a>
+                <strong>Name:</strong> ER MOHAMMED ABBAS<br>
+                <strong>Address:</strong> 13-6-437/A/98/3, Khader Bagh, Tolichowki, Hyderabad.<br>
+                <strong>Email:</strong> <a href="mailto:team@hyderabadconstructions.in">team@hyderabadconstructions.in</a><br>
+                <strong>Phone Number:</strong> <a href="tel:+919703879886">+91 97038 79886</a>
             </p>
 
             <p>We respond expeditiously to rights owners and their agents who communicate their concerns about any
@@ -1067,237 +884,12 @@
         </div>
     </section>
 
-    <!-- ===================== FOOTER ===================== -->
-    <footer class="bg-[#111] text-[#aaa] px-6 md:px-12 xl:px-32 pt-12 pb-7 w-full">
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 max-w-7xl mx-auto">
-            <div class="col-span-2 md:col-span-1">
+    <?php include 'includes/action-buttons.php'; ?>
+    <?php include 'includes/footer.php'; ?>
+    <?php include 'includes/book-meeting-popup.php'; ?>
 
-                <a href="index.html" class="inline-block">
-                    <img src="images/logo.jpeg" alt="Hyderabad Constructions Logo"
-                        class="h-16 w-auto object-contain mb-4">
-                </a>
-                <p class="text-sm leading-relaxed mt-3 max-w-[220px]">Browse ideas, explore options and book a meeting
-                    with our expert consultants to finalise your design.</p>
-                <p class="text-[10px] uppercase tracking-widest mt-4 mb-1.5">Get in touch</p>
-                <a href="www.hyderabadconstructions.in"
-                    class="text-orange text-sm block mb-1 hover:underline">www.hyderabadconstructions.in</a>
-                <a href="abbas@hyderabadconstructions.in"
-                    class="text-orange text-sm block mb-1 hover:underline">abbas@hyderabadconstructions.in</a>
+    <script src="assets/js/script.js"></script>
 
-                <a href="tel:+919703879886" class="text-orange text-sm block hover:underline">+91 97038 79886</a>
-                <div class="flex gap-3 mt-4">
-                    <div
-                        class="w-8 h-8 border border-[#333] rounded-md flex items-center justify-center cursor-pointer hover:border-orange transition-colors">
-                        <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 fill-[#888]">
-                            <path
-                                d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 01-1.93.07 4.28 4.28 0 004 2.98 8.521 8.521 0 01-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z" />
-                        </svg>
-                    </div>
-                    <div
-                        class="w-8 h-8 border border-[#333] rounded-md flex items-center justify-center cursor-pointer hover:border-orange transition-colors">
-                        <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 fill-[#888]">
-                            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
-                        </svg>
-                    </div>
-                    <div
-                        class="w-8 h-8 border border-[#333] rounded-md flex items-center justify-center cursor-pointer hover:border-orange transition-colors">
-                        <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 fill-none stroke-[#888] stroke-[1.5]">
-                            <rect x="2" y="2" width="20" height="20" rx="5" />
-                            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
-                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                        </svg>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <h4 class="text-[11px] uppercase tracking-widest mb-4 font-semibold">Company</h4>
-                <a href="about-us.html" class="block text-sm mb-2.5 hover:text-white transition-colors">About us</a>
-                <a href="how-it-works.html" class="block text-sm mb-2.5 hover:text-white transition-colors">How it
-                    works</a>
-                <a href="projects.html" class="block text-sm mb-2.5 hover:text-white transition-colors">Our projects</a>
-                <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Cost estimator</a>
-                <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Testimonials</a>
-                <!-- <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Blogs &amp; articles</a> -->
-                <a href="join-as-architect.html" class="block text-sm hover:text-white transition-colors">Join as
-                    Architect</a>
-            </div>
-            <div>
-                <h4 class="text-[11px] uppercase tracking-widest mb-4 font-semibold">Support</h4>
-                <a href="contact-us.html" class="block text-sm mb-2.5 hover:text-white transition-colors">Contact us</a>
-                <a href="faqs.html" class="block text-sm mb-2.5 hover:text-white transition-colors">FAQs</a>
-            </div>
-            <div>
-                <h4 class="text-[11px] uppercase tracking-widest mb-4 font-semibold">Legal</h4>
-                <a href="terms-and-conditions.html"
-                    class="block text-sm mb-2.5 hover:text-white transition-colors">Terms &amp; Conditions</a>
-                <a href="privacy-policy.html" class="block text-sm hover:text-white transition-colors">Privacy
-                    policy</a>
-            </div>
-        </div>
-        <div class="border-t border-[#222] mt-10 pt-5 text-center text-sm max-w-7xl mx-auto">
-            &copy; 2026 Hyderabad Constructions. All rights reserved.
-        </div>
-    </footer>
-    <!-- =====================================================
-     BOOK A MEETING — POPUP MODAL
-     ===================================================== -->
-
-    <!-- ── Overlay ─────────────────────────────────────────── -->
-    <div id="bookingModal" class="fixed inset-0 z-[999] flex items-center justify-center px-4"
-        style="display:none!important">
-
-        <!-- Backdrop -->
-        <div id="modalBackdrop" class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closeBookingModal()">
-        </div>
-
-        <!-- Modal panel -->
-        <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-2xl mx-auto z-10
-                max-h-[90vh] overflow-y-auto" style="animation: modalSlideUp .3s cubic-bezier(.4,0,.2,1) both">
-
-            <!-- Header -->
-            <div class="flex items-start justify-between px-7 pt-7 pb-4 border-b border-slate-100">
-                <div>
-                    <h2 class="font-display text-2xl font-semibold text-ink leading-tight">Book a Meeting</h2>
-                    <p class="text-sm text-muted mt-1">Schedule a free consultation with our experts.</p>
-                </div>
-                <!-- Close button -->
-                <button onclick="closeBookingModal()"
-                    class="ml-4 mt-0.5 flex-shrink-0 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors cursor-pointer border-0">
-                    <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-ink fill-none stroke-2 stroke-linecap-round">
-                        <line x1="18" y1="6" x2="6" y2="18" />
-                        <line x1="6" y1="6" x2="18" y2="18" />
-                    </svg>
-                </button>
-            </div>
-
-            <!-- Form body -->
-            <div class="px-7 py-6">
-
-                <!-- Row 1: Name + Email -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
-                    <div class="relative">
-                        <label
-                            class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
-                            Full name
-                        </label>
-                        <input type="text" id="modal_name" placeholder="Full name"
-                            class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-400 transition-all placeholder-slate-300" />
-                    </div>
-                    <div class="relative">
-                        <label
-                            class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
-                            Email
-                        </label>
-                        <input type="email" id="modal_email" placeholder="Email"
-                            class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-400 transition-all placeholder-slate-300" />
-                    </div>
-                </div>
-
-                <!-- Row 2: Mobile + City -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
-                    <div class="relative">
-                        <label
-                            class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
-                            Mobile Number
-                        </label>
-                        <input type="tel" id="modal_mobile" placeholder="Mobile Number"
-                            class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none focus:border-orange-400 transition-all placeholder-slate-300" />
-                    </div>
-                    <div class="relative flex items-center">
-                        <label
-                            class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
-                            Choose City
-                        </label>
-                        <select id="modal_city"
-                            class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none bg-white appearance-none cursor-pointer focus:border-orange-400 transition-all">
-                            <option>Choose City</option>
-                            <option>Hyderabad</option>
-                            <option>Bangalore</option>
-                            <option>Mumbai</option>
-                            <option>Delhi NCR</option>
-                            <option>Chennai</option>
-                            <option>Kochi</option>
-                            <option>Pune</option>
-                        </select>
-                        <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b"
-                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Row 3: Timeline + Land -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
-                    <div class="relative flex items-center">
-                        <label
-                            class="absolute -top-2.5 left-3 bg-white px-1 text-[12px] font-medium text-slate-400 z-10 pointer-events-none">
-                            I want to start construction in
-                        </label>
-                        <select id="modal_timeline"
-                            class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 outline-none bg-white appearance-none cursor-pointer focus:border-orange-400 transition-all">
-                            <option>0–3 months</option>
-                            <option>3–6 months</option>
-                            <option>6–12 months</option>
-                            <option>More than 12 months</option>
-                        </select>
-                        <div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b"
-                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M6 9l6 6 6-6" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-4 pt-1">
-                        <span class="text-[14px] text-slate-700 whitespace-nowrap">Do you own a plot?</span>
-                        <div class="flex items-center gap-4">
-                            <label class="flex items-center gap-1.5 text-sm text-slate-700 cursor-pointer">
-                                <input type="radio" name="modal_land" value="Yes" class="w-4 h-4 accent-[#e07b39]" />
-                                Yes
-                            </label>
-                            <label class="flex items-center gap-1.5 text-sm text-slate-700 cursor-pointer">
-                                <input type="radio" name="modal_land" value="No" class="w-4 h-4 accent-[#e07b39]" /> No
-                            </label>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Consent -->
-                <div class="flex items-center gap-2 mb-6 mt-1">
-                    <input type="checkbox" id="modal_agree" class="w-4 h-4 accent-[#e07b39] cursor-pointer" />
-                    <span class="text-xs text-muted">I agree to <a href="privacy-policy.html"
-                            class="text-[#e07b39] underline">Privacy Policy</a> and <a href="terms-and-conditions.html"
-                            class="text-[#e07b39] underline">Terms &amp; Conditions</a></span>
-                </div>
-
-                <!-- Submit -->
-                <div class="text-center">
-                    <!-- Success message (hidden by default) -->
-                    <div id="bookingSuccess" style="display:none"
-                        class="mb-4 px-5 py-3 bg-green-50 border border-green-200 rounded-xl text-green-700 text-sm font-medium">
-                        ✅ Your meeting has been booked! We'll contact you shortly.
-                    </div>
-
-                    <!-- Error message (hidden by default) -->
-                    <div id="bookingError" style="display:none"
-                        class="mb-4 px-5 py-3 bg-red-50 border border-red-200 rounded-xl text-red-600 text-sm font-medium">
-                    </div>
-
-                    <button id="bookingSubmitBtn" onclick="submitBooking()"
-                        class="bg-[#e07b39] text-white font-semibold py-3 px-10 rounded-xl hover:bg-[#c96b2a] transition-colors cursor-pointer border-0 text-sm tracking-wide">
-                        Book a Meeting
-                    </button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-
-
-
-    <script src="script.js?v=2"></script>
 </body>
 
 </html>
