@@ -99,9 +99,9 @@
 
         <div class="flex items-center gap-2 mb-5 mt-1">
             <input type="checkbox" id="cta_agree" class="w-4 h-4 accent-orange cursor-pointer" />
-            <span class="text-xs text-muted">I agree to <a href="privacy-policy.php"
+            <span class="text-xs text-muted">I agree to <a href="privacy-policy"
                     class="text-orange underline">Privacy Policy</a>
-                and <a href="terms-and-conditions.php" class="text-orange underline">Terms &amp;
+                and <a href="terms-and-conditions" class="text-orange underline">Terms &amp;
                     Conditions</a></span>
         </div>
 

@@ -1,0 +1,21 @@
+RewriteEngine on
+
+#remove extension html
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [NC,L]
+
+#remove extension php
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME}\.php -f 
+RewriteRule ^(.*)$ $1.php
+
+<FilesMatch "\.(ico|pdf|jpg|jpeg|png|webp|gif|html|htm|xml|txt|xsl|css|mp4|js)$">
+
+  <IfModule mod_headers.c>
+    Header set Cache-Control "max-age=31536050, public, must-revalidate"
+  </IfModule>
+
+</FilesMatch>
+
+ErrorDocument 404 https://hyderabadconstructions.in/404

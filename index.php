@@ -186,7 +186,7 @@
                 </div>
             </div>
             <div class="text-center mt-6">
-                <a href="projects.php"
+                <a href="projects"
                     class="border border-ink text-ink font-medium px-6 py-2.5 rounded-xl hover:bg-ink hover:text-white transition-colors cursor-pointer">Explore
                     more projects</a>
             </div>
@@ -625,7 +625,7 @@
                 </div>
             </div>
             <div class="text-center mt-8">
-                <a href="how-it-works.php"
+                <a href="how-it-works"
                     class="text-orange font-semibold underline underline-offset-2 hover:text-orange-dark transition-colors">Learn
                     more →</a>
             </div>

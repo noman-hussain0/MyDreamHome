@@ -384,7 +384,7 @@
                 </div>
             </div>
             <div class="text-center mt-10">
-                <a href="faqs.php">
+                <a href="faqs">
                     <button
                         class="border border-ink text-ink font-medium py-3 px-10 rounded-xl hover:bg-ink hover:text-white transition-colors cursor-pointer bg-transparent">
                         View more

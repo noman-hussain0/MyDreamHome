@@ -3,7 +3,7 @@
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 max-w-7xl mx-auto">
         <div class="col-span-2 md:col-span-1">
 
-            <a href="index.php" class="inline-block">
+            <a href="index" class="inline-block">
                 <img src="assets/images/logo.jpeg" alt="Hyderabad Constructions Logo"
                     class="h-16 w-auto object-contain mb-4">
             </a>
@@ -44,25 +44,25 @@
         </div>
         <div>
             <h4 class="text-[11px] uppercase tracking-widest mb-4 font-semibold">Company</h4>
-            <a href="about-us.php" class="block text-sm mb-2.5 hover:text-white transition-colors">About us</a>
-            <a href="how-it-works.php" class="block text-sm mb-2.5 hover:text-white transition-colors">How it
+            <a href="about-us" class="block text-sm mb-2.5 hover:text-white transition-colors">About us</a>
+            <a href="how-it-works" class="block text-sm mb-2.5 hover:text-white transition-colors">How it
                 works</a>
-            <a href="projects.php" class="block text-sm mb-2.5 hover:text-white transition-colors">Our projects</a>
+            <a href="projects" class="block text-sm mb-2.5 hover:text-white transition-colors">Our projects</a>
             <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Cost estimator</a>
             <a href="#" class="block text-sm mb-2.5 hover:text-white transition-colors">Testimonials</a>
-            <a href="join-as-architect.php" class="block text-sm hover:text-white transition-colors">Join as
+            <a href="join-as-architect" class="block text-sm hover:text-white transition-colors">Join as
                 Architect</a>
         </div>
         <div>
             <h4 class="text-[11px] uppercase tracking-widest mb-4 font-semibold">Support</h4>
-            <a href="contact-us.php" class="block text-sm mb-2.5 hover:text-white transition-colors">Contact us</a>
-            <a href="faqs.php" class="block text-sm mb-2.5 hover:text-white transition-colors">FAQs</a>
+            <a href="contact-us" class="block text-sm mb-2.5 hover:text-white transition-colors">Contact us</a>
+            <a href="faqs" class="block text-sm mb-2.5 hover:text-white transition-colors">FAQs</a>
         </div>
         <div>
             <h4 class="text-[11px] uppercase tracking-widest mb-4 font-semibold">Legal</h4>
-            <a href="terms-and-conditions.php"
+            <a href="terms-and-conditions"
                 class="block text-sm mb-2.5 hover:text-white transition-colors">Terms &amp; Conditions</a>
-            <a href="privacy-policy.php" class="block text-sm hover:text-white transition-colors">Privacy
+            <a href="privacy-policy" class="block text-sm hover:text-white transition-colors">Privacy
                 policy</a>
         </div>
     </div>

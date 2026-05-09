@@ -3,14 +3,14 @@
     class="bg-[#FCFCF7] sticky top-0 z-50 px-6 min-[1201px]:px-32 h-20 flex items-center justify-between border-b border-border">
 
     <div class="flex items-center gap-2 flex-shrink-0">
-        <a href="index.php" class="block">
+        <a href="index" class="block">
             <img src="assets/images/hyderabad-constructions.png" alt="Hyderabad Constructions Logo" class="h-12 w-auto object-contain">
         </a>
     </div>
 
     <div class="hidden min-[1201px]:flex items-center gap-7 lg:gap-9">
-        <a href="projects.php" class="text-ink hover:text-orange transition-colors">Our projects</a>
-        <a href="how-it-works.php" class="text-ink hover:text-orange transition-colors">How it works</a>
+        <a href="projects" class="text-ink hover:text-orange transition-colors">Our projects</a>
+        <a href="how-it-works" class="text-ink hover:text-orange transition-colors">How it works</a>
         <a href="#" class="text-ink hover:text-orange transition-colors">Testimonials</a>
         <a href="#" class="text-ink hover:text-orange transition-colors">Cost estimator</a>
         <div class="relative" id="navMore">
@@ -24,15 +24,15 @@
             </button>
             <div id="dropdownMenu"
                 class="hidden absolute top-[calc(100%+14px)] left-1/2 -translate-x-1/2 bg-white border border-border rounded-xl shadow-lg min-w-[200px] py-2 z-50">
-                <a href="about-us.php"
+                <a href="about-us"
                     class="flex items-center gap-2.5 px-4 py-2.5 text-ink hover:bg-cream hover:text-orange transition-colors">About
                     us</a>
-                <a href="join-as-architect.php"
+                <a href="join-as-architect"
                     class="flex items-center gap-2.5 px-4 py-2.5 text-ink hover:bg-cream hover:text-orange transition-colors">Join
                     as Architect</a>
-                <a href="faqs.php"
+                <a href="faqs"
                     class="flex items-center gap-2.5 px-4 py-2.5 text-ink hover:bg-cream hover:text-orange transition-colors">FAQs</a>
-                <a href="contact-us.php"
+                <a href="contact-us"
                     class="flex items-center gap-2.5 px-4 py-2.5 text-ink hover:bg-cream hover:text-orange transition-colors">Contact
                     us</a>
             </div>
@@ -61,7 +61,7 @@
             projects <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
                 <polyline points="9 18 15 12 9 6" />
             </svg></a>
-        <a href="how-it-works.php"
+        <a href="how-it-works"
             class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">How
             it works <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
                 <polyline points="9 18 15 12 9 6" />
@@ -77,22 +77,22 @@
                 <polyline points="9 18 15 12 9 6" />
             </svg></a>
 
-        <a href="about-us.php"
+        <a href="about-us"
             class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">About
             us <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
                 <polyline points="9 18 15 12 9 6" />
             </svg></a>
-        <a href="join-as-architect.php"
+        <a href="join-as-architect"
             class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">
             Join as Architect <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
                 <polyline points="9 18 15 12 9 6" />
             </svg></a>
-        <a href="faqs.php"
+        <a href="faqs"
             class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">FAQs
             <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
                 <polyline points="9 18 15 12 9 6" />
             </svg></a>
-        <a href="contact-us.php"
+        <a href="contact-us"
             class="flex items-center justify-between px-6 py-4 text-base font-medium text-ink border-b border-border hover:bg-cream hover:text-orange transition-colors">Contact
             us <svg viewBox="0 0 24 24" class="w-4 h-4 stroke-muted fill-none stroke-2">
                 <polyline points="9 18 15 12 9 6" />
