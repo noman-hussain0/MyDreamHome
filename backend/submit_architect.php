@@ -5,6 +5,7 @@ header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Content-Type');
 
 include '../includes/connection.php';
+include 'send_architech_email.php';
 
 $data = json_decode(file_get_contents('php://input'), true);
 
