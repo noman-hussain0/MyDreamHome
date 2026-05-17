@@ -5,6 +5,7 @@ header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Content-Type');
 
 include '../includes/connection.php';
+include 'send_booking_email.php';
 
 $data = json_decode(file_get_contents('php://input'), true);
 
@@ -49,9 +50,6 @@ try {
         ':owns_plot'    => $owns_plot,
         ':agreed_terms' => $agreed_terms,
     ]);
-
-    // Include the email function
-    include 'send_booking_email.php';
 
     // Prepare data for email
     $bookingData = [

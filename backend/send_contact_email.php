@@ -7,14 +7,14 @@ require_once __DIR__ . '/../libs/PHPMailer/SMTP.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-function sendBookingEmail($data) {
+function sendContactEmail($data) {
     
     $fromEmail   = 'bookings@hyderabadconstructions.in';
     $fromName    = 'Hyderabad Constructions';
     $adminEmail  = 'team@hyderabadconstructions.in';
     
     $to = $data['email'];
-    $subject = "Booking Confirmation - " . htmlspecialchars($data['full_name']);
+    $subject = "Enquiry - " . htmlspecialchars($data['full_name']);
 
     // HTML Email Template
     $message = '
@@ -23,7 +23,7 @@ function sendBookingEmail($data) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Booking Confirmation</title>
+        <title>Enquiry</title>
         <style>
             body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 20px; }
             .container { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
@@ -38,13 +38,13 @@ function sendBookingEmail($data) {
     <body>
         <div class="container">
             <div class="header">
-                <h1>Booking Confirmed</h1>
+                <h1>Enquiry Received</h1>
                 <p>Thank you for your interest!</p>
             </div>
             
             <div class="content">
                 <h2>Hello ' . htmlspecialchars($data['full_name']) . ',</h2>
-                <p>Your booking request has been received successfully. Here are the details:</p>
+                <p>Your enquiry has been received successfully. Here are the details:</p>
                 
                 <div class="detail-row">
                     <div class="label">Full Name</div>
@@ -59,16 +59,12 @@ function sendBookingEmail($data) {
                     <div class="value">' . htmlspecialchars($data['mobile']) . '</div>
                 </div>
                 <div class="detail-row">
-                    <div class="label">City</div>
-                    <div class="value">' . htmlspecialchars($data['city']) . '</div>
+                    <div class="label">Query Type</div>
+                    <div class="value">' . htmlspecialchars($data['query_type']) . '</div>
                 </div>
                 <div class="detail-row">
-                    <div class="label">Timeline</div>
-                    <div class="value">' . htmlspecialchars($data['timeline'] ?: 'Not specified') . '</div>
-                </div>
-                <div class="detail-row">
-                    <div class="label">Owns Plot</div>
-                    <div class="value">' . htmlspecialchars($data['owns_plot'] ?: 'Not specified') . '</div>
+                    <div class="label">Message</div>
+                    <div class="value">' . htmlspecialchars($data['message'] ?: 'Not specified') . '</div>
                 </div>
 
                 <p style="margin-top: 30px;">Our team will contact you shortly.</p>
@@ -105,7 +101,7 @@ function sendBookingEmail($data) {
         $mail->isHTML(true);
         $mail->Subject = $subject;
         $mail->Body    = $message;
-        $mail->AltBody = "Thank you for your booking.";
+        $mail->AltBody = "Thank you for your enquiry.";
 
         if ($mail->send()) {
             // error_log("✅ Email sent successfully to " . $to);

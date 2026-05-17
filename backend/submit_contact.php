@@ -5,6 +5,7 @@ header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Content-Type');
 
 include '../includes/connection.php';
+include 'send_contact_email.php';
 
 $data = json_decode(file_get_contents('php://input'), true);
 
@@ -42,6 +43,17 @@ try {
         ':message'        => $message,
         ':whatsapp_optin' => $whatsapp_optin,
     ]);
+
+    $Contactdata = [
+        'full_name' => $full_name,
+        'email' => $email,
+        'mobile' => $mobile,
+        'query_type' => $query_type,
+        'message' => $message
+    ];
+
+    // Send email
+    $emailSent = sendContactEmail($Contactdata);
 
     echo json_encode(['success' => true, 'message' => 'Enquiry submitted successfully!']);
 } catch (PDOException $e) {

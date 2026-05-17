@@ -50,6 +50,18 @@ try {
         ':agreed_terms'   => $agreed_terms,
     ]);
 
+    $architectData = [
+        'full_name'      => $full_name,
+        'email'          => $email,
+        'mobile'         => $mobile,
+        'city'           => $city,
+        'experience'     => $experience,
+        'coa_registered' => $coa_registered,
+    ];
+
+    // Send email
+    $emailSent = sendArchitectEmail($architectData);
+
     echo json_encode(['success' => true, 'message' => 'Application submitted successfully!']);
 } catch (PDOException $e) {
     echo json_encode(['success' => false, 'message' => 'Database error: ' . $e->getMessage()]);
